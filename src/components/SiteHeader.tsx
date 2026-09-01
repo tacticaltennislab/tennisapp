@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
+import { IconClose, IconMenu } from "@/components/icons";
 
 function LogoMark() {
   return (
-    <svg viewBox="0 0 24 24" className="w-6 h-6" aria-hidden="true">
+    <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" aria-hidden="true">
       <circle cx="12" cy="12" r="11" fill="var(--color-brand-600)" />
       <path
         d="M1.5 12c3.2-2.5 6.8-2.5 10.5 0s7.3 2.5 10.5 0M1.5 12c3.2 2.5 6.8 2.5 10.5 0s7.3-2.5 10.5 0"
@@ -21,6 +22,7 @@ function LogoMark() {
 export default function SiteHeader() {
   const { data: session, status } = useSession();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     function onScroll() {
@@ -31,9 +33,12 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const linkClass = "text-body hover:text-brand-600 py-2 sm:py-0";
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <header
-      className={`sticky top-0 z-10 bg-background/95 backdrop-blur border-b transition-shadow ${
+      className={`sticky top-0 z-20 bg-background/95 backdrop-blur border-b transition-shadow ${
         scrolled ? "border-line shadow-sm" : "border-transparent"
       }`}
     >
@@ -42,21 +47,22 @@ export default function SiteHeader() {
           <LogoMark />
           Tactical Tennis Lab
         </Link>
-        <nav className="flex items-center gap-4 text-sm">
-          <Link href="/coaches" className="text-body hover:text-brand-600">
+
+        <nav className="hidden sm:flex items-center gap-4 text-sm">
+          <Link href="/coaches" className={linkClass}>
             Coaches
           </Link>
           {status === "loading" ? null : session ? (
             <>
-              <Link href="/submit-video" className="text-body hover:text-brand-600">
+              <Link href="/submit-video" className={linkClass}>
                 Send Video
               </Link>
               {session.user?.role === "admin" && (
-                <Link href="/submissions" className="text-body hover:text-brand-600">
+                <Link href="/submissions" className={linkClass}>
                   Submissions
                 </Link>
               )}
-              <Link href="/account" className="text-body hover:text-brand-600">
+              <Link href="/account" className={linkClass}>
                 {session.user?.name || session.user?.email}
               </Link>
               <button
@@ -68,7 +74,7 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
-              <Link href="/sign-in" className="text-body hover:text-brand-600">
+              <Link href="/sign-in" className={linkClass}>
                 Sign in
               </Link>
               <Link
@@ -80,7 +86,60 @@ export default function SiteHeader() {
             </>
           )}
         </nav>
+
+        <button
+          onClick={() => setMenuOpen((v) => !v)}
+          className="sm:hidden p-2 -mr-2 text-ink"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          {menuOpen ? <IconClose className="w-6 h-6" /> : <IconMenu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {menuOpen && (
+        <nav className="sm:hidden border-t border-line px-4 py-3 flex flex-col text-sm animate-fade-up">
+          <Link href="/coaches" className={linkClass} onClick={closeMenu}>
+            Coaches
+          </Link>
+          {status === "loading" ? null : session ? (
+            <>
+              <Link href="/submit-video" className={linkClass} onClick={closeMenu}>
+                Send Video
+              </Link>
+              {session.user?.role === "admin" && (
+                <Link href="/submissions" className={linkClass} onClick={closeMenu}>
+                  Submissions
+                </Link>
+              )}
+              <Link href="/account" className={linkClass} onClick={closeMenu}>
+                {session.user?.name || session.user?.email}
+              </Link>
+              <button
+                onClick={() => {
+                  closeMenu();
+                  signOut({ callbackUrl: "/" });
+                }}
+                className="mt-2 rounded-lg border border-line px-3 py-2 text-body text-left"
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/sign-in" className={linkClass} onClick={closeMenu}>
+                Sign in
+              </Link>
+              <Link
+                href="/sign-up"
+                className="mt-2 rounded-xl bg-brand-600 text-white px-3 py-2 font-medium text-center"
+                onClick={closeMenu}
+              >
+                Sign up
+              </Link>
+            </>
+          )}
+        </nav>
+      )}
     </header>
   );
 }
