@@ -9,7 +9,7 @@ import TiltCard from "@/components/TiltCard";
 import CenterCourtZoom from "@/components/CenterCourtZoom";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 const STEPS = [
   {
