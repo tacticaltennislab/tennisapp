@@ -57,7 +57,7 @@ function SignInForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             />
           </div>
           <div>
@@ -67,7 +67,7 @@ function SignInForm() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             />
           </div>
 
@@ -76,28 +76,28 @@ function SignInForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
+            className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
-        <div className="my-6 flex items-center gap-3 text-xs text-black/40 dark:text-white/40">
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+        <div className="my-6 flex items-center gap-3 text-xs text-muted">
+          <div className="h-px flex-1 bg-line" />
           or
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+          <div className="h-px flex-1 bg-line" />
         </div>
 
         <button
           onClick={() => signIn("google", { callbackUrl })}
-          className="w-full rounded-lg border border-black/10 dark:border-white/15 py-2.5 text-sm font-medium hover:border-green-600"
+          className="w-full rounded-lg border border-line py-2.5 text-sm font-medium hover:border-brand-600"
         >
           Sign in with Google
         </button>
 
-        <p className="mt-6 text-sm text-black/60 dark:text-white/60">
+        <p className="mt-6 text-sm text-body">
           No account yet?{" "}
-          <Link href="/sign-up" className="text-green-600 font-medium">
+          <Link href="/sign-up" className="text-brand-600 font-medium">
             Sign up
           </Link>
         </p>

@@ -60,7 +60,7 @@ export default function SignUpPage() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function SignUpPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             />
           </div>
           <div>
@@ -81,9 +81,9 @@ export default function SignUpPage() {
               minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             />
-            <p className="mt-1 text-xs text-black/40 dark:text-white/40">
+            <p className="mt-1 text-xs text-muted">
               At least 8 characters.
             </p>
           </div>
@@ -93,28 +93,28 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
+            className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
           >
             {loading ? "Creating account..." : "Sign up"}
           </button>
         </form>
 
-        <div className="my-6 flex items-center gap-3 text-xs text-black/40 dark:text-white/40">
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+        <div className="my-6 flex items-center gap-3 text-xs text-muted">
+          <div className="h-px flex-1 bg-line" />
           or
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+          <div className="h-px flex-1 bg-line" />
         </div>
 
         <button
           onClick={() => signIn("google", { callbackUrl: "/" })}
-          className="w-full rounded-lg border border-black/10 dark:border-white/15 py-2.5 text-sm font-medium hover:border-green-600"
+          className="w-full rounded-lg border border-line py-2.5 text-sm font-medium hover:border-brand-600"
         >
           Sign up with Google
         </button>
 
-        <p className="mt-6 text-sm text-black/60 dark:text-white/60">
+        <p className="mt-6 text-sm text-body">
           Already have an account?{" "}
-          <Link href="/sign-in" className="text-green-600 font-medium">
+          <Link href="/sign-in" className="text-brand-600 font-medium">
             Sign in
           </Link>
         </p>

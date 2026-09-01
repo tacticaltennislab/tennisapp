@@ -64,41 +64,41 @@ export default function CoachesAdmin({
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
           />
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
           />
           <input
             type="text"
             placeholder="Phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
           />
           <input
             type="text"
             placeholder="Specialty (e.g. Serve technique, Junior development)"
             value={specialty}
             onChange={(e) => setSpecialty(e.target.value)}
-            className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
           />
           <textarea
             placeholder="Bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             rows={3}
-            className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
           />
           {error && <p className="text-sm text-red-600">{error}</p>}
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-lg bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
+            className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
           >
             {submitting ? "Adding..." : "Add coach"}
           </button>
@@ -108,7 +108,7 @@ export default function CoachesAdmin({
       <div>
         <h2 className="text-lg font-semibold mb-4">Coaches</h2>
         {coaches.length === 0 ? (
-          <p className="text-sm text-black/50 dark:text-white/50">
+          <p className="text-sm text-muted">
             No coaches added yet.
           </p>
         ) : (
@@ -116,18 +116,18 @@ export default function CoachesAdmin({
             {coaches.map((coach) => (
               <li
                 key={coach.id}
-                className="rounded-xl border border-black/10 dark:border-white/10 p-4"
+                className="rounded-xl border border-line p-4"
               >
                 <p className="font-semibold">{coach.name}</p>
                 {coach.specialty && (
-                  <p className="text-sm text-green-600">{coach.specialty}</p>
+                  <p className="text-sm text-brand-600">{coach.specialty}</p>
                 )}
                 {coach.bio && (
-                  <p className="mt-1 text-sm text-black/70 dark:text-white/70">
+                  <p className="mt-1 text-sm text-body">
                     {coach.bio}
                   </p>
                 )}
-                <div className="mt-2 text-xs text-black/50 dark:text-white/50 space-x-3">
+                <div className="mt-2 text-xs text-muted space-x-3">
                   {coach.email && <span>{coach.email}</span>}
                   {coach.phone && <span>{coach.phone}</span>}
                 </div>

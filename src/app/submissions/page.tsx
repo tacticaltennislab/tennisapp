@@ -23,12 +23,12 @@ export default async function SubmissionsPage() {
     <main className="flex-1 px-4 py-12">
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl font-bold mb-2">Submitted videos</h1>
-        <p className="text-black/60 dark:text-white/60 mb-8">
+        <p className="text-body mb-8">
           Review player videos and leave feedback.
         </p>
 
         {submissions.length === 0 ? (
-          <p className="text-sm text-black/50 dark:text-white/50">
+          <p className="text-sm text-muted">
             No videos submitted yet.
           </p>
         ) : (

@@ -5,7 +5,7 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
     <div>
       <div className="mb-6">
         <h2 className="text-xl font-bold">Your Weekly Plan</h2>
-        <p className="text-sm text-black/60 dark:text-white/60">
+        <p className="text-sm text-body">
           {plan.sessions.length} sessions/week &middot; {goalLabel(plan.input.goal)} &middot;{" "}
           {plan.input.level.charAt(0).toUpperCase() + plan.input.level.slice(1)} level
         </p>
@@ -15,16 +15,16 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
         {plan.sessions.map((session, i) => (
           <div
             key={i}
-            className="rounded-xl border border-black/10 dark:border-white/10 p-5"
+            className="rounded-xl border border-line p-5"
           >
             <div className="flex items-baseline justify-between mb-3">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wide text-green-600">
+                <span className="text-xs font-semibold uppercase tracking-wide text-brand-600">
                   {session.day}
                 </span>
                 <h3 className="text-lg font-semibold">{session.title}</h3>
               </div>
-              <span className="text-sm text-black/50 dark:text-white/50">
+              <span className="text-sm text-muted">
                 {session.totalMinutes} min
               </span>
             </div>
@@ -34,7 +34,7 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
                 <span className="font-medium w-24 shrink-0">
                   {session.warmup.minutes}m &mdash; {session.warmup.name}
                 </span>
-                <span className="text-black/70 dark:text-white/70">
+                <span className="text-body">
                   {session.warmup.detail}
                 </span>
               </li>
@@ -43,7 +43,7 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
                   <span className="font-medium w-24 shrink-0">
                     {drill.minutes}m &mdash; {drill.name}
                   </span>
-                  <span className="text-black/70 dark:text-white/70">
+                  <span className="text-body">
                     {drill.detail}
                   </span>
                 </li>
@@ -52,13 +52,13 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
                 <span className="font-medium w-24 shrink-0">
                   {session.cooldown.minutes}m &mdash; {session.cooldown.name}
                 </span>
-                <span className="text-black/70 dark:text-white/70">
+                <span className="text-body">
                   {session.cooldown.detail}
                 </span>
               </li>
             </ul>
 
-            <p className="mt-3 text-xs italic text-black/50 dark:text-white/50">
+            <p className="mt-3 text-xs italic text-muted">
               Tip: {session.tip}
             </p>
           </div>

@@ -60,7 +60,7 @@ export default function PlanForm() {
     <div className="w-full max-w-3xl mx-auto">
       <form
         onSubmit={handleSubmit}
-        className="bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-6 sm:p-8 space-y-6"
+        className="bg-white border border-line shadow-sm rounded-2xl p-6 sm:p-8 space-y-6"
       >
         <div>
           <label className="block text-sm font-semibold mb-2">
@@ -74,8 +74,8 @@ export default function PlanForm() {
                 onClick={() => setLevel(l.value)}
                 className={`rounded-lg px-3 py-2 text-sm font-medium border transition-colors ${
                   level === l.value
-                    ? "bg-green-600 text-white border-green-600"
-                    : "border-black/10 dark:border-white/15 hover:border-green-600"
+                    ? "bg-brand-600 text-white border-brand-600"
+                    : "border-line hover:border-brand-600"
                 }`}
               >
                 {l.label}
@@ -91,7 +91,7 @@ export default function PlanForm() {
           <select
             value={goal}
             onChange={(e) => setGoal(e.target.value as Goal)}
-            className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
           >
             {GOALS.map((g) => (
               <option key={g.value} value={g.value}>
@@ -116,7 +116,7 @@ export default function PlanForm() {
                   Math.min(7, Math.max(1, Number(e.target.value) || 1))
                 )
               }
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             />
           </div>
           <div>
@@ -126,7 +126,7 @@ export default function PlanForm() {
             <select
               value={sessionMinutes}
               onChange={(e) => setSessionMinutes(Number(e.target.value))}
-              className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
             >
               {[30, 45, 60, 90, 120].map((m) => (
                 <option key={m} value={m}>
@@ -149,8 +149,8 @@ export default function PlanForm() {
                 onClick={() => toggleFocus(area)}
                 className={`rounded-full px-3 py-1.5 text-sm border transition-colors ${
                   focusAreas.includes(area)
-                    ? "bg-green-600 text-white border-green-600"
-                    : "border-black/10 dark:border-white/15 hover:border-green-600"
+                    ? "bg-brand-600 text-white border-brand-600"
+                    : "border-line hover:border-brand-600"
                 }`}
               >
                 {focusLabel(area)}
@@ -161,7 +161,7 @@ export default function PlanForm() {
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold py-3 transition-colors"
+          className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 transition-colors"
         >
           Generate my training plan
         </button>

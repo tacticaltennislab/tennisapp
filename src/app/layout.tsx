@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tennis App — Training Plans for Every Player",
+  title: "Tactical Tennis Lab — Training Plans for Every Player",
   description:
-    "Generate a personalized tennis training plan based on your level, goals, and schedule.",
+    "Personalized tennis training plans and video-based coaching, for amateurs and everyone who plays.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

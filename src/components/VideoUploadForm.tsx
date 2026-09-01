@@ -48,7 +48,7 @@ export default function VideoUploadForm() {
           placeholder="e.g. Match vs. Alex, first set"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
         />
       </div>
       <div>
@@ -60,7 +60,7 @@ export default function VideoUploadForm() {
           value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={4}
-          className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
         />
       </div>
       <div>
@@ -79,7 +79,7 @@ export default function VideoUploadForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-lg bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
+        className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
       >
         {submitting ? "Uploading..." : "Send video"}
       </button>

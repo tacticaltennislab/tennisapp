@@ -23,11 +23,11 @@ export default async function AccountPage() {
         <h1 className="text-2xl font-bold mb-6">Your account</h1>
         <dl className="space-y-3 text-sm mb-10">
           <div>
-            <dt className="text-black/50 dark:text-white/50">Name</dt>
+            <dt className="text-muted">Name</dt>
             <dd>{session.user.name || "—"}</dd>
           </div>
           <div>
-            <dt className="text-black/50 dark:text-white/50">Email</dt>
+            <dt className="text-muted">Email</dt>
             <dd>{session.user.email}</dd>
           </div>
         </dl>
@@ -36,14 +36,14 @@ export default async function AccountPage() {
           <h2 className="text-lg font-semibold">Your videos</h2>
           <Link
             href="/submit-video"
-            className="text-sm rounded-lg bg-green-600 hover:bg-green-700 text-white px-3 py-1.5"
+            className="text-sm rounded-lg bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5"
           >
             Send a video
           </Link>
         </div>
 
         {submissions.length === 0 ? (
-          <p className="text-sm text-black/50 dark:text-white/50">
+          <p className="text-sm text-muted">
             You haven&apos;t sent any videos yet.
           </p>
         ) : (
@@ -51,35 +51,35 @@ export default async function AccountPage() {
             {submissions.map((s) => (
               <li
                 key={s.id}
-                className="rounded-xl border border-black/10 dark:border-white/10 p-4"
+                className="rounded-xl border border-line p-4"
               >
                 <div className="flex items-center justify-between">
                   <p className="font-semibold">{s.title || s.fileName}</p>
                   <span
                     className={`text-xs rounded-full px-2 py-0.5 ${
                       s.status === "reviewed"
-                        ? "bg-green-600/10 text-green-600"
-                        : "bg-black/5 dark:bg-white/10 text-black/60 dark:text-white/60"
+                        ? "bg-brand-50 text-brand-700"
+                        : "bg-gray-100 text-muted"
                     }`}
                   >
                     {s.status}
                   </span>
                 </div>
                 {s.note && (
-                  <p className="mt-1 text-sm text-black/70 dark:text-white/70">
+                  <p className="mt-1 text-sm text-body">
                     {s.note}
                   </p>
                 )}
                 <a
                   href={`/api/videos/${s.id}/file`}
-                  className="mt-2 inline-block text-sm text-green-600"
+                  className="mt-2 inline-block text-sm text-brand-600"
                 >
                   View video
                 </a>
                 {s.coachNotes && (
-                  <div className="mt-3 rounded-lg bg-black/5 dark:bg-white/5 p-3 text-sm">
+                  <div className="mt-3 rounded-lg bg-gray-50 p-3 text-sm">
                     <p className="font-medium mb-1">Coach feedback</p>
-                    <p className="text-black/70 dark:text-white/70">{s.coachNotes}</p>
+                    <p className="text-body">{s.coachNotes}</p>
                   </div>
                 )}
               </li>

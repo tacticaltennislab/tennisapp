@@ -41,19 +41,19 @@ export default function SubmissionReview({ submission }: { submission: Submissio
   }
 
   return (
-    <li className="rounded-xl border border-black/10 dark:border-white/10 p-4">
+    <li className="rounded-xl border border-line p-4">
       <div className="flex items-center justify-between">
         <div>
           <p className="font-semibold">{submission.title || "Untitled video"}</p>
-          <p className="text-xs text-black/50 dark:text-white/50">
+          <p className="text-xs text-muted">
             {submission.userName || submission.userEmail}
           </p>
         </div>
         <span
           className={`text-xs rounded-full px-2 py-0.5 ${
             status === "reviewed"
-              ? "bg-green-600/10 text-green-600"
-              : "bg-black/5 dark:bg-white/10 text-black/60 dark:text-white/60"
+              ? "bg-brand-50 text-brand-700"
+              : "bg-gray-100 text-muted"
           }`}
         >
           {status}
@@ -61,7 +61,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
       </div>
 
       {submission.note && (
-        <p className="mt-2 text-sm text-black/70 dark:text-white/70">
+        <p className="mt-2 text-sm text-body">
           &ldquo;{submission.note}&rdquo;
         </p>
       )}
@@ -70,7 +70,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
         href={`/api/videos/${submission.id}/file`}
         target="_blank"
         rel="noreferrer"
-        className="mt-2 inline-block text-sm text-green-600"
+        className="mt-2 inline-block text-sm text-brand-600"
       >
         Watch video
       </a>
@@ -81,13 +81,13 @@ export default function SubmissionReview({ submission }: { submission: Submissio
           value={coachNotes}
           onChange={(e) => setCoachNotes(e.target.value)}
           rows={3}
-          className="w-full rounded-lg border border-black/10 dark:border-white/15 bg-transparent px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
         />
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-lg bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 transition-colors"
+          className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 transition-colors"
         >
           {submitting ? "Saving..." : "Save feedback"}
         </button>
