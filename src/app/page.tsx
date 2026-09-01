@@ -1,11 +1,12 @@
 import Link from "next/link";
 import PlanForm from "@/components/PlanForm";
-import CourtBackdrop from "@/components/CourtBackdrop";
+import Court3D from "@/components/Court3D";
 import CoachesRoom from "@/components/CoachesRoom";
 import Reveal from "@/components/Reveal";
 import RacquetMark from "@/components/RacquetMark";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
+import CenterCourtZoom from "@/components/CenterCourtZoom";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
 export const revalidate = 300;
@@ -34,10 +35,8 @@ export default function Home() {
   return (
     <div className="flex-1 flex flex-col">
       <section className="relative overflow-hidden min-h-[560px] sm:min-h-[640px] flex items-center">
-        <div className="court-zoom-wrap absolute inset-0">
-          <div className="animate-court-zoom absolute inset-0">
-            <CourtBackdrop />
-          </div>
+        <div className="absolute inset-0">
+          <Court3D />
         </div>
         <div
           className="absolute inset-0"
@@ -110,38 +109,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden max-w-3xl mx-auto px-4 py-16 w-full">
-        <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-50 pointer-events-none" />
-        <Reveal className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold">How it works</h2>
-          <p className="text-body mt-2 max-w-lg mx-auto">
-            Three steps from raw footage to a plan you can put on court.
-          </p>
-        </Reveal>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {STEPS.map((step, i) => (
-            <Reveal key={step.title} delay={i * 100}>
-              <TiltCard
-                maxTilt={6}
-                className="group relative h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
-              >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center">
-                  {i + 1}
-                </div>
-                <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
-                  <step.icon className="w-6 h-6" />
-                </div>
-                <h3 className="mt-4 font-semibold text-lg">{step.title}</h3>
-                <p className="mt-1 text-sm text-body">{step.detail}</p>
-              </TiltCard>
-            </Reveal>
-          ))}
+      <section className="relative overflow-hidden py-16 w-full">
+        <CenterCourtZoom className="opacity-80" />
+        <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-100 pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto px-4">
+          <Reveal className="text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold">How it works</h2>
+            <p className="text-body mt-2 max-w-lg mx-auto">
+              Three steps from raw footage to a plan you can put on court.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {STEPS.map((step, i) => (
+              <Reveal key={step.title} delay={i * 100}>
+                <TiltCard
+                  maxTilt={6}
+                  className="group relative h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+                >
+                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center">
+                    {i + 1}
+                  </div>
+                  <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                    <step.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="mt-4 font-semibold text-lg">{step.title}</h3>
+                  <p className="mt-1 text-sm text-body">{step.detail}</p>
+                </TiltCard>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       <CoachesRoom />
 
-      <section id="plan-generator" className="relative overflow-hidden bg-brand-50/40 border-y border-line">
+      <section id="plan-generator" className="relative overflow-hidden border-y border-line">
+        <CenterCourtZoom />
         <RacquetMark className="hidden lg:block absolute -left-20 bottom-0 w-[220px] h-[440px] text-brand-100/70 pointer-events-none -rotate-[14deg]" />
         <div className="relative max-w-3xl mx-auto px-4 py-16">
           <Reveal className="text-center mb-10">
