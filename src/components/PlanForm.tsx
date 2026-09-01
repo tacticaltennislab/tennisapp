@@ -72,9 +72,9 @@ export default function PlanForm() {
                 type="button"
                 key={l.value}
                 onClick={() => setLevel(l.value)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium border transition-colors ${
+                className={`rounded-lg px-3 py-2 text-sm font-medium border transition-all active:scale-95 ${
                   level === l.value
-                    ? "bg-brand-600 text-white border-brand-600"
+                    ? "bg-brand-600 text-white border-brand-600 shadow-sm"
                     : "border-line hover:border-brand-600"
                 }`}
               >
@@ -91,7 +91,7 @@ export default function PlanForm() {
           <select
             value={goal}
             onChange={(e) => setGoal(e.target.value as Goal)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           >
             {GOALS.map((g) => (
               <option key={g.value} value={g.value}>
@@ -116,7 +116,7 @@ export default function PlanForm() {
                   Math.min(7, Math.max(1, Number(e.target.value) || 1))
                 )
               }
-              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
             />
           </div>
           <div>
@@ -126,7 +126,7 @@ export default function PlanForm() {
             <select
               value={sessionMinutes}
               onChange={(e) => setSessionMinutes(Number(e.target.value))}
-              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
             >
               {[30, 45, 60, 90, 120].map((m) => (
                 <option key={m} value={m}>
@@ -147,9 +147,9 @@ export default function PlanForm() {
                 type="button"
                 key={area}
                 onClick={() => toggleFocus(area)}
-                className={`rounded-full px-3 py-1.5 text-sm border transition-colors ${
+                className={`rounded-full px-3 py-1.5 text-sm border transition-all active:scale-95 ${
                   focusAreas.includes(area)
-                    ? "bg-brand-600 text-white border-brand-600"
+                    ? "bg-brand-600 text-white border-brand-600 shadow-sm"
                     : "border-line hover:border-brand-600"
                 }`}
               >

@@ -40,7 +40,10 @@ export default function VideoUploadForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 max-w-lg bg-white border border-line shadow-sm rounded-2xl p-6 sm:p-8"
+    >
       <div>
         <label className="block text-sm font-medium mb-1">Title</label>
         <input
@@ -48,7 +51,7 @@ export default function VideoUploadForm() {
           placeholder="e.g. Match vs. Alex, first set"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
         />
       </div>
       <div>
@@ -60,7 +63,7 @@ export default function VideoUploadForm() {
           value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={4}
-          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
         />
       </div>
       <div>

@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import EmptyState from "@/components/EmptyState";
+import { IconUsers } from "@/components/icons";
 
 interface Coach {
   id: string;
@@ -64,35 +66,35 @@ export default function CoachesAdmin({
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           />
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           />
           <input
             type="text"
             placeholder="Phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           />
           <input
             type="text"
             placeholder="Specialty (e.g. Serve technique, Junior development)"
             value={specialty}
             onChange={(e) => setSpecialty(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           />
           <textarea
             placeholder="Bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             rows={3}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           />
           {error && <p className="text-sm text-red-600">{error}</p>}
           <button
@@ -108,9 +110,11 @@ export default function CoachesAdmin({
       <div>
         <h2 className="text-lg font-semibold mb-4">Coaches</h2>
         {coaches.length === 0 ? (
-          <p className="text-sm text-muted">
-            No coaches added yet.
-          </p>
+          <EmptyState
+            icon={IconUsers}
+            title="No coaches added yet"
+            detail="Add your first coach using the form."
+          />
         ) : (
           <ul className="space-y-4">
             {coaches.map((coach) => (

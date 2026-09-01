@@ -58,6 +58,40 @@ export function IconSpark({ className }: IconProps) {
   );
 }
 
+export function IconUsers({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <circle cx="9" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.8" />
+      <path
+        d="M3.5 19.5c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M15.5 5.2c1.5.3 2.7 1.6 2.7 3.1 0 1.5-1.1 2.7-2.5 3M18 14.6c2 .4 3.5 2.2 3.5 4.4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function IconVideo({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" />
+      <path
+        d="M16 10.5 21 7.5v9l-5-3v-3Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function IconArrowRight({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className}>

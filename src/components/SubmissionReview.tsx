@@ -41,7 +41,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
   }
 
   return (
-    <li className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow">
+    <div className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between">
         <div>
           <p className="font-semibold">{submission.title || "Untitled video"}</p>
@@ -81,7 +81,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
           value={coachNotes}
           onChange={(e) => setCoachNotes(e.target.value)}
           rows={3}
-          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
         />
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
@@ -92,6 +92,6 @@ export default function SubmissionReview({ submission }: { submission: Submissio
           {submitting ? "Saving..." : "Save feedback"}
         </button>
       </form>
-    </li>
+    </div>
   );
 }
