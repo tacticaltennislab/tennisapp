@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
+import BallMark from "@/components/BallMark";
 
 const BADGES = ["Former ATP Players", "ITF Level 2 Coaches", "Worldwide Coaching"];
 
@@ -21,6 +22,7 @@ export default async function CoachesRoom() {
 
   return (
     <section className="spotlight-room relative overflow-hidden">
+      <BallMark className="hidden md:block absolute top-10 -right-10 w-48 h-48 text-white/[0.05] pointer-events-none" />
       <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20">
         <Reveal className="text-center">
           <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">

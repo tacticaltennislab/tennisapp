@@ -24,7 +24,7 @@ export default function AuthLayout({
           <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
             Tactical Tennis Lab
           </p>
-          <h2 className="text-3xl font-bold mt-2 leading-tight">
+          <h2 className="text-3xl font-bold mt-2 leading-tight text-white">
             Coached by people who&apos;ve played at the top.
           </h2>
           <p className="mt-3 text-white/70">

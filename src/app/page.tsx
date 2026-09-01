@@ -3,6 +3,8 @@ import PlanForm from "@/components/PlanForm";
 import CourtBackdrop from "@/components/CourtBackdrop";
 import CoachesRoom from "@/components/CoachesRoom";
 import Reveal from "@/components/Reveal";
+import RacquetMark from "@/components/RacquetMark";
+import BallMark from "@/components/BallMark";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
 export const revalidate = 300;
@@ -47,6 +49,13 @@ export default function Home() {
           className="animate-drift absolute w-32 h-32 rounded-full bg-brand-500/20 blur-2xl bottom-10 right-[28%] pointer-events-none"
           style={{ animationDelay: "-4s" }}
           aria-hidden="true"
+        />
+        <RacquetMark
+          className="hidden lg:block absolute -right-16 top-1/2 -translate-y-1/2 w-[280px] h-[560px] text-white/[0.07] pointer-events-none rotate-[18deg]"
+        />
+        <BallMark
+          className="animate-drift absolute w-10 h-10 text-lime-300/40 top-[22%] right-[8%] pointer-events-none hidden sm:block"
+          style={{ animationDelay: "-2s" }}
         />
 
         <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20 w-full">
@@ -96,7 +105,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-4 py-16 w-full">
+      <section className="relative overflow-hidden max-w-3xl mx-auto px-4 py-16 w-full">
+        <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-50 pointer-events-none" />
         <Reveal className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold">How it works</h2>
           <p className="text-body mt-2 max-w-lg mx-auto">
@@ -123,8 +133,9 @@ export default function Home() {
 
       <CoachesRoom />
 
-      <section id="plan-generator" className="bg-brand-50/40 border-y border-line">
-        <div className="max-w-3xl mx-auto px-4 py-16">
+      <section id="plan-generator" className="relative overflow-hidden bg-brand-50/40 border-y border-line">
+        <RacquetMark className="hidden lg:block absolute -left-20 bottom-0 w-[220px] h-[440px] text-brand-100/70 pointer-events-none -rotate-[14deg]" />
+        <div className="relative max-w-3xl mx-auto px-4 py-16">
           <Reveal className="text-center mb-10">
             <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
               Free tool
