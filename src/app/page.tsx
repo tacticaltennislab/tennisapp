@@ -5,6 +5,7 @@ import CoachesRoom from "@/components/CoachesRoom";
 import Reveal from "@/components/Reveal";
 import RacquetMark from "@/components/RacquetMark";
 import BallMark from "@/components/BallMark";
+import TiltCard from "@/components/TiltCard";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
 export const revalidate = 300;
@@ -58,7 +59,7 @@ export default function Home() {
           className="hidden lg:block absolute -right-16 top-1/2 -translate-y-1/2 w-[280px] h-[560px] text-white/[0.07] pointer-events-none rotate-[18deg]"
         />
         <BallMark
-          className="animate-drift absolute w-10 h-10 text-lime-300/40 top-[22%] right-[8%] pointer-events-none hidden sm:block"
+          className="animate-float-3d absolute w-10 h-10 text-lime-300/40 top-[22%] right-[8%] pointer-events-none hidden sm:block"
           style={{ animationDelay: "-2s" }}
         />
 
@@ -120,7 +121,10 @@ export default function Home() {
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {STEPS.map((step, i) => (
             <Reveal key={step.title} delay={i * 100}>
-              <div className="group relative h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+              <TiltCard
+                maxTilt={6}
+                className="group relative h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+              >
                 <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center">
                   {i + 1}
                 </div>
@@ -129,7 +133,7 @@ export default function Home() {
                 </div>
                 <h3 className="mt-4 font-semibold text-lg">{step.title}</h3>
                 <p className="mt-1 text-sm text-body">{step.detail}</p>
-              </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

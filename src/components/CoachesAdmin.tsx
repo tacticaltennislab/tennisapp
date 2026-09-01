@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import EmptyState from "@/components/EmptyState";
+import TiltCard from "@/components/TiltCard";
 import { IconUsers } from "@/components/icons";
 
 interface Coach {
@@ -118,9 +119,11 @@ export default function CoachesAdmin({
         ) : (
           <ul className="space-y-4">
             {coaches.map((coach) => (
-              <li
+              <TiltCard
                 key={coach.id}
-                className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow"
+                as="li"
+                maxTilt={6}
+                className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md"
               >
                 <p className="font-semibold">{coach.name}</p>
                 {coach.specialty && (
@@ -135,7 +138,7 @@ export default function CoachesAdmin({
                   {coach.email && <span>{coach.email}</span>}
                   {coach.phone && <span>{coach.phone}</span>}
                 </div>
-              </li>
+              </TiltCard>
             ))}
           </ul>
         )}

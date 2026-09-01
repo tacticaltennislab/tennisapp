@@ -90,6 +90,10 @@
     animation: drift 9s ease-in-out infinite;
   }
 
+  .animate-float-3d {
+    animation: float-3d 8s ease-in-out infinite;
+  }
+
   .tilt-grid {
     perspective: 700px;
   }
@@ -145,6 +149,15 @@
   }
 }
 
+@keyframes float-3d {
+  0%, 100% {
+    transform: translate(0, 0) perspective(500px) rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: translate(16px, -12px) perspective(500px) rotateY(26deg) rotateX(-8deg);
+  }
+}
+
 @keyframes court-zoom-in {
   0% {
     transform: rotateX(38deg) scale(1.55);
@@ -163,7 +176,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-court-zoom {
+  .animate-court-zoom,
+  .animate-float-3d,
+  .animate-drift {
     animation: none;
   }
 }

@@ -6,15 +6,17 @@ export default function TiltCard({
   children,
   className = "",
   maxTilt = 8,
+  as: Tag = "div",
 }: {
   children: React.ReactNode;
   className?: string;
   maxTilt?: number;
+  as?: "div" | "li";
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
   const [state, setState] = useState({ x: 0, y: 0, active: false });
 
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement & HTMLLIElement>) {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
     const x = (e.clientX - rect.left) / rect.width;
@@ -33,7 +35,7 @@ export default function TiltCard({
   const scale = state.active ? 1.03 : 1;
 
   return (
-    <div
+    <Tag
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
@@ -44,6 +46,6 @@ export default function TiltCard({
       }}
     >
       {children}
-    </div>
+    </Tag>
   );
 }
