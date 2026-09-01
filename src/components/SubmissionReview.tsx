@@ -41,7 +41,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
   }
 
   return (
-    <li className="rounded-xl border border-line p-4">
+    <li className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between">
         <div>
           <p className="font-semibold">{submission.title || "Untitled video"}</p>
@@ -87,7 +87,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 transition-colors"
+          className="rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 shadow-sm hover:shadow-md transition-all"
         >
           {submitting ? "Saving..." : "Save feedback"}
         </button>

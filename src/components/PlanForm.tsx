@@ -161,7 +161,7 @@ export default function PlanForm() {
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 transition-colors"
+          className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
         >
           Generate my training plan
         </button>

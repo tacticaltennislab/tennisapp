@@ -15,7 +15,7 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
         {plan.sessions.map((session, i) => (
           <div
             key={i}
-            className="rounded-xl border border-line p-5"
+            className="rounded-2xl border border-line bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="flex items-baseline justify-between mb-3">
               <div>

@@ -98,7 +98,7 @@ export default function CoachesAdmin({
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
+            className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
           >
             {submitting ? "Adding..." : "Add coach"}
           </button>
@@ -116,7 +116,7 @@ export default function CoachesAdmin({
             {coaches.map((coach) => (
               <li
                 key={coach.id}
-                className="rounded-xl border border-line p-4"
+                className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow"
               >
                 <p className="font-semibold">{coach.name}</p>
                 {coach.specialty && (

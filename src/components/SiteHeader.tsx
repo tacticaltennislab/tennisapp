@@ -58,7 +58,7 @@ export default function SiteHeader() {
               </Link>
               <Link
                 href="/sign-up"
-                className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium"
+                className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all"
               >
                 Sign up
               </Link>

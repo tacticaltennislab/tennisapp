@@ -36,7 +36,7 @@ export default async function AccountPage() {
           <h2 className="text-lg font-semibold">Your videos</h2>
           <Link
             href="/submit-video"
-            className="text-sm rounded-lg bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5"
+            className="text-sm rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 shadow-sm hover:shadow-md transition-all"
           >
             Send a video
           </Link>
@@ -51,7 +51,7 @@ export default async function AccountPage() {
             {submissions.map((s) => (
               <li
                 key={s.id}
-                className="rounded-xl border border-line p-4"
+                className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center justify-between">
                   <p className="font-semibold">{s.title || s.fileName}</p>

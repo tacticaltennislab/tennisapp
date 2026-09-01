@@ -93,7 +93,7 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 transition-colors"
+            className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
           >
             {loading ? "Creating account..." : "Sign up"}
           </button>
@@ -107,7 +107,7 @@ export default function SignUpPage() {
 
         <button
           onClick={() => signIn("google", { callbackUrl: "/" })}
-          className="w-full rounded-lg border border-line py-2.5 text-sm font-medium hover:border-brand-600"
+          className="w-full rounded-xl border border-line py-2.5 text-sm font-medium hover:border-brand-600 hover:shadow-sm transition-all"
         >
           Sign up with Google
         </button>

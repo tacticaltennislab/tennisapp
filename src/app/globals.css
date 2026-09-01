@@ -9,6 +9,10 @@
   --color-brand-500: #1f8a4c;
   --color-brand-600: #1b7a45;
   --color-brand-700: #145c34;
+  --color-brand-900: #0c3820;
+
+  --color-lime-300: #e4fa6b;
+  --color-lime-400: #d3f234;
 
   --color-ink: #12181f;
   --color-body: #3f4750;
@@ -24,6 +28,9 @@
   --color-brand-500: var(--color-brand-500);
   --color-brand-600: var(--color-brand-600);
   --color-brand-700: var(--color-brand-700);
+  --color-brand-900: var(--color-brand-900);
+  --color-lime-300: var(--color-lime-300);
+  --color-lime-400: var(--color-lime-400);
   --color-ink: var(--color-ink);
   --color-body: var(--color-body);
   --color-muted: var(--color-muted);
@@ -43,4 +50,59 @@ h2,
 h3,
 h4 {
   color: var(--color-ink);
+  letter-spacing: -0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-brand-600), var(--color-brand-500) 60%, var(--color-lime-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.spotlight-room {
+  background:
+    radial-gradient(30% 55% at 20% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
+    radial-gradient(30% 55% at 50% 0%, color-mix(in srgb, var(--color-brand-500) 22%, transparent), transparent 70%),
+    radial-gradient(30% 55% at 80% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
+    var(--color-ink);
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, -14px);
+  }
+}
+
+.animate-drift {
+  animation: drift 9s ease-in-out infinite;
 }
