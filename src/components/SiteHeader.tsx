@@ -18,6 +18,14 @@ export default function SiteHeader() {
           </Link>
           {status === "loading" ? null : session ? (
             <>
+              <Link href="/submit-video" className="hover:underline">
+                Send Video
+              </Link>
+              {session.user?.role === "admin" && (
+                <Link href="/submissions" className="hover:underline">
+                  Submissions
+                </Link>
+              )}
               <Link href="/account" className="hover:underline">
                 {session.user?.name || session.user?.email}
               </Link>

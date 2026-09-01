@@ -14,10 +14,12 @@ model User {
   emailVerified DateTime?
   image         String?
   passwordHash  String?
+  role          String    @default("customer")
   createdAt     DateTime  @default(now())
 
-  accounts Account[]
-  sessions Session[]
+  accounts         Account[]
+  sessions         Session[]
+  videoSubmissions VideoSubmission[]
 }
 
 model Account {
@@ -64,4 +66,20 @@ model Coach {
   specialty String?
   bio       String?
   createdAt DateTime @default(now())
+}
+
+model VideoSubmission {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String?
+  note        String?
+  fileName    String
+  fileType    String
+  fileSize    Int
+  status      String   @default("pending")
+  coachNotes  String?
+  createdAt   DateTime @default(now())
+  reviewedAt  DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
