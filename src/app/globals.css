@@ -89,6 +89,18 @@
   .animate-drift {
     animation: drift 9s ease-in-out infinite;
   }
+
+  .court-zoom-wrap {
+    perspective: 1400px;
+    perspective-origin: 50% 30%;
+    overflow: hidden;
+  }
+
+  .animate-court-zoom {
+    transform-origin: 50% 30%;
+    animation: court-zoom-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
+  }
 }
 
 @keyframes fade-up {
@@ -108,5 +120,28 @@
   }
   50% {
     transform: translate(18px, -14px);
+  }
+}
+
+@keyframes court-zoom-in {
+  0% {
+    transform: rotateX(38deg) scale(1.55);
+    opacity: 0.4;
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-court-zoom {
+    animation: none;
   }
 }

@@ -33,7 +33,11 @@ export default function Home() {
   return (
     <div className="flex-1 flex flex-col">
       <section className="relative overflow-hidden min-h-[560px] sm:min-h-[640px] flex items-center">
-        <CourtBackdrop />
+        <div className="court-zoom-wrap absolute inset-0">
+          <div className="animate-court-zoom absolute inset-0">
+            <CourtBackdrop />
+          </div>
+        </div>
         <div
           className="absolute inset-0"
           style={{

@@ -12,7 +12,11 @@ export default function AuthLayout({
   return (
     <main className="flex-1 grid lg:grid-cols-2">
       <div className="hidden lg:flex relative overflow-hidden items-end">
-        <CourtBackdrop />
+        <div className="court-zoom-wrap absolute inset-0">
+          <div className="animate-court-zoom absolute inset-0">
+            <CourtBackdrop />
+          </div>
+        </div>
         <div
           className="absolute inset-0"
           style={{
