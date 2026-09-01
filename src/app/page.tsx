@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import RacquetMark from "@/components/RacquetMark";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
-import CenterCourtZoom from "@/components/CenterCourtZoom";
+import LightCourt3D from "@/components/LightCourt3D";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
@@ -110,7 +110,14 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden py-16 w-full">
-        <CenterCourtZoom className="opacity-80" />
+        <LightCourt3D className="opacity-90" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(60% 55% at 50% 38%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.15) 100%)",
+          }}
+        />
         <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-100 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4">
           <Reveal className="text-center">
@@ -144,7 +151,14 @@ export default function Home() {
       <CoachesRoom />
 
       <section id="plan-generator" className="relative overflow-hidden border-y border-line">
-        <CenterCourtZoom />
+        <LightCourt3D />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(65% 60% at 50% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 55%, rgba(255,255,255,0.15) 100%)",
+          }}
+        />
         <RacquetMark className="hidden lg:block absolute -left-20 bottom-0 w-[220px] h-[440px] text-brand-100/70 pointer-events-none -rotate-[14deg]" />
         <div className="relative max-w-3xl mx-auto px-4 py-16">
           <Reveal className="text-center mb-10">
