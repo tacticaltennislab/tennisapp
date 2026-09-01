@@ -168,7 +168,7 @@ export default function PlanForm() {
       </form>
 
       {plan && (
-        <div className="mt-10">
+        <div className="mt-10 animate-fade-up">
           <PlanResults plan={plan} />
         </div>
       )}

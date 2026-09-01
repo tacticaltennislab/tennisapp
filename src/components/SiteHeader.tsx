@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 
 function LogoMark() {
@@ -19,9 +20,23 @@ function LogoMark() {
 
 export default function SiteHeader() {
   const { data: session, status } = useSession();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-10 bg-background/95 backdrop-blur border-b border-line">
+    <header
+      className={`sticky top-0 z-10 bg-background/95 backdrop-blur border-b transition-shadow ${
+        scrolled ? "border-line shadow-sm" : "border-transparent"
+      }`}
+    >
       <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg text-ink">
           <LogoMark />

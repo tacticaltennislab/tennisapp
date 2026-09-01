@@ -4,6 +4,7 @@ import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import AuthLayout from "@/components/AuthLayout";
 
 export default function SignInPage() {
   return (
@@ -45,63 +46,59 @@ function SignInForm() {
   }
 
   return (
-    <main className="flex-1 flex items-start justify-center px-4 py-16">
-      <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-6">Sign in</h1>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Password</label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm"
-            />
-          </div>
-
-          {error && <p className="text-sm text-red-600">{error}</p>}
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
-          >
-            {loading ? "Signing in..." : "Sign in"}
-          </button>
-        </form>
-
-        <div className="my-6 flex items-center gap-3 text-xs text-muted">
-          <div className="h-px flex-1 bg-line" />
-          or
-          <div className="h-px flex-1 bg-line" />
+    <AuthLayout title="Welcome back" subtitle="Sign in to view your plans and video feedback.">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium mb-1">Email</label>
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium mb-1">Password</label>
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+          />
         </div>
 
-        <button
-          onClick={() => signIn("google", { callbackUrl })}
-          className="w-full rounded-xl border border-line py-2.5 text-sm font-medium hover:border-brand-600 hover:shadow-sm transition-all"
-        >
-          Sign in with Google
-        </button>
+        {error && <p className="text-sm text-red-600">{error}</p>}
 
-        <p className="mt-6 text-sm text-body">
-          No account yet?{" "}
-          <Link href="/sign-up" className="text-brand-600 font-medium">
-            Sign up
-          </Link>
-        </p>
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+        >
+          {loading ? "Signing in..." : "Sign in"}
+        </button>
+      </form>
+
+      <div className="my-6 flex items-center gap-3 text-xs text-muted">
+        <div className="h-px flex-1 bg-line" />
+        or
+        <div className="h-px flex-1 bg-line" />
       </div>
-    </main>
+
+      <button
+        onClick={() => signIn("google", { callbackUrl })}
+        className="w-full rounded-xl border border-line py-2.5 text-sm font-medium hover:border-brand-600 hover:shadow-sm transition-all"
+      >
+        Sign in with Google
+      </button>
+
+      <p className="mt-6 text-sm text-body">
+        No account yet?{" "}
+        <Link href="/sign-up" className="text-brand-600 font-medium">
+          Sign up
+        </Link>
+      </p>
+    </AuthLayout>
   );
 }

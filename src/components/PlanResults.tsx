@@ -15,7 +15,8 @@ export default function PlanResults({ plan }: { plan: TrainingPlan }) {
         {plan.sessions.map((session, i) => (
           <div
             key={i}
-            className="rounded-2xl border border-line bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+            className="animate-fade-up rounded-2xl border border-line bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+            style={{ animationDelay: `${Math.min(i, 6) * 60}ms` }}
           >
             <div className="flex items-baseline justify-between mb-3">
               <div>
