@@ -90,6 +90,28 @@
     animation: drift 9s ease-in-out infinite;
   }
 
+  .tilt-grid {
+    perspective: 700px;
+  }
+
+  .btn-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease-out, background-color 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .btn-3d:active {
+    transform: rotateX(-18deg) scale(0.96);
+  }
+
+  .btn-3d-selected {
+    transform: rotateX(8deg) translateY(-2px);
+    box-shadow: 0 14px 24px -10px color-mix(in srgb, var(--color-brand-600) 55%, transparent);
+  }
+
+  .btn-3d-selected:active {
+    transform: rotateX(-10deg) translateY(0) scale(0.97);
+  }
+
   .court-zoom-wrap {
     perspective: 1400px;
     perspective-origin: 50% 30%;

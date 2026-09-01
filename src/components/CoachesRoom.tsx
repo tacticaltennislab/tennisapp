@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
 import BallMark from "@/components/BallMark";
+import TiltCard from "@/components/TiltCard";
 
 const BADGES = ["Former ATP Players", "ITF Level 2 Coaches", "Worldwide Coaching"];
 
@@ -43,7 +44,7 @@ export default async function CoachesRoom() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {coaches.map((coach, i) => (
               <Reveal key={coach.id} delay={i * 80}>
-                <div className="h-full rounded-2xl bg-white/5 border border-white/10 backdrop-blur px-5 py-6 hover:bg-white/10 transition-colors">
+                <TiltCard className="h-full rounded-2xl bg-white/5 border border-white/10 backdrop-blur px-5 py-6 transition-colors hover:bg-white/10 hover:border-white/20 shadow-xl shadow-black/20">
                   <div className="w-12 h-12 rounded-full bg-brand-500/20 text-lime-300 font-semibold flex items-center justify-center">
                     {initials(coach.name)}
                   </div>
@@ -54,7 +55,7 @@ export default async function CoachesRoom() {
                   {coach.bio && (
                     <p className="mt-2 text-sm text-white/60">{coach.bio}</p>
                   )}
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>

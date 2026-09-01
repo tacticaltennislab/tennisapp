@@ -66,15 +66,15 @@ export default function PlanForm() {
           <label className="block text-sm font-semibold mb-2">
             Skill level
           </label>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="tilt-grid grid grid-cols-3 gap-2">
             {LEVELS.map((l) => (
               <button
                 type="button"
                 key={l.value}
                 onClick={() => setLevel(l.value)}
-                className={`rounded-lg px-3 py-2 text-sm font-medium border transition-all active:scale-95 ${
+                className={`btn-3d rounded-lg px-3 py-2 text-sm font-medium border ${
                   level === l.value
-                    ? "bg-brand-600 text-white border-brand-600 shadow-sm"
+                    ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
                     : "border-line hover:border-brand-600"
                 }`}
               >
@@ -141,15 +141,15 @@ export default function PlanForm() {
           <label className="block text-sm font-semibold mb-2">
             Focus areas
           </label>
-          <div className="flex flex-wrap gap-2">
+          <div className="tilt-grid flex flex-wrap gap-2">
             {ALL_FOCUS_AREAS.map((area) => (
               <button
                 type="button"
                 key={area}
                 onClick={() => toggleFocus(area)}
-                className={`rounded-full px-3 py-1.5 text-sm border transition-all active:scale-95 ${
+                className={`btn-3d rounded-full px-3 py-1.5 text-sm border ${
                   focusAreas.includes(area)
-                    ? "bg-brand-600 text-white border-brand-600 shadow-sm"
+                    ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
                     : "border-line hover:border-brand-600"
                 }`}
               >
