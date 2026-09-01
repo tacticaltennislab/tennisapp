@@ -6,11 +6,13 @@ export default function TiltCard({
   children,
   className = "",
   maxTilt = 8,
+  zoomScale = 1.06,
   as: Tag = "div",
 }: {
   children: React.ReactNode;
   className?: string;
   maxTilt?: number;
+  zoomScale?: number;
   as?: "div" | "li";
 }) {
   const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
@@ -32,14 +34,14 @@ export default function TiltCard({
     setState({ x: 0, y: 0, active: false });
   }
 
-  const scale = state.active ? 1.03 : 1;
+  const scale = state.active ? zoomScale : 1;
 
   return (
     <Tag
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
-      className={`transition-transform duration-200 ease-out will-change-transform ${className}`}
+      className={`transition-transform duration-300 ease-out will-change-transform ${className}`}
       style={{
         transform: `perspective(900px) rotateX(${state.x}deg) rotateY(${state.y}deg) scale3d(${scale}, ${scale}, ${scale})`,
         transformStyle: "preserve-3d",

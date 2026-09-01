@@ -3,6 +3,7 @@
 import * as THREE from "three";
 
 export const BRAND_600 = "#1b7a45";
+export const BRAND_700 = "#145c34";
 export const BRAND_900 = "#0c3820";
 export const LIME = "#d3f234";
 

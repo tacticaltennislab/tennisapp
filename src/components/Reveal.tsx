@@ -7,11 +7,13 @@ export default function Reveal({
   delay = 0,
   className = "",
   as: Tag = "div",
+  variant = "fade",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
   as?: "div" | "li";
+  variant?: "fade" | "zoom";
 }) {
   const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
   const [visible, setVisible] = useState(false);
@@ -36,10 +38,12 @@ export default function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  const base = variant === "zoom" ? "reveal-zoom" : "reveal";
+
   return (
     <Tag
       ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
+      className={`${base} ${visible ? "is-visible" : ""} ${className}`}
       style={{ transitionDelay: visible ? `${delay}ms` : "0ms" }}
     >
       {children}

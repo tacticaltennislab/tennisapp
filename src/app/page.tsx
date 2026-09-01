@@ -7,6 +7,7 @@ import RacquetMark from "@/components/RacquetMark";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
 import LightCourt3D from "@/components/LightCourt3D";
+import Office3D from "@/components/Office3D";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
@@ -128,7 +129,7 @@ export default function Home() {
           </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {STEPS.map((step, i) => (
-              <Reveal key={step.title} delay={i * 100}>
+              <Reveal key={step.title} variant="zoom" delay={i * 120}>
                 <TiltCard
                   maxTilt={6}
                   className="group relative h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
@@ -151,7 +152,7 @@ export default function Home() {
       <CoachesRoom />
 
       <section id="plan-generator" className="relative overflow-hidden border-y border-line">
-        <LightCourt3D />
+        <Office3D />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -173,7 +174,7 @@ export default function Home() {
               together a weekly plan &mdash; no sign-up required.
             </p>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal variant="zoom" delay={100}>
             <PlanForm />
           </Reveal>
         </div>

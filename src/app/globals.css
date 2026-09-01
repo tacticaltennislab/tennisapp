@@ -78,6 +78,22 @@
     transform: translateY(0);
   }
 
+  .reveal-zoom {
+    opacity: 0;
+    transform: perspective(1000px) translateY(28px) scale(0.88) rotateX(6deg);
+    filter: blur(4px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-zoom.is-visible {
+    opacity: 1;
+    transform: perspective(1000px) translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+
   .spotlight-room {
     background:
       radial-gradient(30% 55% at 20% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
@@ -180,5 +196,10 @@
   .animate-float-3d,
   .animate-drift {
     animation: none;
+  }
+
+  .reveal-zoom {
+    transform: none;
+    filter: none;
   }
 }
