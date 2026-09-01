@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { upload } from "@vercel/blob/client";
 
 export default function VideoUploadForm() {
   const router = useRouter();
@@ -9,6 +10,7 @@ export default function VideoUploadForm() {
   const [note, setNote] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -21,22 +23,41 @@ export default function VideoUploadForm() {
     }
 
     setSubmitting(true);
-    const formData = new FormData();
-    formData.set("title", title);
-    formData.set("note", note);
-    formData.set("file", file);
+    setProgress(0);
 
-    const res = await fetch("/api/videos", { method: "POST", body: formData });
-    setSubmitting(false);
+    try {
+      const blob = await upload(`videos/${file.name}`, file, {
+        access: "private",
+        handleUploadUrl: "/api/videos/upload-token",
+        onUploadProgress: ({ percentage }) => setProgress(percentage),
+      });
 
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      setError(data.error || "Upload failed.");
-      return;
+      const res = await fetch("/api/videos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title,
+          note,
+          storagePath: blob.pathname,
+          fileName: file.name,
+          fileType: file.type,
+          fileSize: file.size,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Upload failed.");
+        setSubmitting(false);
+        return;
+      }
+
+      router.push("/account");
+      router.refresh();
+    } catch {
+      setError("Upload failed. Please try again.");
+      setSubmitting(false);
     }
-
-    router.push("/account");
-    router.refresh();
   }
 
   return (
@@ -77,6 +98,15 @@ export default function VideoUploadForm() {
         />
       </div>
 
+      {submitting && (
+        <div className="h-2 rounded-full bg-line overflow-hidden">
+          <div
+            className="h-full bg-brand-600 transition-all"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      )}
+
       {error && <p className="text-sm text-red-600">{error}</p>}
 
       <button
@@ -84,7 +114,7 @@ export default function VideoUploadForm() {
         disabled={submitting}
         className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
       >
-        {submitting ? "Uploading..." : "Send video"}
+        {submitting ? `Uploading... ${progress}%` : "Send video"}
       </button>
     </form>
   );

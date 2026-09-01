@@ -1,9 +1,7 @@
-import path from "node:path";
-import { readFile } from "node:fs/promises";
+import { get } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { uploadFilePath } from "@/lib/uploads";
 
 export async function GET(
   _request: Request,
@@ -26,13 +24,12 @@ export async function GET(
     return NextResponse.json({ error: "Forbidden." }, { status: 403 });
   }
 
-  const ext = path.extname(submission.fileName);
-  const buffer = await readFile(uploadFilePath(`${submission.id}${ext}`)).catch(() => null);
-  if (!buffer) {
+  const blob = await get(submission.storagePath, { access: "private" }).catch(() => null);
+  if (!blob || blob.statusCode !== 200) {
     return NextResponse.json({ error: "File missing." }, { status: 404 });
   }
 
-  return new NextResponse(new Uint8Array(buffer), {
+  return new NextResponse(blob.stream, {
     headers: {
       "Content-Type": submission.fileType,
       "Content-Disposition": `inline; filename="${submission.fileName}"`,

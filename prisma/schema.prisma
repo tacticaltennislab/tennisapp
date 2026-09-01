@@ -74,6 +74,7 @@ model VideoSubmission {
   userId      String
   title       String?
   note        String?
+  storagePath String
   fileName    String
   fileType    String
   fileSize    Int
