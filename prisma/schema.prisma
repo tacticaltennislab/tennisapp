@@ -22,6 +22,7 @@ model User {
   sessions         Session[]
   videoSubmissions VideoSubmission[]
   messages         Message[]
+  purchases        Purchase[]
 }
 
 model Account {
@@ -67,6 +68,21 @@ model Message {
   body      String
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Purchase {
+  id               String   @id @default(cuid())
+  userId           String
+  planName         String
+  amount           Int
+  currency         String   @default("usd")
+  mode             String
+  stripeSessionId  String   @unique
+  stripeCustomerId String?
+  status           String   @default("pending")
+  createdAt        DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -6,6 +6,7 @@ import { IconArrowRight } from "@/components/icons";
 
 const PLANS: Plan[] = [
   {
+    planId: "stroke-fix",
     name: "Stroke Fix",
     price: "$49",
     period: "one-time",
@@ -18,6 +19,7 @@ const PLANS: Plan[] = [
     ],
   },
   {
+    planId: "smart-system",
     name: "Smart System",
     price: "$99",
     period: "4-week program",
@@ -31,6 +33,7 @@ const PLANS: Plan[] = [
     ],
   },
   {
+    planId: "match-iq",
     name: "Match IQ",
     price: "$99",
     period: "one-time",
@@ -44,6 +47,7 @@ const PLANS: Plan[] = [
     ],
   },
   {
+    planId: "pro-tour",
     name: "PRO Tour",
     price: "$249",
     period: "/month",
