@@ -60,10 +60,6 @@ export default function Home() {
         <RacquetMark
           className="hidden lg:block absolute -right-16 top-1/2 -translate-y-1/2 w-[280px] h-[560px] text-white/[0.07] pointer-events-none rotate-[18deg]"
         />
-        <BallMark
-          className="animate-float-3d absolute w-10 h-10 text-lime-300/40 top-[22%] right-[8%] pointer-events-none hidden sm:block"
-          style={{ animationDelay: "-2s" }}
-        />
 
         <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20 w-full">
           <div className="animate-fade-up flex flex-wrap gap-2 mb-6">
