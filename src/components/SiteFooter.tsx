@@ -12,7 +12,7 @@ export default function SiteFooter() {
         <p className="text-muted">
           Tactical Tennis Lab &mdash; training plans for every level.
         </p>
-        <div className="flex items-center gap-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           <a
             href="mailto:hello@tacticaltennislab.com"
             className="text-body hover:text-brand-600"

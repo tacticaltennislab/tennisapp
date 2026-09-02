@@ -59,7 +59,7 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
 
   return (
     <div>
-      <div className="relative max-w-md mx-auto">
+      <div className="relative max-w-md lg:max-w-lg mx-auto">
         <button
           type="button"
           onClick={() => go(-1)}

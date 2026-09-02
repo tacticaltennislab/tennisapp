@@ -2,20 +2,32 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import TiltCard from "@/components/TiltCard";
-import { IconArrowRight } from "@/components/icons";
+import {
+  IconArrowRight,
+  IconTarget,
+  IconSpark,
+  IconGrowth,
+  IconTrophy,
+  IconGlobe,
+  IconVideo,
+  IconUsers,
+} from "@/components/icons";
 
 const PHILOSOPHY = [
   {
+    icon: IconTarget,
     title: "Technical Excellence",
     detail:
       "Every stroke is analyzed in detail to build efficient, repeatable technique that performs under pressure.",
   },
   {
+    icon: IconSpark,
     title: "Tactical Intelligence",
     detail:
       "Tennis is more than hitting the ball. We teach decision making, match strategy, and point construction.",
   },
   {
+    icon: IconGrowth,
     title: "Continuous Improvement",
     detail:
       "Every player follows an individual development path with measurable long-term progress.",
@@ -24,18 +36,22 @@ const PHILOSOPHY = [
 
 const TRUST = [
   {
+    icon: IconTrophy,
     title: "Professional Experience",
     detail: "Coaching built on real competitive tennis experience.",
   },
   {
+    icon: IconGlobe,
     title: "Worldwide Coaching",
     detail: "Helping players improve from anywhere through online coaching.",
   },
   {
+    icon: IconVideo,
     title: "Detailed Video Analysis",
     detail: "Every recommendation is supported with clear visual feedback.",
   },
   {
+    icon: IconUsers,
     title: "Individual Development",
     detail: "Every player receives a plan tailored to their goals and level.",
   },
@@ -81,8 +97,14 @@ export default function AboutPage() {
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
               {PHILOSOPHY.map((p, i) => (
                 <Reveal key={p.title} variant="zoom" delay={i * 100}>
-                  <TiltCard maxTilt={5} className="h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg">
-                    <h3 className="font-semibold text-lg">{p.title}</h3>
+                  <TiltCard
+                    maxTilt={5}
+                    className="group h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                      <p.icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="mt-4 font-semibold text-lg">{p.title}</h3>
                     <p className="mt-2 text-sm text-body">{p.detail}</p>
                   </TiltCard>
                 </Reveal>
@@ -97,10 +119,17 @@ export default function AboutPage() {
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {TRUST.map((t, i) => (
                 <Reveal key={t.title} delay={i * 80}>
-                  <div className="rounded-2xl border border-line bg-white p-6 shadow-sm">
-                    <h3 className="font-semibold">{t.title}</h3>
-                    <p className="mt-1 text-sm text-body">{t.detail}</p>
-                  </div>
+                  <TiltCard maxTilt={4} className="group h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg">
+                    <div className="flex items-start gap-4">
+                      <div className="shrink-0 w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <t.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">{t.title}</h3>
+                        <p className="mt-1 text-sm text-body">{t.detail}</p>
+                      </div>
+                    </div>
+                  </TiltCard>
                 </Reveal>
               ))}
             </div>

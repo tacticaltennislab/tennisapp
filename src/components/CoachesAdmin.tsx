@@ -14,6 +14,16 @@ interface Coach {
   bio: string | null;
 }
 
+function initials(name: string) {
+  return name
+    .split(" ")
+    .map((p) => p[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
 export default function CoachesAdmin({
   initialCoaches,
   isAdmin,
@@ -129,7 +139,10 @@ export default function CoachesAdmin({
                 maxTilt={6}
                 className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md"
               >
-                <p className="font-semibold">{coach.name}</p>
+                <div className="w-12 h-12 rounded-full bg-brand-50 text-brand-600 font-semibold flex items-center justify-center">
+                  {initials(coach.name)}
+                </div>
+                <p className="mt-4 font-semibold">{coach.name}</p>
                 {coach.specialty && (
                   <p className="text-sm text-brand-600">{coach.specialty}</p>
                 )}
