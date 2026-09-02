@@ -25,7 +25,7 @@ export default function ProductScrollSection() {
           alt="A generated weekly tennis training plan showing session drills and tips"
           height={630}
           width={1568}
-          className="mx-auto rounded-2xl object-cover h-full w-full object-left-top"
+          className="mx-auto rounded-2xl object-contain h-full w-full"
           draggable={false}
         />
       </ContainerScroll>

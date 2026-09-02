@@ -16,8 +16,10 @@ interface Coach {
 
 export default function CoachesAdmin({
   initialCoaches,
+  isAdmin,
 }: {
   initialCoaches: Coach[];
+  isAdmin: boolean;
 }) {
   const [coaches, setCoaches] = useState<Coach[]>(initialCoaches);
   const [submitting, setSubmitting] = useState(false);
@@ -57,67 +59,69 @@ export default function CoachesAdmin({
   }
 
   return (
-    <div className="grid gap-10 sm:grid-cols-2">
-      <div>
-        <h2 className="text-lg font-semibold mb-4">Add a coach</h2>
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <input
-            type="text"
-            placeholder="Name"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-          />
-          <input
-            type="text"
-            placeholder="Phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-          />
-          <input
-            type="text"
-            placeholder="Specialty (e.g. Serve technique, Junior development)"
-            value={specialty}
-            onChange={(e) => setSpecialty(e.target.value)}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-          />
-          <textarea
-            placeholder="Bio"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-            rows={3}
-            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-          />
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
-          >
-            {submitting ? "Adding..." : "Add coach"}
-          </button>
-        </form>
-      </div>
+    <div className={isAdmin ? "grid gap-10 sm:grid-cols-2" : ""}>
+      {isAdmin && (
+        <div>
+          <h2 className="text-lg font-semibold mb-4">Add a coach</h2>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <input
+              type="text"
+              placeholder="Name"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+            />
+            <input
+              type="text"
+              placeholder="Phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+            />
+            <input
+              type="text"
+              placeholder="Specialty (e.g. Serve technique, Junior development)"
+              value={specialty}
+              onChange={(e) => setSpecialty(e.target.value)}
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+            />
+            <textarea
+              placeholder="Bio"
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+              rows={3}
+              className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+            />
+            {error && <p className="text-sm text-red-600">{error}</p>}
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+            >
+              {submitting ? "Adding..." : "Add coach"}
+            </button>
+          </form>
+        </div>
+      )}
 
       <div>
-        <h2 className="text-lg font-semibold mb-4">Coaches</h2>
+        {isAdmin && <h2 className="text-lg font-semibold mb-4">Coaches</h2>}
         {coaches.length === 0 ? (
           <EmptyState
             icon={IconUsers}
             title="No coaches added yet"
-            detail="Add your first coach using the form."
+            detail={isAdmin ? "Add your first coach using the form." : "Check back soon."}
           />
         ) : (
-          <ul className="space-y-4">
+          <ul className={isAdmin ? "space-y-4" : "grid gap-4 sm:grid-cols-2"}>
             {coaches.map((coach) => (
               <TiltCard
                 key={coach.id}
@@ -134,10 +138,12 @@ export default function CoachesAdmin({
                     {coach.bio}
                   </p>
                 )}
-                <div className="mt-2 text-xs text-muted space-x-3">
-                  {coach.email && <span>{coach.email}</span>}
-                  {coach.phone && <span>{coach.phone}</span>}
-                </div>
+                {isAdmin && (
+                  <div className="mt-2 text-xs text-muted space-x-3">
+                    {coach.email && <span>{coach.email}</span>}
+                    {coach.phone && <span>{coach.phone}</span>}
+                  </div>
+                )}
               </TiltCard>
             ))}
           </ul>

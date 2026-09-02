@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
@@ -7,6 +8,11 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const session = await auth();
+  if (!session?.user || session.user.role !== "admin") {
+    return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+  }
+
   const body = await request.json().catch(() => null);
   const name = typeof body?.name === "string" ? body.name.trim() : "";
 
