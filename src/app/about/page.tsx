@@ -1,0 +1,123 @@
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
+import TiltCard from "@/components/TiltCard";
+import { IconArrowRight } from "@/components/icons";
+
+const PHILOSOPHY = [
+  {
+    title: "Technical Excellence",
+    detail:
+      "Every stroke is analyzed in detail to build efficient, repeatable technique that performs under pressure.",
+  },
+  {
+    title: "Tactical Intelligence",
+    detail:
+      "Tennis is more than hitting the ball. We teach decision making, match strategy, and point construction.",
+  },
+  {
+    title: "Continuous Improvement",
+    detail:
+      "Every player follows an individual development path with measurable long-term progress.",
+  },
+];
+
+const TRUST = [
+  {
+    title: "Professional Experience",
+    detail: "Coaching built on real competitive tennis experience.",
+  },
+  {
+    title: "Worldwide Coaching",
+    detail: "Helping players improve from anywhere through online coaching.",
+  },
+  {
+    title: "Detailed Video Analysis",
+    detail: "Every recommendation is supported with clear visual feedback.",
+  },
+  {
+    title: "Individual Development",
+    detail: "Every player receives a plan tailored to their goals and level.",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <div className="flex-1 flex flex-col">
+      <PageHeader
+        eyebrow="About us"
+        title="Helping ambitious players improve, from anywhere"
+        subtitle="Professional online coaching and personalized development for competitive juniors, ambitious amateurs, and professional athletes alike."
+      />
+
+      <main className="flex-1 px-4 py-12">
+        <div className="max-w-3xl mx-auto">
+          <Reveal>
+            <h2 className="text-2xl font-bold">Our story</h2>
+            <div className="mt-3 space-y-4 text-body">
+              <p>
+                Tactical Tennis Lab was created with one goal: to make
+                high-level tennis coaching available to every player,
+                regardless of location.
+              </p>
+              <p>
+                Traditional coaching often ends when the training session is
+                over. We wanted to create a system where players receive
+                continuous technical and tactical guidance using detailed
+                video analysis and personalized development plans.
+              </p>
+              <p>
+                Whether you are a competitive junior, an ambitious amateur, or
+                a professional athlete, our mission is to help you improve
+                smarter &mdash; not just train harder.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-14">
+            <Reveal className="text-center">
+              <h2 className="text-2xl font-bold">Our philosophy</h2>
+            </Reveal>
+            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+              {PHILOSOPHY.map((p, i) => (
+                <Reveal key={p.title} variant="zoom" delay={i * 100}>
+                  <TiltCard maxTilt={5} className="h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg">
+                    <h3 className="font-semibold text-lg">{p.title}</h3>
+                    <p className="mt-2 text-sm text-body">{p.detail}</p>
+                  </TiltCard>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-14">
+            <Reveal className="text-center">
+              <h2 className="text-2xl font-bold">Why players trust us</h2>
+            </Reveal>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              {TRUST.map((t, i) => (
+                <Reveal key={t.title} delay={i * 80}>
+                  <div className="rounded-2xl border border-line bg-white p-6 shadow-sm">
+                    <h3 className="font-semibold">{t.title}</h3>
+                    <p className="mt-1 text-sm text-body">{t.detail}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <Reveal variant="zoom" className="mt-14 text-center">
+            <p className="text-body">Want to know the coaches behind the plans?</p>
+            <Link
+              href="/coaches"
+              className="mt-3 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+            >
+              Meet the coaches
+              <IconArrowRight className="w-4 h-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </main>
+    </div>
+  );
+}

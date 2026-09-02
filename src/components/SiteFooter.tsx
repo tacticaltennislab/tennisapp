@@ -30,6 +30,9 @@ export default function SiteFooter() {
               {s.label}
             </a>
           ))}
+          <Link href="/about" className="text-body hover:text-brand-600">
+            About
+          </Link>
           <Link href="/contact" className="text-body hover:text-brand-600">
             Contact
           </Link>

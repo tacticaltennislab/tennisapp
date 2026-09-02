@@ -49,6 +49,9 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden sm:flex items-center gap-4 text-sm">
+          <Link href="/pricing" className={linkClass}>
+            Pricing
+          </Link>
           <Link href="/coaches" className={linkClass}>
             Coaches
           </Link>
@@ -106,6 +109,9 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <nav className="sm:hidden border-t border-line px-4 py-3 flex flex-col text-sm animate-fade-up">
+          <Link href="/pricing" className={linkClass} onClick={closeMenu}>
+            Pricing
+          </Link>
           <Link href="/coaches" className={linkClass} onClick={closeMenu}>
             Coaches
           </Link>
