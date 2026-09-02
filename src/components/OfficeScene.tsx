@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { BRAND_600, BRAND_700, LIME } from "@/components/three/courtParts";
+import { BRAND_600, BRAND_700, LIME, createTennisBallTexture } from "@/components/three/courtParts";
 
 const WHITE = "#ffffff";
 const DESK = "#c9a876";
@@ -104,6 +104,7 @@ function Mug() {
 
 function DeskBall() {
   const ref = useRef<THREE.Mesh>(null);
+  const texture = useMemo(() => createTennisBallTexture(), []);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
@@ -116,7 +117,7 @@ function DeskBall() {
   return (
     <mesh ref={ref} position={[-4.6, 0.29, 1.3]}>
       <sphereGeometry args={[0.32, 24, 24]} />
-      <meshStandardMaterial color={LIME} roughness={0.5} />
+      <meshStandardMaterial map={texture} roughness={0.9} />
     </mesh>
   );
 }

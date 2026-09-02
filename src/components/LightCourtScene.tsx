@@ -1,9 +1,15 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { BRAND_600, LIME, CourtLines, Net } from "@/components/three/courtParts";
+import {
+  BRAND_600,
+  CourtLines,
+  Net,
+  createCourtTexture,
+  createTennisBallTexture,
+} from "@/components/three/courtParts";
 
 const WHITE = "#ffffff";
 const COURT_GREEN = "#2c8a52";
@@ -28,6 +34,7 @@ function DriftingCamera() {
 
 function SunBall() {
   const ref = useRef<THREE.Mesh>(null);
+  const texture = useMemo(() => createTennisBallTexture(), []);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
@@ -40,12 +47,14 @@ function SunBall() {
   return (
     <mesh ref={ref} position={[-3.6, 1.4, 3.2]}>
       <sphereGeometry args={[0.32, 32, 32]} />
-      <meshStandardMaterial color={LIME} roughness={0.45} />
+      <meshStandardMaterial map={texture} roughness={0.9} />
     </mesh>
   );
 }
 
 function Scene() {
+  const courtTexture = useMemo(() => createCourtTexture(COURT_GREEN), []);
+
   return (
     <>
       <color attach="background" args={[WHITE]} />
@@ -56,7 +65,7 @@ function Scene() {
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[13, 24]} />
-        <meshStandardMaterial color={COURT_GREEN} roughness={0.9} />
+        <meshStandardMaterial map={courtTexture} roughness={0.9} />
       </mesh>
 
       <CourtLines color="#ffffff" />

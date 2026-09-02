@@ -3,7 +3,14 @@
 import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { BRAND_600, BRAND_900, LIME, CourtLines, Net } from "@/components/three/courtParts";
+import {
+  BRAND_600,
+  BRAND_900,
+  CourtLines,
+  Net,
+  createCourtTexture,
+  createTennisBallTexture,
+} from "@/components/three/courtParts";
 
 const INK = "#0a120c";
 
@@ -13,6 +20,7 @@ function easeOutCubic(t: number) {
 
 function FloatingBall() {
   const ref = useRef<THREE.Mesh>(null);
+  const texture = useMemo(() => createTennisBallTexture(), []);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
@@ -26,7 +34,7 @@ function FloatingBall() {
   return (
     <mesh ref={ref} position={[4.0, 3.1, 1.2]}>
       <sphereGeometry args={[0.34, 32, 32]} />
-      <meshStandardMaterial color={LIME} roughness={0.5} />
+      <meshStandardMaterial map={texture} roughness={0.92} />
     </mesh>
   );
 }
@@ -60,6 +68,8 @@ function IntroCamera() {
 }
 
 function Scene() {
+  const courtTexture = useMemo(() => createCourtTexture(BRAND_900), []);
+
   return (
     <>
       <color attach="background" args={[INK]} />
@@ -70,7 +80,7 @@ function Scene() {
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
         <planeGeometry args={[13, 24]} />
-        <meshStandardMaterial color={BRAND_900} roughness={0.95} />
+        <meshStandardMaterial map={courtTexture} roughness={0.95} />
       </mesh>
 
       <CourtLines />
