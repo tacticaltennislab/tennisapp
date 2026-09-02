@@ -110,6 +110,12 @@ export default function Home() {
         </div>
       </section>
 
+      <div
+        aria-hidden="true"
+        className="h-16 sm:h-24"
+        style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
+      />
+
       <section className="relative overflow-hidden py-16 w-full">
         <LightCourt3D className="opacity-90" />
         <div
@@ -149,9 +155,21 @@ export default function Home() {
         </div>
       </section>
 
+      <div
+        aria-hidden="true"
+        className="h-16 sm:h-24"
+        style={{ background: "linear-gradient(to bottom, #ffffff, var(--color-ink))" }}
+      />
+
       <CoachesRoom />
 
-      <section id="plan-generator" className="relative overflow-hidden border-y border-line">
+      <div
+        aria-hidden="true"
+        className="h-16 sm:h-24"
+        style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
+      />
+
+      <section id="plan-generator" className="relative overflow-hidden">
         <Office3D />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -179,12 +197,6 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-
-      <footer className="py-8">
-        <p className="text-center text-xs text-muted">
-          Tactical Tennis Lab &mdash; training plans for every level.
-        </p>
-      </footer>
     </div>
   );
 }

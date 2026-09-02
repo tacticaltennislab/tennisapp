@@ -21,6 +21,7 @@ model User {
   accounts         Account[]
   sessions         Session[]
   videoSubmissions VideoSubmission[]
+  messages         Message[]
 }
 
 model Account {
@@ -57,6 +58,17 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  userId    String
+  sender    String
+  body      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Coach {

@@ -52,15 +52,23 @@ export default function SiteHeader() {
           <Link href="/coaches" className={linkClass}>
             Coaches
           </Link>
+          <Link href="/contact" className={linkClass}>
+            Contact
+          </Link>
           {status === "loading" ? null : session ? (
             <>
               <Link href="/submit-video" className={linkClass}>
                 Send Video
               </Link>
               {session.user?.role === "admin" && (
-                <Link href="/submissions" className={linkClass}>
-                  Submissions
-                </Link>
+                <>
+                  <Link href="/submissions" className={linkClass}>
+                    Submissions
+                  </Link>
+                  <Link href="/customers" className={linkClass}>
+                    Customers
+                  </Link>
+                </>
               )}
               <Link href="/account" className={linkClass}>
                 {session.user?.name || session.user?.email}
@@ -101,15 +109,23 @@ export default function SiteHeader() {
           <Link href="/coaches" className={linkClass} onClick={closeMenu}>
             Coaches
           </Link>
+          <Link href="/contact" className={linkClass} onClick={closeMenu}>
+            Contact
+          </Link>
           {status === "loading" ? null : session ? (
             <>
               <Link href="/submit-video" className={linkClass} onClick={closeMenu}>
                 Send Video
               </Link>
               {session.user?.role === "admin" && (
-                <Link href="/submissions" className={linkClass} onClick={closeMenu}>
-                  Submissions
-                </Link>
+                <>
+                  <Link href="/submissions" className={linkClass} onClick={closeMenu}>
+                    Submissions
+                  </Link>
+                  <Link href="/customers" className={linkClass} onClick={closeMenu}>
+                    Customers
+                  </Link>
+                </>
               )}
               <Link href="/account" className={linkClass} onClick={closeMenu}>
                 {session.user?.name || session.user?.email}

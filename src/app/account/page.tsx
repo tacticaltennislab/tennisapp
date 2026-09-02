@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import EmptyState from "@/components/EmptyState";
+import MessageThread from "@/components/MessageThread";
 import { IconVideo } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +20,11 @@ export default async function AccountPage() {
   const submissions = await prisma.videoSubmission.findMany({
     where: { userId: session.user.id },
     orderBy: { createdAt: "desc" },
+  });
+
+  const messages = await prisma.message.findMany({
+    where: { userId: session.user.id },
+    orderBy: { createdAt: "asc" },
   });
 
   return (
@@ -81,6 +87,14 @@ export default async function AccountPage() {
               ))}
             </ul>
           )}
+
+          <div className="mt-10">
+            <h2 className="text-lg font-semibold mb-4">Messages</h2>
+            <MessageThread
+              viewerRole="customer"
+              initialMessages={messages.map((m) => ({ ...m, createdAt: m.createdAt.toISOString() }))}
+            />
+          </div>
         </div>
       </main>
     </div>

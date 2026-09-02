@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { sendEmail, coachFeedbackEmail } from "@/lib/email";
 
 export async function PATCH(
   request: Request,
@@ -22,7 +23,16 @@ export async function PATCH(
       status: "reviewed",
       reviewedAt: new Date(),
     },
+    include: { user: { select: { email: true } } },
   });
+
+  if (coachNotes) {
+    await sendEmail({
+      to: submission.user.email,
+      subject: "Your video has been reviewed",
+      html: coachFeedbackEmail(submission.title || submission.fileName, coachNotes),
+    });
+  }
 
   return NextResponse.json({ submission });
 }
