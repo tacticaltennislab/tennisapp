@@ -1,10 +1,10 @@
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
-import TiltCard from "@/components/TiltCard";
 import Reveal from "@/components/Reveal";
+import PricingCarousel, { type Plan } from "@/components/PricingCarousel";
 import { IconArrowRight } from "@/components/icons";
 
-const PLANS = [
+const PLANS: Plan[] = [
   {
     name: "Stroke Fix",
     price: "$49",
@@ -71,62 +71,9 @@ export default function PricingPage() {
 
       <main className="flex-1 px-4 py-12">
         <div className="max-w-5xl mx-auto">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PLANS.map((plan, i) => (
-              <Reveal key={plan.name} variant="zoom" delay={i * 80}>
-                <TiltCard
-                  maxTilt={5}
-                  className={`h-full flex flex-col rounded-2xl border p-6 shadow-sm hover:shadow-lg ${
-                    plan.featured
-                      ? "border-brand-600 bg-brand-600 text-white"
-                      : "border-line bg-white"
-                  }`}
-                >
-                  <h3 className={`font-bold text-lg ${plan.featured ? "text-white" : "text-ink"}`}>
-                    {plan.name}
-                  </h3>
-                  <p className="mt-3 flex items-baseline gap-1">
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    <span className={plan.featured ? "text-white/70" : "text-muted"}>
-                      {plan.period}
-                    </span>
-                  </p>
-                  <p
-                    className={`mt-3 text-sm ${
-                      plan.featured ? "text-white/85" : "text-body"
-                    }`}
-                  >
-                    {plan.description}
-                  </p>
-                  <ul className="mt-4 space-y-2 text-sm flex-1">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2">
-                        <span
-                          className={plan.featured ? "text-lime-300" : "text-brand-600"}
-                        >
-                          ✓
-                        </span>
-                        <span className={plan.featured ? "text-white/90" : "text-body"}>
-                          {f}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/sign-up"
-                    className={`mt-6 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 ${
-                      plan.featured
-                        ? "bg-white text-brand-700 hover:bg-white/90"
-                        : "bg-brand-600 text-white hover:bg-brand-700 shadow-sm hover:shadow-md"
-                    }`}
-                  >
-                    Get started
-                    <IconArrowRight className="w-4 h-4" />
-                  </Link>
-                </TiltCard>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal variant="zoom">
+            <PricingCarousel plans={PLANS} />
+          </Reveal>
 
           <Reveal variant="zoom" className="mt-16">
             <div className="rounded-2xl bg-ink text-white p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

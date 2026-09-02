@@ -9,6 +9,7 @@ import TiltCard from "@/components/TiltCard";
 import LightCourt3D from "@/components/LightCourt3D";
 import Office3D from "@/components/Office3D";
 import JourneySection from "@/components/JourneySection";
+import ProductScrollSection from "@/components/ProductScrollSection";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
@@ -116,6 +117,8 @@ export default function Home() {
         className="h-16 sm:h-24"
         style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
       />
+
+      <ProductScrollSection />
 
       <section className="relative overflow-hidden py-16 w-full">
         <LightCourt3D className="opacity-90" />
