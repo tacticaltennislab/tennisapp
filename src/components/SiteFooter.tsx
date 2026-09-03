@@ -36,6 +36,12 @@ export default function SiteFooter() {
           <Link href="/contact" className="text-body hover:text-brand-600">
             Contact
           </Link>
+          <Link href="/terms" className="text-muted hover:text-brand-600">
+            Terms
+          </Link>
+          <Link href="/privacy" className="text-muted hover:text-brand-600">
+            Privacy
+          </Link>
         </div>
       </div>
     </footer>
