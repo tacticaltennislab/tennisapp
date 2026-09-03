@@ -97,6 +97,13 @@ model Coach {
   createdAt DateTime @default(now())
 }
 
+model WaitlistEntry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
 model VideoSubmission {
   id          String   @id @default(cuid())
   userId      String

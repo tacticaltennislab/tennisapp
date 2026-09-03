@@ -71,6 +71,9 @@ export default function SiteHeader() {
                   <Link href="/customers" className={linkClass}>
                     Customers
                   </Link>
+                  <Link href="/waitlist/admin" className={linkClass}>
+                    Waitlist
+                  </Link>
                 </>
               )}
               <Link href="/account" className={linkClass}>
@@ -130,6 +133,9 @@ export default function SiteHeader() {
                   </Link>
                   <Link href="/customers" className={linkClass} onClick={closeMenu}>
                     Customers
+                  </Link>
+                  <Link href="/waitlist/admin" className={linkClass} onClick={closeMenu}>
+                    Waitlist
                   </Link>
                 </>
               )}
