@@ -3,7 +3,6 @@ import PlanForm from "@/components/PlanForm";
 import Court3D from "@/components/Court3D";
 import CoachesRoom from "@/components/CoachesRoom";
 import Reveal from "@/components/Reveal";
-import RacquetMark from "@/components/RacquetMark";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
 import LightCourt3D from "@/components/LightCourt3D";
@@ -32,7 +31,12 @@ const STEPS = [
   },
 ];
 
-const BADGES = ["Former ATP Players", "ITF Level 2 Coaches", "Worldwide Coaching"];
+const BADGES = [
+  "Former ATP Players",
+  "ATP Certified Coaches",
+  "ITF Level 2 Coaches",
+  "Worldwide Coaching",
+];
 
 export default function Home() {
   return (
@@ -57,10 +61,6 @@ export default function Home() {
           style={{ animationDelay: "-4s" }}
           aria-hidden="true"
         />
-        <RacquetMark
-          className="hidden lg:block absolute -right-16 top-1/2 -translate-y-1/2 w-[280px] h-[560px] text-white/[0.07] pointer-events-none rotate-[18deg]"
-        />
-
         <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20 w-full">
           <div className="animate-fade-up flex flex-wrap gap-2 mb-6">
             {BADGES.map((b) => (
@@ -180,7 +180,6 @@ export default function Home() {
               "radial-gradient(65% 60% at 50% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 55%, rgba(255,255,255,0.15) 100%)",
           }}
         />
-        <RacquetMark className="hidden lg:block absolute -left-20 bottom-0 w-[220px] h-[440px] text-brand-100/70 pointer-events-none -rotate-[14deg]" />
         <div className="relative max-w-3xl mx-auto px-4 py-16">
           <Reveal className="text-center mb-10">
             <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">

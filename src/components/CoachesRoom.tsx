@@ -3,7 +3,12 @@ import Reveal from "@/components/Reveal";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
 
-const BADGES = ["Former ATP Players", "ITF Level 2 Coaches", "Worldwide Coaching"];
+const BADGES = [
+  "Former ATP Players",
+  "ATP Certified Coaches",
+  "ITF Level 2 Coaches",
+  "Worldwide Coaching",
+];
 
 function initials(name: string) {
   return name
