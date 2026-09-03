@@ -23,13 +23,13 @@ export default function ContactPage() {
               <h2 className="font-semibold text-lg">Other ways to reach us</h2>
               <div className="mt-5 space-y-4">
                 <a
-                  href="mailto:hello@tacticaltennislab.com"
+                  href="mailto:tacticaltennislab@gmail.com"
                   className="flex items-center gap-3 text-sm text-body hover:text-brand-600 transition-colors"
                 >
                   <span className="shrink-0 w-9 h-9 rounded-lg bg-white border border-line flex items-center justify-center text-brand-600">
                     <IconMail className="w-4 h-4" />
                   </span>
-                  hello@tacticaltennislab.com
+                  tacticaltennislab@gmail.com
                 </a>
                 {SOCIALS.map((s) => (
                   <a

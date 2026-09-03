@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { sendEmail, contactFormEmail } from "@/lib/email";
 
-const CONTACT_INBOX = process.env.CONTACT_INBOX_EMAIL || "hello@tacticaltennislab.com";
+const CONTACT_INBOX = process.env.CONTACT_INBOX_EMAIL || "tacticaltennislab@gmail.com";
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);

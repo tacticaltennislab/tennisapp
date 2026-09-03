@@ -4,7 +4,7 @@ import { stripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { sendEmail } from "@/lib/email";
 
-const ADMIN_INBOX = process.env.CONTACT_INBOX_EMAIL || "hello@tacticaltennislab.com";
+const ADMIN_INBOX = process.env.CONTACT_INBOX_EMAIL || "tacticaltennislab@gmail.com";
 
 export async function POST(request: Request) {
   const signature = request.headers.get("stripe-signature");

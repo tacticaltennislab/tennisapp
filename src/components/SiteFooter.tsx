@@ -14,10 +14,10 @@ export default function SiteFooter() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           <a
-            href="mailto:hello@tacticaltennislab.com"
+            href="mailto:tacticaltennislab@gmail.com"
             className="text-body hover:text-brand-600"
           >
-            hello@tacticaltennislab.com
+            tacticaltennislab@gmail.com
           </a>
           {SOCIALS.map((s) => (
             <a
