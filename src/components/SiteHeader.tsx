@@ -91,6 +91,9 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
+              <Link href="/waitlist" className={linkClass}>
+                Waitlist
+              </Link>
               <Link href="/sign-in" className={linkClass}>
                 Sign in
               </Link>
@@ -157,6 +160,9 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
+              <Link href="/waitlist" className={linkClass} onClick={closeMenu}>
+                Waitlist
+              </Link>
               <Link href="/sign-in" className={linkClass} onClick={closeMenu}>
                 Sign in
               </Link>

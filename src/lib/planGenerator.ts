@@ -13,7 +13,8 @@ export type FocusArea =
   | "volleys"
   | "footwork"
   | "fitness"
-  | "mental";
+  | "mental"
+  | "tactical";
 
 export interface PlanInput {
   level: SkillLevel;
@@ -62,6 +63,7 @@ const FOCUS_LABELS: Record<FocusArea, string> = {
   footwork: "Footwork & Movement",
   fitness: "Fitness & Conditioning",
   mental: "Mental Game",
+  tactical: "Tactical Training",
 };
 
 const GOAL_LABELS: Record<Goal, string> = {
@@ -179,6 +181,20 @@ const DRILL_LIBRARY: Record<FocusArea, Record<SkillLevel, string[]>> = {
       "Pre-match routine rehearsal: warmup, breathing, and self-talk under time pressure.",
     ],
   },
+  tactical: {
+    beginner: [
+      "Cross-court-only points: rally cross-court until 3+ balls stay in the same direction before either player can go down the line.",
+      "Traffic-light shot selection: play short balls as green lights to approach, deep balls as red lights to reset.",
+    ],
+    intermediate: [
+      "Construct-to-neutral-to-attack: extend the rally to a neutral ball, then attack the next short one instead of forcing an early winner.",
+      "Serve-plus-three: before each point, call out where your serve, return, and third shot are going, then play it out live.",
+    ],
+    advanced: [
+      "Situational points: play from specific scores (break point, serving for the set) and review decision-making, not just the outcome.",
+      "Pattern-of-three: identify a weaker side and construct three consecutive shots into it before finishing the point.",
+    ],
+  },
 };
 
 function pick<T>(arr: T[], seed: number): T {
@@ -286,6 +302,7 @@ export const ALL_FOCUS_AREAS: FocusArea[] = [
   "backhand",
   "volleys",
   "footwork",
+  "tactical",
   "fitness",
   "mental",
 ];
