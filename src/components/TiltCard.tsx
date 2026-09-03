@@ -43,7 +43,7 @@ export default function TiltCard({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
-      className={`relative overflow-hidden transition-transform duration-300 ease-out will-change-transform ${className}`}
+      className={`relative transition-transform duration-300 ease-out will-change-transform ${className}`}
       style={{
         transform: `perspective(900px) rotateX(${state.x}deg) rotateY(${state.y}deg) scale3d(${scale}, ${scale}, ${scale})`,
         transformStyle: "preserve-3d",
