@@ -46,7 +46,11 @@ export default async function CoachesRoom() {
         </Reveal>
 
         {coaches.length > 0 ? (
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={`mt-10 grid gap-5 max-w-2xl mx-auto sm:grid-cols-2 ${
+              coaches.length >= 3 ? "lg:max-w-none lg:grid-cols-3" : ""
+            }`}
+          >
             {coaches.map((coach, i) => (
               <Reveal key={coach.id} delay={i * 80}>
                 <TiltCard className="h-full rounded-2xl bg-white/5 border border-white/10 backdrop-blur px-5 py-6 transition-colors hover:bg-white/10 hover:border-white/20 shadow-xl shadow-black/20">

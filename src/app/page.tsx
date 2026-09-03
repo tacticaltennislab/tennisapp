@@ -117,12 +117,12 @@ export default function Home() {
       <ProductScrollSection />
 
       <section className="relative overflow-hidden py-16 w-full">
-        <LightCourt3D className="opacity-90" />
+        <LightCourt3D />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(60% 55% at 50% 38%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.15) 100%)",
+              "radial-gradient(60% 55% at 50% 38%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.32) 55%, rgba(255,255,255,0.05) 100%)",
           }}
         />
         <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-100 pointer-events-none" />

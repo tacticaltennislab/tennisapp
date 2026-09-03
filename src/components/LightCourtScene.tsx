@@ -23,10 +23,10 @@ function DriftingCamera() {
     }
     t0.current += delta;
     const t = t0.current;
-    state.camera.position.x = Math.sin(t * 0.08) * 2.2;
-    state.camera.position.y = 6.8 + Math.sin(t * 0.05) * 0.4;
-    state.camera.position.z = 12.5 + Math.cos(t * 0.06) * 1.4;
-    state.camera.lookAt(0, 0, 0);
+    state.camera.position.x = Math.sin(t * 0.08) * 1.8;
+    state.camera.position.y = 4.1 + Math.sin(t * 0.05) * 0.3;
+    state.camera.position.z = 8.2 + Math.cos(t * 0.06) * 1.0;
+    state.camera.lookAt(0, 0.2, 0);
   });
 
   return null;
@@ -58,7 +58,7 @@ function Scene() {
   return (
     <>
       <color attach="background" args={[WHITE]} />
-      <fog attach="fog" args={[WHITE, 12, 24]} />
+      <fog attach="fog" args={[WHITE, 10, 20]} />
       <ambientLight intensity={1.1} color="#fffaf0" />
       <directionalLight position={[5, 10, 6]} intensity={1.4} color="#fff6e0" />
       <directionalLight position={[-6, 5, -4]} intensity={0.3} color={BRAND_600} />
@@ -81,7 +81,7 @@ export default function LightCourtScene() {
     <Canvas
       dpr={1}
       gl={{ antialias: true, alpha: false }}
-      camera={{ fov: 38, position: [0, 6.8, 13.5] }}
+      camera={{ fov: 48, position: [0, 4.1, 8.2] }}
       className="!absolute inset-0"
     >
       <Scene />
