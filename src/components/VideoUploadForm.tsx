@@ -63,7 +63,7 @@ export default function VideoUploadForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 max-w-lg bg-white border border-line shadow-sm rounded-2xl p-6 sm:p-8"
+      className="space-y-4 bg-white border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
         <label className="block text-sm font-medium mb-1">Title</label>
@@ -89,12 +89,24 @@ export default function VideoUploadForm() {
       </div>
       <div>
         <label className="block text-sm font-medium mb-1">Video</label>
+        <label
+          htmlFor="video-file"
+          className="flex items-center gap-3 w-full rounded-lg border border-dashed border-line px-3 py-2.5 text-sm cursor-pointer hover:border-brand-600 transition-colors"
+        >
+          <span className="shrink-0 rounded-md bg-brand-50 text-brand-600 px-3 py-1.5 text-xs font-semibold">
+            Choose file
+          </span>
+          <span className="text-muted truncate">
+            {file ? file.name : "No file selected"}
+          </span>
+        </label>
         <input
+          id="video-file"
           type="file"
           accept="video/*"
           required
           onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-          className="w-full text-sm"
+          className="sr-only"
         />
       </div>
 

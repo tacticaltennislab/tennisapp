@@ -33,7 +33,7 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const linkClass = "text-body hover:text-brand-600 py-2 sm:py-0";
+  const linkClass = "text-body hover:text-brand-600 py-2 lg:py-0 whitespace-nowrap";
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -42,13 +42,16 @@ export default function SiteHeader() {
         scrolled ? "border-line shadow-sm" : "border-transparent"
       }`}
     >
-      <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg text-ink">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-bold text-lg text-ink shrink-0 whitespace-nowrap"
+        >
           <LogoMark />
           Tactical Tennis Lab
         </Link>
 
-        <nav className="hidden sm:flex items-center gap-4 text-sm">
+        <nav className="hidden lg:flex items-center gap-4 text-sm">
           <Link href="/pricing" className={linkClass}>
             Pricing
           </Link>
@@ -81,7 +84,7 @@ export default function SiteHeader() {
               </Link>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="rounded-lg border border-line px-3 py-1.5 text-body hover:border-brand-600 hover:text-brand-600"
+                className="rounded-lg border border-line px-3 py-1.5 text-body hover:border-brand-600 hover:text-brand-600 whitespace-nowrap shrink-0"
               >
                 Sign out
               </button>
@@ -93,7 +96,7 @@ export default function SiteHeader() {
               </Link>
               <Link
                 href="/sign-up"
-                className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all"
+                className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all whitespace-nowrap shrink-0"
               >
                 Sign up
               </Link>
@@ -103,7 +106,7 @@ export default function SiteHeader() {
 
         <button
           onClick={() => setMenuOpen((v) => !v)}
-          className="sm:hidden p-2 -mr-2 text-ink"
+          className="lg:hidden p-2 -mr-2 text-ink"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
           {menuOpen ? <IconClose className="w-6 h-6" /> : <IconMenu className="w-6 h-6" />}
@@ -111,7 +114,7 @@ export default function SiteHeader() {
       </div>
 
       {menuOpen && (
-        <nav className="sm:hidden border-t border-line px-4 py-3 flex flex-col text-sm animate-fade-up">
+        <nav className="lg:hidden border-t border-line px-4 py-3 flex flex-col text-sm animate-fade-up">
           <Link href="/pricing" className={linkClass} onClick={closeMenu}>
             Pricing
           </Link>
