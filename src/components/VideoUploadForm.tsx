@@ -109,60 +109,69 @@ export default function VideoUploadForm() {
         />
       </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-2">Skill level</label>
-        <div className="tilt-grid grid grid-cols-3 gap-2">
-          {LEVELS.map((l) => (
-            <button
-              type="button"
-              key={l.value}
-              onClick={() => setSkillLevel(l.value)}
-              className={`btn-3d rounded-lg px-3 py-2 text-sm font-medium border ${
-                skillLevel === l.value
-                  ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
-                  : "border-line hover:border-brand-600"
-              }`}
-            >
-              {l.label}
-            </button>
-          ))}
+      <div className="rounded-xl border border-line bg-brand-50/40 p-4 space-y-4">
+        <div>
+          <p className="text-sm font-semibold">Your level & focus</p>
+          <p className="text-xs text-muted mt-0.5">
+            Help your coach see where you&apos;re at and what to work on before they watch your video.
+          </p>
         </div>
-      </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-1">Primary goal</label>
-        <select
-          value={goal}
-          onChange={(e) => setGoal(e.target.value as Goal)}
-          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-        >
-          {GOALS.map((g) => (
-            <option key={g.value} value={g.value}>
-              {g.label}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div>
+          <label className="block text-sm font-medium mb-2">Skill level</label>
+          <div className="tilt-grid grid grid-cols-3 gap-2">
+            {LEVELS.map((l) => (
+              <button
+                type="button"
+                key={l.value}
+                onClick={() => setSkillLevel(l.value)}
+                className={`btn-3d rounded-lg px-3 py-2 text-sm font-medium border ${
+                  skillLevel === l.value
+                    ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
+                    : "border-line bg-white hover:border-brand-600"
+                }`}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-2">
-          What do you want to train?
-        </label>
-        <div className="tilt-grid flex flex-wrap gap-2">
-          {ALL_FOCUS_AREAS.map((area) => (
-            <button
-              type="button"
-              key={area}
-              onClick={() => toggleFocus(area)}
-              className={`btn-3d rounded-full px-3 py-1.5 text-sm border ${
-                focusAreas.includes(area)
-                  ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
-                  : "border-line hover:border-brand-600"
-              }`}
-            >
-              {focusLabel(area)}
-            </button>
-          ))}
+        <div>
+          <label className="block text-sm font-medium mb-1">Primary goal</label>
+          <select
+            value={goal}
+            onChange={(e) => setGoal(e.target.value as Goal)}
+            className="w-full rounded-lg border border-line bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+          >
+            {GOALS.map((g) => (
+              <option key={g.value} value={g.value}>
+                {g.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            What do you want to train?
+          </label>
+          <div className="tilt-grid flex flex-wrap gap-2">
+            {ALL_FOCUS_AREAS.map((area) => (
+              <button
+                type="button"
+                key={area}
+                onClick={() => toggleFocus(area)}
+                className={`btn-3d rounded-full px-3 py-1.5 text-sm border ${
+                  focusAreas.includes(area)
+                    ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
+                    : "border-line bg-white hover:border-brand-600"
+                }`}
+              >
+                {focusLabel(area)}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
