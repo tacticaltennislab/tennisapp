@@ -5,6 +5,20 @@ import { sendEmail, newMessageFromCustomerEmail, newMessageFromCoachEmail } from
 
 const ADMIN_INBOX = process.env.CONTACT_INBOX_EMAIL || "tacticaltennislab@gmail.com";
 
+export async function GET() {
+  const session = await auth();
+  if (!session?.user) {
+    return NextResponse.json({ error: "Sign in required." }, { status: 401 });
+  }
+
+  const messages = await prisma.message.findMany({
+    where: { userId: session.user.id },
+    orderBy: { createdAt: "asc" },
+  });
+
+  return NextResponse.json({ messages });
+}
+
 export async function POST(request: Request) {
   const session = await auth();
   if (!session?.user) {
