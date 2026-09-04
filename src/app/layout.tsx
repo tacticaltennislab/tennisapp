@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -34,6 +34,17 @@ export const metadata: Metadata = {
     description:
       "Personalized tennis training plans and video-based coaching, for amateurs and everyone who plays.",
   },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
+  appleWebApp: {
+    title: "Tennis Lab",
+    statusBarStyle: "default",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1b7a45",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
