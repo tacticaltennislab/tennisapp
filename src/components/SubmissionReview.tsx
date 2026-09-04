@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { focusLabel, goalLabel, levelLabel, isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 
 interface Submission {
   id: string;
@@ -10,6 +11,9 @@ interface Submission {
   coachNotes: string | null;
   userName: string | null;
   userEmail: string;
+  skillLevel: string | null;
+  goal: string | null;
+  focusAreas: string[];
 }
 
 export default function SubmissionReview({ submission }: { submission: Submission }) {
@@ -64,6 +68,26 @@ export default function SubmissionReview({ submission }: { submission: Submissio
         <p className="mt-2 text-sm text-body">
           &ldquo;{submission.note}&rdquo;
         </p>
+      )}
+
+      {(submission.skillLevel || submission.goal || submission.focusAreas.length > 0) && (
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {submission.skillLevel && isSkillLevel(submission.skillLevel) && (
+            <span className="text-xs rounded-full bg-brand-50 text-brand-700 px-2 py-0.5">
+              {levelLabel(submission.skillLevel)}
+            </span>
+          )}
+          {submission.goal && isGoal(submission.goal) && (
+            <span className="text-xs rounded-full bg-brand-50 text-brand-700 px-2 py-0.5">
+              {goalLabel(submission.goal)}
+            </span>
+          )}
+          {submission.focusAreas.filter(isFocusArea).map((area) => (
+            <span key={area} className="text-xs rounded-full bg-gray-100 text-body px-2 py-0.5">
+              {focusLabel(area)}
+            </span>
+          ))}
+        </div>
       )}
 
       <a

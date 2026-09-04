@@ -1,12 +1,10 @@
 import Link from "next/link";
-import PlanForm from "@/components/PlanForm";
 import Court3D from "@/components/Court3D";
 import CoachesRoom from "@/components/CoachesRoom";
 import Reveal from "@/components/Reveal";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
 import LightCourt3D from "@/components/LightCourt3D";
-import Office3D from "@/components/Office3D";
 import JourneySection from "@/components/JourneySection";
 import ProductScrollSection from "@/components/ProductScrollSection";
 import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
@@ -98,12 +96,12 @@ export default function Home() {
               Send your video
               <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <a
-              href="#plan-generator"
+            <Link
+              href="/pricing"
               className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/25 hover:bg-white/20 backdrop-blur text-white font-semibold px-5 py-3 transition-colors"
             >
-              Build a free training plan
-            </a>
+              View coaching plans
+            </Link>
           </div>
         </div>
       </section>
@@ -116,7 +114,7 @@ export default function Home() {
 
       <ProductScrollSection />
 
-      <section className="relative overflow-hidden py-16 w-full">
+      <section id="how-it-works" className="relative overflow-hidden py-16 w-full">
         <LightCourt3D />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -170,34 +168,6 @@ export default function Home() {
         className="h-16 sm:h-24"
         style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
       />
-
-      <section id="plan-generator" className="relative overflow-hidden">
-        <Office3D />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(65% 60% at 50% 30%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 55%, rgba(255,255,255,0.15) 100%)",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto px-4 py-16">
-          <Reveal className="text-center mb-10">
-            <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
-              Free tool
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-bold mt-1">
-              Build your tennis training plan
-            </h2>
-            <p className="mt-2 text-body max-w-xl mx-auto">
-              Tell us your level, goals, and schedule, and we&apos;ll put
-              together a weekly plan &mdash; no sign-up required.
-            </p>
-          </Reveal>
-          <Reveal variant="zoom" delay={100}>
-            <PlanForm />
-          </Reveal>
-        </div>
-      </section>
     </div>
   );
 }

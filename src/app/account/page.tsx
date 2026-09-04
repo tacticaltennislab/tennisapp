@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import EmptyState from "@/components/EmptyState";
 import MessageThread from "@/components/MessageThread";
 import { IconVideo } from "@/components/icons";
+import { focusLabel, goalLabel, levelLabel, isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 
 export const dynamic = "force-dynamic";
 
@@ -70,6 +71,25 @@ export default async function AccountPage() {
                       </span>
                     </div>
                     {s.note && <p className="mt-1 text-sm text-body">{s.note}</p>}
+                    {(s.skillLevel || s.goal || s.focusAreas.length > 0) && (
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {s.skillLevel && isSkillLevel(s.skillLevel) && (
+                          <span className="text-xs rounded-full bg-brand-50 text-brand-700 px-2 py-0.5">
+                            {levelLabel(s.skillLevel)}
+                          </span>
+                        )}
+                        {s.goal && isGoal(s.goal) && (
+                          <span className="text-xs rounded-full bg-brand-50 text-brand-700 px-2 py-0.5">
+                            {goalLabel(s.goal)}
+                          </span>
+                        )}
+                        {s.focusAreas.filter(isFocusArea).map((area) => (
+                          <span key={area} className="text-xs rounded-full bg-gray-100 text-body px-2 py-0.5">
+                            {focusLabel(area)}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <a
                       href={`/api/videos/${s.id}/file`}
                       className="mt-2 inline-block text-sm text-brand-600"

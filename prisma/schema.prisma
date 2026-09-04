@@ -109,6 +109,9 @@ model VideoSubmission {
   userId      String
   title       String?
   note        String?
+  skillLevel  String?
+  goal        String?
+  focusAreas  String[] @default([])
   storagePath String
   fileName    String
   fileType    String

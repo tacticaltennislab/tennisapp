@@ -47,6 +47,9 @@ export default async function SubmissionsPage() {
                       coachNotes: s.coachNotes,
                       userName: s.user.name,
                       userEmail: s.user.email,
+                      skillLevel: s.skillLevel,
+                      goal: s.goal,
+                      focusAreas: s.focusAreas,
                     }}
                   />
                 </Reveal>

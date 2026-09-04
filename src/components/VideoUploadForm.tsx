@@ -3,15 +3,33 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { upload } from "@vercel/blob/client";
+import {
+  ALL_FOCUS_AREAS,
+  FocusArea,
+  Goal,
+  GOALS,
+  LEVELS,
+  SkillLevel,
+  focusLabel,
+} from "@/lib/trainingOptions";
 
 export default function VideoUploadForm() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
+  const [skillLevel, setSkillLevel] = useState<SkillLevel>("beginner");
+  const [goal, setGoal] = useState<Goal>("general-fitness");
+  const [focusAreas, setFocusAreas] = useState<FocusArea[]>([]);
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
+
+  function toggleFocus(area: FocusArea) {
+    setFocusAreas((prev) =>
+      prev.includes(area) ? prev.filter((a) => a !== area) : [...prev, area]
+    );
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -38,6 +56,9 @@ export default function VideoUploadForm() {
         body: JSON.stringify({
           title,
           note,
+          skillLevel,
+          goal,
+          focusAreas,
           storagePath: blob.pathname,
           fileName: file.name,
           fileType: file.type,
@@ -87,6 +108,64 @@ export default function VideoUploadForm() {
           className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
         />
       </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-2">Skill level</label>
+        <div className="tilt-grid grid grid-cols-3 gap-2">
+          {LEVELS.map((l) => (
+            <button
+              type="button"
+              key={l.value}
+              onClick={() => setSkillLevel(l.value)}
+              className={`btn-3d rounded-lg px-3 py-2 text-sm font-medium border ${
+                skillLevel === l.value
+                  ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
+                  : "border-line hover:border-brand-600"
+              }`}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-1">Primary goal</label>
+        <select
+          value={goal}
+          onChange={(e) => setGoal(e.target.value as Goal)}
+          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+        >
+          {GOALS.map((g) => (
+            <option key={g.value} value={g.value}>
+              {g.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          What do you want to train?
+        </label>
+        <div className="tilt-grid flex flex-wrap gap-2">
+          {ALL_FOCUS_AREAS.map((area) => (
+            <button
+              type="button"
+              key={area}
+              onClick={() => toggleFocus(area)}
+              className={`btn-3d rounded-full px-3 py-1.5 text-sm border ${
+                focusAreas.includes(area)
+                  ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
+                  : "border-line hover:border-brand-600"
+              }`}
+            >
+              {focusLabel(area)}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div>
         <label className="block text-sm font-medium mb-1">Video</label>
         <label

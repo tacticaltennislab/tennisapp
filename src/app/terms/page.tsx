@@ -12,7 +12,7 @@ const SECTIONS = [
   {
     title: "2. The service",
     body: [
-      "We offer video-based technical and tactical analysis, personalized training plans, and coach feedback delivered through the website. Some features (such as building a free training plan) do not require an account; others (submitting video, messaging a coach, purchasing a plan) do.",
+      "We offer video-based technical and tactical analysis, personalized training plans, and coach feedback delivered through the website. Every plan is built personally by one of our coaches based on your video and goals — not generated automatically. Submitting a video, messaging a coach, and purchasing a plan all require an account.",
       "Coaching feedback is based on the video and information you provide. It is educational and developmental in nature and is not a substitute for in-person instruction, medical advice, or a fitness assessment. You are responsible for your own physical safety while training.",
     ],
   },

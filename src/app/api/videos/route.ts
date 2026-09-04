@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -15,6 +16,14 @@ export async function POST(request: Request) {
   const fileSize = typeof body?.fileSize === "number" ? body.fileSize : 0;
   const title = typeof body?.title === "string" && body.title.trim() ? body.title.trim() : null;
   const note = typeof body?.note === "string" && body.note.trim() ? body.note.trim() : null;
+  const skillLevel =
+    typeof body?.skillLevel === "string" && isSkillLevel(body.skillLevel)
+      ? body.skillLevel
+      : null;
+  const goal = typeof body?.goal === "string" && isGoal(body.goal) ? body.goal : null;
+  const focusAreas = Array.isArray(body?.focusAreas)
+    ? body.focusAreas.filter((a: unknown): a is string => typeof a === "string" && isFocusArea(a))
+    : [];
 
   if (!storagePath || !fileName || !fileType || !fileSize) {
     return NextResponse.json({ error: "Missing video upload details." }, { status: 400 });
@@ -25,6 +34,9 @@ export async function POST(request: Request) {
       userId: session.user.id,
       title,
       note,
+      skillLevel,
+      goal,
+      focusAreas,
       storagePath,
       fileName,
       fileType,

@@ -8,7 +8,7 @@ const STEPS = [
     step: "1",
     title: "See how it works",
     detail: "Send a video, get a frame-by-frame breakdown, receive your plan.",
-    href: "#plan-generator",
+    href: "/#how-it-works",
     cta: "How it works",
   },
   {
