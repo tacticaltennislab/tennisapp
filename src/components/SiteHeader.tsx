@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { IconClose, IconMenu } from "@/components/icons";
+import PushToggle from "@/components/PushToggle";
 
 function LogoMark() {
   return (
@@ -82,6 +83,7 @@ export default function SiteHeader() {
               <Link href="/account" className={linkClass}>
                 {session.user?.name || session.user?.email}
               </Link>
+              <PushToggle />
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="rounded-lg border border-line px-3 py-1.5 text-body hover:border-brand-600 hover:text-brand-600 whitespace-nowrap shrink-0"
@@ -148,6 +150,7 @@ export default function SiteHeader() {
               <Link href="/account" className={linkClass} onClick={closeMenu}>
                 {session.user?.name || session.user?.email}
               </Link>
+              <PushToggle showLabel />
               <button
                 onClick={() => {
                   closeMenu();

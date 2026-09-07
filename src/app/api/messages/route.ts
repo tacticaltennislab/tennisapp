@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { sendEmail, newMessageFromCustomerEmail, newMessageFromCoachEmail } from "@/lib/email";
+import { sendPushToUser, sendPushToAdmins } from "@/lib/push";
 
 const ADMIN_INBOX = process.env.CONTACT_INBOX_EMAIL || "tacticaltennislab@gmail.com";
 
@@ -51,11 +52,21 @@ export async function POST(request: Request) {
         html: newMessageFromCoachEmail(text),
       });
     }
+    await sendPushToUser(targetUserId, {
+      title: "New message from your coach",
+      body: text.slice(0, 120),
+      url: "/account",
+    });
   } else {
     await sendEmail({
       to: ADMIN_INBOX,
       subject: `New message from ${session.user.name || session.user.email}`,
       html: newMessageFromCustomerEmail(session.user.name || "A customer", session.user.email || "", text),
+    });
+    await sendPushToAdmins({
+      title: `New message from ${session.user.name || session.user.email}`,
+      body: text.slice(0, 120),
+      url: `/customers/${session.user.id}`,
     });
   }
 

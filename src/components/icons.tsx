@@ -191,6 +191,45 @@ export function IconChat({ className }: IconProps) {
   );
 }
 
+export function IconBell({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path
+        d="M6 10a6 6 0 1 1 12 0c0 3.2 1 5 1.6 5.8a1 1 0 0 1-.8 1.6H5.2a1 1 0 0 1-.8-1.6C5 15 6 13.2 6 10Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 19.5a2.5 2.5 0 0 0 5 0"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function IconBellOff({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className}>
+      <path
+        d="M6 10a6 6 0 1 1 12 0c0 3.2 1 5 1.6 5.8a1 1 0 0 1-.8 1.6H5.2a1 1 0 0 1-.8-1.6C5 15 6 13.2 6 10Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 19.5a2.5 2.5 0 0 0 5 0"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path d="M3.5 3.5l17 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function IconArrowRight({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className}>

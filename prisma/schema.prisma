@@ -18,11 +18,12 @@ model User {
   role          String    @default("customer")
   createdAt     DateTime  @default(now())
 
-  accounts         Account[]
-  sessions         Session[]
-  videoSubmissions VideoSubmission[]
-  messages         Message[]
-  purchases        Purchase[]
+  accounts          Account[]
+  sessions          Session[]
+  videoSubmissions  VideoSubmission[]
+  messages          Message[]
+  purchases         Purchase[]
+  pushSubscriptions PushSubscription[]
 }
 
 model Account {
@@ -102,6 +103,17 @@ model WaitlistEntry {
   name      String
   email     String   @unique
   createdAt DateTime @default(now())
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VideoSubmission {
