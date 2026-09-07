@@ -95,6 +95,7 @@ model Coach {
   phone     String?
   specialty String?
   bio       String?
+  gptcaUrl  String?
   createdAt DateTime @default(now())
 }
 

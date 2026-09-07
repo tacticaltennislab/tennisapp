@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
+import { IconArrowRight } from "@/components/icons";
 
 const BADGES = [
   "Former ATP Players",
@@ -64,6 +66,13 @@ export default async function CoachesRoom() {
                   {coach.bio && (
                     <p className="mt-2 text-sm text-white/60">{coach.bio}</p>
                   )}
+                  <Link
+                    href={`/coaches/${coach.id}`}
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-lime-300 hover:underline"
+                  >
+                    View full profile
+                    <IconArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </TiltCard>
               </Reveal>
             ))}

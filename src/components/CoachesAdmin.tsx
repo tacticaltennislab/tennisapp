@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import EmptyState from "@/components/EmptyState";
 import TiltCard from "@/components/TiltCard";
-import { IconUsers } from "@/components/icons";
+import { IconUsers, IconArrowRight } from "@/components/icons";
 
 interface Coach {
   id: string;
@@ -156,6 +157,15 @@ export default function CoachesAdmin({
                     {coach.email && <span>{coach.email}</span>}
                     {coach.phone && <span>{coach.phone}</span>}
                   </div>
+                )}
+                {!isAdmin && (
+                  <Link
+                    href={`/coaches/${coach.id}`}
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
+                  >
+                    View full profile
+                    <IconArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 )}
               </TiltCard>
             ))}
