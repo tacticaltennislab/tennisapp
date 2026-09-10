@@ -3,7 +3,13 @@ import Reveal from "@/components/Reveal";
 
 const SECTIONS = [
   {
-    title: "1. What we collect",
+    title: "1. Who is responsible for your data",
+    body: [
+      "Tactical Tennis Lab is currently operated by Piotr Kusiewicz as an individual (formal business registration is in progress). For the purposes of data protection law, Piotr Kusiewicz is the data controller for personal data processed through tacticaltennislab.com. You can contact us about any privacy question at tacticaltennislab@gmail.com.",
+    ],
+  },
+  {
+    title: "2. What we collect",
     body: [
       "Account information: your name, email address, and password (stored as a secure hash — we never store your password in plain text). If you sign in with Google, we receive your name and email from Google.",
       "Content you provide: video submissions, the details you enter when requesting a training plan or contacting a coach, and messages you send through the Service.",
@@ -11,39 +17,54 @@ const SECTIONS = [
     ],
   },
   {
-    title: "2. How we use it",
+    title: "3. How we use it, and why we're allowed to",
     body: [
-      "To provide the Service: reviewing your video, building your training plan, and letting you message your coach.",
-      "To send you account-related email: welcome messages, password resets, coach feedback notifications, and purchase confirmations.",
-      "We do not sell your personal information to third parties.",
+      "To provide the Service — reviewing your video, building your training plan, and letting you message your coach — because it's necessary to perform our contract with you.",
+      "To send you account-related email — welcome messages, password resets, coach feedback notifications, and purchase confirmations — also necessary to perform our contract with you.",
+      "To keep the Service secure and prevent misuse, and to comply with our legal obligations (for example, tax and payment records) — based on our legitimate interest and legal obligations.",
+      "We do not sell your personal information to third parties, and we do not use your data for advertising.",
     ],
   },
   {
-    title: "3. Who we share it with",
+    title: "4. Who we share it with",
     body: [
       "We use a small number of service providers to run Tactical Tennis Lab: Vercel (hosting), Neon (database), Vercel Blob (video storage), Resend (transactional email), and Stripe (payments). Each only receives the data it needs to perform its function, and each has its own privacy and security practices.",
+      "Some of these providers may process data on servers outside the EU/EEA (for example, in the United States). Where that happens, they do so under their own GDPR-compliant safeguards, such as Standard Contractual Clauses.",
     ],
   },
   {
-    title: "4. How long we keep it",
+    title: "5. How long we keep it",
     body: [
-      "We keep your account, video submissions, and messages for as long as your account is active, so your coach and training history stay available to you. You can request deletion of your account and associated data at any time.",
+      "We keep your account, video submissions, and messages for as long as your account is active, so your coach and training history stay available to you. If you delete your account, we delete or anonymize your personal data within a reasonable time, except where we're required to keep records (such as payment records) for legal or accounting reasons.",
     ],
   },
   {
-    title: "5. Your rights",
+    title: "6. Your rights",
     body: [
-      "You can access, correct, or request deletion of your personal data at any time by emailing us. If you're in the EU/EEA, you have rights under GDPR including access, rectification, erasure, and data portability.",
+      "Under GDPR (if you're in the EU/EEA) and similar laws elsewhere, you have the right to: access the personal data we hold about you; correct inaccurate data; request erasure of your data; restrict or object to certain processing; request a portable copy of your data; and withdraw consent at any time where we rely on it.",
+      "To exercise any of these rights, email tacticaltennislab@gmail.com. If you're not satisfied with our response, you have the right to lodge a complaint with your local data protection supervisory authority.",
     ],
   },
   {
-    title: "6. Cookies",
+    title: "7. Children's data",
+    body: [
+      "Our Service is intended for account holders 16 and older. For players under 18, a parent or guardian creates and manages the account, and the personal data of the minor (video submissions, feedback, messages) is processed on the basis of that parent or guardian's agreement to our Terms and this Policy.",
+    ],
+  },
+  {
+    title: "8. Cookies",
     body: [
       "We use essential cookies to keep you signed in and remember your session. We don't use third-party advertising or tracking cookies.",
     ],
   },
   {
-    title: "7. Contact",
+    title: "9. Changes to this policy",
+    body: [
+      "We may update this Privacy Policy from time to time. If we make material changes, we'll update the date below and, where appropriate, notify you by email.",
+    ],
+  },
+  {
+    title: "10. Contact",
     body: [
       "Questions about this Privacy Policy or your data? Email us at tacticaltennislab@gmail.com.",
     ],
