@@ -7,9 +7,46 @@ import TiltCard from "@/components/TiltCard";
 import LightCourt3D from "@/components/LightCourt3D";
 import JourneySection from "@/components/JourneySection";
 import ProductScrollSection from "@/components/ProductScrollSection";
-import { IconArrowRight, IconPlan, IconTarget, IconUpload } from "@/components/icons";
+import {
+  IconArrowRight,
+  IconPlan,
+  IconTarget,
+  IconUpload,
+  IconGrowth,
+  IconVideo,
+} from "@/components/icons";
 
 export const dynamic = "force-dynamic";
+
+const AUDIENCES = [
+  {
+    icon: IconTarget,
+    title: "Ambitious amateur",
+    hook: "One flaw is quietly costing you matches.",
+    detail:
+      "Send one video. We'll find the technical issue holding your game back and show you exactly how to fix it.",
+    href: "/pricing",
+    cta: "Start with Stroke Fix",
+  },
+  {
+    icon: IconGrowth,
+    title: "Competitive junior & parent",
+    hook: "A second, objective pair of eyes on their game.",
+    detail:
+      "Your on-court coach doesn't always have time for frame-by-frame video review between sessions. We do.",
+    href: "/pricing",
+    cta: "See development plans",
+  },
+  {
+    icon: IconVideo,
+    title: "Advanced & tournament player",
+    hook: "Win the point before you're on court.",
+    detail:
+      "Scout your next opponent, break down match patterns, and sharpen the tactical decisions that separate close matches.",
+    href: "/pricing",
+    cta: "See Match IQ",
+  },
+];
 
 const STEPS = [
   {
@@ -111,6 +148,49 @@ export default function Home() {
         className="h-16 sm:h-24"
         style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
       />
+
+      <section className="px-4 py-16">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="text-center">
+            <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
+              Who this is for
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold mt-1">
+              Built for how you actually play
+            </h2>
+            <p className="text-body mt-2 max-w-lg mx-auto">
+              Not one generic plan for everyone — pick the lane that matches
+              where you&apos;re at.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {AUDIENCES.map((a, i) => (
+              <Reveal key={a.title} variant="zoom" delay={i * 120}>
+                <TiltCard
+                  maxTilt={6}
+                  className="group h-full flex flex-col rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                    <a.icon className="w-6 h-6" />
+                  </div>
+                  <p className="mt-4 text-xs font-semibold text-brand-600 uppercase tracking-wide">
+                    {a.title}
+                  </p>
+                  <h3 className="mt-1 font-bold text-lg leading-snug">{a.hook}</h3>
+                  <p className="mt-2 text-sm text-body flex-1">{a.detail}</p>
+                  <Link
+                    href={a.href}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
+                  >
+                    {a.cta}
+                    <IconArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </TiltCard>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <ProductScrollSection />
 
