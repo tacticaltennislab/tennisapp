@@ -2,7 +2,19 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import PricingCarousel, { type Plan } from "@/components/PricingCarousel";
-import { IconArrowRight } from "@/components/icons";
+import { IconArrowRight, IconTarget } from "@/components/icons";
+
+const MATCH_IQ_QUESTIONS = [
+  "Which patterns are actually winning you points — and which ones you keep repeating for nothing",
+  "What really happens after your first and second serve",
+  "Where you're positioned for the return, and whether you're pressuring second serves",
+  "Whether your first shot after the return goes the right direction",
+  "How your decision-making changes at 30-30, deuce, and break points",
+  "Whether you're trying to finish points too early",
+  "Which side of the court you keep getting pushed off of",
+  "Whether you recover to a neutral position after defending",
+  "The two patterns worth training next",
+];
 
 const PLANS: Plan[] = [
   {
@@ -95,6 +107,42 @@ export default function PricingPage() {
           </Reveal>
 
           <Reveal variant="zoom" className="mt-16">
+            <div className="rounded-2xl border border-line bg-brand-50/40 p-8 sm:p-10">
+              <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
+                What you get
+              </p>
+              <h2 className="text-2xl font-bold mt-1">
+                What a Match IQ report actually answers
+              </h2>
+              <p className="mt-2 text-body max-w-2xl">
+                Not a highlight reel — real answers to the questions that
+                decide close matches.
+              </p>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {MATCH_IQ_QUESTIONS.map((q) => (
+                  <li
+                    key={q}
+                    className="flex items-start gap-3 rounded-xl bg-white border border-line p-4"
+                  >
+                    <span className="shrink-0 mt-0.5 text-brand-600">
+                      <IconTarget className="w-4 h-4" />
+                    </span>
+                    <span className="text-sm text-body">{q}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm text-muted max-w-2xl">
+                Your on-court coach does the work that matters most — daily
+                reps, technique under real pressure, knowing your game. We&apos;re
+                not here to replace that. Match IQ is the frame-by-frame video
+                and tactical analysis most coaches simply don&apos;t have the
+                hours for — a second pair of eyes that makes their coaching
+                even sharper.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal variant="zoom" className="mt-10">
             <div className="rounded-2xl bg-ink text-white p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
                 <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">

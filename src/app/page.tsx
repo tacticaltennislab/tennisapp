@@ -33,7 +33,7 @@ const AUDIENCES = [
     title: "Competitive junior & parent",
     hook: "A second, objective pair of eyes on their game.",
     detail:
-      "Your on-court coach doesn't always have time for frame-by-frame video review between sessions. We do.",
+      "Their on-court coach does the work that matters most, day to day. We add the frame-by-frame video review most coaches don't have hours in the week for.",
     href: "/pricing",
     cta: "See development plans",
   },
