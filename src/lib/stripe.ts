@@ -12,7 +12,8 @@ export interface CheckoutPlan {
 export const CHECKOUT_PLANS: Record<string, CheckoutPlan> = {
   "stroke-fix": { name: "Stroke Fix", amountCents: 4900, mode: "payment" },
   "smart-system": { name: "Smart System", amountCents: 9900, mode: "payment" },
-  "match-iq": { name: "Match IQ", amountCents: 9900, mode: "payment" },
+  "match-iq-short": { name: "Match IQ: Short", amountCents: 9900, mode: "payment" },
+  "match-iq-full": { name: "Match IQ: Full", amountCents: 15900, mode: "payment" },
   "pro-tour": {
     name: "PRO Tour",
     amountCents: 24900,
