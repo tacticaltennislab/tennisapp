@@ -1,13 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import AuthLayout from "@/components/AuthLayout";
 
 export default function SignUpPage() {
+  return (
+    <Suspense fallback={null}>
+      <SignUpForm />
+    </Suspense>
+  );
+}
+
+function SignUpForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +56,7 @@ export default function SignUpPage() {
       return;
     }
 
-    router.push("/");
+    router.push(callbackUrl);
   }
 
   return (
@@ -105,7 +115,7 @@ export default function SignUpPage() {
       </div>
 
       <button
-        onClick={() => signIn("google", { callbackUrl: "/" })}
+        onClick={() => signIn("google", { callbackUrl })}
         className="w-full rounded-xl border border-line py-2.5 text-sm font-medium hover:border-brand-600 hover:shadow-sm transition-all"
       >
         Sign up with Google
@@ -113,7 +123,10 @@ export default function SignUpPage() {
 
       <p className="mt-6 text-sm text-body">
         Already have an account?{" "}
-        <Link href="/sign-in" className="text-brand-600 font-medium">
+        <Link
+          href={`/sign-in${callbackUrl !== "/" ? `?callbackUrl=${encodeURIComponent(callbackUrl)}` : ""}`}
+          className="text-brand-600 font-medium"
+        >
           Sign in
         </Link>
       </p>
