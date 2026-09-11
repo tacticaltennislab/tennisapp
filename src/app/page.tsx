@@ -159,8 +159,9 @@ export default function Home() {
               Built for how you actually play
             </h2>
             <p className="text-body mt-2 max-w-lg mx-auto">
-              Not one generic plan for everyone — pick the lane that matches
-              where you&apos;re at.
+              Independent video and match analysis for ambitious amateurs and
+              competitive juniors — not a generic plan for everyone. Pick the
+              lane that matches where you&apos;re at.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">

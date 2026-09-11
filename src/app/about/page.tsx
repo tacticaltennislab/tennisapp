@@ -63,7 +63,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About us"
         title="Helping ambitious players improve, from anywhere"
-        subtitle="Professional online coaching and personalized development for competitive juniors, ambitious amateurs, and professional athletes alike."
+        subtitle="Independent video and match analysis for ambitious amateurs and competitive juniors — built for the gap most on-court coaches don't have hours in the week to fill."
       />
 
       <main className="flex-1 px-4 py-12">
@@ -72,20 +72,23 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold">Our story</h2>
             <div className="mt-3 space-y-4 text-body">
               <p>
-                Tactical Tennis Lab was created with one goal: to make
-                high-level tennis coaching available to every player,
-                regardless of location.
+                Tactical Tennis Lab exists to fill one specific gap: the
+                systematic video and match analysis most on-court coaches
+                simply don&apos;t have hours in the week to do. We&apos;re not
+                trying to replace your coach &mdash; we&apos;re the independent
+                second opinion that works alongside them.
               </p>
               <p>
-                Traditional coaching often ends when the training session is
-                over. We wanted to create a system where players receive
-                continuous technical and tactical guidance using detailed
-                video analysis and personalized development plans.
+                It&apos;s built for ambitious amateurs and competitive juniors
+                who want more than a single lesson&apos;s worth of feedback:
+                real analysis of technique and tactics, not a generic training
+                plan aimed at everyone.
               </p>
               <p>
-                Whether you are a competitive junior, an ambitious amateur, or
-                a professional athlete, our mission is to help you improve
-                smarter &mdash; not just train harder.
+                And a report on its own doesn&apos;t change anything. Every
+                analysis comes with clear priorities, drills to work on, and a
+                path back to check what actually improved &mdash; video,
+                diagnosis, correction, repeat.
               </p>
             </div>
           </Reveal>
