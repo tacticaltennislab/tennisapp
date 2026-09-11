@@ -10,7 +10,7 @@ export default function SiteFooter() {
     <footer className="border-t border-line py-8">
       <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
         <p className="text-muted">
-          Tactical Tennis Lab &mdash; training plans for every level.
+          Tactical Tennis Lab &mdash; independent video and match analysis.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           <a

@@ -63,9 +63,9 @@ const PLANS: Plan[] = [
     name: "Match IQ: Full",
     price: "$159",
     period: "one-time",
-    description: "A complete tactical breakdown of your entire match, point by point.",
+    description: "A complete tactical breakdown of your match, point by point.",
     features: [
-      "Full match footage, no time limit",
+      "Up to one full match (max 2 hours of footage)",
       "Point construction analysis",
       "Shot selection evaluation",
       "Court positioning review",
