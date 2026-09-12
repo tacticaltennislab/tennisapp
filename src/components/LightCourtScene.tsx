@@ -5,7 +5,6 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import {
   BRAND_600,
-  BRAND_700,
   BRAND_900,
   LIME,
   CourtLines,
@@ -60,49 +59,45 @@ function Stadium() {
   const standHeight = 4.2;
   const tilt = 0.3;
 
+  // Unlit materials: these are distant background geometry, so skipping
+  // per-fragment PBR lighting (meshStandardMaterial) keeps the added
+  // stands cheap even with DoubleSide, which we need since the exact
+  // outward normal after each wall's rotation isn't worth hand-deriving.
   return (
     <group>
-      <mesh position={[0, standHeight / 2, halfDepth + gap]} rotation={[tilt, 0, 0]}>
-        <planeGeometry args={[halfWidth * 2 + gap * 2, standHeight]} />
-        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
-      </mesh>
       <mesh position={[0, standHeight / 2, -(halfDepth + gap)]} rotation={[-tilt, Math.PI, 0]}>
         <planeGeometry args={[halfWidth * 2 + gap * 2, standHeight]} />
-        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+        <meshBasicMaterial map={standTexture} side={THREE.DoubleSide} fog />
       </mesh>
       <mesh
         position={[halfWidth + gap, standHeight / 2, 0]}
         rotation={[tilt, Math.PI / 2, 0]}
       >
         <planeGeometry args={[halfDepth * 2 + gap * 2, standHeight]} />
-        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+        <meshBasicMaterial map={standTexture} side={THREE.DoubleSide} fog />
       </mesh>
       <mesh
         position={[-(halfWidth + gap), standHeight / 2, 0]}
         rotation={[tilt, -Math.PI / 2, 0]}
       >
         <planeGeometry args={[halfDepth * 2 + gap * 2, standHeight]} />
-        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+        <meshBasicMaterial map={standTexture} side={THREE.DoubleSide} fog />
       </mesh>
 
       {/* bright accent trim along the top of the stands */}
-      <mesh position={[0, standHeight + 0.05, halfDepth + gap]} rotation={[tilt, 0, 0]}>
-        <boxGeometry args={[halfWidth * 2 + gap * 2, 0.15, 0.05]} />
-        <meshStandardMaterial color={LIME} emissive={LIME} emissiveIntensity={0.3} />
-      </mesh>
       <mesh
         position={[halfWidth + gap, standHeight + 0.05, 0]}
         rotation={[tilt, Math.PI / 2, 0]}
       >
         <boxGeometry args={[halfDepth * 2 + gap * 2, 0.15, 0.05]} />
-        <meshStandardMaterial color={LIME} emissive={LIME} emissiveIntensity={0.3} />
+        <meshBasicMaterial color={LIME} fog={false} />
       </mesh>
       <mesh
         position={[-(halfWidth + gap), standHeight + 0.05, 0]}
         rotation={[tilt, -Math.PI / 2, 0]}
       >
         <boxGeometry args={[halfDepth * 2 + gap * 2, 0.15, 0.05]} />
-        <meshStandardMaterial color={LIME} emissive={LIME} emissiveIntensity={0.3} />
+        <meshBasicMaterial color={LIME} fog={false} />
       </mesh>
     </group>
   );
