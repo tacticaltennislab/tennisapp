@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 export const BRAND_600 = "#1b7a45";
@@ -92,6 +94,38 @@ export function createTennisBallTexture(): THREE.CanvasTexture {
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
+}
+
+/** These scenes are framed for a landscape-ish aspect. On a narrow phone
+ * viewport, the same fixed vertical FOV yields a much narrower horizontal
+ * FOV, so wide-positioned set dressing (stands, court edges) swings toward
+ * the frame edges and reads as sharply tilted/skewed. Solve for a vertical
+ * FOV at the current aspect that keeps the horizontal FOV roughly what it
+ * was at the reference (landscape) aspect. */
+export function ResponsiveFov({
+  baseFov,
+  referenceAspect = 1.55,
+}: {
+  baseFov: number;
+  referenceAspect?: number;
+}) {
+  const { size, camera } = useThree();
+
+  useEffect(() => {
+    if (!(camera instanceof THREE.PerspectiveCamera)) return;
+    const aspect = size.width / size.height;
+    const baseRad = (baseFov * Math.PI) / 180;
+    const horizontalFov = 2 * Math.atan(Math.tan(baseRad / 2) * referenceAspect);
+    const verticalFov = 2 * Math.atan(Math.tan(horizontalFov / 2) / aspect);
+    // Three.js cameras from useThree() are live, mutable scene objects --
+    // imperatively setting .fov and calling .updateProjectionMatrix() is
+    // the standard R3F way to adjust one, not a React state mutation.
+    // eslint-disable-next-line react-hooks/immutability
+    camera.fov = THREE.MathUtils.clamp((verticalFov * 180) / Math.PI, baseFov, 100);
+    camera.updateProjectionMatrix();
+  }, [size, camera, baseFov, referenceAspect]);
+
+  return null;
 }
 
 export function CourtLines({ color = "#eef7f0" }: { color?: string }) {

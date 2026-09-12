@@ -8,6 +8,7 @@ import {
   BRAND_900,
   CourtLines,
   Net,
+  ResponsiveFov,
   createCourtTexture,
   createTennisBallTexture,
 } from "@/components/three/courtParts";
@@ -86,6 +87,7 @@ function Scene() {
       <CourtLines />
       <Net />
       <FloatingBall />
+      <ResponsiveFov baseFov={42} />
       <IntroCamera />
     </>
   );

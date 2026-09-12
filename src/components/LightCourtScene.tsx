@@ -9,6 +9,7 @@ import {
   LIME,
   CourtLines,
   Net,
+  ResponsiveFov,
   createCourtTexture,
   createTennisBallTexture,
 } from "@/components/three/courtParts";
@@ -16,6 +17,11 @@ import {
 const WHITE = "#ffffff";
 const COURT_GREEN = "#2c8a52";
 
+/** Grand-slam-style stand texture: a solid court-level kick wall with a
+ * packed, mottled crowd above it (scattered varied-color blobs rather than
+ * flat stripes), so distant tiers read as spectators instead of a striped
+ * wall. Same flat plane geometry as before -- this only changes what's
+ * drawn onto it once and cached, so it costs nothing extra per frame. */
 function createStandTexture(baseColor: string, accentColor: string): THREE.CanvasTexture {
   const canvas = document.createElement("canvas");
   canvas.width = 256;
@@ -23,30 +29,70 @@ function createStandTexture(baseColor: string, accentColor: string): THREE.Canva
   const ctx = canvas.getContext("2d");
   if (!ctx) return new THREE.CanvasTexture(canvas);
 
-  ctx.fillStyle = baseColor;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // Solid kick wall at court level (bottom of the canvas -> bottom of the
+  // mesh once mapped).
+  const wallHeight = canvas.height * 0.22;
+  ctx.fillStyle = accentColor;
+  ctx.fillRect(0, canvas.height - wallHeight, canvas.width, wallHeight);
 
-  const rows = 14;
-  for (let i = 0; i < rows; i++) {
-    ctx.fillStyle = i % 2 === 0 ? accentColor : baseColor;
-    ctx.globalAlpha = 0.85;
-    ctx.fillRect(0, (i / rows) * canvas.height, canvas.width, canvas.height / rows - 1.5);
+  // Crowd tiers fill the rest.
+  const crowdHeight = canvas.height - wallHeight;
+  ctx.fillStyle = baseColor;
+  ctx.fillRect(0, 0, canvas.width, crowdHeight);
+
+  const palette = [
+    "#e8d3b0",
+    "#c9a06b",
+    "#8a5a3a",
+    "#3d2b1f",
+    "#c94f4f",
+    "#4f7fc9",
+    "#e0c14f",
+    "#4fae6a",
+    "#ffffff",
+    "#2b2b2b",
+  ];
+
+  const rows = 9;
+  const rowHeight = crowdHeight / rows;
+  for (let r = 0; r < rows; r++) {
+    const rowY = r * rowHeight;
+    const haze = 1 - r / rows;
+    const dotsPerRow = 44;
+    for (let i = 0; i < dotsPerRow; i++) {
+      const x = (i / dotsPerRow) * canvas.width + (Math.random() - 0.5) * 4;
+      const y = rowY + rowHeight * 0.5 + (Math.random() - 0.5) * rowHeight * 0.6;
+      const radius = 1.6 + Math.random() * 1.2;
+      ctx.globalAlpha = 0.55 + haze * 0.4;
+      ctx.fillStyle = palette[Math.floor(Math.random() * palette.length)];
+      ctx.beginPath();
+      ctx.ellipse(x, y, radius, radius * 1.3, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
   }
   ctx.globalAlpha = 1;
 
   // vertical aisle dividers, like real stadium seating sections
   const aisles = 10;
   ctx.fillStyle = baseColor;
-  ctx.globalAlpha = 0.9;
+  ctx.globalAlpha = 0.85;
   for (let i = 1; i < aisles; i++) {
-    ctx.fillRect((i / aisles) * canvas.width - 1.5, 0, 3, canvas.height);
+    ctx.fillRect((i / aisles) * canvas.width - 1.5, 0, 3, crowdHeight);
   }
   ctx.globalAlpha = 1;
+
+  // Soft haze toward the back/top of the stands rather than a hard cutoff.
+  const topFade = ctx.createLinearGradient(0, 0, 0, crowdHeight * 0.35);
+  topFade.addColorStop(0, "rgba(255,255,255,0.35)");
+  topFade.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = topFade;
+  ctx.fillRect(0, 0, canvas.width, crowdHeight * 0.35);
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.ClampToEdgeWrapping;
   texture.repeat.set(8, 1);
+  texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
 }
 
@@ -161,6 +207,7 @@ function Scene() {
       <Net />
       <Stadium />
       <SunBall />
+      <ResponsiveFov baseFov={48} />
       <DriftingCamera />
     </>
   );
