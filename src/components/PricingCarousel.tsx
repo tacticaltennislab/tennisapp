@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { motion, type PanInfo } from "framer-motion";
+import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
-import { IconArrowRight } from "@/components/icons";
+import { IconArrowRight, IconTarget } from "@/components/icons";
 
 export interface Plan {
   planId: string;
@@ -14,6 +14,7 @@ export interface Plan {
   period: string;
   description: string;
   features: string[];
+  whatYouGet: string[];
   featured?: boolean;
 }
 
@@ -151,6 +152,43 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
             }`}
           />
         ))}
+      </div>
+
+      <div className="mt-10 max-w-2xl mx-auto">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={plans[index].planId}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="rounded-2xl border border-line bg-brand-50/40 p-6 sm:p-8"
+          >
+            <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
+              What you get
+            </p>
+            <h3 className="text-xl font-bold mt-1">
+              What {plans[index].name} actually gives you
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {plans[index].whatYouGet.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="shrink-0 mt-0.5 text-brand-600">
+                    <IconTarget className="w-4 h-4" />
+                  </span>
+                  <span className="text-sm text-body">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </AnimatePresence>
+        <p className="mt-6 text-sm text-muted text-center max-w-xl mx-auto">
+          Your on-court coach does the work that matters most — daily reps,
+          technique under real pressure, knowing your game. We&apos;re not
+          here to replace that. This is the frame-by-frame video and tactical
+          analysis most coaches simply don&apos;t have the hours for — a
+          second pair of eyes that makes their coaching even sharper.
+        </p>
       </div>
     </div>
   );

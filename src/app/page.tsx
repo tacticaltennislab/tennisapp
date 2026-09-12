@@ -119,8 +119,9 @@ export default function Home() {
             className="animate-fade-up mt-5 text-lg text-white/80 max-w-xl"
             style={{ animationDelay: "120ms" }}
           >
-            Tactical Tennis Lab builds personalized training plans and reviews
-            your game on video &mdash; for amateurs and everyone who plays.
+            Real coaches review your game on video and tell you exactly what
+            to work on next &mdash; from your first tournament to your next
+            ranking point.
           </p>
           <div
             className="animate-fade-up mt-8 flex flex-wrap gap-3"
