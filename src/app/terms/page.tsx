@@ -20,7 +20,7 @@ const SECTIONS = [
     title: "3. Accounts and minors",
     body: [
       "You must provide accurate information when creating an account and keep your login credentials confidential. You are responsible for all activity under your account.",
-      "You must be at least 16 years old to create an account. If a player is under 18, a parent or guardian must create and manage the account on their behalf, and may review any video, feedback, or messages exchanged with a coach at any time. Coaches will maintain professional conduct at all times when working with minors; if you have any safeguarding concern, contact us immediately at tacticaltennislab@gmail.com.",
+      "You must be at least 16 years old to create an account. If a player is under 18, a parent or guardian must create and manage the account on their behalf. There is only one login per account, so every video, coach note, and message exchanged with a coach passes through that single account and is visible to whoever holds it — there is no separate or hidden channel between a coach and a minor. Coaches will maintain professional conduct at all times when working with minors; if you have any safeguarding concern, contact us immediately at tacticaltennislab@gmail.com.",
     ],
   },
   {

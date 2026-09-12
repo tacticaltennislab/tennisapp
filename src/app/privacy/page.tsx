@@ -48,7 +48,7 @@ const SECTIONS = [
   {
     title: "7. Children's data",
     body: [
-      "Our Service is intended for account holders 16 and older. For players under 18, a parent or guardian creates and manages the account, and the personal data of the minor (video submissions, feedback, messages) is processed on the basis of that parent or guardian's agreement to our Terms and this Policy.",
+      "Our Service is intended for account holders 16 and older. For players under 18, a parent or guardian creates and manages the account, and the personal data of the minor (video submissions, feedback, messages) is processed on the basis of that parent or guardian's agreement to our Terms and this Policy. Because there is only one login per account, the parent or guardian who holds it has full visibility into everything exchanged with a coach.",
     ],
   },
   {

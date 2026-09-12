@@ -109,7 +109,12 @@ export default async function AccountPage() {
           )}
 
           <div className="mt-10">
-            <h2 className="text-lg font-semibold mb-4">Messages</h2>
+            <h2 className="text-lg font-semibold mb-1">Messages</h2>
+            <p className="text-sm text-muted mb-4">
+              Managing this account for a junior player? Everything here — every
+              message, note, and piece of feedback — is visible to whoever
+              holds this login.
+            </p>
             <MessageThread
               viewerRole="customer"
               initialMessages={messages.map((m) => ({ ...m, createdAt: m.createdAt.toISOString() }))}

@@ -5,6 +5,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import {
   BRAND_600,
+  BRAND_700,
+  BRAND_900,
+  LIME,
   CourtLines,
   Net,
   createCourtTexture,
@@ -13,6 +16,97 @@ import {
 
 const WHITE = "#ffffff";
 const COURT_GREEN = "#2c8a52";
+
+function createStandTexture(baseColor: string, accentColor: string): THREE.CanvasTexture {
+  const canvas = document.createElement("canvas");
+  canvas.width = 256;
+  canvas.height = 128;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return new THREE.CanvasTexture(canvas);
+
+  ctx.fillStyle = baseColor;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const rows = 14;
+  for (let i = 0; i < rows; i++) {
+    ctx.fillStyle = i % 2 === 0 ? accentColor : baseColor;
+    ctx.globalAlpha = 0.85;
+    ctx.fillRect(0, (i / rows) * canvas.height, canvas.width, canvas.height / rows - 1.5);
+  }
+  ctx.globalAlpha = 1;
+
+  // vertical aisle dividers, like real stadium seating sections
+  const aisles = 10;
+  ctx.fillStyle = baseColor;
+  ctx.globalAlpha = 0.9;
+  for (let i = 1; i < aisles; i++) {
+    ctx.fillRect((i / aisles) * canvas.width - 1.5, 0, 3, canvas.height);
+  }
+  ctx.globalAlpha = 1;
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.repeat.set(8, 1);
+  return texture;
+}
+
+function Stadium() {
+  const standTexture = useMemo(() => createStandTexture(BRAND_900, BRAND_600), []);
+
+  const halfWidth = 6.5;
+  const halfDepth = 12;
+  const gap = 2.5;
+  const standHeight = 4.2;
+  const tilt = 0.3;
+
+  return (
+    <group>
+      <mesh position={[0, standHeight / 2, halfDepth + gap]} rotation={[tilt, 0, 0]}>
+        <planeGeometry args={[halfWidth * 2 + gap * 2, standHeight]} />
+        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh position={[0, standHeight / 2, -(halfDepth + gap)]} rotation={[-tilt, Math.PI, 0]}>
+        <planeGeometry args={[halfWidth * 2 + gap * 2, standHeight]} />
+        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh
+        position={[halfWidth + gap, standHeight / 2, 0]}
+        rotation={[tilt, Math.PI / 2, 0]}
+      >
+        <planeGeometry args={[halfDepth * 2 + gap * 2, standHeight]} />
+        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh
+        position={[-(halfWidth + gap), standHeight / 2, 0]}
+        rotation={[tilt, -Math.PI / 2, 0]}
+      >
+        <planeGeometry args={[halfDepth * 2 + gap * 2, standHeight]} />
+        <meshStandardMaterial map={standTexture} roughness={0.95} side={THREE.DoubleSide} />
+      </mesh>
+
+      {/* bright accent trim along the top of the stands */}
+      <mesh position={[0, standHeight + 0.05, halfDepth + gap]} rotation={[tilt, 0, 0]}>
+        <boxGeometry args={[halfWidth * 2 + gap * 2, 0.15, 0.05]} />
+        <meshStandardMaterial color={LIME} emissive={LIME} emissiveIntensity={0.3} />
+      </mesh>
+      <mesh
+        position={[halfWidth + gap, standHeight + 0.05, 0]}
+        rotation={[tilt, Math.PI / 2, 0]}
+      >
+        <boxGeometry args={[halfDepth * 2 + gap * 2, 0.15, 0.05]} />
+        <meshStandardMaterial color={LIME} emissive={LIME} emissiveIntensity={0.3} />
+      </mesh>
+      <mesh
+        position={[-(halfWidth + gap), standHeight + 0.05, 0]}
+        rotation={[tilt, -Math.PI / 2, 0]}
+      >
+        <boxGeometry args={[halfDepth * 2 + gap * 2, 0.15, 0.05]} />
+        <meshStandardMaterial color={LIME} emissive={LIME} emissiveIntensity={0.3} />
+      </mesh>
+    </group>
+  );
+}
 
 function DriftingCamera() {
   const t0 = useRef<number | null>(null);
@@ -58,7 +152,7 @@ function Scene() {
   return (
     <>
       <color attach="background" args={[WHITE]} />
-      <fog attach="fog" args={[WHITE, 10, 20]} />
+      <fog attach="fog" args={[WHITE, 13, 27]} />
       <ambientLight intensity={1.1} color="#fffaf0" />
       <directionalLight position={[5, 10, 6]} intensity={1.4} color="#fff6e0" />
       <directionalLight position={[-6, 5, -4]} intensity={0.3} color={BRAND_600} />
@@ -70,6 +164,7 @@ function Scene() {
 
       <CourtLines color="#ffffff" />
       <Net />
+      <Stadium />
       <SunBall />
       <DriftingCamera />
     </>
