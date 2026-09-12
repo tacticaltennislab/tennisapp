@@ -120,7 +120,8 @@ export default function Home() {
             style={{ animationDelay: "120ms" }}
           >
             Real coaches review your game on video and tell you exactly what
-            to work on next &mdash; from your first tournament to your next
+            to work on next &mdash; built for ambitious amateurs and
+            competitive players, from your first tournament to your next
             ranking point.
           </p>
           <div
