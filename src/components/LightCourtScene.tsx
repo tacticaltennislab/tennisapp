@@ -5,8 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import {
   BRAND_600,
-  BRAND_900,
-  LIME,
+  BRAND_700,
   CourtLines,
   Net,
   ResponsiveFov,
@@ -14,154 +13,132 @@ import {
   createTennisBallTexture,
 } from "@/components/three/courtParts";
 
-const WHITE = "#ffffff";
 const COURT_GREEN = "#2c8a52";
 
-/** One tier's worth of crowd: a short, wide strip of packed, mottled
- * spectator dots plus aisle dividers, meant to be tiled onto each riser of
- * a real stepped stand rather than stretched across a single flat plane. */
-function createCrowdRowTexture(baseColor: string): THREE.CanvasTexture {
+/** Deterministic pseudo-random in [0, 1) from an integer seed. Placing
+ * palms needs per-tree variation, but calling Math.random() during render
+ * is impure (flagged by react-hooks/purity) and would reshuffle the whole
+ * treeline on every re-render anyway -- this gives stable, varied-looking
+ * placement instead. */
+function seededRandom(seed: number) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+/** Warm sunset sky -- Miami Open plays on courts backed by exactly this
+ * kind of dusk gradient. A soft radial glow stands in for the low sun near
+ * the horizon. Solid gradient, no repeating detail, so nothing to shimmer
+ * under camera motion. */
+function createSunsetSkyTexture(): THREE.CanvasTexture {
+  const size = 256;
   const canvas = document.createElement("canvas");
-  canvas.width = 256;
-  canvas.height = 40;
+  canvas.width = size;
+  canvas.height = size;
   const ctx = canvas.getContext("2d");
   if (!ctx) return new THREE.CanvasTexture(canvas);
 
-  ctx.fillStyle = baseColor;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const sky = ctx.createLinearGradient(0, 0, 0, size);
+  sky.addColorStop(0, "#3a2c63");
+  sky.addColorStop(0.4, "#9b4f82");
+  sky.addColorStop(0.72, "#ff7e5f");
+  sky.addColorStop(1, "#ffd28f");
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, size, size);
 
-  const palette = [
-    "#e8d3b0",
-    "#c9a06b",
-    "#8a5a3a",
-    "#3d2b1f",
-    "#c94f4f",
-    "#4f7fc9",
-    "#e0c14f",
-    "#4fae6a",
-    "#ffffff",
-    "#2b2b2b",
-  ];
-
-  const dots = 46;
-  for (let i = 0; i < dots; i++) {
-    const x = (i / dots) * canvas.width + (Math.random() - 0.5) * 4;
-    const y = canvas.height * 0.55 + (Math.random() - 0.5) * canvas.height * 0.5;
-    const radius = 2 + Math.random() * 1.4;
-    ctx.globalAlpha = 0.7 + Math.random() * 0.3;
-    ctx.fillStyle = palette[Math.floor(Math.random() * palette.length)];
-    ctx.beginPath();
-    ctx.ellipse(x, y, radius, radius * 1.3, 0, 0, Math.PI * 2);
-    ctx.fill();
-  }
-  ctx.globalAlpha = 1;
-
-  // aisle dividers, like real stadium seating sections
-  const aisles = 10;
-  ctx.fillStyle = baseColor;
-  for (let i = 1; i < aisles; i++) {
-    ctx.fillRect((i / aisles) * canvas.width - 1.5, 0, 3, canvas.height);
-  }
+  const glow = ctx.createRadialGradient(
+    size / 2,
+    size * 0.74,
+    0,
+    size / 2,
+    size * 0.74,
+    size * 0.4
+  );
+  glow.addColorStop(0, "rgba(255, 230, 180, 0.9)");
+  glow.addColorStop(1, "rgba(255, 230, 180, 0)");
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, size, size);
 
   const texture = new THREE.CanvasTexture(canvas);
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.ClampToEdgeWrapping;
-  texture.repeat.set(8, 1);
   texture.colorSpace = THREE.SRGBColorSpace;
   return texture;
 }
 
-/** A real stepped stand: a short run of stacked, staggered boxes rising
- * away from the court, instead of one flat textured plane. This gives it
- * actual depth and parallax as the camera moves -- a flat plane always
- * looks flat no matter how good its texture is. Kept to a handful of tiers
- * (a few dozen triangles total) since this sits behind an already-animated
- * scene and shouldn't add meaningful GPU cost. */
-function TieredStand({
-  axis,
-  sign,
-  length,
-  baseOffset,
-  texture,
-  trimColor,
+/** A stylized leaning palm: a tilted trunk with a fan of frond "blades"
+ * (elongated cones) radiating from the top. Solid colors, no texture, so
+ * there's nothing to shimmer or crawl as the camera moves (unlike the
+ * crowd texture this replaces), and it's cheaper to render besides. */
+function PalmTree({
+  position,
+  scale,
+  lean,
+  hue,
 }: {
-  axis: "x" | "z";
-  sign: 1 | -1;
-  length: number;
-  baseOffset: number;
-  texture: THREE.Texture;
-  trimColor: string;
+  position: [number, number, number];
+  scale: number;
+  lean: number;
+  hue: string;
 }) {
-  const tiers = 6;
-  const rise = 0.65;
-  const run = 0.85;
-  const depth = 0.45;
+  const trunkHeight = 1.9;
+  const fronds = 6;
 
   return (
-    <group>
-      {Array.from({ length: tiers }).map((_, i) => {
-        const dist = baseOffset + i * run;
-        const y = i * rise + rise / 2;
-        const position: [number, number, number] =
-          axis === "z" ? [0, y, sign * dist] : [sign * dist, y, 0];
-        const size: [number, number, number] =
-          axis === "z" ? [length, rise, depth] : [depth, rise, length];
-        return (
-          <mesh key={i} position={position}>
-            <boxGeometry args={size} />
-            <meshBasicMaterial map={texture} fog />
-          </mesh>
-        );
-      })}
-
-      {/* bright accent trim along the top of the highest tier */}
-      <mesh
-        position={
-          axis === "z"
-            ? [0, tiers * rise + 0.05, sign * (baseOffset + (tiers - 1) * run)]
-            : [sign * (baseOffset + (tiers - 1) * run), tiers * rise + 0.05, 0]
-        }
-      >
-        <boxGeometry args={axis === "z" ? [length, 0.15, 0.05] : [0.05, 0.15, length]} />
-        <meshBasicMaterial color={trimColor} fog={false} />
+    <group position={position} scale={scale} rotation={[0, 0, lean]}>
+      <mesh position={[0, trunkHeight / 2, 0]}>
+        <cylinderGeometry args={[0.07, 0.13, trunkHeight, 6]} />
+        <meshStandardMaterial color="#8a6a45" roughness={0.9} />
       </mesh>
+      <group position={[0, trunkHeight, 0]}>
+        {Array.from({ length: fronds }).map((_, i) => (
+          <mesh key={i} rotation={[Math.PI / 2.5, 0, (i / fronds) * Math.PI * 2]}>
+            <coneGeometry args={[0.13, 1.15, 4]} />
+            <meshStandardMaterial color={hue} roughness={0.8} />
+          </mesh>
+        ))}
+      </group>
     </group>
   );
 }
 
-function Stadium() {
-  const crowdTexture = useMemo(() => createCrowdRowTexture(BRAND_900), []);
-
+/** A palm treeline standing where the stadium stands used to be -- calmer
+ * to look at, on-theme for a real tournament (Miami Open), and with no
+ * repeating texture pattern to alias under motion. */
+function TreeLine() {
   const halfWidth = 6.5;
   const halfDepth = 12;
-  const gap = 2.5;
+  const gap = 3;
+  const hues = [BRAND_600, BRAND_700];
+
+  const trees = useMemo(() => {
+    const list: { position: [number, number, number]; scale: number; lean: number; hue: string }[] =
+      [];
+    let seed = 0;
+
+    const place = (position: [number, number, number]) => {
+      seed += 1;
+      list.push({
+        position,
+        scale: 0.85 + seededRandom(seed) * 0.35,
+        lean: (seededRandom(seed + 0.5) - 0.5) * 0.35,
+        hue: hues[Math.floor(seededRandom(seed + 0.25) * hues.length)],
+      });
+    };
+
+    for (let i = -3; i <= 3; i++) {
+      place([i * 2.4 + (seededRandom(i + 10) - 0.5) * 0.6, 0, -(halfDepth + gap)]);
+    }
+    for (let i = -4; i <= 4; i++) {
+      place([halfWidth + gap, 0, i * 2.6 + (seededRandom(i + 20) - 0.5) * 0.6]);
+      place([-(halfWidth + gap), 0, i * 2.6 + (seededRandom(i + 30) - 0.5) * 0.6]);
+    }
+    return list;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <group>
-      <TieredStand
-        axis="z"
-        sign={-1}
-        length={halfWidth * 2 + gap * 2}
-        baseOffset={halfDepth + gap}
-        texture={crowdTexture}
-        trimColor={LIME}
-      />
-      <TieredStand
-        axis="x"
-        sign={1}
-        length={halfDepth * 2 + gap * 2}
-        baseOffset={halfWidth + gap}
-        texture={crowdTexture}
-        trimColor={LIME}
-      />
-      <TieredStand
-        axis="x"
-        sign={-1}
-        length={halfDepth * 2 + gap * 2}
-        baseOffset={halfWidth + gap}
-        texture={crowdTexture}
-        trimColor={LIME}
-      />
+      {trees.map((t, i) => (
+        <PalmTree key={i} position={t.position} scale={t.scale} lean={t.lean} hue={t.hue} />
+      ))}
     </group>
   );
 }
@@ -206,13 +183,14 @@ function SunBall() {
 
 function Scene() {
   const courtTexture = useMemo(() => createCourtTexture(COURT_GREEN), []);
+  const skyTexture = useMemo(() => createSunsetSkyTexture(), []);
 
   return (
     <>
-      <color attach="background" args={[WHITE]} />
-      <fog attach="fog" args={[WHITE, 13, 27]} />
-      <ambientLight intensity={1.1} color="#fffaf0" />
-      <directionalLight position={[5, 10, 6]} intensity={1.4} color="#fff6e0" />
+      <primitive attach="background" object={skyTexture} />
+      <fog attach="fog" args={["#e59b7a", 12, 26]} />
+      <ambientLight intensity={1.05} color="#ffe7cf" />
+      <directionalLight position={[5, 10, 6]} intensity={1.3} color="#ffddb0" />
       <directionalLight position={[-6, 5, -4]} intensity={0.3} color={BRAND_600} />
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
@@ -222,7 +200,7 @@ function Scene() {
 
       <CourtLines color="#ffffff" />
       <Net />
-      <Stadium />
+      <TreeLine />
       <SunBall />
       <ResponsiveFov baseFov={48} />
       <DriftingCamera />
