@@ -135,7 +135,7 @@ function SunBall() {
 
   return (
     <mesh ref={ref} position={[-3.6, 1.4, 3.2]}>
-      <sphereGeometry args={[0.32, 32, 32]} />
+      <sphereGeometry args={[0.32, 16, 16]} />
       <meshStandardMaterial map={texture} roughness={0.9} />
     </mesh>
   );
@@ -170,7 +170,7 @@ export default function LightCourtScene() {
   return (
     <Canvas
       dpr={1}
-      gl={{ antialias: true, alpha: false }}
+      gl={{ antialias: false, alpha: false }}
       camera={{ fov: 48, position: [0, 4.1, 8.2] }}
       className="!absolute inset-0"
     >

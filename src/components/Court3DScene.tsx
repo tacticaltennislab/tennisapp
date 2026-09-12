@@ -33,7 +33,7 @@ function FloatingBall() {
 
   return (
     <mesh ref={ref} position={[4.0, 3.1, 1.2]}>
-      <sphereGeometry args={[0.34, 32, 32]} />
+      <sphereGeometry args={[0.34, 16, 16]} />
       <meshStandardMaterial map={texture} roughness={0.92} />
     </mesh>
   );
@@ -78,7 +78,7 @@ function Scene() {
       <directionalLight position={[6, 9, 4]} intensity={1.1} color="#eafff0" />
       <directionalLight position={[-6, 4, -6]} intensity={0.25} color={BRAND_600} />
 
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[13, 24]} />
         <meshStandardMaterial map={courtTexture} roughness={0.95} />
       </mesh>
@@ -94,8 +94,8 @@ function Scene() {
 export default function Court3DScene() {
   return (
     <Canvas
-      dpr={[1, 1.5]}
-      gl={{ antialias: true, alpha: false }}
+      dpr={1}
+      gl={{ antialias: false, alpha: false }}
       camera={{ fov: 42, position: [0, 16, 24] }}
       className="!absolute inset-0"
     >
