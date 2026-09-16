@@ -8,6 +8,38 @@ import { IconUsers } from "@/components/icons";
 
 export const dynamic = "force-dynamic";
 
+type PurchaseSummary = {
+  planName: string;
+  status: string;
+  mode: string;
+  amount: number;
+  currentPeriodEnd: Date | null;
+};
+
+function paymentStatus(purchases: PurchaseSummary[]): { label: string; tone: string } {
+  if (purchases.some((p) => p.status === "active")) {
+    const active = purchases.find((p) => p.status === "active")!;
+    return { label: `Active — ${active.planName}`, tone: "bg-green-50 text-green-700" };
+  }
+  if (purchases.some((p) => p.status === "past_due" || p.status === "unpaid")) {
+    return { label: "Past due", tone: "bg-amber-50 text-amber-700" };
+  }
+  const paid = purchases.filter((p) => p.status === "paid");
+  if (paid.length > 0) {
+    return {
+      label: paid.length === 1 ? `Paid — ${paid[0].planName}` : `Paid — ${paid.length} plans`,
+      tone: "bg-green-50 text-green-700",
+    };
+  }
+  if (purchases.some((p) => p.status === "pending")) {
+    return { label: "Pending", tone: "bg-amber-50 text-amber-700" };
+  }
+  if (purchases.some((p) => p.status === "canceled")) {
+    return { label: "Canceled", tone: "bg-gray-100 text-muted" };
+  }
+  return { label: "No purchases", tone: "bg-gray-100 text-muted" };
+}
+
 export default async function CustomersPage() {
   const session = await auth();
   if (!session?.user) {
@@ -21,6 +53,10 @@ export default async function CustomersPage() {
     orderBy: { createdAt: "desc" },
     include: {
       accounts: { select: { provider: true } },
+      purchases: {
+        select: { planName: true, status: true, mode: true, amount: true, currentPeriodEnd: true },
+        orderBy: { createdAt: "desc" },
+      },
       _count: {
         select: {
           videoSubmissions: true,
@@ -49,13 +85,16 @@ export default async function CustomersPage() {
                     <th className="px-4 py-3 font-medium">Name</th>
                     <th className="px-4 py-3 font-medium">Email</th>
                     <th className="px-4 py-3 font-medium">Sign-in</th>
+                    <th className="px-4 py-3 font-medium">Status</th>
                     <th className="px-4 py-3 font-medium">Videos</th>
                     <th className="px-4 py-3 font-medium">Joined</th>
                     <th className="px-4 py-3 font-medium">Messages</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {customers.map((c) => (
+                  {customers.map((c) => {
+                    const status = paymentStatus(c.purchases);
+                    return (
                     <tr key={c.id} className="border-t border-line">
                       <td className="px-4 py-3 font-medium">{c.name || "—"}</td>
                       <td className="px-4 py-3">{c.email}</td>
@@ -68,6 +107,11 @@ export default async function CustomersPage() {
                             admin
                           </span>
                         )}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={`text-xs rounded-full px-2 py-0.5 whitespace-nowrap ${status.tone}`}>
+                          {status.label}
+                        </span>
                       </td>
                       <td className="px-4 py-3">{c._count.videoSubmissions}</td>
                       <td className="px-4 py-3 text-muted">
@@ -86,7 +130,8 @@ export default async function CustomersPage() {
                         </Link>
                       </td>
                     </tr>
-                  ))}
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
