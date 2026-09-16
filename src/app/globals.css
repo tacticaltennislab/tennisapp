@@ -146,10 +146,10 @@
 
   .spotlight-room {
     background:
-      radial-gradient(30% 55% at 20% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
-      radial-gradient(30% 55% at 50% 0%, color-mix(in srgb, var(--color-brand-500) 22%, transparent), transparent 70%),
-      radial-gradient(30% 55% at 80% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
-      var(--color-onyx);
+      radial-gradient(30% 55% at 20% 0%, color-mix(in srgb, var(--color-lime-400) 10%, transparent), transparent 70%),
+      radial-gradient(30% 55% at 50% 0%, color-mix(in srgb, var(--color-brand-500) 14%, transparent), transparent 70%),
+      radial-gradient(30% 55% at 80% 0%, color-mix(in srgb, var(--color-lime-400) 10%, transparent), transparent 70%),
+      #000000;
   }
 
   .animate-drift {
