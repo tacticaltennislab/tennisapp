@@ -5,7 +5,7 @@ const SECTIONS = [
   {
     title: "1. Who is responsible for your data",
     body: [
-      "Tactical Tennis Lab is currently operated by Piotr Kusiewicz as an individual (formal business registration is in progress). For the purposes of data protection law, Piotr Kusiewicz is the data controller for personal data processed through tacticaltennislab.com. You can contact us about any privacy question at tacticaltennislab@gmail.com.",
+      "Tactical Tennis Lab is currently operated by Piotr Kusiewicz and Mateusz Kułakowski as individuals (formal business registration is in progress). For the purposes of data protection law, Piotr Kusiewicz and Mateusz Kułakowski act as joint data controllers for personal data processed through tacticaltennislab.com. You can contact us about any privacy question at tacticaltennislab@gmail.com.",
     ],
   },
   {

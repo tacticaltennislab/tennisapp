@@ -5,7 +5,7 @@ const SECTIONS = [
   {
     title: "1. Who we are",
     body: [
-      "Tactical Tennis Lab (“we”, “us”, “our”) is currently operated by Piotr Kusiewicz as an individual, trading as Tactical Tennis Lab (formal business registration is in progress). We provide online tennis coaching services, including video analysis and personalized training plans, accessible at tacticaltennislab.com (the “Service”). You can reach us at tacticaltennislab@gmail.com.",
+      "Tactical Tennis Lab (“we”, “us”, “our”) is currently operated by Piotr Kusiewicz and Mateusz Kułakowski as individuals, trading as Tactical Tennis Lab (formal business registration is in progress). We provide online tennis coaching services, including video analysis and personalized training plans, accessible at tacticaltennislab.com (the “Service”). You can reach us at tacticaltennislab@gmail.com.",
       "By creating an account, submitting a video, or purchasing a plan, you agree to these Terms of Service.",
     ],
   },

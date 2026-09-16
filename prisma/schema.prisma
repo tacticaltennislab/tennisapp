@@ -74,16 +74,18 @@ model Message {
 }
 
 model Purchase {
-  id               String   @id @default(cuid())
-  userId           String
-  planName         String
-  amount           Int
-  currency         String   @default("usd")
-  mode             String
-  stripeSessionId  String   @unique
-  stripeCustomerId String?
-  status           String   @default("pending")
-  createdAt        DateTime @default(now())
+  id                   String    @id @default(cuid())
+  userId               String
+  planName             String
+  amount               Int
+  currency             String    @default("usd")
+  mode                 String
+  stripeSessionId      String    @unique
+  stripeCustomerId     String?
+  stripeSubscriptionId String?   @unique
+  status               String    @default("pending")
+  currentPeriodEnd     DateTime?
+  createdAt            DateTime  @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
