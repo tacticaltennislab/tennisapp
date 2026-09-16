@@ -7,6 +7,7 @@ export interface Plan {
   features: string[];
   whatYouGet: string[];
   mode: "payment" | "subscription";
+  amountCents: number;
   featured?: boolean;
 }
 
@@ -14,6 +15,7 @@ export const PLANS: Plan[] = [
   {
     planId: "stroke-fix",
     mode: "payment",
+    amountCents: 4900,
     name: "Stroke Fix",
     price: "$49",
     period: "one-time",
@@ -35,6 +37,7 @@ export const PLANS: Plan[] = [
   {
     planId: "smart-system",
     mode: "payment",
+    amountCents: 9900,
     name: "Smart System",
     price: "$99",
     period: "4-week program",
@@ -57,6 +60,7 @@ export const PLANS: Plan[] = [
   {
     planId: "match-iq-short",
     mode: "payment",
+    amountCents: 9900,
     name: "Match IQ: Short",
     price: "$99",
     period: "one-time",
@@ -78,6 +82,7 @@ export const PLANS: Plan[] = [
   {
     planId: "match-iq-full",
     mode: "payment",
+    amountCents: 15900,
     name: "Match IQ: Full",
     price: "$159",
     period: "one-time",
@@ -105,6 +110,7 @@ export const PLANS: Plan[] = [
   {
     planId: "pro-tour",
     mode: "subscription",
+    amountCents: 24900,
     name: "PRO Tour",
     price: "$249",
     period: "/month",

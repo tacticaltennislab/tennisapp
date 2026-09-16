@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { sendEmail, welcomeEmail } from "@/lib/email";
@@ -24,9 +25,19 @@ export async function POST(request: Request) {
     );
   }
 
+  const referrerId = (await cookies()).get("ref_by")?.value || null;
+  const referrer = referrerId
+    ? await prisma.user.findUnique({ where: { id: referrerId }, select: { id: true } })
+    : null;
+
   const passwordHash = await bcrypt.hash(password, 12);
   await prisma.user.create({
-    data: { name: name || null, email, passwordHash },
+    data: {
+      name: name || null,
+      email,
+      passwordHash,
+      referredByUserId: referrer?.id || null,
+    },
   });
 
   await sendEmail({

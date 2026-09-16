@@ -8,14 +8,16 @@ export const dynamic = "force-dynamic";
 export default async function CheckoutSuccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ session_id?: string }>;
+  searchParams: Promise<{ session_id?: string; free?: string }>;
 }) {
-  const { session_id } = await searchParams;
-  if (!session_id) {
+  const { session_id, free } = await searchParams;
+  if (!session_id && free !== "1") {
     redirect("/pricing");
   }
 
-  const session = await stripe.checkout.sessions.retrieve(session_id).catch(() => null);
+  const session = session_id
+    ? await stripe.checkout.sessions.retrieve(session_id).catch(() => null)
+    : null;
 
   return (
     <main className="flex-1 flex items-center justify-center px-4 py-20">
@@ -25,9 +27,11 @@ export default async function CheckoutSuccessPage({
         </div>
         <h1 className="mt-4 text-2xl font-bold">You&apos;re all set</h1>
         <p className="mt-2 text-body">
-          {session?.payment_status === "paid" || session?.status === "complete"
-            ? "Your payment went through. We'll be in touch shortly, or you can send your video now."
-            : "Thanks — we're confirming your payment now."}
+          {free === "1"
+            ? "Redeemed with your referral discount — no charge. We'll be in touch shortly, or you can send your video now."
+            : session?.payment_status === "paid" || session?.status === "complete"
+              ? "Your payment went through. We'll be in touch shortly, or you can send your video now."
+              : "Thanks — we're confirming your payment now."}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link

@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 
@@ -49,6 +50,25 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  events: {
+    async createUser({ user }) {
+      // OAuth sign-ups skip /api/register, so link the referrer here instead,
+      // reading the same cookie ReferralCapture sets on any page visit.
+      const referrerId = (await cookies()).get("ref_by")?.value;
+      if (!referrerId || referrerId === user.id) return;
+
+      const referrer = await prisma.user.findUnique({
+        where: { id: referrerId },
+        select: { id: true },
+      });
+      if (referrer) {
+        await prisma.user.update({
+          where: { id: user.id },
+          data: { referredByUserId: referrer.id },
+        });
+      }
+    },
+  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

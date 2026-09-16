@@ -8,8 +8,23 @@ import EmptyState from "@/components/EmptyState";
 import MessageThread from "@/components/MessageThread";
 import { IconVideo } from "@/components/icons";
 import { focusLabel, goalLabel, levelLabel, isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
+import { countSuccessfulReferrals } from "@/lib/referral";
+import ReferralLinkCard from "@/components/ReferralLinkCard";
 
 export const dynamic = "force-dynamic";
+
+function referralStatusLine(count: number): string {
+  if (count >= 5) {
+    return "You've got most plans free (PRO Tour capped at 40% off, Match IQ: Full capped at 50% off).";
+  }
+  if (count >= 2) {
+    return "You have 40% off every plan. Refer 3 more (5 total) and most plans are free.";
+  }
+  if (count >= 1) {
+    return "You have 20% off every plan. Refer 1 more for 40% off.";
+  }
+  return "Refer 1 friend to unlock 20% off every plan.";
+}
 
 export default async function AccountPage() {
   const session = await auth();
@@ -28,6 +43,10 @@ export default async function AccountPage() {
     orderBy: { createdAt: "asc" },
   });
 
+  const referralCount = await countSuccessfulReferrals(session.user.id);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const referralLink = `${siteUrl}/?ref=${session.user.id}`;
+
   return (
     <div className="flex-1 flex flex-col">
       <PageHeader
@@ -37,6 +56,14 @@ export default async function AccountPage() {
       />
       <main className="flex-1 px-4 py-12">
         <div className="max-w-lg mx-auto">
+          <div className="mb-10">
+            <ReferralLinkCard
+              link={referralLink}
+              referralCount={referralCount}
+              statusLine={referralStatusLine(referralCount)}
+            />
+          </div>
+
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold">Your videos</h2>
             <Link

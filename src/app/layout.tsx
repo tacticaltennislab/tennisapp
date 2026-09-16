@@ -6,6 +6,7 @@ import Providers from "@/components/Providers";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ChatWidget from "@/components/ChatWidget";
+import ReferralCapture from "@/components/ReferralCapture";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
         <Providers>
+          <ReferralCapture />
           <SiteHeader />
           {children}
           <SiteFooter />

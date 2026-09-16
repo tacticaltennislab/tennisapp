@@ -3,9 +3,16 @@ import Reveal from "@/components/Reveal";
 import PricingCarousel from "@/components/PricingCarousel";
 import { IconArrowRight } from "@/components/icons";
 import { PLANS } from "@/lib/plans";
+import { auth } from "@/auth";
+import { countSuccessfulReferrals } from "@/lib/referral";
 import Link from "next/link";
 
-export default function PricingPage() {
+export const dynamic = "force-dynamic";
+
+export default async function PricingPage() {
+  const session = await auth();
+  const referralCount = session?.user ? await countSuccessfulReferrals(session.user.id) : 0;
+
   return (
     <div className="flex-1 flex flex-col">
       <PageHeader
@@ -20,7 +27,7 @@ export default function PricingPage() {
             All prices are in USD. No VAT or sales tax is added at checkout.
           </p>
           <Reveal variant="zoom">
-            <PricingCarousel plans={PLANS} />
+            <PricingCarousel plans={PLANS} referralCount={referralCount} />
           </Reveal>
 
           <Reveal variant="zoom" className="mt-10">

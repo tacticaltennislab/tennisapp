@@ -8,8 +8,14 @@ import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import { IconArrowRight, IconTarget } from "@/components/icons";
 import type { Plan } from "@/lib/plans";
+import { referralDiscountPercent } from "@/lib/referralPricing";
 
 export type { Plan };
+
+function formatCents(cents: number): string {
+  if (cents <= 0) return "Free";
+  return cents % 100 === 0 ? `$${cents / 100}` : `$${(cents / 100).toFixed(2)}`;
+}
 
 const WITHDRAWAL_NOTICE: Record<Plan["mode"], string> = {
   payment:
@@ -20,7 +26,13 @@ const WITHDRAWAL_NOTICE: Record<Plan["mode"], string> = {
 
 const SWIPE_THRESHOLD = 60;
 
-export default function PricingCarousel({ plans }: { plans: Plan[] }) {
+export default function PricingCarousel({
+  plans,
+  referralCount = 0,
+}: {
+  plans: Plan[];
+  referralCount?: number;
+}) {
   const [index, setIndex] = useState(0);
   const [checkingOut, setCheckingOut] = useState<string | null>(null);
   const [acknowledged, setAcknowledged] = useState<Record<string, boolean>>({});
@@ -90,7 +102,14 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
             animate={{ x: `-${index * 100}%` }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            {plans.map((plan) => (
+            {plans.map((plan) => {
+              const discountPercent = referralDiscountPercent(referralCount, plan.planId);
+              const discountedCents =
+                discountPercent > 0
+                  ? Math.round((plan.amountCents * (100 - discountPercent)) / 100)
+                  : plan.amountCents;
+
+              return (
               <div key={plan.name} className="w-full shrink-0 px-1">
                 <TiltCard
                   maxTilt={5}
@@ -103,12 +122,31 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
                   <h3 className={`font-bold text-xl ${plan.featured ? "text-white" : "text-ink"}`}>
                     {plan.name}
                   </h3>
-                  <p className="mt-3 flex items-baseline gap-1">
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className={plan.featured ? "text-white/70" : "text-muted"}>
-                      {plan.period}
-                    </span>
-                  </p>
+                  {discountPercent > 0 ? (
+                    <p className="mt-3 flex items-baseline gap-2 flex-wrap">
+                      <span className={`text-sm line-through ${plan.featured ? "text-white/60" : "text-muted"}`}>
+                        {plan.price}
+                      </span>
+                      <span className="text-4xl font-bold">{formatCents(discountedCents)}</span>
+                      <span className={plan.featured ? "text-white/70" : "text-muted"}>
+                        {plan.period}
+                      </span>
+                      <span
+                        className={`text-xs font-semibold rounded-full px-2 py-0.5 ${
+                          plan.featured ? "bg-white/20 text-white" : "bg-lime-100 text-lime-700"
+                        }`}
+                      >
+                        {discountPercent}% referral discount
+                      </span>
+                    </p>
+                  ) : (
+                    <p className="mt-3 flex items-baseline gap-1">
+                      <span className="text-4xl font-bold">{plan.price}</span>
+                      <span className={plan.featured ? "text-white/70" : "text-muted"}>
+                        {plan.period}
+                      </span>
+                    </p>
+                  )}
                   <p className={`mt-3 text-sm ${plan.featured ? "text-white/85" : "text-body"}`}>
                     {plan.description}
                   </p>
@@ -169,7 +207,8 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
                   </p>
                 </TiltCard>
               </div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </div>

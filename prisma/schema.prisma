@@ -9,14 +9,15 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
-  passwordHash  String?
-  role          String    @default("customer")
-  createdAt     DateTime  @default(now())
+  id               String    @id @default(cuid())
+  name             String?
+  email            String    @unique
+  emailVerified    DateTime?
+  image            String?
+  passwordHash     String?
+  role             String    @default("customer")
+  referredByUserId String?
+  createdAt        DateTime  @default(now())
 
   accounts          Account[]
   sessions          Session[]
@@ -24,6 +25,8 @@ model User {
   messages          Message[]
   purchases         Purchase[]
   pushSubscriptions PushSubscription[]
+  referredBy        User?               @relation("Referrals", fields: [referredByUserId], references: [id], onDelete: SetNull)
+  referrals         User[]              @relation("Referrals")
 }
 
 model Account {
