@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { motion, AnimatePresence, type PanInfo } from "framer-motion";
@@ -15,14 +16,23 @@ export interface Plan {
   description: string;
   features: string[];
   whatYouGet: string[];
+  mode: "payment" | "subscription";
   featured?: boolean;
 }
+
+const WITHDRAWAL_NOTICE: Record<Plan["mode"], string> = {
+  payment:
+    "I want my analysis to begin immediately, and I understand that once a coach starts working on my video, I lose my 14-day right of withdrawal for this purchase.",
+  subscription:
+    "I want my subscription to begin immediately, and I understand this means I lose part of my 14-day right of withdrawal for value already delivered.",
+};
 
 const SWIPE_THRESHOLD = 60;
 
 export default function PricingCarousel({ plans }: { plans: Plan[] }) {
   const [index, setIndex] = useState(0);
   const [checkingOut, setCheckingOut] = useState<string | null>(null);
+  const [acknowledged, setAcknowledged] = useState<Record<string, boolean>>({});
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -37,6 +47,7 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
 
   async function handleGetStarted(plan: Plan) {
     if (status === "loading") return;
+    if (!acknowledged[plan.planId]) return;
 
     if (!session) {
       router.push(`/sign-in?callbackUrl=/pricing`);
@@ -120,11 +131,24 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
                       </li>
                     ))}
                   </ul>
+                  <label
+                    className={`mt-5 flex items-start gap-2 text-xs ${plan.featured ? "text-white/85" : "text-body"}`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={acknowledged[plan.planId] || false}
+                      onChange={(e) =>
+                        setAcknowledged((prev) => ({ ...prev, [plan.planId]: e.target.checked }))
+                      }
+                      className="mt-0.5 shrink-0"
+                    />
+                    <span>{WITHDRAWAL_NOTICE[plan.mode]}</span>
+                  </label>
                   <button
                     type="button"
                     onClick={() => handleGetStarted(plan)}
-                    disabled={checkingOut === plan.planId}
-                    className={`mt-6 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:translate-y-0 ${
+                    disabled={checkingOut === plan.planId || !acknowledged[plan.planId]}
+                    className={`mt-3 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:translate-y-0 disabled:cursor-not-allowed ${
                       plan.featured
                         ? "bg-white text-brand-700 hover:bg-white/90"
                         : "bg-brand-600 text-white hover:bg-brand-700 shadow-sm hover:shadow-md"
@@ -133,6 +157,25 @@ export default function PricingCarousel({ plans }: { plans: Plan[] }) {
                     {checkingOut === plan.planId ? "Redirecting..." : "Get started"}
                     <IconArrowRight className="w-4 h-4" />
                   </button>
+                  <p
+                    className={`mt-3 text-center text-xs ${plan.featured ? "text-white/70" : "text-muted"}`}
+                  >
+                    By continuing, you agree to our{" "}
+                    <Link
+                      href="/terms"
+                      className={plan.featured ? "underline hover:text-white" : "text-brand-600 hover:underline"}
+                    >
+                      Terms
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      href="/privacy"
+                      className={plan.featured ? "underline hover:text-white" : "text-brand-600 hover:underline"}
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </p>
                 </TiltCard>
               </div>
             ))}

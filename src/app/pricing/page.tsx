@@ -7,6 +7,7 @@ import Link from "next/link";
 const PLANS: Plan[] = [
   {
     planId: "stroke-fix",
+    mode: "payment",
     name: "Stroke Fix",
     price: "$49",
     period: "one-time",
@@ -27,6 +28,7 @@ const PLANS: Plan[] = [
   },
   {
     planId: "smart-system",
+    mode: "payment",
     name: "Smart System",
     price: "$99",
     period: "4-week program",
@@ -48,6 +50,7 @@ const PLANS: Plan[] = [
   },
   {
     planId: "match-iq-short",
+    mode: "payment",
     name: "Match IQ: Short",
     price: "$99",
     period: "one-time",
@@ -68,6 +71,7 @@ const PLANS: Plan[] = [
   },
   {
     planId: "match-iq-full",
+    mode: "payment",
     name: "Match IQ: Full",
     price: "$159",
     period: "one-time",
@@ -94,6 +98,7 @@ const PLANS: Plan[] = [
   },
   {
     planId: "pro-tour",
+    mode: "subscription",
     name: "PRO Tour",
     price: "$249",
     period: "/month",
@@ -127,6 +132,9 @@ export default function PricingPage() {
 
       <main className="flex-1 px-4 py-12">
         <div className="max-w-5xl mx-auto">
+          <p className="text-center text-xs text-muted -mt-4 mb-8">
+            All prices are in USD. No VAT or sales tax is added at checkout.
+          </p>
           <Reveal variant="zoom">
             <PricingCarousel plans={PLANS} />
           </Reveal>
