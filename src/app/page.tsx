@@ -149,7 +149,7 @@ export default function Home() {
       <div
         aria-hidden="true"
         className="h-16 sm:h-24"
-        style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
+        style={{ background: "linear-gradient(to bottom, var(--color-onyx), var(--background))" }}
       />
 
       <OffersPreview />
@@ -174,7 +174,7 @@ export default function Home() {
               <Reveal key={a.title} variant="zoom" delay={i * 120}>
                 <TiltCard
                   maxTilt={6}
-                  className="group h-full flex flex-col rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+                  className="group h-full flex flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg"
                 >
                   <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
                     <a.icon className="w-6 h-6" />
@@ -212,8 +212,10 @@ export default function Home() {
         <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-100 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4">
           <Reveal className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold">How it works</h2>
-            <p className="text-body mt-2 max-w-lg mx-auto">
+            {/* This section sits on the court backdrop, which is always bright,
+                so its text stays fixed-dark regardless of the site theme. */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-onyx">How it works</h2>
+            <p className="text-onyx/70 mt-2 max-w-lg mx-auto">
               Three steps from raw footage to a plan you can put on court.
             </p>
           </Reveal>
@@ -222,9 +224,9 @@ export default function Home() {
               <Reveal key={step.title} variant="zoom" delay={i * 120}>
                 <TiltCard
                   maxTilt={6}
-                  className="group relative h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+                  className="group relative h-full rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg"
                 >
-                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center">
+                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-onyx text-white text-xs font-bold flex items-center justify-center">
                     {i + 1}
                   </div>
                   <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
@@ -242,7 +244,7 @@ export default function Home() {
       <div
         aria-hidden="true"
         className="h-16 sm:h-24"
-        style={{ background: "linear-gradient(to bottom, #ffffff, var(--color-ink))" }}
+        style={{ background: "linear-gradient(to bottom, var(--background), var(--color-onyx))" }}
       />
 
       <JourneySection />
@@ -252,7 +254,7 @@ export default function Home() {
       <div
         aria-hidden="true"
         className="h-16 sm:h-24"
-        style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
+        style={{ background: "linear-gradient(to bottom, var(--color-onyx), var(--background))" }}
       />
     </div>
   );

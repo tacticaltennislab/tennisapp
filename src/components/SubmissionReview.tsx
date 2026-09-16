@@ -57,7 +57,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
           className={`text-xs rounded-full px-2 py-0.5 ${
             status === "reviewed"
               ? "bg-brand-50 text-brand-700"
-              : "bg-gray-100 text-muted"
+              : "bg-chip text-muted"
           }`}
         >
           {status}
@@ -83,7 +83,7 @@ export default function SubmissionReview({ submission }: { submission: Submissio
             </span>
           )}
           {submission.focusAreas.filter(isFocusArea).map((area) => (
-            <span key={area} className="text-xs rounded-full bg-gray-100 text-body px-2 py-0.5">
+            <span key={area} className="text-xs rounded-full bg-chip text-body px-2 py-0.5">
               {focusLabel(area)}
             </span>
           ))}

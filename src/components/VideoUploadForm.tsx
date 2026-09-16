@@ -84,7 +84,7 @@ export default function VideoUploadForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 bg-white border border-line shadow-sm rounded-2xl p-6 sm:p-8"
+      className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
         <label className="block text-sm font-medium mb-1">Title</label>
@@ -128,7 +128,7 @@ export default function VideoUploadForm() {
                 className={`btn-3d rounded-lg px-3 py-2 text-sm font-medium border ${
                   skillLevel === l.value
                     ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
-                    : "border-line bg-white hover:border-brand-600"
+                    : "border-line bg-surface hover:border-brand-600"
                 }`}
               >
                 {l.label}
@@ -142,7 +142,7 @@ export default function VideoUploadForm() {
           <select
             value={goal}
             onChange={(e) => setGoal(e.target.value as Goal)}
-            className="w-full rounded-lg border border-line bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+            className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           >
             {GOALS.map((g) => (
               <option key={g.value} value={g.value}>
@@ -165,7 +165,7 @@ export default function VideoUploadForm() {
                 className={`btn-3d rounded-full px-3 py-1.5 text-sm border ${
                   focusAreas.includes(area)
                     ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
-                    : "border-line bg-white hover:border-brand-600"
+                    : "border-line bg-surface hover:border-brand-600"
                 }`}
               >
                 {focusLabel(area)}

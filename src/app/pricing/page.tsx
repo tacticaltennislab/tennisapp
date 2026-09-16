@@ -31,7 +31,7 @@ export default async function PricingPage() {
           </Reveal>
 
           <Reveal variant="zoom" className="mt-10">
-            <div className="rounded-2xl bg-ink text-white p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="rounded-2xl bg-onyx text-white p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
                 <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
                   Clubs &amp; academies

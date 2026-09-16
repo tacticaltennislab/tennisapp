@@ -79,7 +79,7 @@ export default function PricingCarousel({
           type="button"
           onClick={() => go(-1)}
           aria-label="Previous plan"
-          className="absolute -left-4 sm:-left-14 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-line shadow-sm flex items-center justify-center hover:border-brand-600 hover:text-brand-600 transition-colors"
+          className="absolute -left-4 sm:-left-14 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-surface border border-line shadow-sm flex items-center justify-center hover:border-brand-600 hover:text-brand-600 transition-colors"
         >
           <IconArrowRight className="w-4 h-4 rotate-180" />
         </button>
@@ -87,7 +87,7 @@ export default function PricingCarousel({
           type="button"
           onClick={() => go(1)}
           aria-label="Next plan"
-          className="absolute -right-4 sm:-right-14 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-line shadow-sm flex items-center justify-center hover:border-brand-600 hover:text-brand-600 transition-colors"
+          className="absolute -right-4 sm:-right-14 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-surface border border-line shadow-sm flex items-center justify-center hover:border-brand-600 hover:text-brand-600 transition-colors"
         >
           <IconArrowRight className="w-4 h-4" />
         </button>
@@ -116,7 +116,7 @@ export default function PricingCarousel({
                   className={`h-full flex flex-col rounded-2xl border p-6 sm:p-8 shadow-sm cursor-grab active:cursor-grabbing ${
                     plan.featured
                       ? "border-brand-600 bg-brand-600 text-white"
-                      : "border-line bg-white"
+                      : "border-line bg-surface"
                   }`}
                 >
                   <h3 className={`font-bold text-xl ${plan.featured ? "text-white" : "text-ink"}`}>

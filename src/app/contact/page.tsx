@@ -26,7 +26,7 @@ export default function ContactPage() {
                   href="mailto:tacticaltennislab@gmail.com"
                   className="flex items-center gap-3 text-sm text-body hover:text-brand-600 transition-colors"
                 >
-                  <span className="shrink-0 w-9 h-9 rounded-lg bg-white border border-line flex items-center justify-center text-brand-600">
+                  <span className="shrink-0 w-9 h-9 rounded-lg bg-surface border border-line flex items-center justify-center text-brand-600">
                     <IconMail className="w-4 h-4" />
                   </span>
                   tacticaltennislab@gmail.com
@@ -39,7 +39,7 @@ export default function ContactPage() {
                     rel="noreferrer"
                     className="flex items-center gap-3 text-sm text-body hover:text-brand-600 transition-colors"
                   >
-                    <span className="shrink-0 w-9 h-9 rounded-lg bg-white border border-line flex items-center justify-center text-brand-600 text-xs font-semibold">
+                    <span className="shrink-0 w-9 h-9 rounded-lg bg-surface border border-line flex items-center justify-center text-brand-600 text-xs font-semibold">
                       {s.short}
                     </span>
                     {s.label}

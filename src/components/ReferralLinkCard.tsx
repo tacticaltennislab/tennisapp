@@ -30,7 +30,7 @@ export default function ReferralLinkCard({
         <input
           readOnly
           value={link}
-          className="flex-1 rounded-lg border border-line bg-gray-50 px-3 py-2 text-sm text-body truncate"
+          className="flex-1 rounded-lg border border-line bg-surface-muted px-3 py-2 text-sm text-body truncate"
         />
         <button
           type="button"

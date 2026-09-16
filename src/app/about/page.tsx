@@ -102,7 +102,7 @@ export default function AboutPage() {
                 <Reveal key={p.title} variant="zoom" delay={i * 100}>
                   <TiltCard
                     maxTilt={5}
-                    className="group h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg"
+                    className="group h-full rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg"
                   >
                     <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
                       <p.icon className="w-6 h-6" />
@@ -122,7 +122,7 @@ export default function AboutPage() {
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {TRUST.map((t, i) => (
                 <Reveal key={t.title} delay={i * 80}>
-                  <TiltCard maxTilt={4} className="group h-full rounded-2xl border border-line bg-white p-6 shadow-sm hover:shadow-lg">
+                  <TiltCard maxTilt={4} className="group h-full rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg">
                     <div className="flex items-start gap-4">
                       <div className="shrink-0 w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
                         <t.icon className="w-6 h-6" />

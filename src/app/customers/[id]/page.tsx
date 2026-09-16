@@ -20,7 +20,7 @@ const STATUS_TONE: Record<string, string> = {
   pending: "bg-amber-50 text-amber-700",
   past_due: "bg-amber-50 text-amber-700",
   unpaid: "bg-amber-50 text-amber-700",
-  canceled: "bg-gray-100 text-muted",
+  canceled: "bg-chip text-muted",
 };
 
 export default async function CustomerThreadPage({
@@ -102,7 +102,7 @@ export default async function CustomerThreadPage({
                       )}
                     </div>
                     <span
-                      className={`text-xs rounded-full px-2 py-0.5 whitespace-nowrap shrink-0 ${STATUS_TONE[p.status] || "bg-gray-100 text-muted"}`}
+                      className={`text-xs rounded-full px-2 py-0.5 whitespace-nowrap shrink-0 ${STATUS_TONE[p.status] || "bg-chip text-muted"}`}
                     >
                       {p.status}
                     </span>
@@ -148,7 +148,7 @@ export default async function CustomerThreadPage({
                         {s.focusAreas.filter(isFocusArea).map((area) => (
                           <span
                             key={area}
-                            className="text-xs rounded-full bg-gray-100 text-body px-2 py-0.5"
+                            className="text-xs rounded-full bg-chip text-body px-2 py-0.5"
                           >
                             {focusLabel(area)}
                           </span>

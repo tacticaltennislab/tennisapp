@@ -5,7 +5,7 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 export default function ProductScrollSection() {
   return (
-    <div className="flex flex-col overflow-hidden bg-white">
+    <div className="flex flex-col overflow-hidden bg-surface">
       <ContainerScroll
         titleComponent={
           <>

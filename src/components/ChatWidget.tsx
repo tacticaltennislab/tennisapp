@@ -56,7 +56,7 @@ export default function ChatWidget() {
     <div className="fixed bottom-5 right-5 z-30">
       {open && (
         <div className="mb-3 w-[calc(100vw-2.5rem)] max-w-sm animate-fade-up">
-          <div className="rounded-2xl border border-line bg-white shadow-xl overflow-hidden">
+          <div className="rounded-2xl border border-line bg-surface shadow-xl overflow-hidden">
             <div className="flex items-center justify-between bg-brand-600 text-white px-4 py-3">
               <p className="font-semibold text-sm">Chat with your coach</p>
               <button
@@ -81,7 +81,7 @@ export default function ChatWidget() {
       >
         {open ? <IconClose className="w-6 h-6" /> : <IconChat className="w-6 h-6" />}
         {!open && unread > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-lime-400 text-ink text-xs font-bold flex items-center justify-center border-2 border-white">
+          <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-lime-400 text-[#12181f] text-xs font-bold flex items-center justify-center border-2 border-surface">
             {unread}
           </span>
         )}

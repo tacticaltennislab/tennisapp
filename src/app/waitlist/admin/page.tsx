@@ -35,7 +35,7 @@ export default async function WaitlistAdminPage() {
             <div className="overflow-x-auto rounded-2xl border border-line shadow-sm">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-50 text-left text-muted">
+                  <tr className="bg-surface-muted text-left text-muted">
                     <th className="px-4 py-3 font-medium">Name</th>
                     <th className="px-4 py-3 font-medium">Email</th>
                     <th className="px-4 py-3 font-medium">Joined</th>

@@ -91,7 +91,7 @@ export default async function AccountPage() {
                         className={`text-xs rounded-full px-2 py-0.5 ${
                           s.status === "reviewed"
                             ? "bg-brand-50 text-brand-700"
-                            : "bg-gray-100 text-muted"
+                            : "bg-chip text-muted"
                         }`}
                       >
                         {s.status}
@@ -111,7 +111,7 @@ export default async function AccountPage() {
                           </span>
                         )}
                         {s.focusAreas.filter(isFocusArea).map((area) => (
-                          <span key={area} className="text-xs rounded-full bg-gray-100 text-body px-2 py-0.5">
+                          <span key={area} className="text-xs rounded-full bg-chip text-body px-2 py-0.5">
                             {focusLabel(area)}
                           </span>
                         ))}
@@ -124,7 +124,7 @@ export default async function AccountPage() {
                       View video
                     </a>
                     {s.coachNotes && (
-                      <div className="mt-3 rounded-lg bg-gray-50 p-3 text-sm">
+                      <div className="mt-3 rounded-lg bg-surface-muted p-3 text-sm">
                         <p className="font-medium mb-1">Coach feedback</p>
                         <p className="text-body">{s.coachNotes}</p>
                       </div>

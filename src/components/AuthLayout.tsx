@@ -38,7 +38,7 @@ export default function AuthLayout({
         </div>
       </div>
 
-      <div className="flex items-center justify-center px-4 py-16 bg-white">
+      <div className="flex items-center justify-center px-4 py-16 bg-surface">
         <div className="w-full max-w-sm animate-fade-up">
           <h1 className="text-2xl font-bold">{title}</h1>
           <p className="mt-1 text-sm text-body">{subtitle}</p>

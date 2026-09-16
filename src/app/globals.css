@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #12181f;
@@ -18,6 +20,40 @@
   --color-body: #3f4750;
   --color-muted: #6b7280;
   --color-line: #e5e7eb;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f9fafb;
+  --color-chip: #f3f4f6;
+
+  /* Fixed brand-dark color for permanently-dark set-piece sections (hero,
+     "your path", coaches room) -- unlike --color-ink, this never flips with
+     the light/dark toggle, since those sections are deliberately dark in
+     both themes. */
+  --color-onyx: #12181f;
+}
+
+.dark {
+  --background: #0a120c;
+  --foreground: #f2f5f2;
+
+  --color-brand-50: #12271b;
+  --color-brand-100: #16311f;
+  --color-brand-500: #3ecb78;
+  --color-brand-600: #2fb868;
+  --color-brand-700: #26a058;
+  --color-brand-900: #12401f;
+
+  --color-lime-300: #e4fa6b;
+  --color-lime-400: #d3f234;
+
+  --color-ink: #f2f5f2;
+  --color-body: #c3cbc4;
+  --color-muted: #8b968c;
+  --color-line: #223028;
+
+  --color-surface: #101a14;
+  --color-surface-muted: #0d1610;
+  --color-chip: #182420;
 }
 
 @theme inline {
@@ -35,6 +71,10 @@
   --color-body: var(--color-body);
   --color-muted: var(--color-muted);
   --color-line: var(--color-line);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-chip: var(--color-chip);
+  --color-onyx: var(--color-onyx);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -48,6 +88,7 @@
     background: var(--background);
     color: var(--color-body);
     font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   h1,
@@ -108,7 +149,7 @@
       radial-gradient(30% 55% at 20% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
       radial-gradient(30% 55% at 50% 0%, color-mix(in srgb, var(--color-brand-500) 22%, transparent), transparent 70%),
       radial-gradient(30% 55% at 80% 0%, color-mix(in srgb, var(--color-lime-400) 16%, transparent), transparent 70%),
-      var(--color-ink);
+      var(--color-onyx);
   }
 
   .animate-drift {

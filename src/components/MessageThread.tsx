@@ -47,7 +47,7 @@ export default function MessageThread({
   }
 
   return (
-    <div className="rounded-2xl border border-line bg-white shadow-sm flex flex-col h-[420px]">
+    <div className="rounded-2xl border border-line bg-surface shadow-sm flex flex-col h-[420px]">
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
         {messages.length === 0 ? (
           <p className="text-sm text-muted">
@@ -62,7 +62,7 @@ export default function MessageThread({
               <div key={m.id} className={`flex ${isSelf ? "justify-end" : "justify-start"}`}>
                 <div
                   className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
-                    isSelf ? "bg-brand-600 text-white" : "bg-gray-100 text-ink"
+                    isSelf ? "bg-brand-600 text-white" : "bg-chip text-ink"
                   }`}
                 >
                   <p className="whitespace-pre-wrap">{m.body}</p>

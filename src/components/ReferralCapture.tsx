@@ -50,7 +50,7 @@ function Capture() {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm z-50 rounded-2xl border border-line bg-white shadow-lg p-4">
+    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm z-50 rounded-2xl border border-line bg-surface shadow-lg p-4">
       <p className="text-sm text-body">
         You followed a friend&apos;s referral link. Allow a cookie so we can
         credit their account if you sign up? It lasts 30 days and isn&apos;t

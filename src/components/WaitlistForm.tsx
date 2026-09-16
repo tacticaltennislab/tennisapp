@@ -36,7 +36,7 @@ export default function WaitlistForm() {
 
   if (joined) {
     return (
-      <div className="rounded-2xl border border-line bg-white p-8 text-center shadow-sm">
+      <div className="rounded-2xl border border-line bg-surface p-8 text-center shadow-sm">
         <p className="font-semibold text-lg">You&apos;re on the list</p>
         <p className="mt-1 text-sm text-body">
           We&apos;ll email you as soon as we&apos;re ready to open things up.
@@ -48,7 +48,7 @@ export default function WaitlistForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 bg-white border border-line shadow-sm rounded-2xl p-6 sm:p-8"
+      className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
         <label className="block text-sm font-medium mb-1">Name</label>

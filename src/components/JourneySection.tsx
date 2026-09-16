@@ -36,7 +36,7 @@ const STEPS = [
 
 export default function JourneySection() {
   return (
-    <section className="relative overflow-hidden bg-ink">
+    <section className="relative overflow-hidden bg-onyx">
       <ImageStreamHero
         images={BRAND_GRADIENT_TILES}
         cards={9}

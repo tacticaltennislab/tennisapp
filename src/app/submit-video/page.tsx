@@ -60,7 +60,7 @@ export default async function SubmitVideoPage() {
                     key={step.title}
                     className="flex items-start gap-4 rounded-2xl border border-line p-5 shadow-sm"
                   >
-                    <span className="shrink-0 w-8 h-8 rounded-full bg-ink text-white text-sm font-bold flex items-center justify-center">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-onyx text-white text-sm font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
                     <div>
@@ -78,7 +78,7 @@ export default async function SubmitVideoPage() {
                 <ul className="mt-5 space-y-4">
                   {TIPS.map((tip) => (
                     <li key={tip.text} className="flex items-start gap-3">
-                      <span className="shrink-0 w-9 h-9 rounded-lg bg-white border border-line flex items-center justify-center text-brand-600">
+                      <span className="shrink-0 w-9 h-9 rounded-lg bg-surface border border-line flex items-center justify-center text-brand-600">
                         <tip.icon className="w-4 h-4" />
                       </span>
                       <span className="text-sm text-body">{tip.text}</span>
@@ -139,7 +139,7 @@ export default async function SubmitVideoPage() {
               <ul className="mt-5 space-y-4">
                 {TIPS.map((tip) => (
                   <li key={tip.text} className="flex items-start gap-3">
-                    <span className="shrink-0 w-9 h-9 rounded-lg bg-white border border-line flex items-center justify-center text-brand-600">
+                    <span className="shrink-0 w-9 h-9 rounded-lg bg-surface border border-line flex items-center justify-center text-brand-600">
                       <tip.icon className="w-4 h-4" />
                     </span>
                     <span className="text-sm text-body">{tip.text}</span>

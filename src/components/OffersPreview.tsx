@@ -6,7 +6,7 @@ import { PLANS } from "@/lib/plans";
 
 export default function OffersPreview() {
   return (
-    <section className="px-4 py-16 bg-gray-50">
+    <section className="px-4 py-16 bg-surface-muted">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center">
           <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
@@ -27,7 +27,7 @@ export default function OffersPreview() {
               <TiltCard
                 maxTilt={6}
                 className={`h-full flex flex-col rounded-2xl border p-5 shadow-sm hover:shadow-lg ${
-                  plan.featured ? "border-brand-600 bg-brand-600 text-white" : "border-line bg-white"
+                  plan.featured ? "border-brand-600 bg-brand-600 text-white" : "border-line bg-surface"
                 }`}
               >
                 <h3 className={`font-bold text-base ${plan.featured ? "text-white" : "text-ink"}`}>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { IconClose, IconMenu } from "@/components/icons";
 import PushToggle from "@/components/PushToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 
 function LogoMark() {
   return (
@@ -109,13 +110,16 @@ export default function SiteHeader() {
           )}
         </nav>
 
-        <button
-          onClick={() => setMenuOpen((v) => !v)}
-          className="lg:hidden p-2 -mr-2 text-ink"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-        >
-          {menuOpen ? <IconClose className="w-6 h-6" /> : <IconMenu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <ThemeToggle />
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden p-2 -mr-2 text-ink"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+          >
+            {menuOpen ? <IconClose className="w-6 h-6" /> : <IconMenu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {menuOpen && (

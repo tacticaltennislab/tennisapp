@@ -35,9 +35,9 @@ function paymentStatus(purchases: PurchaseSummary[]): { label: string; tone: str
     return { label: "Pending", tone: "bg-amber-50 text-amber-700" };
   }
   if (purchases.some((p) => p.status === "canceled")) {
-    return { label: "Canceled", tone: "bg-gray-100 text-muted" };
+    return { label: "Canceled", tone: "bg-chip text-muted" };
   }
-  return { label: "No purchases", tone: "bg-gray-100 text-muted" };
+  return { label: "No purchases", tone: "bg-chip text-muted" };
 }
 
 export default async function CustomersPage() {
@@ -81,7 +81,7 @@ export default async function CustomersPage() {
             <div className="overflow-x-auto rounded-2xl border border-line shadow-sm">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-50 text-left text-muted">
+                  <tr className="bg-surface-muted text-left text-muted">
                     <th className="px-4 py-3 font-medium">Name</th>
                     <th className="px-4 py-3 font-medium">Email</th>
                     <th className="px-4 py-3 font-medium">Sign-in</th>
