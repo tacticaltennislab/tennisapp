@@ -7,6 +7,7 @@ import TiltCard from "@/components/TiltCard";
 import LightCourt3D from "@/components/LightCourt3D";
 import JourneySection from "@/components/JourneySection";
 import ProductScrollSection from "@/components/ProductScrollSection";
+import OffersPreview from "@/components/OffersPreview";
 import {
   IconArrowRight,
   IconPlan,
@@ -150,6 +151,8 @@ export default function Home() {
         className="h-16 sm:h-24"
         style={{ background: "linear-gradient(to bottom, var(--color-ink), #ffffff)" }}
       />
+
+      <OffersPreview />
 
       <section className="px-4 py-16">
         <div className="max-w-5xl mx-auto">

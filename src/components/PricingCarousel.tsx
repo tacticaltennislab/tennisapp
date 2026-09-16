@@ -7,18 +7,9 @@ import { useSession } from "next-auth/react";
 import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import { IconArrowRight, IconTarget } from "@/components/icons";
+import type { Plan } from "@/lib/plans";
 
-export interface Plan {
-  planId: string;
-  name: string;
-  price: string;
-  period: string;
-  description: string;
-  features: string[];
-  whatYouGet: string[];
-  mode: "payment" | "subscription";
-  featured?: boolean;
-}
+export type { Plan };
 
 const WITHDRAWAL_NOTICE: Record<Plan["mode"], string> = {
   payment:
