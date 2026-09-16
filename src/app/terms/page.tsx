@@ -26,9 +26,11 @@ const SECTIONS = [
   {
     title: "4. Payments and subscriptions",
     body: [
-      "Paid plans are processed securely through Stripe. We do not store your full card details on our servers.",
+      "Paid plans are processed securely through Stripe. We do not store your full card details on our servers. All prices are listed in USD; we do not add VAT or sales tax at checkout.",
       "One-time plans (such as Stroke Fix, Smart System, and Match IQ) are billed once at purchase. PRO Tour is a recurring monthly subscription that renews automatically until cancelled.",
       "You can cancel a subscription at any time from your account; cancellation takes effect at the end of the current billing period, and you keep access until then. We don't provide partial refunds for unused time in a billing period.",
+      "You can earn a discount by sharing your personal referral link (found in your account). A referral only counts once the person you referred completes their first paid purchase. Once you reach a referral milestone, the corresponding discount applies automatically to your own future purchases: currently 20% off after 1 successful referral, 40% off after 2, and most plans free after 5 (Match IQ: Full is capped at 50% off and PRO Tour at 40% off, even at higher referral counts). Referral discounts cannot be exchanged for cash and cannot be combined with other promotional offers unless we say otherwise.",
+      "We may modify, pause, or end the referral program, or change future discount tiers, at any time; a discount tier you've already unlocked will keep applying to your account going forward unless we notify you otherwise. We may reverse referral credit and suspend accounts involved in self-referral, fake accounts, or other abuse of the program, including where a qualifying purchase is later refunded or charged back.",
     ],
   },
   {

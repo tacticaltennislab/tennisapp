@@ -14,6 +14,7 @@ const SECTIONS = [
       "Account information: your name, email address, and password (stored as a secure hash — we never store your password in plain text). If you sign in with Google, we receive your name and email from Google.",
       "Content you provide: video submissions, the details you enter when requesting a training plan or contacting a coach, and messages you send through the Service.",
       "Payment information: when you purchase a plan, payment is handled directly by Stripe. We receive confirmation of your purchase and plan, but never your full card number.",
+      "Referral information: if you sign up using a friend's referral link, we record which account referred you, and how many people you've successfully referred, so we can calculate referral discounts.",
     ],
   },
   {
@@ -21,6 +22,7 @@ const SECTIONS = [
     body: [
       "To provide the Service — reviewing your video, building your training plan, and letting you message your coach — because it's necessary to perform our contract with you.",
       "To send you account-related email — welcome messages, password resets, coach feedback notifications, and purchase confirmations — also necessary to perform our contract with you.",
+      "To calculate and apply the discount you've earned through our referral program, if you take part in it — also necessary to perform our contract with you.",
       "To keep the Service secure and prevent misuse, and to comply with our legal obligations (for example, tax and payment records) — based on our legitimate interest and legal obligations.",
       "We do not sell your personal information to third parties, and we do not use your data for advertising.",
     ],
@@ -28,7 +30,7 @@ const SECTIONS = [
   {
     title: "4. Who we share it with",
     body: [
-      "We use a small number of service providers to run Tactical Tennis Lab: Vercel (hosting), Neon (database), Vercel Blob (video storage), Resend (transactional email), and Stripe (payments). Each only receives the data it needs to perform its function, and each has its own privacy and security practices.",
+      "We use a small number of service providers to run Tactical Tennis Lab: Vercel (hosting), Neon (database), Vercel Blob (video storage), Resend (transactional email), and Stripe (payments). We also use Vercel Analytics to understand overall site traffic; it's aggregated, cookieless, and doesn't identify you individually. Each provider only receives the data it needs to perform its function, and each has its own privacy and security practices.",
       "Some of these providers may process data on servers outside the EU/EEA (for example, in the United States). Where that happens, they do so under their own GDPR-compliant safeguards, such as Standard Contractual Clauses.",
     ],
   },
@@ -54,7 +56,7 @@ const SECTIONS = [
   {
     title: "8. Cookies",
     body: [
-      "We use essential cookies to keep you signed in and remember your session. We don't use third-party advertising or tracking cookies.",
+      "We use essential cookies to keep you signed in and remember your session, and a first-party cookie that remembers which referral link you arrived through (if any) for up to 30 days, so we can credit the right account if you sign up. We don't use third-party advertising or tracking cookies.",
     ],
   },
   {
