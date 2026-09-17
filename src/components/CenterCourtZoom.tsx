@@ -8,13 +8,13 @@ export default function CenterCourtZoom({ className = "" }: { className?: string
     >
       <defs>
         <radialGradient id="courtLightFade" cx="50%" cy="46%" r="65%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="65%" stopColor="#ffffff" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+          <stop offset="0%" stopColor="var(--background)" stopOpacity="0" />
+          <stop offset="65%" stopColor="var(--background)" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="var(--background)" stopOpacity="1" />
         </radialGradient>
         <linearGradient id="courtLightWash" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="var(--color-brand-50)" />
-          <stop offset="100%" stopColor="#ffffff" />
+          <stop offset="100%" stopColor="var(--background)" />
         </linearGradient>
       </defs>
 

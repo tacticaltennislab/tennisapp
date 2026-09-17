@@ -5,15 +5,18 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import {
   BRAND_600,
+  BRAND_900,
   CourtLines,
   Net,
   ResponsiveFov,
   createCourtTexture,
   createTennisBallTexture,
 } from "@/components/three/courtParts";
+import { useIsDark } from "@/hooks/useIsDark";
 
 const WHITE = "#ffffff";
 const COURT_GREEN = "#2c8a52";
+const DARK_BG = "#0a120c";
 
 function DriftingCamera() {
   const t0 = useRef<number | null>(null);
@@ -53,16 +56,30 @@ function SunBall() {
   );
 }
 
-function Scene() {
-  const courtTexture = useMemo(() => createCourtTexture(COURT_GREEN), []);
+function Scene({ isDark }: { isDark: boolean }) {
+  const courtTexture = useMemo(
+    () => createCourtTexture(isDark ? BRAND_900 : COURT_GREEN),
+    [isDark]
+  );
+  const bg = isDark ? DARK_BG : WHITE;
 
   return (
     <>
-      <color attach="background" args={[WHITE]} />
-      <fog attach="fog" args={[WHITE, 10, 20]} />
-      <ambientLight intensity={1.1} color="#fffaf0" />
-      <directionalLight position={[5, 10, 6]} intensity={1.4} color="#fff6e0" />
-      <directionalLight position={[-6, 5, -4]} intensity={0.3} color={BRAND_600} />
+      <color attach="background" args={[bg]} />
+      <fog attach="fog" args={[bg, 10, 20]} />
+      {isDark ? (
+        <>
+          <ambientLight intensity={0.65} />
+          <directionalLight position={[5, 10, 6]} intensity={1.1} color="#eafff0" />
+          <directionalLight position={[-6, 5, -4]} intensity={0.25} color={BRAND_600} />
+        </>
+      ) : (
+        <>
+          <ambientLight intensity={1.1} color="#fffaf0" />
+          <directionalLight position={[5, 10, 6]} intensity={1.4} color="#fff6e0" />
+          <directionalLight position={[-6, 5, -4]} intensity={0.3} color={BRAND_600} />
+        </>
+      )}
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[13, 24]} />
@@ -79,6 +96,8 @@ function Scene() {
 }
 
 export default function LightCourtScene() {
+  const isDark = useIsDark();
+
   return (
     <Canvas
       dpr={1}
@@ -86,7 +105,7 @@ export default function LightCourtScene() {
       camera={{ fov: 48, position: [0, 4.1, 8.2] }}
       className="!absolute inset-0"
     >
-      <Scene />
+      <Scene isDark={isDark} />
     </Canvas>
   );
 }

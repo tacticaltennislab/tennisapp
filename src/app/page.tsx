@@ -206,16 +206,14 @@ export default function Home() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(60% 55% at 50% 38%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.32) 55%, rgba(255,255,255,0.05) 100%)",
+              "radial-gradient(60% 55% at 50% 38%, color-mix(in srgb, var(--background) 60%, transparent) 0%, color-mix(in srgb, var(--background) 32%, transparent) 55%, color-mix(in srgb, var(--background) 5%, transparent) 100%)",
           }}
         />
         <BallMark className="hidden md:block absolute -top-8 -right-8 w-40 h-40 text-brand-100 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4">
           <Reveal className="text-center">
-            {/* This section sits on the court backdrop, which is always bright,
-                so its text stays fixed-dark regardless of the site theme. */}
-            <h2 className="text-2xl sm:text-3xl font-bold text-onyx">How it works</h2>
-            <p className="text-onyx/70 mt-2 max-w-lg mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold">How it works</h2>
+            <p className="text-body mt-2 max-w-lg mx-auto">
               Three steps from raw footage to a plan you can put on court.
             </p>
           </Reveal>
@@ -226,7 +224,7 @@ export default function Home() {
                   maxTilt={6}
                   className="group relative h-full rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg"
                 >
-                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-onyx text-white text-xs font-bold flex items-center justify-center">
+                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white text-xs font-bold flex items-center justify-center">
                     {i + 1}
                   </div>
                   <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">

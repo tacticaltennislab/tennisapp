@@ -60,7 +60,7 @@ export default async function SubmitVideoPage() {
                     key={step.title}
                     className="flex items-start gap-4 rounded-2xl border border-line p-5 shadow-sm"
                   >
-                    <span className="shrink-0 w-8 h-8 rounded-full bg-onyx text-white text-sm font-bold flex items-center justify-center">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
                     <div>
