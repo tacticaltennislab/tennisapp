@@ -15,6 +15,7 @@ const SECTIONS = [
       "Content you provide: video submissions, the details you enter when requesting a training plan or contacting a coach, and messages you send through the Service.",
       "Payment information: when you purchase a plan, payment is handled directly by Stripe. We receive confirmation of your purchase and plan, but never your full card number.",
       "Referral information: if you sign up using a friend's referral link, we record which account referred you, and how many people you've successfully referred, so we can calculate referral discounts.",
+      "Reviews: if you choose to submit a review, we store the rating and text you write. If we approve it, it's displayed publicly on our website together with your name — this only happens if you submit a review yourself, and you can ask us to take it down at any time.",
     ],
   },
   {

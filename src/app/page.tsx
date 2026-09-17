@@ -8,6 +8,7 @@ import LightCourt3D from "@/components/LightCourt3D";
 import JourneySection from "@/components/JourneySection";
 import ProductScrollSection from "@/components/ProductScrollSection";
 import OffersPreview from "@/components/OffersPreview";
+import Testimonials from "@/components/Testimonials";
 import {
   IconArrowRight,
   IconPlan,
@@ -238,6 +239,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       <div
         aria-hidden="true"

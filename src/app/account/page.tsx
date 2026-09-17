@@ -10,6 +10,7 @@ import { IconVideo } from "@/components/icons";
 import { focusLabel, goalLabel, levelLabel, isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 import { countSuccessfulReferrals } from "@/lib/referral";
 import ReferralLinkCard from "@/components/ReferralLinkCard";
+import ReviewForm from "@/components/ReviewForm";
 
 export const dynamic = "force-dynamic";
 
@@ -46,6 +47,11 @@ export default async function AccountPage() {
   const referralCount = await countSuccessfulReferrals(session.user.id);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const referralLink = `${siteUrl}/?ref=${session.user.id}`;
+
+  const existingReview = await prisma.review.findUnique({
+    where: { userId: session.user.id },
+    select: { rating: true, body: true, status: true },
+  });
 
   return (
     <div className="flex-1 flex flex-col">
@@ -146,6 +152,10 @@ export default async function AccountPage() {
               viewerRole="customer"
               initialMessages={messages.map((m) => ({ ...m, createdAt: m.createdAt.toISOString() }))}
             />
+          </div>
+
+          <div className="mt-10">
+            <ReviewForm existing={existingReview} />
           </div>
         </div>
       </main>

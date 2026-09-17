@@ -25,6 +25,7 @@ model User {
   messages          Message[]
   purchases         Purchase[]
   pushSubscriptions PushSubscription[]
+  reviews           Review[]
   referredBy        User?               @relation("Referrals", fields: [referredByUserId], references: [id], onDelete: SetNull)
   referrals         User[]              @relation("Referrals")
 }
@@ -120,6 +121,20 @@ model PushSubscription {
   createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id         String    @id @default(cuid())
+  userId     String
+  rating     Int
+  body       String
+  status     String    @default("pending")
+  createdAt  DateTime  @default(now())
+  reviewedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId])
 }
 
 model VideoSubmission {

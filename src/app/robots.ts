@@ -7,7 +7,14 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/account", "/submissions", "/submit-video", "/customers", "/waitlist/admin"],
+      disallow: [
+        "/account",
+        "/submissions",
+        "/submit-video",
+        "/customers",
+        "/waitlist/admin",
+        "/reviews/admin",
+      ],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
   };

@@ -48,6 +48,7 @@ const SECTIONS = [
       "You retain ownership of the videos and content you submit. By submitting a video, you grant us a limited license to view, analyze, and store it solely for the purpose of providing your coaching feedback and training plan.",
       "Only submit video that you have the right to share. If your video shows other identifiable players, you confirm you have their permission (or a parent/guardian's permission, if they are a minor) to share the footage with us for analysis.",
       "We will never use your video, photos, or name in marketing or promotional material without asking for your separate, explicit consent first.",
+      "If you submit a review through your account, that is your separate, explicit consent for us to display it publicly on our website, together with your name, once we've approved it. We review submissions before publishing and may decline or remove a review at our discretion (for example, if it's abusive, fake, or unrelated to our coaching). You can ask us to remove a published review at any time by emailing tacticaltennislab@gmail.com.",
     ],
   },
   {
