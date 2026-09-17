@@ -32,6 +32,7 @@ const SECTIONS = [
     title: "4. Who we share it with",
     body: [
       "We use a small number of service providers to run Tactical Tennis Lab: Vercel (hosting), Neon (database), Vercel Blob (video storage), Resend (transactional email), and Stripe (payments). We also use Vercel Analytics to understand overall site traffic; it's aggregated, cookieless, and doesn't identify you individually. Each provider only receives the data it needs to perform its function, and each has its own privacy and security practices.",
+      "If you use the \"Quick questions\" AI assistant on the site, whatever you type is sent to Anthropic (our AI provider) to generate a response. That conversation isn't linked to your account or saved on our servers — it only exists in your browser for that visit. Avoid sharing personal details in it.",
       "Some of these providers may process data on servers outside the EU/EEA (for example, in the United States). Where that happens, they do so under their own GDPR-compliant safeguards, such as Standard Contractual Clauses.",
     ],
   },

@@ -7,6 +7,7 @@ import Providers from "@/components/Providers";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ChatWidget from "@/components/ChatWidget";
+import AiFaqWidget from "@/components/AiFaqWidget";
 import ReferralCapture from "@/components/ReferralCapture";
 
 const geistSans = Geist({
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <SiteFooter />
           <ChatWidget />
+          <AiFaqWidget />
         </Providers>
         <Analytics />
       </body>

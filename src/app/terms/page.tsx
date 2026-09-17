@@ -67,6 +67,7 @@ const SECTIONS = [
     title: "9. Disclaimers and limitation of liability",
     body: [
       "The Service is provided “as is.” We do not guarantee specific results from coaching or training plans. To the extent permitted by law, Tactical Tennis Lab is not liable for indirect, incidental, or consequential damages arising from your use of the Service, including injury sustained while training. Nothing in these Terms limits any liability that cannot be limited under applicable law, or affects the statutory rights you have as a consumer in your country of residence.",
+      "The \"Quick questions\" widget is an automated AI assistant for general questions about pricing and how the Service works — it is not a coach, does not review video or technique, and does not create training plans. Its answers are provided for convenience and may occasionally be wrong; they are not professional coaching advice and don't override these Terms. For anything coaching-related, submit a video for a real coach to review; for anything else, email tacticaltennislab@gmail.com.",
     ],
   },
   {
