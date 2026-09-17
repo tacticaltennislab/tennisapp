@@ -33,6 +33,9 @@ export default function SiteFooter() {
           <Link href="/about" className="text-body hover:text-brand-600">
             About
           </Link>
+          <Link href="/review" className="text-body hover:text-brand-600">
+            Leave a review
+          </Link>
           <Link href="/contact" className="text-body hover:text-brand-600">
             Contact
           </Link>
