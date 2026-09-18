@@ -9,6 +9,7 @@ import JourneySection from "@/components/JourneySection";
 import ProductScrollSection from "@/components/ProductScrollSection";
 import OffersPreview from "@/components/OffersPreview";
 import Testimonials from "@/components/Testimonials";
+import { prisma } from "@/lib/prisma";
 import {
   IconArrowRight,
   IconPlan,
@@ -75,9 +76,46 @@ const BADGES = [
   "Worldwide Coaching",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const reviewStats = await prisma.review.aggregate({
+    where: { status: "approved" },
+    _avg: { rating: true },
+    _count: { rating: true },
+  });
+
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Tennis coaching",
+    name: "Tactical Tennis Lab — Online Tennis Coaching for Junior & Competitive Players",
+    provider: {
+      "@type": "Organization",
+      name: "Tactical Tennis Lab",
+    },
+    audience: {
+      "@type": "Audience",
+      audienceType: "Junior and competitive tennis players",
+    },
+    areaServed: "Worldwide",
+    ...(reviewStats._count.rating > 0
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: reviewStats._avg.rating?.toFixed(1),
+            reviewCount: reviewStats._count.rating,
+          },
+        }
+      : {}),
+  };
+
   return (
     <div className="flex-1 flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="relative overflow-hidden min-h-[560px] sm:min-h-[640px] flex items-center">
         <div className="absolute inset-0">
           <Court3D />

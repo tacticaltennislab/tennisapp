@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
@@ -56,6 +57,12 @@ const TRUST = [
     detail: "Every player receives a plan tailored to their goals and level.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Why we built an independent video and tactical analysis service for junior and competitive tennis players — a second expert opinion alongside your on-court coach, for individual players, not clubs.",
+};
 
 export default function AboutPage() {
   return (

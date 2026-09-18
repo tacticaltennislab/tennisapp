@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CoachesAdmin from "@/components/CoachesAdmin";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
@@ -5,6 +6,12 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Meet Your Junior Tennis Coaches",
+  description:
+    "Former ATP-ranked players and ITF Level 2 certified coaches who personally review every video submission from junior and competitive players.",
+};
 
 export default async function CoachesPage() {
   const [session, coaches] = await Promise.all([

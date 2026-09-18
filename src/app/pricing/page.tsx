@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import PricingCarousel from "@/components/PricingCarousel";
@@ -8,6 +9,12 @@ import { countSuccessfulReferrals } from "@/lib/referral";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Tennis Coaching Plans & Pricing for Junior Players",
+  description:
+    "Coaching plans for junior and competitive tennis players, from $49. One-time technique reviews, a 4-week development program, match analysis, and ongoing PRO Tour coaching with a real coach.",
+};
 
 export default async function PricingPage() {
   const session = await auth();

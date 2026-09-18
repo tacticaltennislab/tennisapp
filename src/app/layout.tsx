@@ -20,22 +20,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const DEFAULT_TITLE = "Tactical Tennis Lab — Tennis Coach for Junior & Competitive Players";
+const DEFAULT_DESCRIPTION =
+  "Independent video and match analysis for junior and competitive tennis players. Personal feedback from former ATP-ranked players and ITF Level 2 coaches — a second expert opinion alongside your child's on-court coach, not a club or academy.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: "Tactical Tennis Lab — Independent Video & Match Analysis",
-  description:
-    "Independent video and match analysis from former ATP-ranked players and ITF Level 2 coaches — for ambitious amateurs and competitive juniors.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    template: "%s | Tactical Tennis Lab",
+    default: DEFAULT_TITLE,
+  },
+  description: DEFAULT_DESCRIPTION,
+  keywords: [
+    "tennis coach for junior players",
+    "junior tennis coaching online",
+    "tennis coach for competitive players",
+    "online tennis video analysis",
+    "tennis technique analysis",
+  ],
   openGraph: {
-    title: "Tactical Tennis Lab",
-    description:
-      "Independent video and match analysis from former ATP-ranked players and ITF Level 2 coaches — for ambitious amateurs and competitive juniors.",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tactical Tennis Lab",
-    description:
-      "Independent video and match analysis from former ATP-ranked players and ITF Level 2 coaches — for ambitious amateurs and competitive juniors.",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
   },
   icons: {
     apple: "/apple-touch-icon.png",
@@ -50,6 +62,31 @@ export const viewport: Viewport = {
   themeColor: "#1b7a45",
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Tactical Tennis Lab",
+  url: SITE_URL,
+  description: DEFAULT_DESCRIPTION,
+  areaServed: "Worldwide",
+  sameAs: [
+    "https://www.instagram.com/tacticaltennislab",
+    "https://www.facebook.com/profile.php?id=6159084826074",
+  ],
+  makesOffer: {
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: "Online Tennis Video & Tactical Analysis",
+      serviceType: "Tennis coaching",
+      audience: {
+        "@type": "Audience",
+        audienceType: "Junior and competitive tennis players",
+      },
+    },
+  },
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -58,6 +95,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);}catch(e){}})();`}
         </Script>
