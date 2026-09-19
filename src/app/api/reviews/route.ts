@@ -14,6 +14,8 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   const rating = Number(body?.rating);
   const text = typeof body?.body === "string" ? body.body.trim() : "";
+  const mediaUrl = typeof body?.mediaUrl === "string" ? body.mediaUrl : null;
+  const mediaContentType = typeof body?.mediaContentType === "string" ? body.mediaContentType : null;
 
   if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
     return NextResponse.json({ error: "Rating must be between 1 and 5." }, { status: 400 });
@@ -24,11 +26,17 @@ export async function POST(request: Request) {
       { status: 400 }
     );
   }
+  if (mediaUrl && !mediaUrl.startsWith("https://") ) {
+    return NextResponse.json({ error: "Invalid media URL." }, { status: 400 });
+  }
+  if (mediaUrl && !(mediaContentType?.startsWith("video/") || mediaContentType?.startsWith("image/"))) {
+    return NextResponse.json({ error: "Invalid media type." }, { status: 400 });
+  }
 
   const review = await prisma.review.upsert({
     where: { userId: session.user.id },
-    create: { userId: session.user.id, rating, body: text },
-    update: { rating, body: text, status: "pending", reviewedAt: null },
+    create: { userId: session.user.id, rating, body: text, mediaUrl, mediaContentType },
+    update: { rating, body: text, mediaUrl, mediaContentType, status: "pending", reviewedAt: null },
   });
 
   await sendEmail({

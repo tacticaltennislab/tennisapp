@@ -66,6 +66,21 @@ export default async function Testimonials() {
                   <Reveal key={r.id} variant="zoom" delay={i * 100}>
                     <TiltCard maxTilt={5} className="h-full flex flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg">
                       <Stars rating={r.rating} />
+                      {r.mediaUrl &&
+                        (r.mediaContentType?.startsWith("video/") ? (
+                          <video
+                            src={r.mediaUrl}
+                            controls
+                            className="mt-3 w-full rounded-lg bg-chip aspect-video"
+                          />
+                        ) : (
+                          // eslint-disable-next-line @next/next/no-img-element -- user-uploaded blob URL, not a static asset
+                          <img
+                            src={r.mediaUrl}
+                            alt=""
+                            className="mt-3 w-full rounded-lg object-cover aspect-video"
+                          />
+                        ))}
                       <p className="mt-3 text-sm text-body flex-1">&ldquo;{r.body}&rdquo;</p>
                       <div className="mt-4 flex items-center gap-3">
                         <div className="w-9 h-9 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold flex items-center justify-center shrink-0">

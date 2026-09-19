@@ -43,6 +43,8 @@ export default async function ReviewsAdminPage() {
               status: r.status,
               createdAt: r.createdAt.toISOString(),
               userName: r.user.name || r.user.email,
+              mediaUrl: r.mediaUrl,
+              mediaContentType: r.mediaContentType,
             }))}
           />
         </div>

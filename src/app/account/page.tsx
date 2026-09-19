@@ -50,7 +50,7 @@ export default async function AccountPage() {
 
   const existingReview = await prisma.review.findUnique({
     where: { userId: session.user.id },
-    select: { rating: true, body: true, status: true },
+    select: { rating: true, body: true, status: true, mediaUrl: true, mediaContentType: true },
   });
 
   return (
