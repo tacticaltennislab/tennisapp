@@ -75,10 +75,10 @@ export default function ReviewModeration({ initialReviews }: { initialReviews: R
           {r.mediaUrl && (
             <div className="mt-2">
               {r.mediaContentType?.startsWith("video/") ? (
-                <video src={r.mediaUrl} controls className="w-full max-w-xs rounded-lg bg-chip" />
+                <video src={`/api/reviews/${r.id}/media`} controls className="w-full max-w-xs rounded-lg bg-chip" />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element -- user-uploaded blob URL, not a static asset
-                <img src={r.mediaUrl} alt="" className="w-full max-w-xs rounded-lg" />
+                <img src={`/api/reviews/${r.id}/media`} alt="" className="w-full max-w-xs rounded-lg" />
               )}
             </div>
           )}

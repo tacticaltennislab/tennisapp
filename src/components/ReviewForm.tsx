@@ -50,7 +50,7 @@ export default function ReviewForm({ existing }: { existing: ExistingReview | nu
     if (file) {
       try {
         const blob = await upload(`reviews/${file.name}`, file, {
-          access: "public",
+          access: "private",
           handleUploadUrl: "/api/reviews/upload-token",
           onUploadProgress: ({ percentage }) => setProgress(percentage),
         });

@@ -69,14 +69,14 @@ export default async function Testimonials() {
                       {r.mediaUrl &&
                         (r.mediaContentType?.startsWith("video/") ? (
                           <video
-                            src={r.mediaUrl}
+                            src={`/api/reviews/${r.id}/media`}
                             controls
                             className="mt-3 w-full rounded-lg bg-chip aspect-video"
                           />
                         ) : (
                           // eslint-disable-next-line @next/next/no-img-element -- user-uploaded blob URL, not a static asset
                           <img
-                            src={r.mediaUrl}
+                            src={`/api/reviews/${r.id}/media`}
                             alt=""
                             className="mt-3 w-full rounded-lg object-cover aspect-video"
                           />
