@@ -2,11 +2,6 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 
-export async function GET() {
-  const coaches = await prisma.coach.findMany({ orderBy: { createdAt: "desc" } });
-  return NextResponse.json({ coaches });
-}
-
 export async function POST(request: Request) {
   const session = await auth();
   if (!session?.user || session.user.role !== "admin") {

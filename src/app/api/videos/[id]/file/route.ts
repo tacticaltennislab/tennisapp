@@ -29,9 +29,17 @@ export async function GET(
     return NextResponse.json({ error: "File missing." }, { status: 404 });
   }
 
+  // Use the blob's own recorded content type, not the client-reported
+  // fileType from the database -- that value is attacker-controlled and
+  // serving it with Content-Disposition: inline would let a spoofed
+  // Content-Type (e.g. text/html) execute in the admin's/owner's session.
+  const safeContentType = blob.blob.contentType?.startsWith("video/")
+    ? blob.blob.contentType
+    : "application/octet-stream";
+
   return new NextResponse(blob.stream, {
     headers: {
-      "Content-Type": submission.fileType,
+      "Content-Type": safeContentType,
       "Content-Disposition": `inline; filename="${submission.fileName}"`,
       "Cache-Control": "private, max-age=0, no-store",
     },

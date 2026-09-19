@@ -21,6 +21,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unknown plan." }, { status: 400 });
   }
 
+  if (body?.acknowledgedWithdrawal !== true) {
+    return NextResponse.json(
+      { error: "You must acknowledge the withdrawal-rights notice before checkout." },
+      { status: 400 }
+    );
+  }
+
   const referralCount = await countSuccessfulReferrals(session.user.id);
   const discountPercent = referralDiscountPercent(referralCount, planId);
   const discountedAmount = Math.round((plan.amountCents * (100 - discountPercent)) / 100);

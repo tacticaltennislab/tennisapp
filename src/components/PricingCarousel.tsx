@@ -61,7 +61,7 @@ export default function PricingCarousel({
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ planId: plan.planId }),
+      body: JSON.stringify({ planId: plan.planId, acknowledgedWithdrawal: true }),
     });
 
     const data = await res.json().catch(() => ({}));

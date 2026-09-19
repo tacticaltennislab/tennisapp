@@ -28,6 +28,9 @@ export async function POST(request: Request) {
   if (!storagePath || !fileName || !fileType || !fileSize) {
     return NextResponse.json({ error: "Missing video upload details." }, { status: 400 });
   }
+  if (!fileType.startsWith("video/")) {
+    return NextResponse.json({ error: "File must be a video." }, { status: 400 });
+  }
 
   const submission = await prisma.videoSubmission.create({
     data: {

@@ -14,11 +14,20 @@ export const metadata: Metadata = {
 };
 
 export default async function CoachesPage() {
-  const [session, coaches] = await Promise.all([
-    auth(),
-    prisma.coach.findMany({ orderBy: { createdAt: "desc" } }),
-  ]);
+  const session = await auth();
   const isAdmin = session?.user?.role === "admin";
+
+  const coaches = await prisma.coach.findMany({
+    orderBy: { createdAt: "desc" },
+    select: {
+      id: true,
+      name: true,
+      specialty: true,
+      bio: true,
+      email: isAdmin,
+      phone: isAdmin,
+    },
+  });
 
   return (
     <div className="flex-1 flex flex-col">
