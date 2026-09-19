@@ -4,7 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await auth();
@@ -24,7 +24,15 @@ export async function GET(
     return NextResponse.json({ error: "Forbidden." }, { status: 403 });
   }
 
-  const blob = await get(submission.storagePath, { access: "private" }).catch(() => null);
+  // Video players (Safari in particular) require Range support to play
+  // files at all, not just to seek -- forward the browser's Range request
+  // through to blob storage so playback works.
+  const range = request.headers.get("range");
+
+  const blob = await get(submission.storagePath, {
+    access: "private",
+    ...(range ? { headers: { range } } : {}),
+  }).catch(() => null);
   if (!blob || blob.statusCode !== 200) {
     return NextResponse.json({ error: "File missing." }, { status: 404 });
   }
@@ -37,11 +45,23 @@ export async function GET(
     ? blob.blob.contentType
     : "application/octet-stream";
 
+  // get() always reports statusCode 200 even when blob storage honored our
+  // Range request with a real 206 -- detect that from the response headers
+  // it forwards through instead.
+  const contentRange = blob.headers.get("content-range");
+  const contentLength = blob.headers.get("content-length");
+
+  const headers = new Headers({
+    "Content-Type": safeContentType,
+    "Content-Disposition": `inline; filename="${submission.fileName}"`,
+    "Cache-Control": "private, max-age=0, no-store",
+    "Accept-Ranges": "bytes",
+  });
+  if (contentLength) headers.set("Content-Length", contentLength);
+  if (contentRange) headers.set("Content-Range", contentRange);
+
   return new NextResponse(blob.stream, {
-    headers: {
-      "Content-Type": safeContentType,
-      "Content-Disposition": `inline; filename="${submission.fileName}"`,
-      "Cache-Control": "private, max-age=0, no-store",
-    },
+    status: contentRange ? 206 : 200,
+    headers,
   });
 }
