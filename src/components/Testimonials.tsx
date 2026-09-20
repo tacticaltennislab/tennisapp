@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
 import TiltCard from "@/components/TiltCard";
 import { IconArrowRight } from "@/components/icons";
+import { homeDictionaries } from "@/i18n/dictionaries/home";
+import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 function initials(name: string) {
   return name
@@ -23,7 +25,10 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export default async function Testimonials() {
+export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }) {
+  const t = homeDictionaries[lang].testimonials;
+  const reviewHref = localizedHref(lang, "/review");
+
   const reviews = await prisma.review.findMany({
     where: { status: "approved" },
     orderBy: { reviewedAt: "desc" },
@@ -36,23 +41,20 @@ export default async function Testimonials() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center">
           <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
-            What players are saying
+            {t.eyebrow}
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold mt-1">Real feedback, from real customers</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mt-1">{t.title}</h2>
         </Reveal>
 
         {reviews.length === 0 ? (
           <Reveal variant="zoom" delay={100} className="mt-10">
             <div className="max-w-md mx-auto text-center rounded-2xl border border-dashed border-line p-8">
-              <p className="text-body">
-                No reviews yet — be the first to tell other players what working
-                with your coach has been like.
-              </p>
+              <p className="text-body">{t.emptyText}</p>
               <Link
-                href="/review"
+                href={reviewHref}
                 className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
               >
-                Leave a review
+                {t.emptyCta}
                 <IconArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -94,9 +96,9 @@ export default async function Testimonials() {
               })}
             </div>
             <p className="mt-8 text-center text-sm text-muted">
-              Worked with a coach?{" "}
-              <Link href="/review" className="text-brand-600 font-medium hover:underline">
-                Leave your own review
+              {t.filledPrefix}{" "}
+              <Link href={reviewHref} className="text-brand-600 font-medium hover:underline">
+                {t.filledCta}
               </Link>
             </p>
           </>

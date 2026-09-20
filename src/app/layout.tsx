@@ -9,6 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ChatWidget from "@/components/ChatWidget";
 import AiFaqWidget from "@/components/AiFaqWidget";
 import ReferralCapture from "@/components/ReferralCapture";
+import HtmlLangSync from "@/components/HtmlLangSync";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,6 +109,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
         <Providers>
+          <HtmlLangSync />
           <ReferralCapture />
           <SiteHeader />
           {children}

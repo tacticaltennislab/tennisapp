@@ -2,39 +2,14 @@ import Link from "next/link";
 import { ImageStreamHero } from "@/components/ui/image-stream-hero";
 import { BRAND_GRADIENT_TILES } from "@/lib/gradientTiles";
 import { IconArrowRight } from "@/components/icons";
+import { homeDictionaries } from "@/i18n/dictionaries/home";
+import { localizedHref, type AppLocale } from "@/i18n/locales";
 
-const STEPS = [
-  {
-    step: "1",
-    title: "See how it works",
-    detail: "Send a video, get a frame-by-frame breakdown, receive your plan.",
-    href: "/#how-it-works",
-    cta: "How it works",
-  },
-  {
-    step: "2",
-    title: "Meet the coaches",
-    detail: "Former ATP players and ITF Level 2 certified coaches review every submission.",
-    href: "/coaches",
-    cta: "Meet the coaches",
-  },
-  {
-    step: "3",
-    title: "Choose your plan",
-    detail: "One-time analysis from $49, or the full PRO Tour coaching experience.",
-    href: "/pricing",
-    cta: "See pricing",
-  },
-  {
-    step: "4",
-    title: "Read our story",
-    detail: "Why we built a coaching platform that doesn't stop when the session ends.",
-    href: "/about",
-    cta: "Our story",
-  },
-];
+const HREFS = ["/#how-it-works", "/coaches", "/pricing", "/about"];
 
-export default function JourneySection() {
+export default function JourneySection({ lang = "en" }: { lang?: AppLocale }) {
+  const t = homeDictionaries[lang].journey;
+
   return (
     <section className="relative overflow-hidden bg-onyx">
       <ImageStreamHero
@@ -53,21 +28,21 @@ export default function JourneySection() {
         />
         <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 py-16">
           <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
-            Your path with us
+            {t.eyebrow}
           </p>
           <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-white text-center">
-            From first video to your next win
+            {t.title}
           </h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-3xl w-full">
-            {STEPS.map((s) => (
+            {t.steps.map((s, i) => (
               <Link
-                key={s.step}
-                href={s.href}
+                key={s.title}
+                href={localizedHref(lang, HREFS[i])}
                 className="group rounded-2xl bg-white/8 border border-white/15 backdrop-blur px-5 py-5 hover:bg-white/15 hover:border-white/25 transition-colors"
               >
                 <div className="flex items-start gap-4">
                   <span className="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
-                    {s.step}
+                    {i + 1}
                   </span>
                   <div>
                     <h3 className="font-semibold text-white">{s.title}</h3>

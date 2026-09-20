@@ -4,13 +4,8 @@ import Reveal from "@/components/Reveal";
 import BallMark from "@/components/BallMark";
 import TiltCard from "@/components/TiltCard";
 import { IconArrowRight } from "@/components/icons";
-
-const BADGES = [
-  "Former ATP Players",
-  "ATP Certified Coaches",
-  "ITF Level 2 Coaches",
-  "Worldwide Coaching",
-];
+import { homeDictionaries } from "@/i18n/dictionaries/home";
+import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 function initials(name: string) {
   return name
@@ -22,7 +17,10 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-export default async function CoachesRoom() {
+export default async function CoachesRoom({ lang = "en" }: { lang?: AppLocale }) {
+  const dict = homeDictionaries[lang];
+  const t = dict.coachesRoom;
+
   const coaches = await prisma.coach.findMany({
     orderBy: { createdAt: "desc" },
     take: 6,
@@ -34,17 +32,10 @@ export default async function CoachesRoom() {
       <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20">
         <Reveal className="text-center">
           <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
-            Real coaches, not an algorithm
+            {t.eyebrow}
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold mt-2 text-white">
-            The room behind your training plan
-          </h2>
-          <p className="mt-4 text-white/70 max-w-xl mx-auto">
-            Every submission is reviewed by former ATP players and ITF
-            Level&nbsp;2 certified coaches &mdash; frame-by-frame technical and
-            tactical breakdowns, then a plan built around what you actually
-            need to fix.
-          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold mt-2 text-white">{t.title}</h2>
+          <p className="mt-4 text-white/70 max-w-xl mx-auto">{t.subtitle}</p>
         </Reveal>
 
         {coaches.length > 0 ? (
@@ -67,10 +58,10 @@ export default async function CoachesRoom() {
                     <p className="mt-2 text-sm text-white/60">{coach.bio}</p>
                   )}
                   <Link
-                    href={`/coaches/${coach.id}`}
+                    href={localizedHref(lang, `/coaches/${coach.id}`)}
                     className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-lime-300 hover:underline"
                   >
-                    View full profile
+                    {t.viewProfile}
                     <IconArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </TiltCard>
@@ -79,7 +70,7 @@ export default async function CoachesRoom() {
           </div>
         ) : (
           <Reveal delay={100} className="mt-10 flex flex-wrap justify-center gap-3">
-            {BADGES.map((b) => (
+            {dict.badges.map((b) => (
               <span
                 key={b}
                 className="rounded-full bg-white/5 border border-white/10 backdrop-blur text-white/90 text-sm px-4 py-2"

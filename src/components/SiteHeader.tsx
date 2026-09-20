@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { IconClose, IconMenu } from "@/components/icons";
 import PushToggle from "@/components/PushToggle";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher, { currentLocaleFromPathname } from "@/components/LanguageSwitcher";
+import { localizedHref } from "@/i18n/locales";
 
 function LogoMark() {
   return (
@@ -23,6 +26,8 @@ function LogoMark() {
 
 export default function SiteHeader() {
   const { data: session, status } = useSession();
+  const pathname = usePathname();
+  const locale = currentLocaleFromPathname(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -46,7 +51,7 @@ export default function SiteHeader() {
     >
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
         <Link
-          href="/"
+          href={localizedHref(locale, "/")}
           className="flex items-center gap-2 font-bold text-lg text-ink shrink-0 whitespace-nowrap"
         >
           <LogoMark />
@@ -108,6 +113,7 @@ export default function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2 shrink-0">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             onClick={() => setMenuOpen((v) => !v)}
