@@ -6,6 +6,28 @@ interface SeoText {
 }
 
 export const seoTranslations: Record<string, Record<Locale, SeoText>> = {
+  pricing: {
+    pl: {
+      title: "Cennik Treningów Tenisa dla Juniorów",
+      description:
+        "Plany coachingowe dla juniorów i zawodników, już od 49 USD. Jednorazowe analizy techniki, 4-tygodniowy program rozwoju, analiza meczowa i ciągły coaching PRO Tour z prawdziwym trenerem.",
+    },
+    es: {
+      title: "Precios de Planes de Tenis para Juniors",
+      description:
+        "Planes de coaching para jugadores junior y competitivos, desde $49. Revisiones técnicas puntuales, un programa de desarrollo de 4 semanas, análisis de partidos y coaching PRO Tour continuo con un entrenador real.",
+    },
+    it: {
+      title: "Prezzi dei Piani di Tennis per Junior",
+      description:
+        "Piani di coaching per giocatori junior e agonisti, a partire da $49. Revisioni tecniche una tantum, un programma di sviluppo di 4 settimane, analisi delle partite e coaching PRO Tour continuo con un allenatore vero.",
+    },
+    ru: {
+      title: "Цены на Теннисные Программы для Юниоров",
+      description:
+        "Планы коучинга для юниоров и соревнующихся игроков от $49. Разовый разбор техники, 4-недельная программа развития, анализ матчей и постоянный коучинг PRO Tour с настоящим тренером.",
+    },
+  },
   home: {
     pl: {
       title: "Tactical Tennis Lab — Trener Tenisa dla Juniorów i Zawodników",

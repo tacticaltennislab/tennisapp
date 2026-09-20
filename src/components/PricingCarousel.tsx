@@ -9,35 +9,43 @@ import TiltCard from "@/components/TiltCard";
 import { IconArrowRight, IconTarget } from "@/components/icons";
 import type { Plan } from "@/lib/plans";
 import { referralDiscountPercent } from "@/lib/referralPricing";
+import { planTranslations } from "@/i18n/dictionaries/plans";
+import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
+import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 export type { Plan };
-
-function formatCents(cents: number): string {
-  if (cents <= 0) return "Free";
-  return cents % 100 === 0 ? `$${cents / 100}` : `$${(cents / 100).toFixed(2)}`;
-}
-
-const WITHDRAWAL_NOTICE: Record<Plan["mode"], string> = {
-  payment:
-    "I want my analysis to begin immediately, and I understand that once a coach starts working on my video, I lose my 14-day right of withdrawal for this purchase.",
-  subscription:
-    "I want my subscription to begin immediately, and I understand this means I lose part of my 14-day right of withdrawal for value already delivered.",
-};
 
 const SWIPE_THRESHOLD = 60;
 
 export default function PricingCarousel({
   plans,
   referralCount = 0,
+  lang = "en",
 }: {
   plans: Plan[];
   referralCount?: number;
+  lang?: AppLocale;
 }) {
+  const t = pricingDictionaries[lang].carousel;
   const [index, setIndex] = useState(0);
   const [checkingOut, setCheckingOut] = useState<string | null>(null);
   const [acknowledged, setAcknowledged] = useState<Record<string, boolean>>({});
   const { data: session, status } = useSession();
   const router = useRouter();
+
+  function formatCents(cents: number): string {
+    if (cents <= 0) return t.freeLabel;
+    return cents % 100 === 0 ? `$${cents / 100}` : `$${(cents / 100).toFixed(2)}`;
+  }
+
+  function textFor(plan: Plan) {
+    return lang === "en" ? plan : planTranslations[plan.planId]?.[lang] || plan;
+  }
+
+  const withdrawalNotice: Record<Plan["mode"], string> = {
+    payment: t.withdrawalPayment,
+    subscription: t.withdrawalSubscription,
+  };
 
   function go(delta: 1 | -1) {
     setIndex((i) => (i + delta + plans.length) % plans.length);
@@ -53,7 +61,7 @@ export default function PricingCarousel({
     if (!acknowledged[plan.planId]) return;
 
     if (!session) {
-      router.push(`/sign-in?callbackUrl=/pricing`);
+      router.push(localizedHref(lang, `/sign-in?callbackUrl=${localizedHref(lang, "/pricing")}`));
       return;
     }
 
@@ -72,13 +80,15 @@ export default function PricingCarousel({
     }
   }
 
+  const currentText = textFor(plans[index]);
+
   return (
     <div>
       <div className="relative max-w-md lg:max-w-lg mx-auto">
         <button
           type="button"
           onClick={() => go(-1)}
-          aria-label="Previous plan"
+          aria-label={t.prevAria}
           className="absolute -left-4 sm:-left-14 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-surface border border-line shadow-sm flex items-center justify-center hover:border-brand-600 hover:text-brand-600 transition-colors"
         >
           <IconArrowRight className="w-4 h-4 rotate-180" />
@@ -86,7 +96,7 @@ export default function PricingCarousel({
         <button
           type="button"
           onClick={() => go(1)}
-          aria-label="Next plan"
+          aria-label={t.nextAria}
           className="absolute -right-4 sm:-right-14 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-surface border border-line shadow-sm flex items-center justify-center hover:border-brand-600 hover:text-brand-600 transition-colors"
         >
           <IconArrowRight className="w-4 h-4" />
@@ -103,6 +113,7 @@ export default function PricingCarousel({
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             {plans.map((plan) => {
+              const text = textFor(plan);
               const discountPercent = referralDiscountPercent(referralCount, plan.planId);
               const discountedCents =
                 discountPercent > 0
@@ -120,7 +131,7 @@ export default function PricingCarousel({
                   }`}
                 >
                   <h3 className={`font-bold text-xl ${plan.featured ? "text-white" : "text-ink"}`}>
-                    {plan.name}
+                    {text.name}
                   </h3>
                   {discountPercent > 0 ? (
                     <p className="mt-3 flex items-baseline gap-2 flex-wrap">
@@ -129,29 +140,30 @@ export default function PricingCarousel({
                       </span>
                       <span className="text-4xl font-bold">{formatCents(discountedCents)}</span>
                       <span className={plan.featured ? "text-white/70" : "text-muted"}>
-                        {plan.period}
+                        {text.period}
                       </span>
                       <span
                         className={`text-xs font-semibold rounded-full px-2 py-0.5 ${
                           plan.featured ? "bg-white/20 text-white" : "bg-lime-100 text-lime-700"
                         }`}
                       >
-                        {discountPercent}% referral discount
+                        {discountPercent}
+                        {t.referralDiscount}
                       </span>
                     </p>
                   ) : (
                     <p className="mt-3 flex items-baseline gap-1">
                       <span className="text-4xl font-bold">{plan.price}</span>
                       <span className={plan.featured ? "text-white/70" : "text-muted"}>
-                        {plan.period}
+                        {text.period}
                       </span>
                     </p>
                   )}
                   <p className={`mt-3 text-sm ${plan.featured ? "text-white/85" : "text-body"}`}>
-                    {plan.description}
+                    {text.description}
                   </p>
                   <ul className="mt-4 space-y-2 text-sm flex-1">
-                    {plan.features.map((f) => (
+                    {text.features.map((f) => (
                       <li key={f} className="flex items-start gap-2">
                         <span className={plan.featured ? "text-lime-300" : "text-brand-600"}>
                           ✓
@@ -171,7 +183,7 @@ export default function PricingCarousel({
                       }
                       className="mt-0.5 shrink-0"
                     />
-                    <span>{WITHDRAWAL_NOTICE[plan.mode]}</span>
+                    <span>{withdrawalNotice[plan.mode]}</span>
                   </label>
                   <button
                     type="button"
@@ -183,25 +195,25 @@ export default function PricingCarousel({
                         : "bg-brand-600 text-white hover:bg-brand-700 shadow-sm hover:shadow-md"
                     }`}
                   >
-                    {checkingOut === plan.planId ? "Redirecting..." : "Get started"}
+                    {checkingOut === plan.planId ? t.redirecting : t.getStarted}
                     <IconArrowRight className="w-4 h-4" />
                   </button>
                   <p
                     className={`mt-3 text-center text-xs ${plan.featured ? "text-white/70" : "text-muted"}`}
                   >
-                    By continuing, you agree to our{" "}
+                    {t.agreePrefix}{" "}
                     <Link
-                      href="/terms"
+                      href={localizedHref(lang, "/terms")}
                       className={plan.featured ? "underline hover:text-white" : "text-brand-600 hover:underline"}
                     >
-                      Terms
+                      {t.termsLabel}
                     </Link>{" "}
-                    and{" "}
+                    {t.andLabel}{" "}
                     <Link
-                      href="/privacy"
+                      href={localizedHref(lang, "/privacy")}
                       className={plan.featured ? "underline hover:text-white" : "text-brand-600 hover:underline"}
                     >
-                      Privacy Policy
+                      {t.privacyLabel}
                     </Link>
                     .
                   </p>
@@ -238,13 +250,13 @@ export default function PricingCarousel({
             className="rounded-2xl border border-line bg-brand-50/40 p-6 sm:p-8"
           >
             <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
-              What you get
+              {t.whatYouGetEyebrow}
             </p>
             <h3 className="text-xl font-bold mt-1">
-              What {plans[index].name} actually gives you
+              {t.whatYouGetTitle.replace("{plan}", currentText.name)}
             </h3>
             <ul className="mt-5 space-y-3">
-              {plans[index].whatYouGet.map((item) => (
+              {currentText.whatYouGet.map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="shrink-0 mt-0.5 text-brand-600">
                     <IconTarget className="w-4 h-4" />
@@ -255,13 +267,7 @@ export default function PricingCarousel({
             </ul>
           </motion.div>
         </AnimatePresence>
-        <p className="mt-6 text-sm text-muted text-center max-w-xl mx-auto">
-          Your on-court coach does the work that matters most — daily reps,
-          technique under real pressure, knowing your game. We&apos;re not
-          here to replace that. This is the frame-by-frame video and tactical
-          analysis most coaches simply don&apos;t have the hours for — a
-          second pair of eyes that makes their coaching even sharper.
-        </p>
+        <p className="mt-6 text-sm text-muted text-center max-w-xl mx-auto">{t.coachNote}</p>
       </div>
     </div>
   );

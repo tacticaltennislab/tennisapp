@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import HomeContent from "@/components/HomeContent";
 import { isLocale } from "@/i18n/locales";
-import { seoTranslations } from "@/i18n/dictionaries/seo";
+import { localizedMetadata } from "@/i18n/metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -12,24 +12,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  if (!isLocale(lang)) return {};
-  const seo = seoTranslations.home[lang];
-  return {
-    title: seo.title,
-    description: seo.description,
-    openGraph: { title: seo.title, description: seo.description },
-    twitter: { title: seo.title, description: seo.description },
-    alternates: {
-      canonical: `/${lang}`,
-      languages: {
-        en: "/",
-        pl: "/pl",
-        es: "/es",
-        it: "/it",
-        ru: "/ru",
-      },
-    },
-  };
+  return localizedMetadata("home", lang, "");
 }
 
 export default async function LocalizedHome({

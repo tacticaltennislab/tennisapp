@@ -6,9 +6,22 @@ import { LOCALES, LOCALE_LABELS, localizedHref, type AppLocale } from "@/i18n/lo
 
 const ALL_LOCALES: AppLocale[] = ["en", ...LOCALES];
 
+// Pages that exist in every locale. Grows as more pages are translated;
+// anything not listed here falls back to that locale's homepage instead
+// of a 404.
+const TRANSLATED_PAGES = ["/", "/pricing"];
+
 export function currentLocaleFromPathname(pathname: string): AppLocale {
   const first = pathname.split("/")[1];
   return (LOCALES as readonly string[]).includes(first) ? (first as AppLocale) : "en";
+}
+
+/** Strips the locale prefix (if any) to get the page path, e.g.
+ * "/pl/pricing" -> "/pricing", "/pl" -> "/", "/pricing" -> "/pricing". */
+function pagePathFromPathname(pathname: string, locale: AppLocale): string {
+  if (locale === "en") return pathname || "/";
+  const stripped = pathname.slice(`/${locale}`.length);
+  return stripped || "/";
 }
 
 export default function LanguageSwitcher() {
@@ -19,9 +32,9 @@ export default function LanguageSwitcher() {
 
   function pick(lang: AppLocale) {
     setOpen(false);
-    // Only the homepage is translated so far -- always land there. Once a
-    // page has a localized version, this can map the current path instead.
-    router.push(localizedHref(lang, "/"));
+    const pagePath = pagePathFromPathname(pathname, current);
+    const target = TRANSLATED_PAGES.includes(pagePath) ? pagePath : "/";
+    router.push(localizedHref(lang, target));
   }
 
   return (

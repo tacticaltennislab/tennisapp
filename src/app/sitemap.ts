@@ -14,13 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", changeFrequency: "yearly", priority: 0.4 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.2 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.2 },
-    // Only the homepage is translated so far -- more locale paths get
-    // added here as each page is translated in later phases.
-    ...LOCALES.map((lang) => ({
-      path: `/${lang}`,
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    })),
+    // More locale paths get added here as each page is translated in
+    // later phases.
+    ...LOCALES.flatMap((lang) => [
+      { path: `/${lang}`, changeFrequency: "weekly" as const, priority: 0.9 },
+      { path: `/${lang}/pricing`, changeFrequency: "weekly" as const, priority: 0.85 },
+    ]),
   ];
 
   return routes.map((r) => ({
