@@ -12,7 +12,6 @@ export default function robots(): MetadataRoute.Robots {
         "/submissions",
         "/submit-video",
         "/customers",
-        "/waitlist/admin",
         "/reviews/admin",
       ],
     },

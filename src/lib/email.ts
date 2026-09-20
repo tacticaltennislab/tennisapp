@@ -106,15 +106,6 @@ export function newMessageFromCoachEmail(body: string) {
   );
 }
 
-export function waitlistNotificationEmail(name: string, email: string) {
-  return layout(
-    "New waitlist signup",
-    `<p style="font-size: 14px; color: #6b7280;">
-      <strong style="color:#12181f;">${escapeHtml(name)}</strong> (${escapeHtml(email)}) just joined the waitlist.
-    </p>`
-  );
-}
-
 export function contactFormEmail(name: string, email: string, message: string) {
   return layout(
     "New contact form message",

@@ -76,9 +76,6 @@ export default function SiteHeader() {
                   <Link href="/customers" className={linkClass}>
                     Customers
                   </Link>
-                  <Link href="/waitlist/admin" className={linkClass}>
-                    Waitlist
-                  </Link>
                   <Link href="/reviews/admin" className={linkClass}>
                     Reviews
                   </Link>
@@ -97,9 +94,6 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
-              <Link href="/waitlist" className={linkClass}>
-                Waitlist
-              </Link>
               <Link href="/sign-in" className={linkClass}>
                 Sign in
               </Link>
@@ -149,9 +143,6 @@ export default function SiteHeader() {
                   <Link href="/customers" className={linkClass} onClick={closeMenu}>
                     Customers
                   </Link>
-                  <Link href="/waitlist/admin" className={linkClass} onClick={closeMenu}>
-                    Waitlist
-                  </Link>
                   <Link href="/reviews/admin" className={linkClass} onClick={closeMenu}>
                     Reviews
                   </Link>
@@ -173,9 +164,6 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
-              <Link href="/waitlist" className={linkClass} onClick={closeMenu}>
-                Waitlist
-              </Link>
               <Link href="/sign-in" className={linkClass} onClick={closeMenu}>
                 Sign in
               </Link>
