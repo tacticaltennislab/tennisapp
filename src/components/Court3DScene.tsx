@@ -96,8 +96,8 @@ function Scene() {
 export default function Court3DScene() {
   return (
     <Canvas
-      dpr={1}
-      gl={{ antialias: false, alpha: false }}
+      dpr={[1, 2]}
+      gl={{ antialias: true, alpha: false }}
       camera={{ fov: 42, position: [0, 16, 24] }}
       className="!absolute inset-0"
     >

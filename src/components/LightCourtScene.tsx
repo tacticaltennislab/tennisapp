@@ -100,8 +100,8 @@ export default function LightCourtScene() {
 
   return (
     <Canvas
-      dpr={1}
-      gl={{ antialias: false, alpha: false }}
+      dpr={[1, 2]}
+      gl={{ antialias: true, alpha: false }}
       camera={{ fov: 48, position: [0, 4.1, 8.2] }}
       className="!absolute inset-0"
     >

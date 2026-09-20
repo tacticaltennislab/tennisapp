@@ -130,48 +130,54 @@ export function ResponsiveFov({
 
 export function CourtLines({ color = "#eef7f0" }: { color?: string }) {
   const lineMat = <meshStandardMaterial color={color} roughness={0.8} />;
-  const y = 0.011;
+  // Cross-lines (baselines, service lines) and longitudinal lines
+  // (sidelines, center line) physically overlap where they cross. Giving
+  // them slightly different heights avoids two coplanar boxes fighting
+  // for the same depth-buffer value at every intersection, which reads
+  // as flickering/jagged lines rather than a clean crossing.
+  const yCross = 0.011;
+  const yLong = 0.013;
 
   return (
     <group>
       {/* baselines */}
-      <mesh position={[0, y, 9.75]}>
+      <mesh position={[0, yCross, 9.75]}>
         <boxGeometry args={[9, 0.02, 0.07]} />
         {lineMat}
       </mesh>
-      <mesh position={[0, y, -9.75]}>
+      <mesh position={[0, yCross, -9.75]}>
         <boxGeometry args={[9, 0.02, 0.07]} />
         {lineMat}
       </mesh>
       {/* doubles sidelines */}
-      <mesh position={[4.5, y, 0]}>
+      <mesh position={[4.5, yLong, 0]}>
         <boxGeometry args={[0.07, 0.02, 19.5]} />
         {lineMat}
       </mesh>
-      <mesh position={[-4.5, y, 0]}>
+      <mesh position={[-4.5, yLong, 0]}>
         <boxGeometry args={[0.07, 0.02, 19.5]} />
         {lineMat}
       </mesh>
       {/* singles sidelines */}
-      <mesh position={[3.375, y, 0]}>
+      <mesh position={[3.375, yLong, 0]}>
         <boxGeometry args={[0.06, 0.02, 19.5]} />
         {lineMat}
       </mesh>
-      <mesh position={[-3.375, y, 0]}>
+      <mesh position={[-3.375, yLong, 0]}>
         <boxGeometry args={[0.06, 0.02, 19.5]} />
         {lineMat}
       </mesh>
       {/* service lines */}
-      <mesh position={[0, y, 5.25]}>
+      <mesh position={[0, yCross, 5.25]}>
         <boxGeometry args={[6.75, 0.02, 0.06]} />
         {lineMat}
       </mesh>
-      <mesh position={[0, y, -5.25]}>
+      <mesh position={[0, yCross, -5.25]}>
         <boxGeometry args={[6.75, 0.02, 0.06]} />
         {lineMat}
       </mesh>
       {/* center service line */}
-      <mesh position={[0, y, 0]}>
+      <mesh position={[0, yLong, 0]}>
         <boxGeometry args={[0.06, 0.02, 10.5]} />
         {lineMat}
       </mesh>
