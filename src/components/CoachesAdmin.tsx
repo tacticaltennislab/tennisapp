@@ -5,6 +5,8 @@ import Link from "next/link";
 import EmptyState from "@/components/EmptyState";
 import TiltCard from "@/components/TiltCard";
 import { IconUsers, IconArrowRight } from "@/components/icons";
+import { coachesDictionaries } from "@/i18n/dictionaries/coaches";
+import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 interface Coach {
   id: string;
@@ -28,10 +30,13 @@ function initials(name: string) {
 export default function CoachesAdmin({
   initialCoaches,
   isAdmin,
+  lang = "en",
 }: {
   initialCoaches: Coach[];
   isAdmin: boolean;
+  lang?: AppLocale;
 }) {
+  const t = coachesDictionaries[lang].list;
   const [coaches, setCoaches] = useState<Coach[]>(initialCoaches);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -128,8 +133,8 @@ export default function CoachesAdmin({
         {coaches.length === 0 ? (
           <EmptyState
             icon={IconUsers}
-            title="No coaches added yet"
-            detail={isAdmin ? "Add your first coach using the form." : "Check back soon."}
+            title={t.noCoaches}
+            detail={isAdmin ? "Add your first coach using the form." : t.checkBackSoon}
           />
         ) : (
           <ul className={isAdmin ? "space-y-4" : "grid gap-4 sm:grid-cols-2"}>
@@ -160,10 +165,10 @@ export default function CoachesAdmin({
                 )}
                 {!isAdmin && (
                   <Link
-                    href={`/coaches/${coach.id}`}
+                    href={localizedHref(lang, `/coaches/${coach.id}`)}
                     className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
                   >
-                    View full profile
+                    {t.viewProfile}
                     <IconArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 )}

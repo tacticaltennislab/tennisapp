@@ -9,6 +9,7 @@ import PushToggle from "@/components/PushToggle";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher, { currentLocaleFromPathname } from "@/components/LanguageSwitcher";
 import { localizedHref } from "@/i18n/locales";
+import { navDictionaries } from "@/i18n/dictionaries/nav";
 
 function LogoMark() {
   return (
@@ -28,6 +29,7 @@ export default function SiteHeader() {
   const { data: session, status } = useSession();
   const pathname = usePathname();
   const locale = currentLocaleFromPathname(pathname);
+  const t = navDictionaries[locale];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -59,30 +61,30 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-4 text-sm">
-          <Link href="/pricing" className={linkClass}>
-            Pricing
+          <Link href={localizedHref(locale, "/pricing")} className={linkClass}>
+            {t.pricing}
           </Link>
-          <Link href="/coaches" className={linkClass}>
-            Coaches
+          <Link href={localizedHref(locale, "/coaches")} className={linkClass}>
+            {t.coaches}
           </Link>
-          <Link href="/contact" className={linkClass}>
-            Contact
+          <Link href={localizedHref(locale, "/contact")} className={linkClass}>
+            {t.contact}
           </Link>
           {status === "loading" ? null : session ? (
             <>
               <Link href="/submit-video" className={linkClass}>
-                Send Video
+                {t.sendVideo}
               </Link>
               {session.user?.role === "admin" && (
                 <>
                   <Link href="/submissions" className={linkClass}>
-                    Submissions
+                    {t.submissions}
                   </Link>
                   <Link href="/customers" className={linkClass}>
-                    Customers
+                    {t.customers}
                   </Link>
                   <Link href="/reviews/admin" className={linkClass}>
-                    Reviews
+                    {t.reviews}
                   </Link>
                 </>
               )}
@@ -94,19 +96,19 @@ export default function SiteHeader() {
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="rounded-lg border border-line px-3 py-1.5 text-body hover:border-brand-600 hover:text-brand-600 whitespace-nowrap shrink-0"
               >
-                Sign out
+                {t.signOut}
               </button>
             </>
           ) : (
             <>
               <Link href="/sign-in" className={linkClass}>
-                Sign in
+                {t.signIn}
               </Link>
               <Link
                 href="/sign-up"
                 className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all whitespace-nowrap shrink-0"
               >
-                Sign up
+                {t.signUp}
               </Link>
             </>
           )}
@@ -127,30 +129,30 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <nav className="lg:hidden border-t border-line px-4 py-3 flex flex-col text-sm animate-fade-up">
-          <Link href="/pricing" className={linkClass} onClick={closeMenu}>
-            Pricing
+          <Link href={localizedHref(locale, "/pricing")} className={linkClass} onClick={closeMenu}>
+            {t.pricing}
           </Link>
-          <Link href="/coaches" className={linkClass} onClick={closeMenu}>
-            Coaches
+          <Link href={localizedHref(locale, "/coaches")} className={linkClass} onClick={closeMenu}>
+            {t.coaches}
           </Link>
-          <Link href="/contact" className={linkClass} onClick={closeMenu}>
-            Contact
+          <Link href={localizedHref(locale, "/contact")} className={linkClass} onClick={closeMenu}>
+            {t.contact}
           </Link>
           {status === "loading" ? null : session ? (
             <>
               <Link href="/submit-video" className={linkClass} onClick={closeMenu}>
-                Send Video
+                {t.sendVideo}
               </Link>
               {session.user?.role === "admin" && (
                 <>
                   <Link href="/submissions" className={linkClass} onClick={closeMenu}>
-                    Submissions
+                    {t.submissions}
                   </Link>
                   <Link href="/customers" className={linkClass} onClick={closeMenu}>
-                    Customers
+                    {t.customers}
                   </Link>
                   <Link href="/reviews/admin" className={linkClass} onClick={closeMenu}>
-                    Reviews
+                    {t.reviews}
                   </Link>
                 </>
               )}
@@ -165,20 +167,20 @@ export default function SiteHeader() {
                 }}
                 className="mt-2 rounded-lg border border-line px-3 py-2 text-body text-left"
               >
-                Sign out
+                {t.signOut}
               </button>
             </>
           ) : (
             <>
               <Link href="/sign-in" className={linkClass} onClick={closeMenu}>
-                Sign in
+                {t.signIn}
               </Link>
               <Link
                 href="/sign-up"
                 className="mt-2 rounded-xl bg-brand-600 text-white px-3 py-2 font-medium text-center"
                 onClick={closeMenu}
               >
-                Sign up
+                {t.signUp}
               </Link>
             </>
           )}

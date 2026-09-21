@@ -19,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...LOCALES.flatMap((lang) => [
       { path: `/${lang}`, changeFrequency: "weekly" as const, priority: 0.9 },
       { path: `/${lang}/pricing`, changeFrequency: "weekly" as const, priority: 0.85 },
+      { path: `/${lang}/about`, changeFrequency: "monthly" as const, priority: 0.55 },
+      { path: `/${lang}/coaches`, changeFrequency: "monthly" as const, priority: 0.55 },
+      { path: `/${lang}/faq`, changeFrequency: "monthly" as const, priority: 0.65 },
+      { path: `/${lang}/contact`, changeFrequency: "yearly" as const, priority: 0.35 },
     ]),
   ];
 

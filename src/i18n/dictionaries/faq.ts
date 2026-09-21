@@ -1,0 +1,547 @@
+import type { AppLocale } from "@/i18n/locales";
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface FaqCategory {
+  title: string;
+  items: FaqItem[];
+}
+
+export interface FaqDict {
+  pageHeader: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  categories: FaqCategory[];
+}
+
+const en: FaqDict = {
+  pageHeader: {
+    eyebrow: "Help",
+    title: "Frequently asked questions",
+    subtitle:
+      "Common questions from parents and players. Can't find what you need? Ask the Quick questions widget or email tacticaltennislab@gmail.com.",
+  },
+  categories: [
+    {
+      title: "Getting started",
+      items: [
+        {
+          question: "How does it actually work?",
+          answer:
+            "You create an account, send a practice or match video along with what you want feedback on, and a real coach — a former ATP-ranked player or ITF Level 2 certified coach — personally reviews it frame by frame. Nothing is auto-generated. You get your analysis and a plan back through your account and by email.",
+        },
+        {
+          question: "What kind of video should I send?",
+          answer:
+            "Film from the side so your coach can see your full swing, footwork, and body position. Capture a few points or a short rally rather than a single shot, and keep the camera steady — prop your phone against something solid or use a tripod. Use the notes field to say exactly what you want feedback on.",
+        },
+        {
+          question: "Do I need an account to send a video?",
+          answer:
+            "Yes. Submitting a video, messaging a coach, and purchasing a plan all require an account, since your videos, feedback, and messages are tied to it.",
+        },
+        {
+          question: "Is this for clubs and academies, or individual players?",
+          answer:
+            "Our main focus is individual junior and competitive players and their families — a second, independent expert opinion alongside your on-court coach, not a replacement for one. We also put together custom packages for clubs and academies on request, but that's not who this is primarily built for.",
+        },
+      ],
+    },
+    {
+      title: "Plans & pricing",
+      items: [
+        {
+          question: "What plans do you offer?",
+          answer:
+            "Stroke Fix ($49, one-time) is a focused technical breakdown of one issue. Smart System ($99) is a 4-week development program for one stroke. Match IQ comes in Short ($99, up to 60 minutes of footage) and Full ($159, up to a full match). PRO Tour ($249/month) is ongoing coaching with up to 4 analyses a month and direct coach access.",
+        },
+        {
+          question: "Do prices include tax?",
+          answer: "No. All prices are listed in USD, and we don't add VAT or sales tax at checkout.",
+        },
+        {
+          question: "Can I cancel PRO Tour anytime?",
+          answer:
+            "Yes. Cancel anytime from your account — it takes effect at the end of your current billing period, and you keep access until then. We don't offer partial refunds for unused time in a billing period.",
+        },
+        {
+          question: "What's your refund policy?",
+          answer:
+            "For one-time plans, you can get a full refund before a coach has started your analysis; once analysis begins, EU/EEA/UK consumers' 14-day right of withdrawal ends, since the service starts performing immediately at your request. For PRO Tour, you can withdraw within 14 days of first subscribing, minus the value of any analysis already delivered. Email tacticaltennislab@gmail.com to request a refund or see the full terms at /terms.",
+        },
+      ],
+    },
+    {
+      title: "For parents & junior players",
+      items: [
+        {
+          question: "Can my child have their own account?",
+          answer:
+            "Players must be at least 16 to create an account. For players under 18, a parent or guardian creates and manages the account on their behalf.",
+        },
+        {
+          question: "Can I see everything my child sends or receives?",
+          answer:
+            "Yes. There's only one login per account, so every video, coach note, and message passes through that single account and is visible to whoever holds it — there's no separate or hidden channel between a coach and a minor.",
+        },
+        {
+          question: "Is my child's data safe?",
+          answer:
+            "We collect only what's needed to provide the service, never sell personal data, and don't use it for advertising. Full details, including your rights under GDPR, are at /privacy.",
+        },
+      ],
+    },
+    {
+      title: "Referrals",
+      items: [
+        {
+          question: "How do referral discounts work?",
+          answer:
+            "Share your personal referral link, found on your account page. A referral counts once the person you referred completes their first paid purchase. 1 successful referral unlocks 20% off your own future purchases, 2 unlocks 40%, and 5 unlocks most plans free (PRO Tour is capped at 40% off and Match IQ: Full at 50%, even at higher referral counts). Discounts apply automatically at checkout.",
+        },
+      ],
+    },
+    {
+      title: "Coaches & quality",
+      items: [
+        {
+          question: "Is my analysis written by AI?",
+          answer:
+            "No. Every plan and piece of feedback is built personally by one of our coaches — former ATP-ranked players and ITF Level 2 certified coaches — based on your video and goals. The \"Quick questions\" chat widget on the site is a separate AI assistant that only answers simple questions about pricing and policies; it doesn't review video or give coaching advice.",
+        },
+        {
+          question: "Can I leave a review?",
+          answer:
+            "Yes — go to /review (also linked in the footer). Reviews are checked by an admin before they appear publicly, so you won't see it on the homepage immediately.",
+        },
+      ],
+    },
+  ],
+};
+
+const pl: FaqDict = {
+  pageHeader: {
+    eyebrow: "Pomoc",
+    title: "Najczęściej zadawane pytania",
+    subtitle:
+      "Częste pytania rodziców i zawodników. Nie znalazłeś odpowiedzi? Zapytaj widżet Szybkie pytania lub napisz na tacticaltennislab@gmail.com.",
+  },
+  categories: [
+    {
+      title: "Pierwsze kroki",
+      items: [
+        {
+          question: "Jak to właściwie działa?",
+          answer:
+            "Zakładasz konto, wysyłasz wideo z treningu lub meczu wraz z informacją, na czym Ci zależy, a prawdziwy trener — były zawodnik ATP lub certyfikowany trener ITF Level 2 — osobiście analizuje je klatka po klatce. Nic nie jest generowane automatycznie. Analizę i plan otrzymujesz przez konto i mailem.",
+        },
+        {
+          question: "Jakie wideo powinienem wysłać?",
+          answer:
+            "Nagrywaj z boku, żeby trener widział pełne wymachy, pracę nóg i pozycję ciała. Nagraj kilka piłek lub krótką wymianę, a nie pojedyncze uderzenie, i trzymaj kamerę stabilnie — oprzyj telefon o coś solidnego lub użyj statywu. W polu notatek napisz dokładnie, o jaką informację zwrotną Ci chodzi.",
+        },
+        {
+          question: "Czy potrzebuję konta, żeby wysłać wideo?",
+          answer:
+            "Tak. Wysłanie wideo, wiadomość do trenera i zakup planu wymagają konta, ponieważ Twoje wideo, informacje zwrotne i wiadomości są z nim powiązane.",
+        },
+        {
+          question: "Czy to jest dla klubów i akademii, czy dla indywidualnych zawodników?",
+          answer:
+            "Skupiamy się przede wszystkim na indywidualnych zawodnikach juniorskich, konkurencyjnych i ich rodzinach — drugiej, niezależnej ekspertyzie obok trenera na korcie, a nie jego zamienniku. Na życzenie przygotowujemy też pakiety dla klubów i akademii, ale to nie jest nasza główna grupa docelowa.",
+        },
+      ],
+    },
+    {
+      title: "Plany i ceny",
+      items: [
+        {
+          question: "Jakie plany oferujecie?",
+          answer:
+            "Stroke Fix (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu. Smart System (99 USD) to 4-tygodniowy program rozwoju jednego uderzenia. Match IQ jest dostępne w wersji Short (99 USD, do 60 minut nagrania) i Full (159 USD, do pełnego meczu). PRO Tour (249 USD/miesiąc) to ciągły coaching z do 4 analizami miesięcznie i bezpośrednim kontaktem z trenerem.",
+        },
+        {
+          question: "Czy ceny zawierają podatek?",
+          answer: "Nie. Wszystkie ceny podane są w USD, a przy płatności nie doliczamy VAT ani podatku od sprzedaży.",
+        },
+        {
+          question: "Czy mogę anulować PRO Tour w dowolnym momencie?",
+          answer:
+            "Tak. Anuluj w dowolnym momencie z poziomu konta — anulowanie wchodzi w życie na koniec bieżącego okresu rozliczeniowego, a dostęp zachowujesz do tego czasu. Nie oferujemy częściowych zwrotów za niewykorzystany czas w okresie rozliczeniowym.",
+        },
+        {
+          question: "Jaka jest Wasza polityka zwrotów?",
+          answer:
+            "W przypadku planów jednorazowych pełny zwrot przysługuje przed rozpoczęciem analizy przez trenera; po jej rozpoczęciu 14-dniowe prawo do odstąpienia dla konsumentów z UE/EOG/UK wygasa, ponieważ usługa zaczyna być realizowana natychmiast na Twoje żądanie. W przypadku PRO Tour możesz odstąpić w ciągu 14 dni od pierwszej subskrypcji, pomniejszone o wartość już dostarczonej analizy. Napisz na tacticaltennislab@gmail.com, aby poprosić o zwrot, lub zobacz pełny regulamin na /terms.",
+        },
+      ],
+    },
+    {
+      title: "Dla rodziców i zawodników juniorskich",
+      items: [
+        {
+          question: "Czy moje dziecko może mieć własne konto?",
+          answer:
+            "Zawodnicy muszą mieć co najmniej 16 lat, aby założyć konto. Dla zawodników poniżej 18 lat konto zakłada i prowadzi rodzic lub opiekun w ich imieniu.",
+        },
+        {
+          question: "Czy widzę wszystko, co moje dziecko wysyła i otrzymuje?",
+          answer:
+            "Tak. Konto ma tylko jedno logowanie, więc każde wideo, notatka trenera i wiadomość przechodzą przez to jedno konto i są widoczne dla osoby, która je posiada — nie ma osobnego ani ukrytego kanału między trenerem a niepełnoletnim.",
+        },
+        {
+          question: "Czy dane mojego dziecka są bezpieczne?",
+          answer:
+            "Zbieramy tylko to, co potrzebne do świadczenia usługi, nigdy nie sprzedajemy danych osobowych i nie wykorzystujemy ich do reklamy. Pełne informacje, w tym Twoje prawa wynikające z RODO, znajdziesz na /privacy.",
+        },
+      ],
+    },
+    {
+      title: "Polecenia",
+      items: [
+        {
+          question: "Jak działają zniżki za polecenie?",
+          answer:
+            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2 — 40%, a 5 — większość planów za darmo (PRO Tour jest ograniczone do 40% zniżki, a Match IQ: Full do 50%, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
+        },
+      ],
+    },
+    {
+      title: "Trenerzy i jakość",
+      items: [
+        {
+          question: "Czy moja analiza jest pisana przez AI?",
+          answer:
+            "Nie. Każdy plan i każda informacja zwrotna są tworzone osobiście przez jednego z naszych trenerów — byłych zawodników ATP i certyfikowanych trenerów ITF Level 2 — na podstawie Twojego wideo i celów. Widżet czatu \"Szybkie pytania\" na stronie to osobny asystent AI, który odpowiada wyłącznie na proste pytania o ceny i zasady; nie analizuje wideo ani nie udziela porad trenerskich.",
+        },
+        {
+          question: "Czy mogę zostawić opinię?",
+          answer:
+            "Tak — przejdź na /review (link znajduje się też w stopce). Opinie są sprawdzane przez administratora, zanim pojawią się publicznie, więc nie zobaczysz jej na stronie głównej od razu.",
+        },
+      ],
+    },
+  ],
+};
+
+const es: FaqDict = {
+  pageHeader: {
+    eyebrow: "Ayuda",
+    title: "Preguntas frecuentes",
+    subtitle:
+      "Preguntas habituales de padres y jugadores. ¿No encuentras lo que buscas? Pregunta al widget de Preguntas rápidas o escribe a tacticaltennislab@gmail.com.",
+  },
+  categories: [
+    {
+      title: "Primeros pasos",
+      items: [
+        {
+          question: "¿Cómo funciona exactamente?",
+          answer:
+            "Creas una cuenta, envías un vídeo de entrenamiento o partido junto con lo que quieres que se revise, y un entrenador real — un exjugador del ATP o un entrenador certificado ITF Level 2 — lo revisa personalmente fotograma a fotograma. Nada se genera automáticamente. Recibes tu análisis y un plan a través de tu cuenta y por email.",
+        },
+        {
+          question: "¿Qué tipo de vídeo debería enviar?",
+          answer:
+            "Graba desde el lateral para que tu entrenador pueda ver tu swing completo, tu juego de piernas y tu posición corporal. Capta varios puntos o un peloteo corto en lugar de un solo golpe, y mantén la cámara estable — apoya el móvil sobre algo firme o usa un trípode. Usa el campo de notas para decir exactamente qué feedback quieres.",
+        },
+        {
+          question: "¿Necesito una cuenta para enviar un vídeo?",
+          answer:
+            "Sí. Enviar un vídeo, escribir a un entrenador y comprar un plan requieren una cuenta, ya que tus vídeos, feedback y mensajes están vinculados a ella.",
+        },
+        {
+          question: "¿Esto es para clubes y academias, o para jugadores individuales?",
+          answer:
+            "Nuestro enfoque principal son los jugadores junior y competitivos individuales y sus familias — una segunda opinión experta e independiente junto a tu entrenador en pista, no un sustituto. También creamos paquetes a medida para clubes y academias bajo petición, pero no es para quien está pensado principalmente.",
+        },
+      ],
+    },
+    {
+      title: "Planes y precios",
+      items: [
+        {
+          question: "¿Qué planes ofrecéis?",
+          answer:
+            "Stroke Fix ($49, pago único) es un análisis técnico enfocado de un problema. Smart System ($99) es un programa de desarrollo de 4 semanas para un golpe. Match IQ viene en Short ($99, hasta 60 minutos de vídeo) y Full ($159, hasta un partido completo). PRO Tour ($249/mes) es coaching continuo con hasta 4 análisis al mes y acceso directo al entrenador.",
+        },
+        {
+          question: "¿Los precios incluyen impuestos?",
+          answer: "No. Todos los precios están en USD, y no añadimos IVA ni impuesto de ventas al finalizar la compra.",
+        },
+        {
+          question: "¿Puedo cancelar PRO Tour en cualquier momento?",
+          answer:
+            "Sí. Cancela cuando quieras desde tu cuenta — tiene efecto al final de tu periodo de facturación actual, y mantienes el acceso hasta entonces. No ofrecemos reembolsos parciales por tiempo no utilizado dentro de un periodo de facturación.",
+        },
+        {
+          question: "¿Cuál es vuestra política de reembolsos?",
+          answer:
+            "Para los planes de pago único, puedes obtener un reembolso completo antes de que un entrenador haya empezado tu análisis; una vez que el análisis comienza, el derecho de desistimiento de 14 días de los consumidores de la UE/EEE/Reino Unido termina, ya que el servicio empieza a prestarse de inmediato a petición tuya. Para PRO Tour, puedes desistir dentro de los 14 días desde tu primera suscripción, menos el valor de cualquier análisis ya entregado. Escribe a tacticaltennislab@gmail.com para solicitar un reembolso o consulta los términos completos en /terms.",
+        },
+      ],
+    },
+    {
+      title: "Para padres y jugadores junior",
+      items: [
+        {
+          question: "¿Puede mi hijo/a tener su propia cuenta?",
+          answer:
+            "Los jugadores deben tener al menos 16 años para crear una cuenta. Para jugadores menores de 18, un padre, madre o tutor crea y gestiona la cuenta en su nombre.",
+        },
+        {
+          question: "¿Puedo ver todo lo que mi hijo/a envía o recibe?",
+          answer:
+            "Sí. Solo hay un inicio de sesión por cuenta, así que cada vídeo, nota del entrenador y mensaje pasa por esa única cuenta y es visible para quien la tenga — no hay un canal separado ni oculto entre un entrenador y un menor.",
+        },
+        {
+          question: "¿Están seguros los datos de mi hijo/a?",
+          answer:
+            "Solo recopilamos lo necesario para prestar el servicio, nunca vendemos datos personales y no los usamos para publicidad. Los detalles completos, incluidos tus derechos bajo el RGPD, están en /privacy.",
+        },
+      ],
+    },
+    {
+      title: "Referidos",
+      items: [
+        {
+          question: "¿Cómo funcionan los descuentos por referidos?",
+          answer:
+            "Comparte tu enlace de referido personal, disponible en tu página de cuenta. Un referido cuenta cuando la persona que referiste completa su primera compra pagada. 1 referido exitoso desbloquea un 20% de descuento en tus próximas compras, 2 desbloquea un 40%, y 5 desbloquea la mayoría de planes gratis (PRO Tour está limitado a un 40% de descuento y Match IQ: Full a un 50%, incluso con más referidos). Los descuentos se aplican automáticamente al pagar.",
+        },
+      ],
+    },
+    {
+      title: "Entrenadores y calidad",
+      items: [
+        {
+          question: "¿Mi análisis está escrito por IA?",
+          answer:
+            "No. Cada plan y cada feedback lo elabora personalmente uno de nuestros entrenadores — exjugadores del ATP y entrenadores certificados ITF Level 2 — según tu vídeo y tus objetivos. El widget de chat \"Preguntas rápidas\" de la web es un asistente de IA independiente que solo responde preguntas sencillas sobre precios y políticas; no revisa vídeo ni da consejos de coaching.",
+        },
+        {
+          question: "¿Puedo dejar una opinión?",
+          answer:
+            "Sí — ve a /review (también enlazado en el pie de página). Las opiniones son revisadas por un administrador antes de aparecer públicamente, así que no la verás en la página principal de inmediato.",
+        },
+      ],
+    },
+  ],
+};
+
+const it: FaqDict = {
+  pageHeader: {
+    eyebrow: "Aiuto",
+    title: "Domande frequenti",
+    subtitle:
+      "Domande comuni di genitori e giocatori. Non trovi quello che cerchi? Chiedi al widget Domande rapide o scrivi a tacticaltennislab@gmail.com.",
+  },
+  categories: [
+    {
+      title: "Per iniziare",
+      items: [
+        {
+          question: "Come funziona esattamente?",
+          answer:
+            "Crei un account, invii un video di allenamento o partita insieme a ciò su cui vuoi un feedback, e un allenatore vero — un ex giocatore ATP o un allenatore certificato ITF Level 2 — lo rivede personalmente fotogramma per fotogramma. Niente è generato automaticamente. Ricevi la tua analisi e un piano tramite il tuo account e via email.",
+        },
+        {
+          question: "Che tipo di video dovrei inviare?",
+          answer:
+            "Filma di lato così il tuo allenatore può vedere tutto lo swing, il gioco di gambe e la posizione del corpo. Cattura alcuni punti o uno scambio breve invece di un singolo colpo, e tieni la fotocamera stabile — appoggia il telefono a qualcosa di solido o usa un treppiede. Usa il campo note per dire esattamente su cosa vuoi un feedback.",
+        },
+        {
+          question: "Ho bisogno di un account per inviare un video?",
+          answer:
+            "Sì. Inviare un video, scrivere a un allenatore e acquistare un piano richiedono un account, poiché i tuoi video, feedback e messaggi vi sono collegati.",
+        },
+        {
+          question: "È per club e accademie, o per giocatori individuali?",
+          answer:
+            "Il nostro focus principale sono i giocatori junior e agonisti individuali e le loro famiglie — un secondo parere esperto e indipendente accanto al tuo allenatore in campo, non un sostituto. Realizziamo anche pacchetti su misura per club e accademie su richiesta, ma non è per questo che è pensato principalmente.",
+        },
+      ],
+    },
+    {
+      title: "Piani e prezzi",
+      items: [
+        {
+          question: "Quali piani offrite?",
+          answer:
+            "Stroke Fix ($49, una tantum) è un'analisi tecnica mirata su un problema. Smart System ($99) è un programma di sviluppo di 4 settimane per un colpo. Match IQ è disponibile in Short ($99, fino a 60 minuti di video) e Full ($159, fino a una partita completa). PRO Tour ($249/mese) è coaching continuo con fino a 4 analisi al mese e accesso diretto all'allenatore.",
+        },
+        {
+          question: "I prezzi includono le tasse?",
+          answer: "No. Tutti i prezzi sono in USD, e non aggiungiamo IVA o imposta sulle vendite al checkout.",
+        },
+        {
+          question: "Posso annullare PRO Tour in qualsiasi momento?",
+          answer:
+            "Sì. Annulla quando vuoi dal tuo account — ha effetto alla fine del periodo di fatturazione corrente, e mantieni l'accesso fino ad allora. Non offriamo rimborsi parziali per il tempo non utilizzato in un periodo di fatturazione.",
+        },
+        {
+          question: "Qual è la vostra politica di rimborso?",
+          answer:
+            "Per i piani una tantum, puoi ottenere un rimborso completo prima che un allenatore abbia iniziato la tua analisi; una volta iniziata l'analisi, il diritto di recesso di 14 giorni dei consumatori UE/SEE/UK termina, poiché il servizio inizia a essere eseguito immediatamente su tua richiesta. Per PRO Tour, puoi recedere entro 14 giorni dal primo abbonamento, meno il valore di qualsiasi analisi già fornita. Scrivi a tacticaltennislab@gmail.com per richiedere un rimborso o consulta i termini completi su /terms.",
+        },
+      ],
+    },
+    {
+      title: "Per genitori e giocatori junior",
+      items: [
+        {
+          question: "Mio figlio/a può avere un proprio account?",
+          answer:
+            "I giocatori devono avere almeno 16 anni per creare un account. Per i giocatori sotto i 18 anni, un genitore o tutore crea e gestisce l'account per loro conto.",
+        },
+        {
+          question: "Posso vedere tutto ciò che mio figlio/a invia o riceve?",
+          answer:
+            "Sì. C'è un solo accesso per account, quindi ogni video, nota dell'allenatore e messaggio passa attraverso quell'unico account ed è visibile a chi lo possiede — non c'è un canale separato o nascosto tra un allenatore e un minore.",
+        },
+        {
+          question: "I dati di mio figlio/a sono al sicuro?",
+          answer:
+            "Raccogliamo solo ciò che serve per fornire il servizio, non vendiamo mai dati personali e non li usiamo per la pubblicità. I dettagli completi, inclusi i tuoi diritti secondo il GDPR, sono su /privacy.",
+        },
+      ],
+    },
+    {
+      title: "Referral",
+      items: [
+        {
+          question: "Come funzionano gli sconti referral?",
+          answer:
+            "Condividi il tuo link di invito personale, disponibile nella pagina del tuo account. Un invito conta quando la persona che hai invitato completa il suo primo acquisto a pagamento. 1 invito riuscito sblocca il 20% di sconto sui tuoi acquisti futuri, 2 sblocca il 40%, e 5 sblocca la maggior parte dei piani gratis (PRO Tour è limitato al 40% di sconto e Match IQ: Full al 50%, anche con più inviti). Gli sconti si applicano automaticamente al checkout.",
+        },
+      ],
+    },
+    {
+      title: "Allenatori e qualità",
+      items: [
+        {
+          question: "La mia analisi è scritta dall'IA?",
+          answer:
+            "No. Ogni piano e ogni feedback è costruito personalmente da uno dei nostri allenatori — ex giocatori ATP e allenatori certificati ITF Level 2 — in base al tuo video e ai tuoi obiettivi. Il widget di chat \"Domande rapide\" sul sito è un assistente IA separato che risponde solo a domande semplici su prezzi e policy; non rivede video né dà consigli di coaching.",
+        },
+        {
+          question: "Posso lasciare una recensione?",
+          answer:
+            "Sì — vai su /review (linkato anche nel footer). Le recensioni sono controllate da un amministratore prima di apparire pubblicamente, quindi non la vedrai subito sulla homepage.",
+        },
+      ],
+    },
+  ],
+};
+
+const ru: FaqDict = {
+  pageHeader: {
+    eyebrow: "Помощь",
+    title: "Часто задаваемые вопросы",
+    subtitle:
+      "Частые вопросы родителей и игроков. Не нашли ответ? Спросите виджет «Быстрые вопросы» или напишите на tacticaltennislab@gmail.com.",
+  },
+  categories: [
+    {
+      title: "Начало работы",
+      items: [
+        {
+          question: "Как это вообще работает?",
+          answer:
+            "Вы создаёте аккаунт, отправляете видео с тренировки или матча вместе с тем, что хотите разобрать, и настоящий тренер — бывший игрок ATP или сертифицированный тренер ITF Level 2 — лично разбирает его покадрово. Ничего не генерируется автоматически. Вы получаете анализ и план через аккаунт и по email.",
+        },
+        {
+          question: "Какое видео мне отправить?",
+          answer:
+            "Снимайте сбоку, чтобы тренер видел весь замах, работу ног и положение тела. Захватите несколько розыгрышей или короткий обмен ударами, а не один удар, и держите камеру стабильно — обоприте телефон о что-то устойчивое или используйте штатив. В поле заметок укажите точно, что хотите разобрать.",
+        },
+        {
+          question: "Нужен ли аккаунт, чтобы отправить видео?",
+          answer:
+            "Да. Отправка видео, сообщения тренеру и покупка плана требуют аккаунта, так как ваши видео, обратная связь и сообщения привязаны к нему.",
+        },
+        {
+          question: "Это для клубов и академий или для отдельных игроков?",
+          answer:
+            "Наш основной фокус — отдельные юниоры и соревнующиеся игроки и их семьи — второе независимое экспертное мнение в дополнение к тренеру на корте, а не замена ему. По запросу мы также составляем индивидуальные пакеты для клубов и академий, но это не главная аудитория сервиса.",
+        },
+      ],
+    },
+    {
+      title: "Планы и цены",
+      items: [
+        {
+          question: "Какие планы вы предлагаете?",
+          answer:
+            "Stroke Fix ($49, разово) — сфокусированный технический разбор одной проблемы. Smart System ($99) — 4-недельная программа развития одного удара. Match IQ доступен в версиях Short ($99, до 60 минут видео) и Full ($159, до полного матча). PRO Tour ($249/месяц) — постоянный коучинг с до 4 анализами в месяц и прямым доступом к тренеру.",
+        },
+        {
+          question: "Включён ли налог в цену?",
+          answer: "Нет. Все цены указаны в USD, и при оплате мы не добавляем НДС или налог с продаж.",
+        },
+        {
+          question: "Могу ли я отменить PRO Tour в любое время?",
+          answer:
+            "Да. Отмените в любой момент из своего аккаунта — это вступит в силу в конце текущего расчётного периода, а доступ сохранится до этого момента. Мы не предоставляем частичный возврат за неиспользованное время в расчётном периоде.",
+        },
+        {
+          question: "Какова ваша политика возврата средств?",
+          answer:
+            "Для разовых планов вы можете получить полный возврат до того, как тренер начал ваш анализ; как только анализ начинается, 14-дневное право на отказ для потребителей из ЕС/ЕЭЗ/Великобритании прекращается, так как услуга начинает выполняться немедленно по вашему запросу. Для PRO Tour вы можете отказаться в течение 14 дней с момента первой подписки, за вычетом стоимости уже предоставленного анализа. Напишите на tacticaltennislab@gmail.com, чтобы запросить возврат, или посмотрите полные условия на /terms.",
+        },
+      ],
+    },
+    {
+      title: "Для родителей и юниоров",
+      items: [
+        {
+          question: "Может ли у моего ребёнка быть свой аккаунт?",
+          answer:
+            "Игрокам должно быть не менее 16 лет, чтобы создать аккаунт. Для игроков младше 18 лет аккаунт создаёт и ведёт родитель или опекун от их имени.",
+        },
+        {
+          question: "Вижу ли я всё, что отправляет и получает мой ребёнок?",
+          answer:
+            "Да. У аккаунта только один логин, поэтому каждое видео, заметка тренера и сообщение проходят через этот единственный аккаунт и видны тому, кто им владеет — отдельного или скрытого канала между тренером и несовершеннолетним не существует.",
+        },
+        {
+          question: "Безопасны ли данные моего ребёнка?",
+          answer:
+            "Мы собираем только то, что необходимо для предоставления услуги, никогда не продаём личные данные и не используем их для рекламы. Полная информация, включая ваши права по GDPR, доступна на /privacy.",
+        },
+      ],
+    },
+    {
+      title: "Рефералы",
+      items: [
+        {
+          question: "Как работают реферальные скидки?",
+          answer:
+            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2 — 40%, а 5 — большинство планов бесплатно (PRO Tour ограничен скидкой 40%, а Match IQ: Full — 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
+        },
+      ],
+    },
+    {
+      title: "Тренеры и качество",
+      items: [
+        {
+          question: "Мой анализ написан ИИ?",
+          answer:
+            "Нет. Каждый план и каждая обратная связь создаются лично одним из наших тренеров — бывшими игроками ATP и сертифицированными тренерами ITF Level 2 — на основе вашего видео и целей. Виджет чата «Быстрые вопросы» на сайте — это отдельный ИИ-ассистент, который отвечает только на простые вопросы о ценах и политиках; он не разбирает видео и не даёт тренерских советов.",
+        },
+        {
+          question: "Могу ли я оставить отзыв?",
+          answer:
+            "Да — перейдите на /review (ссылка есть также в подвале сайта). Отзывы проверяются администратором перед публикацией, поэтому вы не увидите его на главной странице сразу.",
+        },
+      ],
+    },
+  ],
+};
+
+export const faqDictionaries: Record<AppLocale, FaqDict> = { en, pl, es, it, ru };

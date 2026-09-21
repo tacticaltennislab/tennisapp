@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { contactDictionaries } from "@/i18n/dictionaries/contact";
+import type { AppLocale } from "@/i18n/locales";
 
-export default function ContactForm() {
+export default function ContactForm({ lang = "en" }: { lang?: AppLocale }) {
+  const t = contactDictionaries[lang].form;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -25,7 +28,7 @@ export default function ContactForm() {
 
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      setError(data.error || "Something went wrong.");
+      setError(data.error || t.error);
       return;
     }
 
@@ -38,10 +41,8 @@ export default function ContactForm() {
   if (sent) {
     return (
       <div className="rounded-2xl border border-line bg-surface p-8 text-center shadow-sm">
-        <p className="font-semibold text-lg">Message sent</p>
-        <p className="mt-1 text-sm text-body">
-          Thanks for reaching out &mdash; we&apos;ll get back to you soon.
-        </p>
+        <p className="font-semibold text-lg">{t.sentTitle}</p>
+        <p className="mt-1 text-sm text-body">{t.sentBody}</p>
       </div>
     );
   }
@@ -52,7 +53,7 @@ export default function ContactForm() {
       className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
-        <label className="block text-sm font-medium mb-1">Name</label>
+        <label className="block text-sm font-medium mb-1">{t.name}</label>
         <input
           type="text"
           required
@@ -62,7 +63,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium mb-1">Email</label>
+        <label className="block text-sm font-medium mb-1">{t.email}</label>
         <input
           type="email"
           required
@@ -72,7 +73,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium mb-1">Message</label>
+        <label className="block text-sm font-medium mb-1">{t.message}</label>
         <textarea
           required
           rows={5}
@@ -89,7 +90,7 @@ export default function ContactForm() {
         disabled={submitting}
         className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
       >
-        {submitting ? "Sending..." : "Send message"}
+        {submitting ? t.sending : t.send}
       </button>
     </form>
   );
