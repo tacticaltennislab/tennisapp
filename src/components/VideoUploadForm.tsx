@@ -7,13 +7,14 @@ import {
   ALL_FOCUS_AREAS,
   FocusArea,
   Goal,
-  GOALS,
-  LEVELS,
   SkillLevel,
-  focusLabel,
 } from "@/lib/trainingOptions";
+import { focusLabel, localizedGoals, localizedLevels } from "@/i18n/dictionaries/trainingOptions";
+import { dashboardDictionaries } from "@/i18n/dictionaries/dashboard";
+import { localizedHref, type AppLocale } from "@/i18n/locales";
 
-export default function VideoUploadForm() {
+export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
+  const t = dashboardDictionaries[lang].submitVideo.form;
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
@@ -36,7 +37,7 @@ export default function VideoUploadForm() {
     setError(null);
 
     if (!file) {
-      setError("Choose a video file.");
+      setError(t.chooseFileError);
       return;
     }
 
@@ -68,15 +69,15 @@ export default function VideoUploadForm() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        setError(data.error || "Upload failed.");
+        setError(data.error || t.uploadFailedError);
         setSubmitting(false);
         return;
       }
 
-      router.push("/account");
+      router.push(localizedHref(lang, "/account"));
       router.refresh();
     } catch {
-      setError("Upload failed. Please try again.");
+      setError(t.genericError);
       setSubmitting(false);
     }
   }
@@ -87,21 +88,19 @@ export default function VideoUploadForm() {
       className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
-        <label className="block text-sm font-medium mb-1">Title</label>
+        <label className="block text-sm font-medium mb-1">{t.titleLabel}</label>
         <input
           type="text"
-          placeholder="e.g. Match vs. Alex, first set"
+          placeholder={t.titlePlaceholder}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium mb-1">
-          What do you want feedback on?
-        </label>
+        <label className="block text-sm font-medium mb-1">{t.feedbackLabel}</label>
         <textarea
-          placeholder="e.g. My serve keeps going long, and I want tips on net play."
+          placeholder={t.feedbackPlaceholder}
           value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={4}
@@ -111,16 +110,14 @@ export default function VideoUploadForm() {
 
       <div className="rounded-xl border border-line bg-brand-50/40 p-4 space-y-4">
         <div>
-          <p className="text-sm font-semibold">Your level & focus</p>
-          <p className="text-xs text-muted mt-0.5">
-            Help your coach see where you&apos;re at and what to work on before they watch your video.
-          </p>
+          <p className="text-sm font-semibold">{t.levelFocusTitle}</p>
+          <p className="text-xs text-muted mt-0.5">{t.levelFocusSubtitle}</p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">Skill level</label>
+          <label className="block text-sm font-medium mb-2">{t.skillLevel}</label>
           <div className="tilt-grid grid grid-cols-3 gap-2">
-            {LEVELS.map((l) => (
+            {localizedLevels(lang).map((l) => (
               <button
                 type="button"
                 key={l.value}
@@ -138,13 +135,13 @@ export default function VideoUploadForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">Primary goal</label>
+          <label className="block text-sm font-medium mb-1">{t.primaryGoal}</label>
           <select
             value={goal}
             onChange={(e) => setGoal(e.target.value as Goal)}
             className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
           >
-            {GOALS.map((g) => (
+            {localizedGoals(lang).map((g) => (
               <option key={g.value} value={g.value}>
                 {g.label}
               </option>
@@ -153,9 +150,7 @@ export default function VideoUploadForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-2">
-            What do you want to train?
-          </label>
+          <label className="block text-sm font-medium mb-2">{t.trainLabel}</label>
           <div className="tilt-grid flex flex-wrap gap-2">
             {ALL_FOCUS_AREAS.map((area) => (
               <button
@@ -168,7 +163,7 @@ export default function VideoUploadForm() {
                     : "border-line bg-surface hover:border-brand-600"
                 }`}
               >
-                {focusLabel(area)}
+                {focusLabel(area, lang)}
               </button>
             ))}
           </div>
@@ -176,16 +171,16 @@ export default function VideoUploadForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Video</label>
+        <label className="block text-sm font-medium mb-1">{t.videoLabel}</label>
         <label
           htmlFor="video-file"
           className="flex items-center gap-3 w-full rounded-lg border border-dashed border-line px-3 py-2.5 text-sm cursor-pointer hover:border-brand-600 transition-colors"
         >
           <span className="shrink-0 rounded-md bg-brand-50 text-brand-600 px-3 py-1.5 text-xs font-semibold">
-            Choose file
+            {t.chooseFile}
           </span>
           <span className="text-muted truncate">
-            {file ? file.name : "No file selected"}
+            {file ? file.name : t.noFileSelected}
           </span>
         </label>
         <input
@@ -214,7 +209,7 @@ export default function VideoUploadForm() {
         disabled={submitting}
         className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
       >
-        {submitting ? `Uploading... ${progress}%` : "Send video"}
+        {submitting ? t.uploading.replace("{pct}", String(progress)) : t.submit}
       </button>
     </form>
   );

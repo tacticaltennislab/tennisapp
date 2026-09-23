@@ -72,7 +72,7 @@ export default function SiteHeader() {
           </Link>
           {status === "loading" ? null : session ? (
             <>
-              <Link href="/submit-video" className={linkClass}>
+              <Link href={localizedHref(locale, "/submit-video")} className={linkClass}>
                 {t.sendVideo}
               </Link>
               {session.user?.role === "admin" && (
@@ -88,7 +88,7 @@ export default function SiteHeader() {
                   </Link>
                 </>
               )}
-              <Link href="/account" className={linkClass}>
+              <Link href={localizedHref(locale, "/account")} className={linkClass}>
                 {session.user?.name || session.user?.email}
               </Link>
               <PushToggle />
@@ -101,11 +101,11 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
-              <Link href="/sign-in" className={linkClass}>
+              <Link href={localizedHref(locale, "/sign-in")} className={linkClass}>
                 {t.signIn}
               </Link>
               <Link
-                href="/sign-up"
+                href={localizedHref(locale, "/sign-up")}
                 className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all whitespace-nowrap shrink-0"
               >
                 {t.signUp}
@@ -140,7 +140,7 @@ export default function SiteHeader() {
           </Link>
           {status === "loading" ? null : session ? (
             <>
-              <Link href="/submit-video" className={linkClass} onClick={closeMenu}>
+              <Link href={localizedHref(locale, "/submit-video")} className={linkClass} onClick={closeMenu}>
                 {t.sendVideo}
               </Link>
               {session.user?.role === "admin" && (
@@ -156,7 +156,7 @@ export default function SiteHeader() {
                   </Link>
                 </>
               )}
-              <Link href="/account" className={linkClass} onClick={closeMenu}>
+              <Link href={localizedHref(locale, "/account")} className={linkClass} onClick={closeMenu}>
                 {session.user?.name || session.user?.email}
               </Link>
               <PushToggle showLabel />
@@ -172,11 +172,11 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
-              <Link href="/sign-in" className={linkClass} onClick={closeMenu}>
+              <Link href={localizedHref(locale, "/sign-in")} className={linkClass} onClick={closeMenu}>
                 {t.signIn}
               </Link>
               <Link
-                href="/sign-up"
+                href={localizedHref(locale, "/sign-up")}
                 className="mt-2 rounded-xl bg-brand-600 text-white px-3 py-2 font-medium text-center"
                 onClick={closeMenu}
               >

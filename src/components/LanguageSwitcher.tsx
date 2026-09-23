@@ -9,7 +9,21 @@ const ALL_LOCALES: AppLocale[] = ["en", ...LOCALES];
 // Pages that exist in every locale. Grows as more pages are translated;
 // anything not listed here falls back to that locale's homepage instead
 // of a 404.
-const TRANSLATED_PAGES = ["/", "/pricing", "/faq", "/about", "/coaches", "/contact"];
+const TRANSLATED_PAGES = [
+  "/",
+  "/pricing",
+  "/faq",
+  "/about",
+  "/coaches",
+  "/contact",
+  "/account",
+  "/submit-video",
+  "/review",
+  "/sign-in",
+  "/sign-up",
+  "/forgot-password",
+  "/reset-password",
+];
 
 export function currentLocaleFromPathname(pathname: string): AppLocale {
   const first = pathname.split("/")[1];

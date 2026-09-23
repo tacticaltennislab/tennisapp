@@ -1,14 +1,20 @@
 import CourtBackdrop from "@/components/CourtBackdrop";
+import { authDictionaries } from "@/i18n/dictionaries/auth";
+import type { AppLocale } from "@/i18n/locales";
 
 export default function AuthLayout({
   title,
   subtitle,
+  lang = "en",
   children,
 }: {
   title: string;
   subtitle: string;
+  lang?: AppLocale;
   children: React.ReactNode;
 }) {
+  const panel = authDictionaries[lang].panel;
+
   return (
     <main className="flex-1 grid lg:grid-cols-2">
       <div className="hidden lg:flex relative overflow-hidden items-end">
@@ -28,13 +34,8 @@ export default function AuthLayout({
           <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
             Tactical Tennis Lab
           </p>
-          <h2 className="text-3xl font-bold mt-2 leading-tight text-white">
-            Coached by people who&apos;ve played at the top.
-          </h2>
-          <p className="mt-3 text-white/70">
-            Former ATP players and ITF Level&nbsp;2 certified coaches review
-            your game and build a plan around what you need to fix.
-          </p>
+          <h2 className="text-3xl font-bold mt-2 leading-tight text-white">{panel.title}</h2>
+          <p className="mt-3 text-white/70">{panel.subtitle}</p>
         </div>
       </div>
 
