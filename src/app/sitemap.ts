@@ -14,8 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", changeFrequency: "yearly", priority: 0.4 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.2 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.2 },
-    // More locale paths get added here as each page is translated in
-    // later phases.
     ...LOCALES.flatMap((lang) => [
       { path: `/${lang}`, changeFrequency: "weekly" as const, priority: 0.9 },
       { path: `/${lang}/pricing`, changeFrequency: "weekly" as const, priority: 0.85 },
@@ -23,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { path: `/${lang}/coaches`, changeFrequency: "monthly" as const, priority: 0.55 },
       { path: `/${lang}/faq`, changeFrequency: "monthly" as const, priority: 0.65 },
       { path: `/${lang}/contact`, changeFrequency: "yearly" as const, priority: 0.35 },
+      { path: `/${lang}/terms`, changeFrequency: "yearly" as const, priority: 0.15 },
+      { path: `/${lang}/privacy`, changeFrequency: "yearly" as const, priority: 0.15 },
     ]),
   ];
 

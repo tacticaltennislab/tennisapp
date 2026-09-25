@@ -23,6 +23,8 @@ const TRANSLATED_PAGES = [
   "/sign-up",
   "/forgot-password",
   "/reset-password",
+  "/terms",
+  "/privacy",
 ];
 
 export function currentLocaleFromPathname(pathname: string): AppLocale {
