@@ -1,5 +1,13 @@
 import type { AppLocale } from "@/i18n/locales";
 
+export interface ClubTier {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+}
+
 export interface PricingDict {
   pageHeader: {
     eyebrow: string;
@@ -11,7 +19,9 @@ export interface PricingDict {
     eyebrow: string;
     title: string;
     subtitle: string;
+    tiers: ClubTier[];
     cta: string;
+    note: string;
   };
   carousel: {
     prevAria: string;
@@ -42,10 +52,73 @@ const en: PricingDict = {
   noVatNote: "All prices are in USD. No VAT or sales tax is added at checkout.",
   clubs: {
     eyebrow: "Clubs & academies",
-    title: "Coaching for your whole team",
+    title: "Volume pricing for your whole roster",
     subtitle:
-      "Running a club, academy, or team? We put together custom group coaching packages — volume pricing on video analysis, shared training plans, and a dedicated point of contact.",
-    cta: "Ask about club pricing",
+      "Running a club or academy? These packages cover ongoing analysis for your whole group, from a couple of junior teams to a full high-performance season.",
+    tiers: [
+      {
+        name: "Club Starter Package",
+        price: "$550",
+        period: "/month",
+        description:
+          "5–8 video or match analyses per month, with shared feedback for coaches and players. Ideal for smaller clubs and academies.",
+        features: [
+          "5–8 analyses per month",
+          "Shared feedback for coaches and players",
+          "Best for smaller clubs and academies",
+        ],
+      },
+      {
+        name: "Academy Standard Package",
+        price: "$1,100",
+        period: "/month",
+        description:
+          "10–15 analyses per month, plus a dedicated point of contact. Built for medium-sized high-performance academies.",
+        features: [
+          "10–15 analyses per month",
+          "Dedicated point of contact",
+          "Built for high-performance academies",
+        ],
+      },
+      {
+        name: "High Performance Club Package",
+        price: "$1,950",
+        period: "/month",
+        description:
+          "20+ analyses per month, priority support, and shared training plans for the whole group. Full high-performance support.",
+        features: [
+          "20+ analyses per month",
+          "Priority support",
+          "Shared training plans for the group",
+        ],
+      },
+      {
+        name: "Season Package — 3 Months",
+        price: "$5,500",
+        period: "one-time",
+        description:
+          "40–50 analyses over 3 months. Best value for academies planning a full training block or season preparation.",
+        features: [
+          "40–50 analyses over 3 months",
+          "One-time payment",
+          "Best for a full training block",
+        ],
+      },
+      {
+        name: "Season Package — 6 Months",
+        price: "$9,500",
+        period: "one-time",
+        description:
+          "80–90 analyses over 6 months. Our maximum volume discount, built for long-term academy partnerships.",
+        features: [
+          "80–90 analyses over 6 months",
+          "One-time payment",
+          "Maximum volume discount for long-term partners",
+        ],
+      },
+    ],
+    cta: "Get started",
+    note: "Every club package is arranged individually — get in touch and we'll set it up around your roster.",
   },
   carousel: {
     prevAria: "Previous plan",
@@ -79,10 +152,73 @@ const pl: PricingDict = {
   noVatNote: "Wszystkie ceny podane są w USD. Przy płatności nie doliczamy VAT ani podatku od sprzedaży.",
   clubs: {
     eyebrow: "Kluby i akademie",
-    title: "Coaching dla całego zespołu",
+    title: "Ceny hurtowe dla całego zespołu",
     subtitle:
-      "Prowadzisz klub, akademię lub zespół? Przygotujemy indywidualny pakiet coachingu grupowego — ceny hurtowe na analizę wideo, wspólne plany treningowe i dedykowany kontakt.",
-    cta: "Zapytaj o ceny dla klubów",
+      "Prowadzisz klub albo akademię? Te pakiety obejmują cykliczną analizę dla całej grupy — od jednej czy dwóch drużyn juniorskich po pełny sezon high performance.",
+    tiers: [
+      {
+        name: "Club Starter Package",
+        price: "550 USD",
+        period: "/miesiąc",
+        description:
+          "5–8 analiz wideo lub meczowych miesięcznie, ze wspólną informacją zwrotną dla trenerów i zawodników. Idealne dla mniejszych klubów i akademii.",
+        features: [
+          "5–8 analiz miesięcznie",
+          "Wspólna informacja zwrotna dla trenerów i zawodników",
+          "Najlepsze dla mniejszych klubów i akademii",
+        ],
+      },
+      {
+        name: "Academy Standard Package",
+        price: "1100 USD",
+        period: "/miesiąc",
+        description:
+          "10–15 analiz miesięcznie oraz dedykowany kontakt. Stworzone dla średniej wielkości akademii high performance.",
+        features: [
+          "10–15 analiz miesięcznie",
+          "Dedykowany kontakt",
+          "Stworzone dla akademii high performance",
+        ],
+      },
+      {
+        name: "High Performance Club Package",
+        price: "1950 USD",
+        period: "/miesiąc",
+        description:
+          "20+ analiz miesięcznie, priorytetowe wsparcie i wspólne plany treningowe dla całej grupy. Pełne wsparcie high performance.",
+        features: [
+          "20+ analiz miesięcznie",
+          "Priorytetowe wsparcie",
+          "Wspólne plany treningowe dla grupy",
+        ],
+      },
+      {
+        name: "Season Package — 3 Months",
+        price: "5500 USD",
+        period: "jednorazowo",
+        description:
+          "40–50 analiz w ciągu 3 miesięcy. Najlepsza wartość dla akademii planujących pełny blok treningowy lub przygotowania sezonowe.",
+        features: [
+          "40–50 analiz w ciągu 3 miesięcy",
+          "Płatność jednorazowa",
+          "Najlepsze dla pełnego bloku treningowego",
+        ],
+      },
+      {
+        name: "Season Package — 6 Months",
+        price: "9500 USD",
+        period: "jednorazowo",
+        description:
+          "80–90 analiz w ciągu 6 miesięcy. Nasza maksymalna zniżka za wolumen, stworzona dla długoterminowych partnerstw z akademiami.",
+        features: [
+          "80–90 analiz w ciągu 6 miesięcy",
+          "Płatność jednorazowa",
+          "Maksymalna zniżka dla długoterminowych partnerów",
+        ],
+      },
+    ],
+    cta: "Zacznij teraz",
+    note: "Każdy pakiet klubowy ustalamy indywidualnie — napisz do nas, a dopasujemy go do Twojego zespołu.",
   },
   carousel: {
     prevAria: "Poprzedni plan",
@@ -116,10 +252,73 @@ const es: PricingDict = {
   noVatNote: "Todos los precios están en USD. No se añade IVA ni impuesto de ventas al finalizar la compra.",
   clubs: {
     eyebrow: "Clubes y academias",
-    title: "Coaching para todo tu equipo",
+    title: "Precios por volumen para todo tu equipo",
     subtitle:
-      "¿Gestionas un club, academia o equipo? Creamos paquetes de coaching grupal a medida — precios por volumen en análisis de vídeo, planes de entrenamiento compartidos y un punto de contacto dedicado.",
-    cta: "Pregunta por precios para clubes",
+      "¿Gestionas un club o una academia? Estos paquetes cubren análisis continuo para todo tu grupo, desde un par de equipos juveniles hasta una temporada completa de alto rendimiento.",
+    tiers: [
+      {
+        name: "Club Starter Package",
+        price: "$550",
+        period: "/mes",
+        description:
+          "5–8 análisis de vídeo o de partido al mes, con feedback compartido para entrenadores y jugadores. Ideal para clubes y academias más pequeños.",
+        features: [
+          "5–8 análisis al mes",
+          "Feedback compartido para entrenadores y jugadores",
+          "Ideal para clubes y academias pequeños",
+        ],
+      },
+      {
+        name: "Academy Standard Package",
+        price: "$1,100",
+        period: "/mes",
+        description:
+          "10–15 análisis al mes, más un punto de contacto dedicado. Pensado para academias de alto rendimiento de tamaño medio.",
+        features: [
+          "10–15 análisis al mes",
+          "Punto de contacto dedicado",
+          "Pensado para academias de alto rendimiento",
+        ],
+      },
+      {
+        name: "High Performance Club Package",
+        price: "$1,950",
+        period: "/mes",
+        description:
+          "20+ análisis al mes, soporte prioritario y planes de entrenamiento compartidos para todo el grupo. Soporte completo de alto rendimiento.",
+        features: [
+          "20+ análisis al mes",
+          "Soporte prioritario",
+          "Planes de entrenamiento compartidos para el grupo",
+        ],
+      },
+      {
+        name: "Season Package — 3 Months",
+        price: "$5,500",
+        period: "pago único",
+        description:
+          "40–50 análisis en 3 meses. La mejor relación calidad-precio para academias que planifican un bloque de entrenamiento completo o la preparación de temporada.",
+        features: [
+          "40–50 análisis en 3 meses",
+          "Pago único",
+          "Ideal para un bloque de entrenamiento completo",
+        ],
+      },
+      {
+        name: "Season Package — 6 Months",
+        price: "$9,500",
+        period: "pago único",
+        description:
+          "80–90 análisis en 6 meses. Nuestro mayor descuento por volumen, pensado para colaboraciones a largo plazo con academias.",
+        features: [
+          "80–90 análisis en 6 meses",
+          "Pago único",
+          "Máximo descuento para colaboraciones a largo plazo",
+        ],
+      },
+    ],
+    cta: "Empezar",
+    note: "Cada paquete para clubes se configura de forma individual — contáctanos y lo adaptaremos a tu equipo.",
   },
   carousel: {
     prevAria: "Plan anterior",
@@ -153,10 +352,73 @@ const it: PricingDict = {
   noVatNote: "Tutti i prezzi sono in USD. Nessuna IVA o imposta sulle vendite viene aggiunta al checkout.",
   clubs: {
     eyebrow: "Club e accademie",
-    title: "Coaching per tutta la tua squadra",
+    title: "Prezzi a volume per tutta la tua squadra",
     subtitle:
-      "Gestisci un club, un'accademia o una squadra? Creiamo pacchetti di coaching di gruppo su misura — prezzi a volume sull'analisi video, piani di allenamento condivisi e un punto di contatto dedicato.",
-    cta: "Chiedi informazioni sui prezzi per club",
+      "Gestisci un club o un'accademia? Questi pacchetti coprono l'analisi continuativa per tutto il tuo gruppo, da un paio di squadre giovanili fino a un'intera stagione high performance.",
+    tiers: [
+      {
+        name: "Club Starter Package",
+        price: "$550",
+        period: "/mese",
+        description:
+          "5–8 analisi video o di partita al mese, con feedback condiviso per allenatori e giocatori. Ideale per club e accademie più piccoli.",
+        features: [
+          "5–8 analisi al mese",
+          "Feedback condiviso per allenatori e giocatori",
+          "Ideale per club e accademie di piccole dimensioni",
+        ],
+      },
+      {
+        name: "Academy Standard Package",
+        price: "$1.100",
+        period: "/mese",
+        description:
+          "10–15 analisi al mese, più un punto di contatto dedicato. Pensato per accademie high performance di medie dimensioni.",
+        features: [
+          "10–15 analisi al mese",
+          "Punto di contatto dedicato",
+          "Pensato per accademie high performance",
+        ],
+      },
+      {
+        name: "High Performance Club Package",
+        price: "$1.950",
+        period: "/mese",
+        description:
+          "20+ analisi al mese, supporto prioritario e piani di allenamento condivisi per tutto il gruppo. Supporto high performance completo.",
+        features: [
+          "20+ analisi al mese",
+          "Supporto prioritario",
+          "Piani di allenamento condivisi per il gruppo",
+        ],
+      },
+      {
+        name: "Season Package — 3 Months",
+        price: "$5.500",
+        period: "una tantum",
+        description:
+          "40–50 analisi in 3 mesi. Il miglior rapporto qualità-prezzo per le accademie che pianificano un intero blocco di allenamento o la preparazione stagionale.",
+        features: [
+          "40–50 analisi in 3 mesi",
+          "Pagamento una tantum",
+          "Ideale per un intero blocco di allenamento",
+        ],
+      },
+      {
+        name: "Season Package — 6 Months",
+        price: "$9.500",
+        period: "una tantum",
+        description:
+          "80–90 analisi in 6 mesi. Il nostro massimo sconto per volume, pensato per collaborazioni a lungo termine con le accademie.",
+        features: [
+          "80–90 analisi in 6 mesi",
+          "Pagamento una tantum",
+          "Sconto massimo per collaborazioni a lungo termine",
+        ],
+      },
+    ],
+    cta: "Inizia ora",
+    note: "Ogni pacchetto per club viene organizzato individualmente — contattaci e lo adatteremo alla tua squadra.",
   },
   carousel: {
     prevAria: "Piano precedente",
@@ -190,10 +452,73 @@ const ru: PricingDict = {
   noVatNote: "Все цены указаны в USD. При оплате НДС или налог с продаж не добавляются.",
   clubs: {
     eyebrow: "Клубы и академии",
-    title: "Коучинг для всей вашей команды",
+    title: "Оптовые цены для всей вашей команды",
     subtitle:
-      "Руководите клубом, академией или командой? Мы составим индивидуальный пакет группового коучинга — оптовые цены на видеоанализ, общие планы тренировок и выделенный контакт.",
-    cta: "Узнать цены для клубов",
+      "Руководите клубом или академией? Эти пакеты покрывают постоянный анализ для всей вашей группы — от пары юношеских команд до полного сезона high performance.",
+    tiers: [
+      {
+        name: "Club Starter Package",
+        price: "550 $",
+        period: "/месяц",
+        description:
+          "5–8 видео- или матчевых разборов в месяц с общей обратной связью для тренеров и игроков. Идеально для небольших клубов и академий.",
+        features: [
+          "5–8 разборов в месяц",
+          "Общая обратная связь для тренеров и игроков",
+          "Лучший вариант для небольших клубов и академий",
+        ],
+      },
+      {
+        name: "Academy Standard Package",
+        price: "1100 $",
+        period: "/месяц",
+        description:
+          "10–15 разборов в месяц плюс выделенный контакт. Создан для академий high performance среднего размера.",
+        features: [
+          "10–15 разборов в месяц",
+          "Выделенный контакт",
+          "Создан для академий high performance",
+        ],
+      },
+      {
+        name: "High Performance Club Package",
+        price: "1950 $",
+        period: "/месяц",
+        description:
+          "20+ разборов в месяц, приоритетная поддержка и общие планы тренировок для всей группы. Полная поддержка high performance.",
+        features: [
+          "20+ разборов в месяц",
+          "Приоритетная поддержка",
+          "Общие планы тренировок для группы",
+        ],
+      },
+      {
+        name: "Season Package — 3 Months",
+        price: "5500 $",
+        period: "разово",
+        description:
+          "40–50 разборов за 3 месяца. Лучшее соотношение цены и объёма для академий, планирующих полный тренировочный блок или подготовку к сезону.",
+        features: [
+          "40–50 разборов за 3 месяца",
+          "Разовый платёж",
+          "Лучший вариант для полного тренировочного блока",
+        ],
+      },
+      {
+        name: "Season Package — 6 Months",
+        price: "9500 $",
+        period: "разово",
+        description:
+          "80–90 разборов за 6 месяцев. Наша максимальная оптовая скидка, созданная для долгосрочного партнёрства с академиями.",
+        features: [
+          "80–90 разборов за 6 месяцев",
+          "Разовый платёж",
+          "Максимальная скидка для долгосрочных партнёров",
+        ],
+      },
+    ],
+    cta: "Начать",
+    note: "Каждый клубный пакет настраивается индивидуально — свяжитесь с нами, и мы подберём вариант под вашу команду.",
   },
   carousel: {
     prevAria: "Предыдущий план",

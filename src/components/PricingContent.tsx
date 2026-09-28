@@ -1,13 +1,12 @@
-import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import PricingCarousel from "@/components/PricingCarousel";
-import { IconArrowRight } from "@/components/icons";
+import ClubOffers from "@/components/ClubOffers";
 import { PLANS } from "@/lib/plans";
 import { auth } from "@/auth";
 import { countSuccessfulReferrals } from "@/lib/referral";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
-import { localizedHref, type AppLocale } from "@/i18n/locales";
+import type { AppLocale } from "@/i18n/locales";
 
 export default async function PricingContent({ lang = "en" }: { lang?: AppLocale }) {
   const t = pricingDictionaries[lang];
@@ -29,23 +28,16 @@ export default async function PricingContent({ lang = "en" }: { lang?: AppLocale
             <PricingCarousel plans={PLANS} referralCount={referralCount} lang={lang} />
           </Reveal>
 
-          <Reveal variant="zoom" className="mt-10">
-            <div className="rounded-2xl bg-onyx text-white p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
-                  {t.clubs.eyebrow}
-                </p>
-                <h2 className="text-2xl font-bold mt-1">{t.clubs.title}</h2>
-                <p className="mt-2 text-white/70 max-w-xl">{t.clubs.subtitle}</p>
-              </div>
-              <Link
-                href={localizedHref(lang, "/contact")}
-                className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold px-5 py-3 shadow-lg transition-all hover:-translate-y-0.5"
-              >
-                {t.clubs.cta}
-                <IconArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+          <Reveal variant="zoom" className="mt-16">
+            <ClubOffers
+              eyebrow={t.clubs.eyebrow}
+              title={t.clubs.title}
+              subtitle={t.clubs.subtitle}
+              tiers={t.clubs.tiers}
+              cta={t.clubs.cta}
+              note={t.clubs.note}
+              lang={lang}
+            />
           </Reveal>
         </div>
       </main>
