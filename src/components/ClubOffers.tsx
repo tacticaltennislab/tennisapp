@@ -1,8 +1,7 @@
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { IconArrowRight } from "@/components/icons";
 import type { ClubTier } from "@/i18n/dictionaries/pricing";
-import { localizedHref, type AppLocale } from "@/i18n/locales";
+import { CLUB_CHECKOUT_LINKS } from "@/lib/clubCheckoutLinks";
 
 export default function ClubOffers({
   eyebrow,
@@ -11,7 +10,6 @@ export default function ClubOffers({
   tiers,
   cta,
   note,
-  lang = "en",
 }: {
   eyebrow: string;
   title: string;
@@ -19,7 +17,6 @@ export default function ClubOffers({
   tiers: ClubTier[];
   cta: string;
   note: string;
-  lang?: AppLocale;
 }) {
   return (
     <div>
@@ -47,13 +44,13 @@ export default function ClubOffers({
                   </li>
                 ))}
               </ul>
-              <Link
-                href={localizedHref(lang, "/contact")}
+              <a
+                href={CLUB_CHECKOUT_LINKS[i]}
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2.5 text-sm shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 {cta}
                 <IconArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </Reveal>
         ))}

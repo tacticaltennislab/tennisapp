@@ -36,7 +36,6 @@ export default async function PricingContent({ lang = "en" }: { lang?: AppLocale
               tiers={t.clubs.tiers}
               cta={t.clubs.cta}
               note={t.clubs.note}
-              lang={lang}
             />
           </Reveal>
         </div>
