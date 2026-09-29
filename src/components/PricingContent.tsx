@@ -33,6 +33,7 @@ export default async function PricingContent({ lang = "en" }: { lang?: AppLocale
               eyebrow={t.clubs.eyebrow}
               title={t.clubs.title}
               subtitle={t.clubs.subtitle}
+              benefits={t.clubs.benefits}
               tiers={t.clubs.tiers}
               cta={t.clubs.cta}
               note={t.clubs.note}

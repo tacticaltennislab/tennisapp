@@ -8,6 +8,13 @@ export interface ClubTier {
   features: string[];
 }
 
+export interface ClubBenefits {
+  businessTitle: string;
+  businessItems: string[];
+  marketingTitle: string;
+  marketingItems: string[];
+}
+
 export interface PricingDict {
   pageHeader: {
     eyebrow: string;
@@ -19,6 +26,7 @@ export interface PricingDict {
     eyebrow: string;
     title: string;
     subtitle: string;
+    benefits: ClubBenefits;
     tiers: ClubTier[];
     cta: string;
     note: string;
@@ -55,6 +63,24 @@ const en: PricingDict = {
     title: "Volume pricing for your whole roster",
     subtitle:
       "We're a support system for the coaches at your academy — handling the frame-by-frame video and match analysis they don't have the hours for, so they can spend more energy on the court instead of behind a laptop. Better analysis helps players improve faster, faster improvement means more results at tournaments, and strong results are what bring the next wave of players through your doors.",
+    benefits: {
+      businessTitle: "Business benefits for your club",
+      businessItems: [
+        "Higher training quality — technology becomes an extra way for your academy or club to stand out",
+        "More appeal to new players — a modern approach to training is a real argument when choosing a club",
+        "New services you can offer — individual reports, match analyses, or premium packages for players",
+        "A real competitive edge — data-driven analysis becomes part of what your club offers",
+        "Better player acquisition and retention — the extra value you offer supports long-term commitment to the club",
+        "A modern club image — using sports technology reinforces a professional, forward-looking organization",
+      ],
+      marketingTitle: "Marketing benefits",
+      marketingItems: [
+        "Ready-made social content — share clips from analyses, stats, and player progress",
+        "Joint marketing with us — case studies, events, webinars, or educational content",
+        "More appeal to sponsors — a technology partnership signals professionalism",
+        "Stronger academy branding — show that your players train with data and modern tools",
+      ],
+    },
     tiers: [
       {
         name: "Club Starter Package",
@@ -155,6 +181,24 @@ const pl: PricingDict = {
     title: "Ceny hurtowe dla całego zespołu",
     subtitle:
       "Jesteśmy systemem wsparcia dla trenerów w Twojej akademii — przejmujemy analizę wideo i meczową klatka po klatce, na którą nie mają czasu, dzięki czemu mogą poświęcić więcej energii na kort, a nie na laptopa. Lepsza analiza pomaga zawodnikom szybciej się rozwijać, szybszy rozwój to więcej wyników na turniejach, a mocne wyniki to właśnie to, co przyciąga do Twojej akademii kolejnych zawodników.",
+    benefits: {
+      businessTitle: "Korzyści biznesowe dla klubu",
+      businessItems: [
+        "Podniesienie jakości oferowanego szkolenia — technologia jako dodatkowy element wyróżniający akademię lub klub",
+        "Większa atrakcyjność dla nowych zawodników — nowoczesne podejście do treningu jako argument przy wyborze klubu",
+        "Możliwość stworzenia dodatkowych usług — np. indywidualne raporty, analizy meczowe czy pakiety premium dla zawodników",
+        "Budowanie przewagi konkurencyjnej — analiza danych jako element oferty klubu",
+        "Pozyskiwanie i utrzymanie zawodników — dodatkowa wartość wspierająca ich długoterminowe związanie z klubem",
+        "Wizerunek nowoczesnego klubu — technologie sportowe wzmacniające profesjonalny charakter organizacji",
+      ],
+      marketingTitle: "Korzyści marketingowe",
+      marketingItems: [
+        "Materiały do social mediów — fragmenty analiz, statystyki i postępy zawodników",
+        "Wspólne działania marketingowe z nami — case studies, wydarzenia, webinary czy materiały edukacyjne",
+        "Większa atrakcyjność dla sponsorów — współpraca technologiczna jako element profesjonalizacji klubu",
+        "Budowanie marki akademii — komunikacja, że zawodnicy szkolą się w oparciu o dane i nowoczesne narzędzia",
+      ],
+    },
     tiers: [
       {
         name: "Club Starter Package",
@@ -255,6 +299,24 @@ const es: PricingDict = {
     title: "Precios por volumen para todo tu equipo",
     subtitle:
       "Somos un sistema de apoyo para los entrenadores de tu academia — nos encargamos del análisis de vídeo y de partido, fotograma a fotograma, para el que no tienen horas, para que puedan dedicar más energía a la pista y menos al portátil. Un mejor análisis ayuda a los jugadores a mejorar más rápido, una mejora más rápida significa más resultados en torneos, y esos buenos resultados son justo lo que atrae a la próxima ola de jugadores a tu academia.",
+    benefits: {
+      businessTitle: "Beneficios para tu club",
+      businessItems: [
+        "Mayor calidad de formación — la tecnología se convierte en un elemento diferenciador para tu academia o club",
+        "Más atractivo para nuevos jugadores — un enfoque de entrenamiento moderno es un argumento real al elegir un club",
+        "Nuevos servicios que puedes ofrecer — informes individuales, análisis de partidos o paquetes premium para jugadores",
+        "Una ventaja competitiva real — el análisis basado en datos pasa a formar parte de lo que ofrece tu club",
+        "Mejor captación y retención de jugadores — el valor adicional que ofreces refuerza su compromiso a largo plazo",
+        "Una imagen de club moderno — el uso de tecnología deportiva refuerza el carácter profesional de la organización",
+      ],
+      marketingTitle: "Beneficios de marketing",
+      marketingItems: [
+        "Contenido listo para redes sociales — comparte fragmentos de análisis, estadísticas y progreso de los jugadores",
+        "Acciones de marketing conjuntas con nosotros — casos de éxito, eventos, webinars o material educativo",
+        "Más atractivo para patrocinadores — una colaboración tecnológica es señal de profesionalización",
+        "Una marca de academia más fuerte — comunica que tus jugadores entrenan con datos y herramientas modernas",
+      ],
+    },
     tiers: [
       {
         name: "Club Starter Package",
@@ -355,6 +417,24 @@ const it: PricingDict = {
     title: "Prezzi a volume per tutta la tua squadra",
     subtitle:
       "Siamo un sistema di supporto per gli allenatori della tua accademia — ci occupiamo noi dell'analisi video e di partita, fotogramma per fotogramma, per cui loro non hanno le ore necessarie, così possono dedicare più energia al campo e meno al portatile. Un'analisi migliore aiuta i giocatori a migliorare più in fretta, un miglioramento più rapido significa più risultati nei tornei, e risultati solidi sono esattamente ciò che porta la prossima ondata di giocatori nella tua accademia.",
+    benefits: {
+      businessTitle: "Vantaggi per il tuo club",
+      businessItems: [
+        "Maggiore qualità della formazione — la tecnologia diventa un elemento distintivo in più per la tua accademia o club",
+        "Maggiore attrattiva per i nuovi giocatori — un approccio moderno all'allenamento è un vero argomento nella scelta del club",
+        "Nuovi servizi da offrire — report individuali, analisi delle partite o pacchetti premium per i giocatori",
+        "Un vero vantaggio competitivo — l'analisi basata sui dati diventa parte dell'offerta del tuo club",
+        "Migliore acquisizione e fidelizzazione dei giocatori — il valore aggiunto offerto rafforza il legame a lungo termine",
+        "Un'immagine di club moderno — l'uso di tecnologie sportive rafforza il carattere professionale dell'organizzazione",
+      ],
+      marketingTitle: "Vantaggi di marketing",
+      marketingItems: [
+        "Contenuti pronti per i social — condividi estratti di analisi, statistiche e progressi dei giocatori",
+        "Azioni di marketing congiunte con noi — case study, eventi, webinar o materiali didattici",
+        "Maggiore attrattiva per gli sponsor — una collaborazione tecnologica è segno di professionalizzazione",
+        "Un brand accademico più forte — comunica che i tuoi giocatori si allenano con dati e strumenti moderni",
+      ],
+    },
     tiers: [
       {
         name: "Club Starter Package",
@@ -455,6 +535,24 @@ const ru: PricingDict = {
     title: "Оптовые цены для всей вашей команды",
     subtitle:
       "Мы — система поддержки для тренеров вашей академии: берём на себя покадровый видео- и матчевый анализ, на который у них просто не хватает часов, чтобы они могли уделять больше энергии корту, а не ноутбуку. Более качественный анализ помогает игрокам быстрее прогрессировать, более быстрый прогресс — это больше результатов на турнирах, а сильные результаты — это именно то, что привлекает в вашу академию новых игроков.",
+    benefits: {
+      businessTitle: "Бизнес-преимущества для вашего клуба",
+      businessItems: [
+        "Повышение качества тренировок — технологии становятся дополнительным отличием вашей академии или клуба",
+        "Больше привлекательности для новых игроков — современный подход к тренировкам становится реальным аргументом при выборе клуба",
+        "Новые услуги, которые вы можете предложить — индивидуальные отчёты, анализ матчей или премиальные пакеты для игроков",
+        "Настоящее конкурентное преимущество — анализ на основе данных становится частью предложения вашего клуба",
+        "Лучшее привлечение и удержание игроков — дополнительная ценность укрепляет их долгосрочную привязанность к клубу",
+        "Имидж современного клуба — использование спортивных технологий усиливает профессиональный характер организации",
+      ],
+      marketingTitle: "Маркетинговые преимущества",
+      marketingItems: [
+        "Готовый контент для соцсетей — фрагменты анализов, статистика и прогресс игроков",
+        "Совместные маркетинговые активности с нами — кейсы, мероприятия, вебинары или образовательные материалы",
+        "Больше привлекательности для спонсоров — технологическое партнёрство как признак профессионализации",
+        "Усиление бренда академии — сообщайте, что ваши игроки тренируются на основе данных и современных инструментов",
+      ],
+    },
     tiers: [
       {
         name: "Club Starter Package",

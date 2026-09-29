@@ -1,12 +1,13 @@
 import Reveal from "@/components/Reveal";
 import { IconArrowRight } from "@/components/icons";
-import type { ClubTier } from "@/i18n/dictionaries/pricing";
+import type { ClubBenefits, ClubTier } from "@/i18n/dictionaries/pricing";
 import { CLUB_CHECKOUT_LINKS } from "@/lib/clubCheckoutLinks";
 
 export default function ClubOffers({
   eyebrow,
   title,
   subtitle,
+  benefits,
   tiers,
   cta,
   note,
@@ -14,6 +15,7 @@ export default function ClubOffers({
   eyebrow: string;
   title: string;
   subtitle: string;
+  benefits: ClubBenefits;
   tiers: ClubTier[];
   cta: string;
   note: string;
@@ -26,7 +28,32 @@ export default function ClubOffers({
         <p className="mt-2 text-body">{subtitle}</p>
       </div>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
+        <div className="rounded-2xl border border-line bg-surface p-6">
+          <h3 className="font-bold text-ink">{benefits.businessTitle}</h3>
+          <ul className="mt-3 space-y-2 text-sm">
+            {benefits.businessItems.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="text-brand-600 shrink-0">✓</span>
+                <span className="text-body">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-line bg-surface p-6">
+          <h3 className="font-bold text-ink">{benefits.marketingTitle}</h3>
+          <ul className="mt-3 space-y-2 text-sm">
+            {benefits.marketingItems.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="text-brand-600 shrink-0">✓</span>
+                <span className="text-body">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier, i) => (
           <Reveal key={tier.name} delay={i * 60}>
             <div className="h-full flex flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm">
