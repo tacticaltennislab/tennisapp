@@ -54,7 +54,7 @@ const en: PricingDict = {
     eyebrow: "Clubs & academies",
     title: "Volume pricing for your whole roster",
     subtitle:
-      "Running a club or academy? These packages cover ongoing analysis for your whole group, from a couple of junior teams to a full high-performance season.",
+      "We're a support system for the coaches at your academy — handling the frame-by-frame video and match analysis they don't have the hours for, so they can spend more energy on the court instead of behind a laptop. Better analysis helps players improve faster, faster improvement means more results at tournaments, and strong results are what bring the next wave of players through your doors.",
     tiers: [
       {
         name: "Club Starter Package",
@@ -154,7 +154,7 @@ const pl: PricingDict = {
     eyebrow: "Kluby i akademie",
     title: "Ceny hurtowe dla całego zespołu",
     subtitle:
-      "Prowadzisz klub albo akademię? Te pakiety obejmują cykliczną analizę dla całej grupy — od jednej czy dwóch drużyn juniorskich po pełny sezon high performance.",
+      "Jesteśmy systemem wsparcia dla trenerów w Twojej akademii — przejmujemy analizę wideo i meczową klatka po klatce, na którą nie mają czasu, dzięki czemu mogą poświęcić więcej energii na kort, a nie na laptopa. Lepsza analiza pomaga zawodnikom szybciej się rozwijać, szybszy rozwój to więcej wyników na turniejach, a mocne wyniki to właśnie to, co przyciąga do Twojej akademii kolejnych zawodników.",
     tiers: [
       {
         name: "Club Starter Package",
@@ -254,7 +254,7 @@ const es: PricingDict = {
     eyebrow: "Clubes y academias",
     title: "Precios por volumen para todo tu equipo",
     subtitle:
-      "¿Gestionas un club o una academia? Estos paquetes cubren análisis continuo para todo tu grupo, desde un par de equipos juveniles hasta una temporada completa de alto rendimiento.",
+      "Somos un sistema de apoyo para los entrenadores de tu academia — nos encargamos del análisis de vídeo y de partido, fotograma a fotograma, para el que no tienen horas, para que puedan dedicar más energía a la pista y menos al portátil. Un mejor análisis ayuda a los jugadores a mejorar más rápido, una mejora más rápida significa más resultados en torneos, y esos buenos resultados son justo lo que atrae a la próxima ola de jugadores a tu academia.",
     tiers: [
       {
         name: "Club Starter Package",
@@ -354,7 +354,7 @@ const it: PricingDict = {
     eyebrow: "Club e accademie",
     title: "Prezzi a volume per tutta la tua squadra",
     subtitle:
-      "Gestisci un club o un'accademia? Questi pacchetti coprono l'analisi continuativa per tutto il tuo gruppo, da un paio di squadre giovanili fino a un'intera stagione high performance.",
+      "Siamo un sistema di supporto per gli allenatori della tua accademia — ci occupiamo noi dell'analisi video e di partita, fotogramma per fotogramma, per cui loro non hanno le ore necessarie, così possono dedicare più energia al campo e meno al portatile. Un'analisi migliore aiuta i giocatori a migliorare più in fretta, un miglioramento più rapido significa più risultati nei tornei, e risultati solidi sono esattamente ciò che porta la prossima ondata di giocatori nella tua accademia.",
     tiers: [
       {
         name: "Club Starter Package",
@@ -454,7 +454,7 @@ const ru: PricingDict = {
     eyebrow: "Клубы и академии",
     title: "Оптовые цены для всей вашей команды",
     subtitle:
-      "Руководите клубом или академией? Эти пакеты покрывают постоянный анализ для всей вашей группы — от пары юношеских команд до полного сезона high performance.",
+      "Мы — система поддержки для тренеров вашей академии: берём на себя покадровый видео- и матчевый анализ, на который у них просто не хватает часов, чтобы они могли уделять больше энергии корту, а не ноутбуку. Более качественный анализ помогает игрокам быстрее прогрессировать, более быстрый прогресс — это больше результатов на турнирах, а сильные результаты — это именно то, что привлекает в вашу академию новых игроков.",
     tiers: [
       {
         name: "Club Starter Package",
