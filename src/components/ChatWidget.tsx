@@ -53,7 +53,7 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-30">
+    <div className="print:hidden fixed bottom-5 right-5 z-30">
       {open && (
         <div className="mb-3 w-[calc(100vw-2.5rem)] max-w-sm animate-fade-up">
           <div className="rounded-2xl border border-line bg-surface shadow-xl overflow-hidden">

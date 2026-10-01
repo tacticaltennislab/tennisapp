@@ -17,7 +17,7 @@ export default function SiteFooter() {
   const t = footerDictionaries[locale];
 
   return (
-    <footer className="border-t border-line py-8">
+    <footer className="print:hidden border-t border-line py-8">
       <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
         <p className="text-muted">{t.tagline}</p>
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">

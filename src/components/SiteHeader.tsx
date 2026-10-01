@@ -47,7 +47,7 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-20 bg-background/95 backdrop-blur border-b transition-shadow ${
+      className={`print:hidden sticky top-0 z-20 bg-background/95 backdrop-blur border-b transition-shadow ${
         scrolled ? "border-line shadow-sm" : "border-transparent"
       }`}
     >
