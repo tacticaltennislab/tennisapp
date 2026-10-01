@@ -144,7 +144,7 @@ const en: PricingDict = {
       },
     ],
     cta: "Get started",
-    note: "Every club package is arranged individually — get in touch and we'll set it up around your roster.",
+    note: "Every club package is set up personally by Piotr Kusiewicz and Mateusz Kułakowski — get in touch and we'll tailor it to your roster.",
   },
   carousel: {
     prevAria: "Previous plan",
@@ -262,7 +262,7 @@ const pl: PricingDict = {
       },
     ],
     cta: "Zacznij teraz",
-    note: "Każdy pakiet klubowy ustalamy indywidualnie — napisz do nas, a dopasujemy go do Twojego zespołu.",
+    note: "Każdym pakietem klubowym zajmują się osobiście Piotr Kusiewicz i Mateusz Kułakowski — napisz do nas, a dopasujemy go do Twojego zespołu.",
   },
   carousel: {
     prevAria: "Poprzedni plan",
@@ -380,7 +380,7 @@ const es: PricingDict = {
       },
     ],
     cta: "Empezar",
-    note: "Cada paquete para clubes se configura de forma individual — contáctanos y lo adaptaremos a tu equipo.",
+    note: "Cada paquete para clubes lo configuran personalmente Piotr Kusiewicz y Mateusz Kułakowski — contáctanos y lo adaptaremos a tu equipo.",
   },
   carousel: {
     prevAria: "Plan anterior",
@@ -498,7 +498,7 @@ const it: PricingDict = {
       },
     ],
     cta: "Inizia ora",
-    note: "Ogni pacchetto per club viene organizzato individualmente — contattaci e lo adatteremo alla tua squadra.",
+    note: "Ogni pacchetto per club viene organizzato personalmente da Piotr Kusiewicz e Mateusz Kułakowski — contattaci e lo adatteremo alla tua squadra.",
   },
   carousel: {
     prevAria: "Piano precedente",
@@ -616,7 +616,7 @@ const ru: PricingDict = {
       },
     ],
     cta: "Начать",
-    note: "Каждый клубный пакет настраивается индивидуально — свяжитесь с нами, и мы подберём вариант под вашу команду.",
+    note: "Каждый клубный пакет настраивается лично Пиотром Кусевичем и Матеушем Кулаковским — свяжитесь с нами, и мы подберём вариант под вашу команду.",
   },
   carousel: {
     prevAria: "Предыдущий план",
