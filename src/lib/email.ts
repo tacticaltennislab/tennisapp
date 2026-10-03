@@ -72,6 +72,25 @@ export function passwordResetEmail(resetUrl: string) {
   );
 }
 
+export function academyInviteEmail(academyName: string, role: string, inviteUrl: string) {
+  const what =
+    role === "owner"
+      ? "manage your academy's account on Tactical Tennis Lab"
+      : role === "coach"
+        ? "review your academy's players' videos on Tactical Tennis Lab"
+        : "join your academy on Tactical Tennis Lab so your coaches can review your videos";
+  return layout(
+    `Invitation to ${escapeHtml(academyName)}`,
+    `<p style="font-size: 15px; line-height: 1.6;">
+      You've been invited to ${what} as part of <strong>${escapeHtml(academyName)}</strong>.
+    </p>
+    <p style="margin: 24px 0;">
+      <a href="${inviteUrl}" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">Accept invitation</a>
+    </p>
+    <p style="font-size: 13px; color: #6b7280;">Sign in with the email address this invitation was sent to. The link expires in 14 days.</p>`
+  );
+}
+
 export function coachFeedbackEmail(title: string, coachNotes: string) {
   return layout(
     "Your video has been reviewed",

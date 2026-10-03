@@ -26,8 +26,58 @@ model User {
   purchases         Purchase[]
   pushSubscriptions PushSubscription[]
   reviews           Review[]
+  academyMemberships AcademyMember[]
+  academyPlayers    AcademyPlayer[]
   referredBy        User?               @relation("Referrals", fields: [referredByUserId], references: [id], onDelete: SetNull)
   referrals         User[]              @relation("Referrals")
+}
+
+model Academy {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+
+  members AcademyMember[]
+  players AcademyPlayer[]
+  invites AcademyInvite[]
+}
+
+model AcademyMember {
+  id        String   @id @default(cuid())
+  academyId String
+  userId    String
+  role      String   @default("coach")
+  createdAt DateTime @default(now())
+
+  academy Academy @relation(fields: [academyId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([academyId, userId])
+}
+
+model AcademyPlayer {
+  id        String   @id @default(cuid())
+  academyId String
+  userId    String
+  createdAt DateTime @default(now())
+
+  academy Academy @relation(fields: [academyId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([academyId, userId])
+}
+
+model AcademyInvite {
+  id         String    @id @default(cuid())
+  academyId  String
+  email      String
+  role       String
+  token      String    @unique
+  expiresAt  DateTime
+  acceptedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  academy Academy @relation(fields: [academyId], references: [id], onDelete: Cascade)
 }
 
 model Account {

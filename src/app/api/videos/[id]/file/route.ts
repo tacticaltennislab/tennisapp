@@ -2,6 +2,7 @@ import { get } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { canReviewPlayer } from "@/lib/academy";
 
 export async function GET(
   request: Request,
@@ -19,8 +20,8 @@ export async function GET(
   }
 
   const isOwner = submission.userId === session.user.id;
-  const isAdmin = session.user.role === "admin";
-  if (!isOwner && !isAdmin) {
+  const canView = isOwner || (await canReviewPlayer(session.user, submission.userId));
+  if (!canView) {
     return NextResponse.json({ error: "Forbidden." }, { status: 403 });
   }
 

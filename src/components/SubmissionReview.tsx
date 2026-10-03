@@ -17,7 +17,13 @@ interface Submission {
   focusAreas: string[];
 }
 
-export default function SubmissionReview({ submission }: { submission: Submission }) {
+export default function SubmissionReview({
+  submission,
+  canDelete = false,
+}: {
+  submission: Submission;
+  canDelete?: boolean;
+}) {
   const [coachNotes, setCoachNotes] = useState(submission.coachNotes || "");
   const [status, setStatus] = useState(submission.status);
   const [submitting, setSubmitting] = useState(false);
@@ -119,14 +125,16 @@ export default function SubmissionReview({ submission }: { submission: Submissio
         >
           Watch video
         </a>
-        <button
-          type="button"
-          onClick={handleDelete}
-          disabled={deleting}
-          className="text-sm text-red-600 hover:text-red-700 disabled:opacity-60"
-        >
-          {deleting ? "Deleting..." : "Delete video"}
-        </button>
+        {canDelete && (
+          <button
+            type="button"
+            onClick={handleDelete}
+            disabled={deleting}
+            className="text-sm text-red-600 hover:text-red-700 disabled:opacity-60"
+          >
+            {deleting ? "Deleting..." : "Delete video"}
+          </button>
+        )}
       </div>
       {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 

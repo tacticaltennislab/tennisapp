@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { sendEmail, coachFeedbackEmail } from "@/lib/email";
+import { canReviewPlayer } from "@/lib/academy";
 
 export async function DELETE(
   _request: Request,
@@ -30,11 +31,19 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await auth();
-  if (!session?.user || session.user.role !== "admin") {
+  if (!session?.user) {
     return NextResponse.json({ error: "Forbidden." }, { status: 403 });
   }
 
   const { id } = await params;
+  const existing = await prisma.videoSubmission.findUnique({
+    where: { id },
+    select: { userId: true },
+  });
+  if (!existing || !(await canReviewPlayer(session.user, existing.userId))) {
+    return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+  }
+
   const body = await request.json().catch(() => null);
   const coachNotes = typeof body?.coachNotes === "string" ? body.coachNotes.trim() : undefined;
 

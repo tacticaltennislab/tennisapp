@@ -39,6 +39,7 @@ export default async function SubmissionsPage() {
               {submissions.map((s, i) => (
                 <Reveal key={s.id} as="li" delay={Math.min(i, 6) * 60}>
                   <SubmissionReview
+                    canDelete
                     submission={{
                       id: s.id,
                       title: s.title,
