@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { focusLabel, goalLabel, levelLabel, isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 
 interface Submission {
@@ -20,7 +21,26 @@ export default function SubmissionReview({ submission }: { submission: Submissio
   const [coachNotes, setCoachNotes] = useState(submission.coachNotes || "");
   const [status, setStatus] = useState(submission.status);
   const [submitting, setSubmitting] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+
+  async function handleDelete() {
+    if (!window.confirm("Delete this video permanently? The file will be removed from storage.")) return;
+    setError(null);
+    setDeleting(true);
+
+    const res = await fetch(`/api/videos/${submission.id}`, { method: "DELETE" });
+
+    if (!res.ok) {
+      setDeleting(false);
+      const data = await res.json().catch(() => ({}));
+      setError(data.error || "Could not delete this video.");
+      return;
+    }
+
+    router.refresh();
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -90,14 +110,25 @@ export default function SubmissionReview({ submission }: { submission: Submissio
         </div>
       )}
 
-      <a
-        href={`/api/videos/${submission.id}/file`}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-2 inline-block text-sm text-brand-600"
-      >
-        Watch video
-      </a>
+      <div className="mt-2 flex items-center justify-between">
+        <a
+          href={`/api/videos/${submission.id}/file`}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block text-sm text-brand-600"
+        >
+          Watch video
+        </a>
+        <button
+          type="button"
+          onClick={handleDelete}
+          disabled={deleting}
+          className="text-sm text-red-600 hover:text-red-700 disabled:opacity-60"
+        >
+          {deleting ? "Deleting..." : "Delete video"}
+        </button>
+      </div>
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
       <form onSubmit={handleSubmit} className="mt-3 space-y-2">
         <textarea
