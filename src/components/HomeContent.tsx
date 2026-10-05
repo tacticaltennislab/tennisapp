@@ -9,6 +9,7 @@ import JourneySection from "@/components/JourneySection";
 import ProductScrollSection from "@/components/ProductScrollSection";
 import OffersPreview from "@/components/OffersPreview";
 import Testimonials from "@/components/Testimonials";
+import BackedBy from "@/components/BackedBy";
 import { prisma } from "@/lib/prisma";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
@@ -224,6 +225,8 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
           </div>
         </div>
       </section>
+
+      <BackedBy lang={lang} />
 
       <Testimonials lang={lang} />
 
