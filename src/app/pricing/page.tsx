@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PricingContent from "@/components/PricingContent";
+import { parseAudience } from "@/lib/pricingAudience";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PricingPage() {
-  return <PricingContent lang="en" />;
+export default async function PricingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ audience?: string | string[] }>;
+}) {
+  const { audience } = await searchParams;
+  return <PricingContent lang="en" initialAudience={parseAudience(audience)} />;
 }

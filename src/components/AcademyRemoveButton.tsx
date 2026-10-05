@@ -2,21 +2,32 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { academyDictionaries, fill } from "@/i18n/dictionaries/academy";
+import type { AppLocale } from "@/i18n/locales";
 
-export default function AcademyRemoveButton({ url, label }: { url: string; label: string }) {
+export default function AcademyRemoveButton({
+  url,
+  label,
+  lang = "en",
+}: {
+  url: string;
+  label: string;
+  lang?: AppLocale;
+}) {
+  const t = academyDictionaries[lang].remove;
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function handleRemove() {
-    if (!window.confirm(`Remove ${label} from this academy?`)) return;
+    if (!window.confirm(fill(t.confirm, { name: label }))) return;
     setError(null);
     setSubmitting(true);
     const res = await fetch(url, { method: "DELETE" });
     if (!res.ok) {
       setSubmitting(false);
       const data = await res.json().catch(() => ({}));
-      setError(data.error || "Could not remove.");
+      setError(data.error || t.error);
       return;
     }
     router.refresh();
@@ -30,7 +41,7 @@ export default function AcademyRemoveButton({ url, label }: { url: string; label
         disabled={submitting}
         className="text-xs text-red-600 hover:text-red-700 disabled:opacity-60"
       >
-        {submitting ? "Removing..." : "Remove"}
+        {submitting ? t.removing : t.button}
       </button>
       {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
     </div>

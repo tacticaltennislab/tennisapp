@@ -7,6 +7,7 @@ import { signIn } from "next-auth/react";
 import AuthLayout from "@/components/AuthLayout";
 import { authDictionaries } from "@/i18n/dictionaries/auth";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
+import { safeCallbackUrl } from "@/lib/utils";
 
 export default function SignUpContent({ lang = "en" }: { lang?: AppLocale }) {
   return (
@@ -20,7 +21,7 @@ function SignUpForm({ lang }: { lang: AppLocale }) {
   const t = authDictionaries[lang];
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || localizedHref(lang, "/");
+  const callbackUrl = safeCallbackUrl(searchParams.get("callbackUrl"), localizedHref(lang, "/"));
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

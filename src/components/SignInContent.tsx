@@ -7,6 +7,7 @@ import { signIn } from "next-auth/react";
 import AuthLayout from "@/components/AuthLayout";
 import { authDictionaries } from "@/i18n/dictionaries/auth";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
+import { safeCallbackUrl } from "@/lib/utils";
 
 export default function SignInContent({ lang = "en" }: { lang?: AppLocale }) {
   return (
@@ -20,7 +21,7 @@ function SignInForm({ lang }: { lang: AppLocale }) {
   const t = authDictionaries[lang];
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || localizedHref(lang, "/");
+  const callbackUrl = safeCallbackUrl(searchParams.get("callbackUrl"), localizedHref(lang, "/"));
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -103,7 +104,10 @@ function SignInForm({ lang }: { lang: AppLocale }) {
 
       <p className="mt-6 text-sm text-body">
         {t.signIn.noAccount}{" "}
-        <Link href={localizedHref(lang, "/sign-up")} className="text-brand-600 font-medium">
+        <Link
+          href={`${localizedHref(lang, "/sign-up")}${callbackUrl !== localizedHref(lang, "/") ? `?callbackUrl=${encodeURIComponent(callbackUrl)}` : ""}`}
+          className="text-brand-600 font-medium"
+        >
           {t.signIn.signUpLink}
         </Link>
       </p>

@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import PricingCarousel from "@/components/PricingCarousel";
 import PricingAudienceSwitch from "@/components/PricingAudienceSwitch";
+import type { Audience } from "@/lib/pricingAudience";
 import ClubOffers from "@/components/ClubOffers";
 import { PLANS } from "@/lib/plans";
 import { auth } from "@/auth";
@@ -9,7 +10,13 @@ import { countSuccessfulReferrals } from "@/lib/referral";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
 import type { AppLocale } from "@/i18n/locales";
 
-export default async function PricingContent({ lang = "en" }: { lang?: AppLocale }) {
+export default async function PricingContent({
+  lang = "en",
+  initialAudience = "players",
+}: {
+  lang?: AppLocale;
+  initialAudience?: Audience;
+}) {
   const t = pricingDictionaries[lang];
   const session = await auth();
   const referralCount = session?.user ? await countSuccessfulReferrals(session.user.id) : 0;
@@ -27,6 +34,7 @@ export default async function PricingContent({ lang = "en" }: { lang?: AppLocale
           <PricingAudienceSwitch
             playersLabel={t.audience.players}
             clubsLabel={t.audience.clubs}
+            initialAudience={initialAudience}
             players={
               <>
                 <p className="text-center text-xs text-muted -mt-4 mb-8">{t.noVatNote}</p>

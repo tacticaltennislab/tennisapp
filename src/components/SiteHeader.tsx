@@ -32,6 +32,40 @@ export default function SiteHeader() {
   const t = navDictionaries[locale];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [fetchedLink, setFetchedLink] = useState<{ userId: string; href: string; label: string } | null>(null);
+
+  const userId = session?.user?.id;
+  const isAdmin = session?.user?.role === "admin";
+  useEffect(() => {
+    if (!userId) return;
+    let cancelled = false;
+    fetch("/api/academy/mine")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { academies: { id: string }[] } | null) => {
+        if (cancelled || !data) return;
+        if (isAdmin) {
+          setFetchedLink({ userId, href: "/academies", label: t.academies });
+        } else if (data.academies.length === 1) {
+          setFetchedLink({
+            userId,
+            href: localizedHref(locale, `/academy/${data.academies[0].id}`),
+            label: t.academy,
+          });
+        } else if (data.academies.length > 1) {
+          setFetchedLink({ userId, href: localizedHref(locale, "/academy"), label: t.academy });
+        } else {
+          setFetchedLink(null);
+        }
+      })
+      .catch(() => {
+        // The academy link is a convenience; never let a failed lookup break the header.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, isAdmin, locale, t.academy, t.academies]);
+  // Ignore a link fetched for a previous user (e.g. right after signing out and in).
+  const academyLink = userId && fetchedLink?.userId === userId ? fetchedLink : null;
 
   useEffect(() => {
     function onScroll() {
@@ -87,6 +121,11 @@ export default function SiteHeader() {
                     {t.reviews}
                   </Link>
                 </>
+              )}
+              {academyLink && (
+                <Link href={academyLink.href} className={linkClass}>
+                  {academyLink.label}
+                </Link>
               )}
               <Link href={localizedHref(locale, "/account")} className={linkClass}>
                 {session.user?.name || session.user?.email}
@@ -155,6 +194,11 @@ export default function SiteHeader() {
                     {t.reviews}
                   </Link>
                 </>
+              )}
+              {academyLink && (
+                <Link href={academyLink.href} className={linkClass} onClick={closeMenu}>
+                  {academyLink.label}
+                </Link>
               )}
               <Link href={localizedHref(locale, "/account")} className={linkClass} onClick={closeMenu}>
                 {session.user?.name || session.user?.email}

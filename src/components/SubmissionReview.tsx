@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { focusLabel, goalLabel, levelLabel, isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
+import { isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
+import { focusLabel, goalLabel, levelLabel } from "@/i18n/dictionaries/trainingOptions";
+import { academyDictionaries } from "@/i18n/dictionaries/academy";
+import type { AppLocale } from "@/i18n/locales";
 
 interface Submission {
   id: string;
@@ -20,10 +23,13 @@ interface Submission {
 export default function SubmissionReview({
   submission,
   canDelete = false,
+  lang = "en",
 }: {
   submission: Submission;
   canDelete?: boolean;
+  lang?: AppLocale;
 }) {
+  const t = academyDictionaries[lang].review;
   const [coachNotes, setCoachNotes] = useState(submission.coachNotes || "");
   const [status, setStatus] = useState(submission.status);
   const [submitting, setSubmitting] = useState(false);
@@ -63,7 +69,7 @@ export default function SubmissionReview({
 
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      setError(data.error || "Something went wrong.");
+      setError(data.error || t.error);
       return;
     }
 
@@ -74,7 +80,7 @@ export default function SubmissionReview({
     <div className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between">
         <div>
-          <p className="font-semibold">{submission.title || "Untitled video"}</p>
+          <p className="font-semibold">{submission.title || t.untitled}</p>
           <p className="text-xs text-muted">
             {submission.userName || submission.userEmail}
           </p>
@@ -86,7 +92,7 @@ export default function SubmissionReview({
               : "bg-chip text-muted"
           }`}
         >
-          {status}
+          {status === "reviewed" ? t.status.reviewed : t.status.pending}
         </span>
       </div>
 
@@ -100,17 +106,17 @@ export default function SubmissionReview({
         <div className="mt-3 flex flex-wrap gap-1.5">
           {submission.skillLevel && isSkillLevel(submission.skillLevel) && (
             <span className="text-xs rounded-full bg-brand-50 text-brand-700 px-2 py-0.5">
-              {levelLabel(submission.skillLevel)}
+              {levelLabel(submission.skillLevel, lang)}
             </span>
           )}
           {submission.goal && isGoal(submission.goal) && (
             <span className="text-xs rounded-full bg-brand-50 text-brand-700 px-2 py-0.5">
-              {goalLabel(submission.goal)}
+              {goalLabel(submission.goal, lang)}
             </span>
           )}
           {submission.focusAreas.filter(isFocusArea).map((area) => (
             <span key={area} className="text-xs rounded-full bg-chip text-body px-2 py-0.5">
-              {focusLabel(area)}
+              {focusLabel(area, lang)}
             </span>
           ))}
         </div>
@@ -123,7 +129,7 @@ export default function SubmissionReview({
           rel="noreferrer"
           className="inline-block text-sm text-brand-600"
         >
-          Watch video
+          {t.watchVideo}
         </a>
         {canDelete && (
           <button
@@ -140,7 +146,7 @@ export default function SubmissionReview({
 
       <form onSubmit={handleSubmit} className="mt-3 space-y-2">
         <textarea
-          placeholder="Feedback and training plan notes for this player..."
+          placeholder={t.placeholder}
           value={coachNotes}
           onChange={(e) => setCoachNotes(e.target.value)}
           rows={3}
@@ -152,7 +158,7 @@ export default function SubmissionReview({
           disabled={submitting}
           className="rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 shadow-sm hover:shadow-md transition-all"
         >
-          {submitting ? "Saving..." : "Save feedback"}
+          {submitting ? t.saving : t.save}
         </button>
       </form>
     </div>

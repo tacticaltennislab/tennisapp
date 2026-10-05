@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { canManageAcademy, createAcademyInvite } from "@/lib/academy";
+import { canManageAcademy, createAcademyInvite, parseInviteLang } from "@/lib/academy";
 
 export async function POST(
   request: Request,
@@ -29,6 +29,39 @@ export async function POST(
     return NextResponse.json({ error: "Not found." }, { status: 404 });
   }
 
-  const { invite } = await createAcademyInvite(id, academy.name, email, role);
-  return NextResponse.json({ invite: { id: invite.id, email: invite.email, role: invite.role } });
+  const existingUser = await prisma.user.findUnique({
+    where: { email: email.toLowerCase() },
+    select: { id: true },
+  });
+  if (existingUser) {
+    const alreadyIn =
+      role === "player"
+        ? await prisma.academyPlayer.findUnique({
+            where: { academyId_userId: { academyId: id, userId: existingUser.id } },
+            select: { id: true },
+          })
+        : await prisma.academyMember.findUnique({
+            where: { academyId_userId: { academyId: id, userId: existingUser.id } },
+            select: { id: true },
+          });
+    if (alreadyIn) {
+      return NextResponse.json(
+        { error: `${email} is already ${role === "player" ? "a player" : "on the coaching staff"} in this academy.` },
+        { status: 409 }
+      );
+    }
+  }
+
+  const { invite, url, emailSent } = await createAcademyInvite(
+    id,
+    academy.name,
+    email,
+    role,
+    parseInviteLang(body?.lang)
+  );
+  return NextResponse.json({
+    invite: { id: invite.id, email: invite.email, role: invite.role },
+    inviteUrl: url,
+    emailSent,
+  });
 }

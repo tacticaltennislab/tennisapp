@@ -24,7 +24,14 @@ export async function POST(
     );
   }
 
-  await prisma.$transaction(async (tx) => {
+  const accepted = await prisma.$transaction(async (tx) => {
+    // Claim the invite first so two concurrent accepts can't both succeed.
+    const claim = await tx.academyInvite.updateMany({
+      where: { id: invite.id, acceptedAt: null, expiresAt: { gt: new Date() } },
+      data: { acceptedAt: new Date() },
+    });
+    if (claim.count === 0) return false;
+
     if (invite.role === "player") {
       await tx.academyPlayer.upsert({
         where: { academyId_userId: { academyId: invite.academyId, userId: session.user.id } },
@@ -32,17 +39,24 @@ export async function POST(
         update: {},
       });
     } else {
-      await tx.academyMember.upsert({
+      const existing = await tx.academyMember.findUnique({
         where: { academyId_userId: { academyId: invite.academyId, userId: session.user.id } },
-        create: { academyId: invite.academyId, userId: session.user.id, role: invite.role },
-        update: {},
+        select: { id: true, role: true },
       });
+      if (!existing) {
+        await tx.academyMember.create({
+          data: { academyId: invite.academyId, userId: session.user.id, role: invite.role },
+        });
+      } else if (invite.role === "owner" && existing.role !== "owner") {
+        await tx.academyMember.update({ where: { id: existing.id }, data: { role: "owner" } });
+      }
     }
-    await tx.academyInvite.update({
-      where: { id: invite.id },
-      data: { acceptedAt: new Date() },
-    });
+    return true;
   });
+
+  if (!accepted) {
+    return NextResponse.json({ error: "This invitation is no longer valid." }, { status: 410 });
+  }
 
   return NextResponse.json({ academyId: invite.academyId });
 }

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { createAcademyInvite } from "@/lib/academy";
+import { createAcademyInvite, parseInviteLang } from "@/lib/academy";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -17,7 +17,13 @@ export async function POST(request: Request) {
   }
 
   const academy = await prisma.academy.create({ data: { name } });
-  const { url } = await createAcademyInvite(academy.id, academy.name, ownerEmail, "owner");
+  const { url, emailSent } = await createAcademyInvite(
+    academy.id,
+    academy.name,
+    ownerEmail,
+    "owner",
+    parseInviteLang(body?.lang)
+  );
 
-  return NextResponse.json({ academy, inviteUrl: url });
+  return NextResponse.json({ academy, inviteUrl: url, emailSent });
 }

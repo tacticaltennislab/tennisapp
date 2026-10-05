@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import type { AppLocale } from "@/i18n/locales";
 
 function escapeHtml(input: string) {
   return input
@@ -21,19 +22,22 @@ export async function sendEmail({
   to: string;
   subject: string;
   html: string;
-}) {
+}): Promise<boolean> {
   if (!resend) {
     console.warn("RESEND_API_KEY not set — skipping email send:", subject, "to", to);
-    return;
+    return false;
   }
 
   try {
     const { error } = await resend.emails.send({ from: FROM, to, subject, html });
     if (error) {
       console.error("Failed to send email:", error);
+      return false;
     }
+    return true;
   } catch (error) {
     console.error("Failed to send email:", error);
+    return false;
   }
 }
 
@@ -72,22 +76,114 @@ export function passwordResetEmail(resetUrl: string) {
   );
 }
 
-export function academyInviteEmail(academyName: string, role: string, inviteUrl: string) {
-  const what =
-    role === "owner"
-      ? "manage your academy's account on Tactical Tennis Lab"
-      : role === "coach"
-        ? "review your academy's players' videos on Tactical Tennis Lab"
-        : "join your academy on Tactical Tennis Lab so your coaches can review your videos";
+type InviteRole = "owner" | "coach" | "player";
+
+const INVITE_COPY: Record<
+  AppLocale,
+  {
+    subject: (academy: string) => string;
+    title: (academy: string) => string;
+    intro: (role: InviteRole, academy: string) => string;
+    button: string;
+    footer: string;
+  }
+> = {
+  en: {
+    subject: (a) => `Invitation to ${a} on Tactical Tennis Lab`,
+    title: (a) => `Invitation to ${a}`,
+    intro: (role, a) =>
+      `You've been invited to ${
+        role === "owner"
+          ? "manage your academy's account on Tactical Tennis Lab"
+          : role === "coach"
+            ? "review your academy's players' videos on Tactical Tennis Lab"
+            : "join your academy on Tactical Tennis Lab so your coaches can review your videos"
+      } as part of <strong>${a}</strong>.`,
+    button: "Accept invitation",
+    footer:
+      "Sign in, or create an account, with the email address this invitation was sent to. The link expires in 14 days.",
+  },
+  pl: {
+    subject: (a) => `Zaproszenie do ${a} w Tactical Tennis Lab`,
+    title: (a) => `Zaproszenie do ${a}`,
+    intro: (role, a) =>
+      `Zaproszono Cię do ${
+        role === "owner"
+          ? "zarządzania kontem Twojej akademii w Tactical Tennis Lab"
+          : role === "coach"
+            ? "oceniania filmów zawodników Twojej akademii w Tactical Tennis Lab"
+            : "dołączenia do Twojej akademii w Tactical Tennis Lab, aby trenerzy mogli oceniać Twoje filmy"
+      } w ramach <strong>${a}</strong>.`,
+    button: "Przyjmij zaproszenie",
+    footer:
+      "Zaloguj się lub załóż konto na adres e-mail, na który wysłano to zaproszenie. Link wygasa po 14 dniach.",
+  },
+  es: {
+    subject: (a) => `Invitación a ${a} en Tactical Tennis Lab`,
+    title: (a) => `Invitación a ${a}`,
+    intro: (role, a) =>
+      `Te han invitado a ${
+        role === "owner"
+          ? "gestionar la cuenta de tu academia en Tactical Tennis Lab"
+          : role === "coach"
+            ? "revisar los vídeos de los jugadores de tu academia en Tactical Tennis Lab"
+            : "unirte a tu academia en Tactical Tennis Lab para que tus entrenadores puedan revisar tus vídeos"
+      } como parte de <strong>${a}</strong>.`,
+    button: "Aceptar invitación",
+    footer:
+      "Inicia sesión o crea una cuenta con la dirección de correo a la que se envió esta invitación. El enlace caduca en 14 días.",
+  },
+  it: {
+    subject: (a) => `Invito a ${a} su Tactical Tennis Lab`,
+    title: (a) => `Invito a ${a}`,
+    intro: (role, a) =>
+      `Ti è stato inviato un invito a ${
+        role === "owner"
+          ? "gestire l'account della tua accademia su Tactical Tennis Lab"
+          : role === "coach"
+            ? "esaminare i video dei giocatori della tua accademia su Tactical Tennis Lab"
+            : "unirti alla tua accademia su Tactical Tennis Lab, così i tuoi allenatori potranno esaminare i tuoi video"
+      } come parte di <strong>${a}</strong>.`,
+    button: "Accetta l'invito",
+    footer:
+      "Accedi o crea un account con l'indirizzo e-mail a cui è stato inviato questo invito. Il link scade tra 14 giorni.",
+  },
+  ru: {
+    subject: (a) => `Приглашение в ${a} на Tactical Tennis Lab`,
+    title: (a) => `Приглашение в ${a}`,
+    intro: (role, a) =>
+      `Вас пригласили ${
+        role === "owner"
+          ? "управлять аккаунтом вашей академии на Tactical Tennis Lab"
+          : role === "coach"
+            ? "просматривать видео игроков вашей академии на Tactical Tennis Lab"
+            : "присоединиться к вашей академии на Tactical Tennis Lab, чтобы тренеры могли разбирать ваши видео"
+      } в составе <strong>${a}</strong>.`,
+    button: "Принять приглашение",
+    footer:
+      "Войдите или создайте аккаунт с адресом электронной почты, на который отправлено это приглашение. Ссылка действует 14 дней.",
+  },
+};
+
+export function academyInviteSubject(academyName: string, lang: AppLocale = "en") {
+  return INVITE_COPY[lang].subject(academyName);
+}
+
+export function academyInviteEmail(
+  academyName: string,
+  role: InviteRole,
+  inviteUrl: string,
+  lang: AppLocale = "en"
+) {
+  const copy = INVITE_COPY[lang];
+  const name = escapeHtml(academyName);
   return layout(
-    `Invitation to ${escapeHtml(academyName)}`,
-    `<p style="font-size: 15px; line-height: 1.6;">
-      You've been invited to ${what} as part of <strong>${escapeHtml(academyName)}</strong>.
-    </p>
+    copy.title(name),
+    `<p style="font-size: 15px; line-height: 1.6;">${copy.intro(role, name)}</p>
     <p style="margin: 24px 0;">
-      <a href="${inviteUrl}" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">Accept invitation</a>
+      <a href="${inviteUrl}" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">${copy.button}</a>
     </p>
-    <p style="font-size: 13px; color: #6b7280;">Sign in with the email address this invitation was sent to. The link expires in 14 days.</p>`
+    <p style="font-size: 13px; color: #6b7280;">${copy.footer}</p>`
   );
 }
 
