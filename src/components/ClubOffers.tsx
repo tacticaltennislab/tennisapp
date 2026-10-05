@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 import { IconArrowRight } from "@/components/icons";
 import type { ClubBenefits, ClubTier } from "@/i18n/dictionaries/pricing";
-import { CLUB_CHECKOUT_LINKS } from "@/lib/clubCheckoutLinks";
+import { CLUB_CHECKOUT_LINKS, CLUB_POPULAR_INDEX } from "@/lib/clubCheckoutLinks";
 
 export default function ClubOffers({
   eyebrow,
@@ -10,6 +10,7 @@ export default function ClubOffers({
   benefits,
   tiers,
   cta,
+  popularLabel,
   note,
 }: {
   eyebrow: string;
@@ -18,6 +19,7 @@ export default function ClubOffers({
   benefits: ClubBenefits;
   tiers: ClubTier[];
   cta: string;
+  popularLabel: string;
   note: string;
 }) {
   return (
@@ -56,7 +58,16 @@ export default function ClubOffers({
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {tiers.map((tier, i) => (
           <Reveal key={tier.name} delay={i * 60}>
-            <div className="h-full flex flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm">
+            <div
+              className={`relative h-full flex flex-col rounded-2xl border bg-surface p-6 shadow-sm ${
+                i === CLUB_POPULAR_INDEX ? "border-brand-600 ring-2 ring-brand-600/30 shadow-md" : "border-line"
+              }`}
+            >
+              {i === CLUB_POPULAR_INDEX && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 text-white text-xs font-semibold px-3 py-1 shadow-sm whitespace-nowrap">
+                  {popularLabel}
+                </span>
+              )}
               <h3 className="font-bold text-lg text-ink">{tier.name}</h3>
               <p className="mt-3 flex items-baseline gap-1">
                 <span className="text-3xl font-bold">{tier.price}</span>

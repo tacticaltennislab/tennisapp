@@ -52,6 +52,7 @@ export default async function PricingContent({
                   benefits={t.clubs.benefits}
                   tiers={t.clubs.tiers}
                   cta={t.clubs.cta}
+                  popularLabel={t.clubs.popularLabel}
                   note={t.clubs.note}
                 />
               </Reveal>

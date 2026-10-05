@@ -13,3 +13,6 @@ export const CLUB_CHECKOUT_LINKS: string[] = [
   "https://buy.stripe.com/eVqaEX7k35tSakN7Vtf3a0d", // Season Package — 3 Months
   "https://buy.stripe.com/3cIeVd1ZJ3lK3Wp2B9f3a0e", // Season Package — 6 Months
 ];
+
+/** Index in `tiers` of the package flagged "Most popular" (High Performance Club Package, $1,950). */
+export const CLUB_POPULAR_INDEX = 2;

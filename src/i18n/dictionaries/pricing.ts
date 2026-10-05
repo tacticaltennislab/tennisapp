@@ -33,6 +33,7 @@ export interface PricingDict {
     benefits: ClubBenefits;
     tiers: ClubTier[];
     cta: string;
+    popularLabel: string;
     note: string;
   };
   carousel: {
@@ -152,6 +153,7 @@ const en: PricingDict = {
       },
     ],
     cta: "Get started",
+    popularLabel: "Most popular",
     note: "Every club package is set up personally by Piotr Kusiewicz and Mateusz Kułakowski — get in touch and we'll tailor it to your roster.",
   },
   carousel: {
@@ -274,6 +276,7 @@ const pl: PricingDict = {
       },
     ],
     cta: "Zacznij teraz",
+    popularLabel: "Najpopularniejszy",
     note: "Każdym pakietem klubowym zajmują się osobiście Piotr Kusiewicz i Mateusz Kułakowski — napisz do nas, a dopasujemy go do Twojego zespołu.",
   },
   carousel: {
@@ -396,6 +399,7 @@ const es: PricingDict = {
       },
     ],
     cta: "Empezar",
+    popularLabel: "Más popular",
     note: "Cada paquete para clubes lo configuran personalmente Piotr Kusiewicz y Mateusz Kułakowski — contáctanos y lo adaptaremos a tu equipo.",
   },
   carousel: {
@@ -518,6 +522,7 @@ const it: PricingDict = {
       },
     ],
     cta: "Inizia ora",
+    popularLabel: "Più popolare",
     note: "Ogni pacchetto per club viene organizzato personalmente da Piotr Kusiewicz e Mateusz Kułakowski — contattaci e lo adatteremo alla tua squadra.",
   },
   carousel: {
@@ -640,6 +645,7 @@ const ru: PricingDict = {
       },
     ],
     cta: "Начать",
+    popularLabel: "Самый популярный",
     note: "Каждый клубный пакет настраивается лично Пиотром Кусевичем и Матеушем Кулаковским — свяжитесь с нами, и мы подберём вариант под вашу команду.",
   },
   carousel: {
