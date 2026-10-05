@@ -11,9 +11,6 @@ export interface HomeDict {
     ctaViewPlans: string;
   };
   offersPreview: {
-    eyebrow: string;
-    title: string;
-    subtitle: string;
     cta: string;
   };
   whoThisFor: {
@@ -77,9 +74,6 @@ const en: HomeDict = {
     ctaViewPlans: "View coaching plans",
   },
   offersPreview: {
-    eyebrow: "Plans & pricing",
-    title: "Here's exactly what you get",
-    subtitle: "No guessing what's included. Pick the analysis that fits what you're working on.",
     cta: "See full details & get started",
   },
   whoThisFor: {
@@ -189,9 +183,6 @@ const pl: HomeDict = {
     ctaViewPlans: "Zobacz plany treningowe",
   },
   offersPreview: {
-    eyebrow: "Plany i ceny",
-    title: "Dokładnie wiesz, co otrzymujesz",
-    subtitle: "Bez zgadywania, co jest w zestawie. Wybierz analizę dopasowaną do tego, nad czym pracujesz.",
     cta: "Zobacz pełne szczegóły i zacznij",
   },
   whoThisFor: {
@@ -301,9 +292,6 @@ const es: HomeDict = {
     ctaViewPlans: "Ver planes de entrenamiento",
   },
   offersPreview: {
-    eyebrow: "Planes y precios",
-    title: "Esto es exactamente lo que obtienes",
-    subtitle: "Sin adivinar qué incluye. Elige el análisis que se ajuste a lo que estás trabajando.",
     cta: "Ver todos los detalles y empezar",
   },
   whoThisFor: {
@@ -413,9 +401,6 @@ const it: HomeDict = {
     ctaViewPlans: "Vedi i piani di coaching",
   },
   offersPreview: {
-    eyebrow: "Piani e prezzi",
-    title: "Ecco esattamente cosa ottieni",
-    subtitle: "Niente da indovinare su cosa è incluso. Scegli l'analisi adatta a ciò su cui stai lavorando.",
     cta: "Vedi tutti i dettagli e inizia",
   },
   whoThisFor: {
@@ -525,9 +510,6 @@ const ru: HomeDict = {
     ctaViewPlans: "Смотреть планы тренировок",
   },
   offersPreview: {
-    eyebrow: "Планы и цены",
-    title: "Вот что именно вы получаете",
-    subtitle: "Никаких догадок о том, что входит в план. Выберите анализ, который подходит под вашу задачу.",
     cta: "Смотреть все детали и начать",
   },
   whoThisFor: {
