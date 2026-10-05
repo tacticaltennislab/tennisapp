@@ -1,6 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import PricingCarousel from "@/components/PricingCarousel";
+import PricingAudienceSwitch from "@/components/PricingAudienceSwitch";
 import ClubOffers from "@/components/ClubOffers";
 import { PLANS } from "@/lib/plans";
 import { auth } from "@/auth";
@@ -23,22 +24,31 @@ export default async function PricingContent({ lang = "en" }: { lang?: AppLocale
 
       <main className="flex-1 px-4 py-12">
         <div className="max-w-5xl mx-auto">
-          <p className="text-center text-xs text-muted -mt-4 mb-8">{t.noVatNote}</p>
-          <Reveal variant="zoom">
-            <PricingCarousel plans={PLANS} referralCount={referralCount} lang={lang} />
-          </Reveal>
-
-          <Reveal variant="zoom" className="mt-16">
-            <ClubOffers
-              eyebrow={t.clubs.eyebrow}
-              title={t.clubs.title}
-              subtitle={t.clubs.subtitle}
-              benefits={t.clubs.benefits}
-              tiers={t.clubs.tiers}
-              cta={t.clubs.cta}
-              note={t.clubs.note}
-            />
-          </Reveal>
+          <PricingAudienceSwitch
+            playersLabel={t.audience.players}
+            clubsLabel={t.audience.clubs}
+            players={
+              <>
+                <p className="text-center text-xs text-muted -mt-4 mb-8">{t.noVatNote}</p>
+                <Reveal variant="zoom">
+                  <PricingCarousel plans={PLANS} referralCount={referralCount} lang={lang} />
+                </Reveal>
+              </>
+            }
+            clubs={
+              <Reveal variant="zoom">
+                <ClubOffers
+                  eyebrow={t.clubs.eyebrow}
+                  title={t.clubs.title}
+                  subtitle={t.clubs.subtitle}
+                  benefits={t.clubs.benefits}
+                  tiers={t.clubs.tiers}
+                  cta={t.clubs.cta}
+                  note={t.clubs.note}
+                />
+              </Reveal>
+            }
+          />
         </div>
       </main>
     </div>

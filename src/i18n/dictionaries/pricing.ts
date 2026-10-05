@@ -22,6 +22,10 @@ export interface PricingDict {
     subtitle: string;
   };
   noVatNote: string;
+  audience: {
+    players: string;
+    clubs: string;
+  };
   clubs: {
     eyebrow: string;
     title: string;
@@ -58,11 +62,15 @@ const en: PricingDict = {
       "Send your video, choose the analysis that fits what you're working on, and get feedback from a real coach — not an algorithm.",
   },
   noVatNote: "All prices are in USD. No VAT or sales tax is added at checkout.",
+  audience: {
+    players: "For players",
+    clubs: "For academies & clubs",
+  },
   clubs: {
-    eyebrow: "Clubs & academies",
-    title: "Volume pricing for your whole roster",
+    eyebrow: "For academies & clubs",
+    title: "Grow your academy with stronger players",
     subtitle:
-      "We're a support system for the coaches at your academy — handling the frame-by-frame video and match analysis they don't have the hours for, so they can spend more energy on the court instead of behind a laptop. Better analysis helps players improve faster, faster improvement means more results at tournaments, and strong results are what bring the next wave of players through your doors.",
+      "We support your coaches with video and match analysis, so players improve faster, win more at tournaments, and your academy becomes the place families want to join.",
     benefits: {
       businessTitle: "Business benefits for your club",
       businessItems: [
@@ -176,11 +184,15 @@ const pl: PricingDict = {
       "Wyślij swoje wideo, wybierz analizę dopasowaną do tego, nad czym pracujesz, i otrzymaj informację zwrotną od prawdziwego trenera — nie algorytmu.",
   },
   noVatNote: "Wszystkie ceny podane są w USD. Przy płatności nie doliczamy VAT ani podatku od sprzedaży.",
+  audience: {
+    players: "Dla zawodników",
+    clubs: "Dla akademii i klubów",
+  },
   clubs: {
-    eyebrow: "Kluby i akademie",
-    title: "Ceny hurtowe dla całego zespołu",
+    eyebrow: "Dla akademii i klubów",
+    title: "Rozwijaj akademię dzięki mocniejszym zawodnikom",
     subtitle:
-      "Jesteśmy systemem wsparcia dla trenerów w Twojej akademii — przejmujemy analizę wideo i meczową klatka po klatce, na którą nie mają czasu, dzięki czemu mogą poświęcić więcej energii na kort, a nie na laptopa. Lepsza analiza pomaga zawodnikom szybciej się rozwijać, szybszy rozwój to więcej wyników na turniejach, a mocne wyniki to właśnie to, co przyciąga do Twojej akademii kolejnych zawodników.",
+      "Wspieramy Twoich trenerów analizą wideo i meczową, dzięki czemu zawodnicy szybciej się rozwijają, wygrywają więcej na turniejach, a Twoja akademia staje się miejscem, do którego chcą dołączać rodziny.",
     benefits: {
       businessTitle: "Korzyści biznesowe dla klubu",
       businessItems: [
@@ -294,11 +306,15 @@ const es: PricingDict = {
       "Envía tu vídeo, elige el análisis que se ajuste a lo que estás trabajando, y recibe feedback de un entrenador real — no de un algoritmo.",
   },
   noVatNote: "Todos los precios están en USD. No se añade IVA ni impuesto de ventas al finalizar la compra.",
+  audience: {
+    players: "Para jugadores",
+    clubs: "Para academias y clubes",
+  },
   clubs: {
-    eyebrow: "Clubes y academias",
-    title: "Precios por volumen para todo tu equipo",
+    eyebrow: "Para academias y clubes",
+    title: "Haz crecer tu academia con mejores jugadores",
     subtitle:
-      "Somos un sistema de apoyo para los entrenadores de tu academia — nos encargamos del análisis de vídeo y de partido, fotograma a fotograma, para el que no tienen horas, para que puedan dedicar más energía a la pista y menos al portátil. Un mejor análisis ayuda a los jugadores a mejorar más rápido, una mejora más rápida significa más resultados en torneos, y esos buenos resultados son justo lo que atrae a la próxima ola de jugadores a tu academia.",
+      "Apoyamos a tus entrenadores con análisis de vídeo y de partido para que tus jugadores mejoren más rápido, ganen más en torneos y tu academia sea el lugar al que quieren unirse las familias.",
     benefits: {
       businessTitle: "Beneficios para tu club",
       businessItems: [
@@ -412,11 +428,15 @@ const it: PricingDict = {
       "Invia il tuo video, scegli l'analisi adatta a ciò su cui stai lavorando, e ricevi un feedback da un allenatore vero — non da un algoritmo.",
   },
   noVatNote: "Tutti i prezzi sono in USD. Nessuna IVA o imposta sulle vendite viene aggiunta al checkout.",
+  audience: {
+    players: "Per giocatori",
+    clubs: "Per accademie e club",
+  },
   clubs: {
-    eyebrow: "Club e accademie",
-    title: "Prezzi a volume per tutta la tua squadra",
+    eyebrow: "Per accademie e club",
+    title: "Fai crescere la tua accademia con giocatori più forti",
     subtitle:
-      "Siamo un sistema di supporto per gli allenatori della tua accademia — ci occupiamo noi dell'analisi video e di partita, fotogramma per fotogramma, per cui loro non hanno le ore necessarie, così possono dedicare più energia al campo e meno al portatile. Un'analisi migliore aiuta i giocatori a migliorare più in fretta, un miglioramento più rapido significa più risultati nei tornei, e risultati solidi sono esattamente ciò che porta la prossima ondata di giocatori nella tua accademia.",
+      "Supportiamo i tuoi allenatori con analisi video e di partita, così i giocatori migliorano più in fretta, vincono di più nei tornei e la tua accademia diventa il posto in cui le famiglie vogliono entrare.",
     benefits: {
       businessTitle: "Vantaggi per il tuo club",
       businessItems: [
@@ -530,11 +550,15 @@ const ru: PricingDict = {
       "Отправьте видео, выберите анализ, который подходит под вашу задачу, и получите обратную связь от настоящего тренера — а не от алгоритма.",
   },
   noVatNote: "Все цены указаны в USD. При оплате НДС или налог с продаж не добавляются.",
+  audience: {
+    players: "Для игроков",
+    clubs: "Для академий и клубов",
+  },
   clubs: {
-    eyebrow: "Клубы и академии",
-    title: "Оптовые цены для всей вашей команды",
+    eyebrow: "Для академий и клубов",
+    title: "Развивайте академию вместе с сильными игроками",
     subtitle:
-      "Мы — система поддержки для тренеров вашей академии: берём на себя покадровый видео- и матчевый анализ, на который у них просто не хватает часов, чтобы они могли уделять больше энергии корту, а не ноутбуку. Более качественный анализ помогает игрокам быстрее прогрессировать, более быстрый прогресс — это больше результатов на турнирах, а сильные результаты — это именно то, что привлекает в вашу академию новых игроков.",
+      "Мы поддерживаем ваших тренеров видео- и матчевым анализом, чтобы игроки быстрее прогрессировали, выигрывали больше турниров, а ваша академия стала местом, куда хотят попасть семьи.",
     benefits: {
       businessTitle: "Бизнес-преимущества для вашего клуба",
       businessItems: [
