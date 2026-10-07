@@ -25,7 +25,7 @@ const en: CoachesDict = {
     pageHeader: {
       eyebrow: "Our staff",
       title: "Coaches",
-      subtitle: "Meet the coaches behind every video review and training plan.",
+      subtitle: "Meet the coaches behind every analysis your academy receives.",
     },
     noCoaches: "No coaches added yet",
     checkBackSoon: "Check back soon.",
@@ -49,7 +49,7 @@ const pl: CoachesDict = {
     pageHeader: {
       eyebrow: "Nasz zespół",
       title: "Trenerzy",
-      subtitle: "Poznaj trenerów, którzy stoją za każdą analizą wideo i planem treningowym.",
+      subtitle: "Poznaj trenerów stojących za każdą analizą, którą otrzymuje Twoja akademia.",
     },
     noCoaches: "Nie dodano jeszcze żadnych trenerów",
     checkBackSoon: "Zajrzyj tu wkrótce.",
@@ -73,7 +73,7 @@ const es: CoachesDict = {
     pageHeader: {
       eyebrow: "Nuestro equipo",
       title: "Entrenadores",
-      subtitle: "Conoce a los entrenadores detrás de cada análisis de vídeo y plan de entrenamiento.",
+      subtitle: "Conoce a los entrenadores detrás de cada análisis que recibe tu academia.",
     },
     noCoaches: "Todavía no se han añadido entrenadores",
     checkBackSoon: "Vuelve pronto.",
@@ -97,7 +97,7 @@ const it: CoachesDict = {
     pageHeader: {
       eyebrow: "Il nostro staff",
       title: "Allenatori",
-      subtitle: "Conosci gli allenatori dietro ogni revisione video e piano di allenamento.",
+      subtitle: "Conosci gli allenatori dietro ogni analisi che riceve la tua accademia.",
     },
     noCoaches: "Nessun allenatore ancora aggiunto",
     checkBackSoon: "Torna a trovarci presto.",
@@ -121,7 +121,7 @@ const ru: CoachesDict = {
     pageHeader: {
       eyebrow: "Наша команда",
       title: "Тренеры",
-      subtitle: "Познакомьтесь с тренерами, которые стоят за каждым видеоразбором и планом тренировок.",
+      subtitle: "Познакомьтесь с тренерами, которые стоят за каждым разбором, который получает ваша академия.",
     },
     noCoaches: "Тренеры пока не добавлены",
     checkBackSoon: "Загляните позже.",

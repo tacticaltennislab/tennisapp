@@ -4,9 +4,9 @@ import CoachesListContent from "@/components/CoachesListContent";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Meet Your Junior Tennis Coaches",
+  title: "Meet the Coaches Behind Your Academy's Analysis",
   description:
-    "Former ATP-ranked players and ITF Level 2 certified coaches who personally review every video submission from junior and competitive players.",
+    "Former ATP-ranked players and ITF Level 2 certified coaches who personally review every video and match submitted through your academy.",
   alternates: {
     canonical: "/coaches",
     languages: {

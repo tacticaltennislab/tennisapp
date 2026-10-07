@@ -4,7 +4,7 @@ import FaqContent from "@/components/FaqContent";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Common questions from parents and players about video analysis, pricing, refunds, minors' accounts, and how coaching works at Tactical Tennis Lab.",
+    "Common questions from academies, parents and players about academy accounts, packages, video analysis, pricing, refunds and minors' accounts.",
   alternates: {
     canonical: "/faq",
     languages: {

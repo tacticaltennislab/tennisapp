@@ -50,7 +50,9 @@ export default function LanguageSwitcher() {
     setOpen(false);
     const pagePath = pagePathFromPathname(pathname, current);
     const target = TRANSLATED_PAGES.includes(pagePath) ? pagePath : "/";
-    router.push(localizedHref(lang, target));
+    // Keep ?audience= so switching language doesn't flip the pricing view.
+    const search = target === "/pricing" ? window.location.search : "";
+    router.push(`${localizedHref(lang, target)}${search}`);
   }
 
   return (

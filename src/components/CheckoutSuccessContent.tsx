@@ -15,7 +15,7 @@ export default async function CheckoutSuccessContent({
   const t = checkoutSuccessDictionaries[lang];
   const { session_id, free } = await searchParams;
   if (!session_id && free !== "1") {
-    redirect(localizedHref(lang, "/pricing"));
+    redirect(`${localizedHref(lang, "/pricing")}?audience=players`);
   }
 
   const session = session_id

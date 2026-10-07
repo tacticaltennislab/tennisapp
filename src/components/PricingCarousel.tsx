@@ -61,7 +61,9 @@ export default function PricingCarousel({
     if (!acknowledged[plan.planId]) return;
 
     if (!session) {
-      router.push(localizedHref(lang, `/sign-in?callbackUrl=${localizedHref(lang, "/pricing")}`));
+      router.push(
+        `${localizedHref(lang, "/sign-in")}?callbackUrl=${encodeURIComponent(`${localizedHref(lang, "/pricing")}?audience=players`)}`
+      );
       return;
     }
 

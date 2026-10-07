@@ -14,16 +14,16 @@ export interface AboutDict {
 const en: AboutDict = {
   pageHeader: {
     eyebrow: "About us",
-    title: "Helping ambitious players improve, from anywhere",
+    title: "Helping academies develop stronger players",
     subtitle:
-      "Independent video and match analysis for ambitious amateurs and competitive juniors — built for the gap most on-court coaches don't have hours in the week to fill.",
+      "Video and match analysis that supports tennis academies, clubs and their coaches — so coaches get time back for the court and players get feedback that shows the way to the next win.",
   },
   story: {
     title: "Our story",
     paragraphs: [
-      "Tactical Tennis Lab exists to fill one specific gap: the systematic video and match analysis most on-court coaches simply don't have hours in the week to do. We're not trying to replace your coach — we're the independent second opinion that works alongside them.",
-      "It's built for ambitious amateurs and competitive juniors who want more than a single lesson's worth of feedback: real analysis of technique and tactics, not a generic training plan aimed at everyone.",
-      "And a report on its own doesn't change anything. Every analysis comes with clear priorities, drills to work on, and a path back to check what actually improved — video, diagnosis, correction, repeat.",
+      "Tactical Tennis Lab is a support system for tennis academies and clubs. We take on the systematic video and match analysis that coaches rarely have hours in the week to do — so your coaches can spend their time and energy on court.",
+      "We analyse technique and tactics in detail: the mistakes that cost points, how players win them, and what to work on next. Better-developed players get better results in tournaments, and results are what bring new players to an academy.",
+      "A report on its own changes nothing. Every analysis comes with clear priorities and drills, shared with the coaches and the player — video, diagnosis, correction, repeat. We work alongside your coaches, never in place of them. Individual players are welcome too.",
     ],
   },
   philosophyTitle: "Our philosophy",
@@ -41,12 +41,12 @@ const en: AboutDict = {
       detail: "Every player follows an individual development path with measurable long-term progress.",
     },
   ],
-  trustTitle: "Why players trust us",
+  trustTitle: "Why academies trust us",
   trust: [
     { title: "Professional Experience", detail: "Coaching built on real competitive tennis experience." },
     { title: "Worldwide Coaching", detail: "Helping players improve from anywhere through online coaching." },
     { title: "Detailed Video Analysis", detail: "Every recommendation is supported with clear visual feedback." },
-    { title: "Individual Development", detail: "Every player receives a plan tailored to their goals and level." },
+    { title: "Shared Feedback", detail: "Coaches and players see the same clear feedback in one academy dashboard." },
   ],
   ctaText: "Want to know the coaches behind the plans?",
   ctaButton: "Meet the coaches",
@@ -55,16 +55,16 @@ const en: AboutDict = {
 const pl: AboutDict = {
   pageHeader: {
     eyebrow: "O nas",
-    title: "Pomagamy ambitnym zawodnikom rozwijać się, z każdego miejsca",
+    title: "Pomagamy akademiom rozwijać silniejszych zawodników",
     subtitle:
-      "Niezależna analiza wideo i meczowa dla ambitnych amatorów i zawodników juniorskich — stworzona, by wypełnić lukę, na którą większość trenerów na korcie nie ma czasu w tygodniu.",
+      "Analiza wideo i meczowa, która wspiera akademie tenisowe, kluby i ich trenerów — aby trenerzy odzyskali czas na korcie, a zawodnicy dostawali informację zwrotną wskazującą drogę do kolejnego zwycięstwa.",
   },
   story: {
     title: "Nasza historia",
     paragraphs: [
-      "Tactical Tennis Lab istnieje, by wypełnić jedną konkretną lukę: systematyczną analizę wideo i meczową, na którą większość trenerów na korcie po prostu nie ma czasu w tygodniu. Nie próbujemy zastąpić Twojego trenera — jesteśmy niezależną drugą opinią, która działa razem z nim.",
-      "Powstało z myślą o ambitnych amatorach i zawodnikach juniorskich, którzy chcą czegoś więcej niż informacji zwrotnej z jednej lekcji: prawdziwej analizy techniki i taktyki, a nie ogólnego planu treningowego dla wszystkich.",
-      "A sam raport niczego nie zmienia. Każda analiza zawiera jasne priorytety, ćwiczenia do wykonania i ścieżkę powrotu, by sprawdzić, co faktycznie się poprawiło — wideo, diagnoza, korekta, powtórka.",
+      "Tactical Tennis Lab to system wsparcia dla akademii i klubów tenisowych. Bierzemy na siebie systematyczną analizę wideo i meczową, na którą trenerzy rzadko mają czas w tygodniu — aby Twoi trenerzy mogli poświęcić czas i energię pracy na korcie.",
+      "Szczegółowo analizujemy technikę i taktykę: błędy, które kosztują punkty, to, jak zawodnicy je wygrywają, i nad czym pracować dalej. Lepiej rozwinięci zawodnicy osiągają lepsze wyniki na turniejach, a wyniki przyciągają nowych zawodników do akademii.",
+      "Sam raport niczego nie zmienia. Każda analiza zawiera jasne priorytety i ćwiczenia, udostępnione trenerom i zawodnikowi — wideo, diagnoza, korekta, powtórka. Działamy razem z Twoimi trenerami, nigdy zamiast nich. Zawodnicy indywidualni są również mile widziani.",
     ],
   },
   philosophyTitle: "Nasza filozofia",
@@ -82,12 +82,12 @@ const pl: AboutDict = {
       detail: "Każdy zawodnik podąża indywidualną ścieżką rozwoju z mierzalnym, długoterminowym postępem.",
     },
   ],
-  trustTitle: "Dlaczego zawodnicy nam ufają",
+  trustTitle: "Dlaczego akademie nam ufają",
   trust: [
     { title: "Doświadczenie profesjonalne", detail: "Coaching zbudowany na prawdziwym doświadczeniu w tenisie wyczynowym." },
     { title: "Trenerzy na całym świecie", detail: "Pomagamy zawodnikom rozwijać się z dowolnego miejsca dzięki coachingowi online." },
     { title: "Szczegółowa analiza wideo", detail: "Każda rekomendacja jest poparta jasną informacją zwrotną wizualną." },
-    { title: "Indywidualny rozwój", detail: "Każdy zawodnik otrzymuje plan dopasowany do swoich celów i poziomu." },
+    { title: "Wspólna informacja zwrotna", detail: "Trenerzy i zawodnicy widzą tę samą, jasną informację zwrotną w jednym panelu akademii." },
   ],
   ctaText: "Chcesz poznać trenerów stojących za planami?",
   ctaButton: "Poznaj trenerów",
@@ -96,16 +96,16 @@ const pl: AboutDict = {
 const es: AboutDict = {
   pageHeader: {
     eyebrow: "Sobre nosotros",
-    title: "Ayudamos a jugadores ambiciosos a mejorar, desde cualquier lugar",
+    title: "Ayudamos a las academias a formar jugadores más fuertes",
     subtitle:
-      "Análisis independiente de vídeo y de partido para amateurs ambiciosos y juniors competitivos — creado para cubrir el hueco que la mayoría de entrenadores en pista no tiene horas en la semana para llenar.",
+      "Análisis de vídeo y de partidos que apoya a academias de tenis, clubes y sus entrenadores: los entrenadores recuperan tiempo para la pista y los jugadores reciben comentarios que marcan el camino hacia la próxima victoria.",
   },
   story: {
     title: "Nuestra historia",
     paragraphs: [
-      "Tactical Tennis Lab existe para cubrir un hueco concreto: el análisis sistemático de vídeo y de partido para el que la mayoría de entrenadores en pista simplemente no tiene horas en la semana. No intentamos reemplazar a tu entrenador — somos la segunda opinión independiente que trabaja junto a él.",
-      "Está pensado para amateurs ambiciosos y juniors competitivos que quieren algo más que el feedback de una sola clase: análisis real de técnica y táctica, no un plan de entrenamiento genérico pensado para todos.",
-      "Y un informe por sí solo no cambia nada. Cada análisis viene con prioridades claras, ejercicios en los que trabajar, y un camino de vuelta para comprobar qué ha mejorado de verdad — vídeo, diagnóstico, corrección, repetir.",
+      "Tactical Tennis Lab es un sistema de apoyo para academias y clubes de tenis. Nos encargamos del análisis sistemático de vídeo y de partidos para el que los entrenadores rara vez tienen horas en la semana, para que tus entrenadores dediquen su tiempo y energía a la pista.",
+      "Analizamos en detalle la técnica y la táctica: los errores que cuestan puntos, cómo los ganan los jugadores y en qué trabajar a continuación. Los jugadores mejor desarrollados logran mejores resultados en los torneos, y los resultados son lo que atrae a nuevos jugadores a una academia.",
+      "Un informe por sí solo no cambia nada. Cada análisis incluye prioridades claras y ejercicios, compartidos con los entrenadores y con el jugador: vídeo, diagnóstico, corrección, repetir. Trabajamos junto a tus entrenadores, nunca en su lugar. Los jugadores individuales también son bienvenidos.",
     ],
   },
   philosophyTitle: "Nuestra filosofía",
@@ -123,12 +123,12 @@ const es: AboutDict = {
       detail: "Cada jugador sigue un camino de desarrollo individual con progreso medible a largo plazo.",
     },
   ],
-  trustTitle: "Por qué los jugadores confían en nosotros",
+  trustTitle: "Por qué las academias confían en nosotros",
   trust: [
     { title: "Experiencia profesional", detail: "Coaching construido sobre experiencia real en tenis competitivo." },
     { title: "Entrenamiento en todo el mundo", detail: "Ayudamos a jugadores a mejorar desde cualquier lugar mediante coaching online." },
     { title: "Análisis de vídeo detallado", detail: "Cada recomendación se respalda con un feedback visual claro." },
-    { title: "Desarrollo individual", detail: "Cada jugador recibe un plan adaptado a sus objetivos y nivel." },
+    { title: "Feedback compartido", detail: "Entrenadores y jugadores ven el mismo feedback claro en un único panel de la academia." },
   ],
   ctaText: "¿Quieres conocer a los entrenadores detrás de los planes?",
   ctaButton: "Conocer a los entrenadores",
@@ -137,16 +137,16 @@ const es: AboutDict = {
 const it: AboutDict = {
   pageHeader: {
     eyebrow: "Chi siamo",
-    title: "Aiutiamo i giocatori ambiziosi a migliorare, da qualsiasi luogo",
+    title: "Aiutiamo le accademie a formare giocatori più forti",
     subtitle:
-      "Analisi video e di partita indipendente per amatori ambiziosi e junior agonisti — creata per colmare il vuoto che la maggior parte degli allenatori in campo non ha ore in settimana per riempire.",
+      "Analisi video e di partita che supporta accademie di tennis, club e i loro allenatori: gli allenatori ritrovano tempo per il campo e i giocatori ricevono un feedback che indica la strada verso la prossima vittoria.",
   },
   story: {
     title: "La nostra storia",
     paragraphs: [
-      "Tactical Tennis Lab esiste per colmare un vuoto specifico: l'analisi sistematica video e di partita per cui la maggior parte degli allenatori in campo semplicemente non ha ore in settimana. Non cerchiamo di sostituire il tuo allenatore — siamo il secondo parere indipendente che lavora al suo fianco.",
-      "È pensato per amatori ambiziosi e junior agonisti che vogliono più del feedback di una singola lezione: analisi reale di tecnica e tattica, non un piano di allenamento generico pensato per tutti.",
-      "E un report da solo non cambia nulla. Ogni analisi arriva con priorità chiare, esercizi su cui lavorare, e un percorso di ritorno per verificare cosa è davvero migliorato — video, diagnosi, correzione, ripeti.",
+      "Tactical Tennis Lab è un sistema di supporto per accademie e club di tennis. Ci occupiamo dell'analisi sistematica di video e partite per cui gli allenatori raramente hanno ore a disposizione durante la settimana, così i tuoi allenatori possono dedicare tempo ed energie al campo.",
+      "Analizziamo nel dettaglio tecnica e tattica: gli errori che costano punti, come i giocatori li vincono e su cosa lavorare dopo. Giocatori meglio sviluppati ottengono risultati migliori nei tornei, e i risultati sono ciò che porta nuovi giocatori in un'accademia.",
+      "Un report da solo non cambia nulla. Ogni analisi include priorità chiare ed esercizi, condivisi con gli allenatori e con il giocatore: video, diagnosi, correzione, ripetere. Lavoriamo al fianco dei tuoi allenatori, mai al loro posto. Anche i giocatori individuali sono i benvenuti.",
     ],
   },
   philosophyTitle: "La nostra filosofia",
@@ -164,12 +164,12 @@ const it: AboutDict = {
       detail: "Ogni giocatore segue un percorso di sviluppo individuale con progressi misurabili nel lungo termine.",
     },
   ],
-  trustTitle: "Perché i giocatori si fidano di noi",
+  trustTitle: "Perché le accademie si fidano di noi",
   trust: [
     { title: "Esperienza professionale", detail: "Coaching costruito su esperienza reale nel tennis agonistico." },
     { title: "Coaching in tutto il mondo", detail: "Aiutiamo i giocatori a migliorare da qualsiasi luogo tramite coaching online." },
     { title: "Analisi video dettagliata", detail: "Ogni raccomandazione è supportata da un feedback visivo chiaro." },
-    { title: "Sviluppo individuale", detail: "Ogni giocatore riceve un piano su misura per i suoi obiettivi e il suo livello." },
+    { title: "Feedback condiviso", detail: "Allenatori e giocatori vedono lo stesso feedback chiaro in un'unica dashboard dell'accademia." },
   ],
   ctaText: "Vuoi conoscere gli allenatori dietro i piani?",
   ctaButton: "Conosci gli allenatori",
@@ -178,16 +178,16 @@ const it: AboutDict = {
 const ru: AboutDict = {
   pageHeader: {
     eyebrow: "О нас",
-    title: "Помогаем амбициозным игрокам прогрессировать, из любой точки мира",
+    title: "Помогаем академиям растить более сильных игроков",
     subtitle:
-      "Независимый видео- и матч-анализ для амбициозных любителей и соревнующихся юниоров — создан, чтобы закрыть пробел, на который у большинства тренеров на корте просто не хватает часов в неделю.",
+      "Видео- и матч-анализ в поддержку теннисных академий, клубов и их тренеров: тренеры получают время для корта, а игроки — обратную связь, которая показывает путь к следующей победе.",
   },
   story: {
     title: "Наша история",
     paragraphs: [
-      "Tactical Tennis Lab существует, чтобы закрыть один конкретный пробел: систематический видео- и матч-анализ, на который у большинства тренеров на корте просто не хватает часов в неделю. Мы не пытаемся заменить вашего тренера — мы независимое второе мнение, которое работает вместе с ним.",
-      "Сервис создан для амбициозных любителей и соревнующихся юниоров, которые хотят большего, чем обратная связь с одного занятия: реального анализа техники и тактики, а не общего тренировочного плана для всех.",
-      "А сам по себе отчёт ничего не меняет. Каждый анализ сопровождается чёткими приоритетами, упражнениями для отработки и путём назад, чтобы проверить, что реально улучшилось — видео, диагностика, коррекция, повтор.",
+      "Tactical Tennis Lab — система поддержки для теннисных академий и клубов. Мы берём на себя систематический видео- и матч-анализ, на который у тренеров редко хватает часов в неделе, чтобы ваши тренеры могли тратить время и силы на корт.",
+      "Мы подробно разбираем технику и тактику: ошибки, которые стоят очков, то, как игроки их выигрывают, и над чем работать дальше. Лучше развитые игроки показывают лучшие результаты на турнирах, а результаты привлекают в академию новых игроков.",
+      "Один отчёт ничего не меняет. Каждый анализ содержит чёткие приоритеты и упражнения, доступные тренерам и игроку: видео, диагноз, коррекция, повтор. Мы работаем вместе с вашими тренерами, а не вместо них. Индивидуальные игроки тоже приветствуются.",
     ],
   },
   philosophyTitle: "Наша философия",
@@ -205,12 +205,12 @@ const ru: AboutDict = {
       detail: "Каждый игрок следует индивидуальному пути развития с измеримым долгосрочным прогрессом.",
     },
   ],
-  trustTitle: "Почему игроки нам доверяют",
+  trustTitle: "Почему академии нам доверяют",
   trust: [
     { title: "Профессиональный опыт", detail: "Коучинг, построенный на реальном опыте соревновательного тенниса." },
     { title: "Тренировки по всему миру", detail: "Помогаем игрокам прогрессировать из любой точки мира благодаря онлайн-коучингу." },
     { title: "Детальный видеоанализ", detail: "Каждая рекомендация подкреплена наглядной визуальной обратной связью." },
-    { title: "Индивидуальное развитие", detail: "Каждый игрок получает план, адаптированный под его цели и уровень." },
+    { title: "Общая обратная связь", detail: "Тренеры и игроки видят одну и ту же понятную обратную связь в единой панели академии." },
   ],
   ctaText: "Хотите узнать тренеров, стоящих за планами?",
   ctaButton: "Познакомиться с тренерами",

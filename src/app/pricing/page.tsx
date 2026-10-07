@@ -5,9 +5,9 @@ import { parseAudience } from "@/lib/pricingAudience";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Tennis Coaching Plans & Pricing for Junior Players",
+  title: "Tennis Academy & Club Packages and Pricing",
   description:
-    "Coaching plans for junior and competitive tennis players, from $49. One-time technique reviews, a 4-week development program, match analysis, and ongoing PRO Tour coaching with a real coach.",
+    "Video and match analysis packages for tennis academies and clubs from $550/month, plus individual player plans from $49. Real coaches, shared feedback for coaches and players.",
   alternates: {
     canonical: "/pricing",
     languages: {

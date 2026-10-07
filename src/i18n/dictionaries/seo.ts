@@ -8,112 +8,112 @@ interface SeoText {
 export const seoTranslations: Record<string, Record<Locale, SeoText>> = {
   coaches: {
     pl: {
-      title: "Poznaj Trenerów Tenisa dla Juniorów",
+      title: "Poznaj Trenerów Stojących za Analizą Twojej Akademii",
       description:
-        "Byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2, którzy osobiście analizują każde nadesłane wideo od juniorów i zawodników.",
+        "Byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2, którzy osobiście analizują każde wideo i każdy mecz przesłany przez Twoją akademię.",
     },
     es: {
-      title: "Conoce a los Entrenadores de Tenis para Juniors",
+      title: "Conoce a los Entrenadores Detrás del Análisis de Tu Academia",
       description:
-        "Exjugadores del ATP y entrenadores certificados ITF Level 2 que revisan personalmente cada vídeo enviado por jugadores junior y competitivos.",
+        "Exjugadores del ATP y entrenadores certificados ITF Level 2 que revisan personalmente cada vídeo y partido enviado a través de tu academia.",
     },
     it: {
-      title: "Conosci gli Allenatori di Tennis per Junior",
+      title: "Conosci gli Allenatori Dietro l'Analisi della Tua Accademia",
       description:
-        "Ex giocatori ATP e allenatori certificati ITF Level 2 che revisionano personalmente ogni video inviato da giocatori junior e agonisti.",
+        "Ex giocatori ATP e allenatori certificati ITF Level 2 che esaminano personalmente ogni video e partita inviati tramite la tua accademia.",
     },
     ru: {
-      title: "Познакомьтесь с Тренерами по Теннису для Юниоров",
+      title: "Познакомьтесь с Тренерами, Стоящими за Анализом Вашей Академии",
       description:
-        "Бывшие игроки ATP и сертифицированные тренеры ITF Level 2, которые лично разбирают каждое видео от юниоров и соревнующихся игроков.",
+        "Бывшие игроки ATP и сертифицированные тренеры ITF Level 2, которые лично разбирают каждое видео и каждый матч, присланные через вашу академию.",
     },
   },
   contact: {
     pl: {
       title: "Kontakt",
       description:
-        "Pytania o plany coachingowe, ceny lub sposób działania analizy wideo dla juniorów i zawodników? Skontaktuj się z Tactical Tennis Lab.",
+        "Chcesz zostać naszym partnerem lub masz pytanie o pakiety dla akademii, ceny albo działanie analizy wideo? Skontaktuj się z Tactical Tennis Lab.",
     },
     es: {
       title: "Contacto",
       description:
-        "¿Preguntas sobre planes de coaching, precios o cómo funciona el análisis de vídeo para jugadores junior y competitivos? Ponte en contacto con Tactical Tennis Lab.",
+        "¿Quieres colaborar con nosotros o tienes preguntas sobre paquetes para academias, precios o cómo funciona el análisis de vídeo? Ponte en contacto con Tactical Tennis Lab.",
     },
     it: {
       title: "Contatti",
       description:
-        "Domande sui piani di coaching, sui prezzi o su come funziona l'analisi video per giocatori junior e agonisti? Contatta Tactical Tennis Lab.",
+        "Vuoi collaborare con noi o hai domande sui pacchetti per accademie, sui prezzi o su come funziona l'analisi video? Contatta Tactical Tennis Lab.",
     },
     ru: {
       title: "Контакты",
       description:
-        "Вопросы о планах коучинга, ценах или о том, как работает видеоанализ для юниоров и соревнующихся игроков? Свяжитесь с Tactical Tennis Lab.",
+        "Хотите стать партнёром или есть вопросы о пакетах для академий, ценах или о том, как работает видеоанализ? Свяжитесь с Tactical Tennis Lab.",
     },
   },
   about: {
     pl: {
       title: "O Nas",
       description:
-        "Dlaczego stworzyliśmy niezależną usługę analizy wideo i taktycznej dla juniorów i zawodników — drugą ekspercką opinię obok trenera na korcie, dla indywidualnych zawodników, nie klubów.",
+        "Dlaczego stworzyliśmy usługę analizy wideo i taktycznej, która wspiera akademie tenisowe, kluby i ich trenerów — więcej czasu na korcie dla trenerów, jaśniejsza informacja zwrotna dla zawodników.",
     },
     es: {
       title: "Sobre Nosotros",
       description:
-        "Por qué creamos un servicio independiente de análisis de vídeo y táctico para jugadores junior y competitivos — una segunda opinión experta junto a tu entrenador en pista, para jugadores individuales, no clubes.",
+        "Por qué creamos un servicio de análisis de vídeo y táctico que apoya a academias de tenis, clubes y sus entrenadores: más tiempo en pista para los entrenadores y feedback más claro para los jugadores.",
     },
     it: {
       title: "Chi Siamo",
       description:
-        "Perché abbiamo creato un servizio indipendente di analisi video e tattica per giocatori junior e agonisti — un secondo parere esperto accanto al tuo allenatore in campo, per giocatori individuali, non club.",
+        "Perché abbiamo creato un servizio di analisi video e tattica che supporta accademie di tennis, club e i loro allenatori: più tempo in campo per gli allenatori e feedback più chiaro per i giocatori.",
     },
     ru: {
       title: "О Нас",
       description:
-        "Почему мы создали независимый сервис видео- и тактического анализа для юниоров и соревнующихся игроков — второе экспертное мнение в дополнение к тренеру на корте, для отдельных игроков, а не клубов.",
+        "Почему мы создали сервис видео- и тактического анализа в поддержку теннисных академий, клубов и их тренеров: больше времени на корте для тренеров и более ясная обратная связь для игроков.",
     },
   },
   faq: {
     pl: {
       title: "Najczęściej Zadawane Pytania",
       description:
-        "Częste pytania rodziców i zawodników o analizę wideo, ceny, zwroty, konta niepełnoletnich i to, jak działa coaching w Tactical Tennis Lab.",
+        "Częste pytania akademii, rodziców i zawodników o konta akademii, pakiety, analizę wideo, ceny, zwroty i konta osób niepełnoletnich.",
     },
     es: {
       title: "Preguntas Frecuentes",
       description:
-        "Preguntas habituales de padres y jugadores sobre el análisis de vídeo, precios, reembolsos, cuentas de menores y cómo funciona el coaching en Tactical Tennis Lab.",
+        "Preguntas habituales de academias, padres y jugadores sobre cuentas de academia, paquetes, análisis de vídeo, precios, reembolsos y cuentas de menores.",
     },
     it: {
       title: "Domande Frequenti",
       description:
-        "Domande comuni di genitori e giocatori sull'analisi video, i prezzi, i rimborsi, gli account dei minori e come funziona il coaching su Tactical Tennis Lab.",
+        "Domande comuni di accademie, genitori e giocatori su account delle accademie, pacchetti, analisi video, prezzi, rimborsi e account dei minori.",
     },
     ru: {
       title: "Часто Задаваемые Вопросы",
       description:
-        "Частые вопросы родителей и игроков о видеоанализе, ценах, возвратах, аккаунтах несовершеннолетних и о том, как работает коучинг в Tactical Tennis Lab.",
+        "Частые вопросы академий, родителей и игроков об аккаунтах академий, пакетах, видеоанализе, ценах, возвратах и аккаунтах несовершеннолетних.",
     },
   },
   pricing: {
     pl: {
-      title: "Cennik Treningów Tenisa dla Juniorów",
+      title: "Pakiety i Cennik dla Akademii i Klubów Tenisowych",
       description:
-        "Plany coachingowe dla juniorów i zawodników, już od 49 USD. Jednorazowe analizy techniki, 4-tygodniowy program rozwoju, analiza meczowa i ciągły coaching PRO Tour z prawdziwym trenerem.",
+        "Pakiety analizy wideo i meczowej dla akademii i klubów tenisowych od 550 USD miesięcznie oraz plany indywidualne od 49 USD. Prawdziwi trenerzy, wspólna informacja zwrotna dla trenerów i zawodników.",
     },
     es: {
-      title: "Precios de Planes de Tenis para Juniors",
+      title: "Paquetes y Precios para Academias y Clubes de Tenis",
       description:
-        "Planes de coaching para jugadores junior y competitivos, desde $49. Revisiones técnicas puntuales, un programa de desarrollo de 4 semanas, análisis de partidos y coaching PRO Tour continuo con un entrenador real.",
+        "Paquetes de análisis de vídeo y de partidos para academias y clubes de tenis desde 550 USD al mes, además de planes individuales desde 49 USD. Entrenadores reales y feedback compartido para entrenadores y jugadores.",
     },
     it: {
-      title: "Prezzi dei Piani di Tennis per Junior",
+      title: "Pacchetti e Prezzi per Accademie e Club di Tennis",
       description:
-        "Piani di coaching per giocatori junior e agonisti, a partire da $49. Revisioni tecniche una tantum, un programma di sviluppo di 4 settimane, analisi delle partite e coaching PRO Tour continuo con un allenatore vero.",
+        "Pacchetti di analisi video e di partita per accademie e club di tennis da 550 USD al mese, più piani individuali da 49 USD. Allenatori veri e feedback condiviso per allenatori e giocatori.",
     },
     ru: {
-      title: "Цены на Теннисные Программы для Юниоров",
+      title: "Пакеты и цены для теннисных академий и клубов",
       description:
-        "Планы коучинга для юниоров и соревнующихся игроков от $49. Разовый разбор техники, 4-недельная программа развития, анализ матчей и постоянный коучинг PRO Tour с настоящим тренером.",
+        "Пакеты видео- и матч-анализа для теннисных академий и клубов от 550 USD в месяц, а также индивидуальные планы от 49 USD. Настоящие тренеры и общая обратная связь для тренеров и игроков.",
     },
   },
   home: {

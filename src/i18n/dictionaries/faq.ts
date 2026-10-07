@@ -24,14 +24,44 @@ const en: FaqDict = {
     eyebrow: "Help",
     title: "Frequently asked questions",
     subtitle:
-      "Common questions from parents and players. Can't find what you need? Ask the Quick questions widget or email tacticaltennislab@gmail.com.",
+      "Common questions from academies, parents and players. Can't find what you need? Ask the Quick questions widget or email tacticaltennislab@gmail.com.",
   },
   categories: [
+    {
+      title: "For academies & clubs",
+      items: [
+        {
+          question: "How does it work for an academy?",
+          answer:
+            "Your academy gets its own account, which we set up once the partnership is agreed. The owner invites coaches and players by email. Players upload practice or match videos from their own accounts, a real coach — a former ATP-ranked player or ITF Level 2 certified coach — analyses them, and the feedback appears in your academy dashboard for your coaches and the player.",
+        },
+        {
+          question: "Do you replace our coaches?",
+          answer:
+            "No. We're a support system for your coaches. We take on the time-consuming video and match analysis so they can spend their energy on court, and we work alongside them rather than in their place.",
+        },
+        {
+          question: "What do the academy packages include?",
+          answer:
+            "Club Starter ($550/month) covers 5–8 analyses per month, Academy Standard ($1,100/month) 10–15 plus a dedicated contact, and High Performance Club ($1,950/month) 20+ with priority support and shared training plans. Season packages cover 40–50 analyses over 3 months ($5,500) or 80–90 over 6 months ($9,500). See /pricing for details.",
+        },
+        {
+          question: "Who can see our players' videos?",
+          answer:
+            "The player's own account, the coaches in your academy and our coaches. Players join an academy only by accepting an invitation, which gives you a clear record of consent — important for minors. Your coaches can review videos and leave feedback, but only our team can delete a video.",
+        },
+        {
+          question: "How do we get started?",
+          answer:
+            "Choose a package on /pricing or contact us at /contact. Once the partnership is agreed we create your academy account and email an invitation to your owner.",
+        },
+      ],
+    },
     {
       title: "Getting started",
       items: [
         {
-          question: "How does it actually work?",
+          question: "How does it work for an individual player?",
           answer:
             "You create an account, send a practice or match video along with what you want feedback on, and a real coach — a former ATP-ranked player or ITF Level 2 certified coach — personally reviews it frame by frame. Nothing is auto-generated. You get your analysis and a plan back through your account and by email.",
         },
@@ -46,14 +76,14 @@ const en: FaqDict = {
             "Yes. Submitting a video, messaging a coach, and purchasing a plan all require an account, since your videos, feedback, and messages are tied to it.",
         },
         {
-          question: "Is this for clubs and academies, or individual players?",
+          question: "Is this for academies or individual players?",
           answer:
-            "Our main focus is individual junior and competitive players and their families — a second, independent expert opinion alongside your on-court coach, not a replacement for one. We also put together custom packages for clubs and academies on request, but that's not who this is primarily built for.",
+            "Both. Academies and clubs are our main focus — we support their coaches with video and match analysis. Individual players are welcome too and can send a video and choose a one-time or monthly plan.",
         },
       ],
     },
     {
-      title: "Plans & pricing",
+      title: "Individual player plans & pricing",
       items: [
         {
           question: "What plans do you offer?",
@@ -129,14 +159,44 @@ const pl: FaqDict = {
     eyebrow: "Pomoc",
     title: "Najczęściej zadawane pytania",
     subtitle:
-      "Częste pytania rodziców i zawodników. Nie znalazłeś odpowiedzi? Zapytaj widżet Szybkie pytania lub napisz na tacticaltennislab@gmail.com.",
+      "Częste pytania akademii, rodziców i zawodników. Nie znalazłeś odpowiedzi? Zapytaj widżet Szybkie pytania lub napisz na tacticaltennislab@gmail.com.",
   },
   categories: [
+    {
+      title: "Dla akademii i klubów",
+      items: [
+        {
+          question: "Jak to działa w przypadku akademii?",
+          answer:
+            "Twoja akademia dostaje własne konto, które zakładamy po uzgodnieniu współpracy. Właściciel zaprasza trenerów i zawodników e-mailem. Zawodnicy przesyłają nagrania treningów lub meczów ze swoich kont, prawdziwy trener — były zawodnik ATP lub certyfikowany trener ITF Level 2 — je analizuje, a informacja zwrotna pojawia się w panelu akademii dla Twoich trenerów i zawodnika.",
+        },
+        {
+          question: "Czy zastępujecie naszych trenerów?",
+          answer:
+            "Nie. Jesteśmy systemem wsparcia dla Twoich trenerów. Bierzemy na siebie czasochłonną analizę wideo i meczową, aby mogli poświęcić energię pracy na korcie, i działamy razem z nimi, a nie zamiast nich.",
+        },
+        {
+          question: "Co zawierają pakiety dla akademii?",
+          answer:
+            "Club Starter (550 USD/miesiąc) to 5–8 analiz miesięcznie, Academy Standard (1100 USD/miesiąc) to 10–15 analiz i dedykowana osoba kontaktowa, a High Performance Club (1950 USD/miesiąc) to ponad 20 analiz, priorytetowe wsparcie i wspólne plany treningowe. Pakiety sezonowe obejmują 40–50 analiz w 3 miesiące (5500 USD) lub 80–90 w 6 miesięcy (9500 USD). Szczegóły na /pricing.",
+        },
+        {
+          question: "Kto widzi filmy naszych zawodników?",
+          answer:
+            "Konto samego zawodnika, trenerzy Twojej akademii i nasi trenerzy. Zawodnicy dołączają do akademii wyłącznie po przyjęciu zaproszenia, co daje jasny zapis zgody — ważny w przypadku niepełnoletnich. Twoi trenerzy mogą oceniać filmy i zostawiać opinie, ale usunąć film może tylko nasz zespół.",
+        },
+        {
+          question: "Jak zacząć?",
+          answer:
+            "Wybierz pakiet na /pricing lub napisz do nas przez /contact. Po uzgodnieniu współpracy zakładamy konto akademii i wysyłamy zaproszenie e-mailem do właściciela.",
+        },
+      ],
+    },
     {
       title: "Pierwsze kroki",
       items: [
         {
-          question: "Jak to właściwie działa?",
+          question: "Jak to działa dla zawodnika indywidualnego?",
           answer:
             "Zakładasz konto, wysyłasz wideo z treningu lub meczu wraz z informacją, na czym Ci zależy, a prawdziwy trener — były zawodnik ATP lub certyfikowany trener ITF Level 2 — osobiście analizuje je klatka po klatce. Nic nie jest generowane automatycznie. Analizę i plan otrzymujesz przez konto i mailem.",
         },
@@ -151,14 +211,14 @@ const pl: FaqDict = {
             "Tak. Wysłanie wideo, wiadomość do trenera i zakup planu wymagają konta, ponieważ Twoje wideo, informacje zwrotne i wiadomości są z nim powiązane.",
         },
         {
-          question: "Czy to jest dla klubów i akademii, czy dla indywidualnych zawodników?",
+          question: "Czy to dla akademii, czy dla indywidualnych zawodników?",
           answer:
-            "Skupiamy się przede wszystkim na indywidualnych zawodnikach juniorskich, konkurencyjnych i ich rodzinach — drugiej, niezależnej ekspertyzie obok trenera na korcie, a nie jego zamienniku. Na życzenie przygotowujemy też pakiety dla klubów i akademii, ale to nie jest nasza główna grupa docelowa.",
+            "Dla obu. Akademie i kluby są naszym głównym celem — wspieramy ich trenerów analizą wideo i meczową. Zawodnicy indywidualni też są mile widziani i mogą wysłać wideo oraz wybrać plan jednorazowy lub miesięczny.",
         },
       ],
     },
     {
-      title: "Plany i ceny",
+      title: "Plany indywidualne i ceny",
       items: [
         {
           question: "Jakie plany oferujecie?",
@@ -234,14 +294,44 @@ const es: FaqDict = {
     eyebrow: "Ayuda",
     title: "Preguntas frecuentes",
     subtitle:
-      "Preguntas habituales de padres y jugadores. ¿No encuentras lo que buscas? Pregunta al widget de Preguntas rápidas o escribe a tacticaltennislab@gmail.com.",
+      "Preguntas habituales de academias, padres y jugadores. ¿No encuentras lo que buscas? Pregunta al widget de Preguntas rápidas o escribe a tacticaltennislab@gmail.com.",
   },
   categories: [
+    {
+      title: "Para academias y clubes",
+      items: [
+        {
+          question: "¿Cómo funciona para una academia?",
+          answer:
+            "Tu academia tiene su propia cuenta, que creamos cuando se acuerda la colaboración. El propietario invita a entrenadores y jugadores por correo electrónico. Los jugadores suben vídeos de entrenamientos o partidos desde sus propias cuentas, un entrenador real — un exjugador del ATP o un entrenador certificado ITF Level 2 — los analiza, y el feedback aparece en el panel de la academia para tus entrenadores y el jugador.",
+        },
+        {
+          question: "¿Sustituís a nuestros entrenadores?",
+          answer:
+            "No. Somos un sistema de apoyo para tus entrenadores. Nos encargamos del análisis de vídeo y de partidos, que requiere mucho tiempo, para que puedan dedicar su energía a la pista, y trabajamos junto a ellos, no en su lugar.",
+        },
+        {
+          question: "¿Qué incluyen los paquetes para academias?",
+          answer:
+            "Club Starter (550 USD/mes) incluye 5–8 análisis al mes, Academy Standard (1100 USD/mes) 10–15 más una persona de contacto dedicada, y High Performance Club (1950 USD/mes) más de 20 con soporte prioritario y planes de entrenamiento compartidos. Los paquetes de temporada cubren 40–50 análisis en 3 meses (5500 USD) u 80–90 en 6 meses (9500 USD). Consulta los detalles en /pricing.",
+        },
+        {
+          question: "¿Quién puede ver los vídeos de nuestros jugadores?",
+          answer:
+            "La propia cuenta del jugador, los entrenadores de tu academia y nuestros entrenadores. Los jugadores se unen a una academia solo aceptando una invitación, lo que deja un registro claro de consentimiento, importante en el caso de menores. Tus entrenadores pueden revisar vídeos y dejar comentarios, pero solo nuestro equipo puede eliminar un vídeo.",
+        },
+        {
+          question: "¿Cómo empezamos?",
+          answer:
+            "Elige un paquete en /pricing o escríbenos en /contact. Cuando se acuerde la colaboración, creamos la cuenta de tu academia y enviamos una invitación por correo al propietario.",
+        },
+      ],
+    },
     {
       title: "Primeros pasos",
       items: [
         {
-          question: "¿Cómo funciona exactamente?",
+          question: "¿Cómo funciona para un jugador individual?",
           answer:
             "Creas una cuenta, envías un vídeo de entrenamiento o partido junto con lo que quieres que se revise, y un entrenador real — un exjugador del ATP o un entrenador certificado ITF Level 2 — lo revisa personalmente fotograma a fotograma. Nada se genera automáticamente. Recibes tu análisis y un plan a través de tu cuenta y por email.",
         },
@@ -256,14 +346,14 @@ const es: FaqDict = {
             "Sí. Enviar un vídeo, escribir a un entrenador y comprar un plan requieren una cuenta, ya que tus vídeos, feedback y mensajes están vinculados a ella.",
         },
         {
-          question: "¿Esto es para clubes y academias, o para jugadores individuales?",
+          question: "¿Es para academias o para jugadores individuales?",
           answer:
-            "Nuestro enfoque principal son los jugadores junior y competitivos individuales y sus familias — una segunda opinión experta e independiente junto a tu entrenador en pista, no un sustituto. También creamos paquetes a medida para clubes y academias bajo petición, pero no es para quien está pensado principalmente.",
+            "Para ambos. Las academias y los clubes son nuestro foco principal: apoyamos a sus entrenadores con análisis de vídeo y de partidos. Los jugadores individuales también son bienvenidos y pueden enviar un vídeo y elegir un plan puntual o mensual.",
         },
       ],
     },
     {
-      title: "Planes y precios",
+      title: "Planes individuales y precios",
       items: [
         {
           question: "¿Qué planes ofrecéis?",
@@ -339,14 +429,44 @@ const it: FaqDict = {
     eyebrow: "Aiuto",
     title: "Domande frequenti",
     subtitle:
-      "Domande comuni di genitori e giocatori. Non trovi quello che cerchi? Chiedi al widget Domande rapide o scrivi a tacticaltennislab@gmail.com.",
+      "Domande comuni di accademie, genitori e giocatori. Non trovi quello che cerchi? Chiedi al widget Domande rapide o scrivi a tacticaltennislab@gmail.com.",
   },
   categories: [
+    {
+      title: "Per accademie e club",
+      items: [
+        {
+          question: "Come funziona per un'accademia?",
+          answer:
+            "La tua accademia ha un proprio account, che creiamo quando la collaborazione è concordata. Il titolare invita allenatori e giocatori via e-mail. I giocatori caricano video di allenamenti o partite dai propri account, un allenatore vero — un ex giocatore ATP o un allenatore certificato ITF Level 2 — li analizza, e il feedback compare nella dashboard dell'accademia per i tuoi allenatori e per il giocatore.",
+        },
+        {
+          question: "Sostituite i nostri allenatori?",
+          answer:
+            "No. Siamo un sistema di supporto per i tuoi allenatori. Ci occupiamo dell'analisi di video e partite, che richiede molto tempo, così possono dedicare le energie al campo, e lavoriamo al loro fianco, non al loro posto.",
+        },
+        {
+          question: "Cosa includono i pacchetti per accademie?",
+          answer:
+            "Club Starter (550 USD/mese) include 5–8 analisi al mese, Academy Standard (1100 USD/mese) 10–15 più un referente dedicato, e High Performance Club (1950 USD/mese) oltre 20 con supporto prioritario e piani di allenamento condivisi. I pacchetti stagionali coprono 40–50 analisi in 3 mesi (5500 USD) o 80–90 in 6 mesi (9500 USD). Vedi i dettagli su /pricing.",
+        },
+        {
+          question: "Chi può vedere i video dei nostri giocatori?",
+          answer:
+            "L'account del giocatore stesso, gli allenatori della tua accademia e i nostri allenatori. I giocatori entrano in un'accademia solo accettando un invito, il che lascia una chiara traccia del consenso, importante per i minori. I tuoi allenatori possono esaminare i video e lasciare feedback, ma solo il nostro team può eliminare un video.",
+        },
+        {
+          question: "Come iniziamo?",
+          answer:
+            "Scegli un pacchetto su /pricing oppure scrivici su /contact. Una volta concordata la collaborazione, creiamo l'account della tua accademia e inviamo un invito via e-mail al titolare.",
+        },
+      ],
+    },
     {
       title: "Per iniziare",
       items: [
         {
-          question: "Come funziona esattamente?",
+          question: "Come funziona per un giocatore individuale?",
           answer:
             "Crei un account, invii un video di allenamento o partita insieme a ciò su cui vuoi un feedback, e un allenatore vero — un ex giocatore ATP o un allenatore certificato ITF Level 2 — lo rivede personalmente fotogramma per fotogramma. Niente è generato automaticamente. Ricevi la tua analisi e un piano tramite il tuo account e via email.",
         },
@@ -361,14 +481,14 @@ const it: FaqDict = {
             "Sì. Inviare un video, scrivere a un allenatore e acquistare un piano richiedono un account, poiché i tuoi video, feedback e messaggi vi sono collegati.",
         },
         {
-          question: "È per club e accademie, o per giocatori individuali?",
+          question: "È per accademie o per giocatori individuali?",
           answer:
-            "Il nostro focus principale sono i giocatori junior e agonisti individuali e le loro famiglie — un secondo parere esperto e indipendente accanto al tuo allenatore in campo, non un sostituto. Realizziamo anche pacchetti su misura per club e accademie su richiesta, ma non è per questo che è pensato principalmente.",
+            "Per entrambi. Accademie e club sono il nostro focus principale: supportiamo i loro allenatori con analisi di video e partite. Anche i giocatori individuali sono i benvenuti e possono inviare un video e scegliere un piano una tantum o mensile.",
         },
       ],
     },
     {
-      title: "Piani e prezzi",
+      title: "Piani individuali e prezzi",
       items: [
         {
           question: "Quali piani offrite?",
@@ -444,14 +564,44 @@ const ru: FaqDict = {
     eyebrow: "Помощь",
     title: "Часто задаваемые вопросы",
     subtitle:
-      "Частые вопросы родителей и игроков. Не нашли ответ? Спросите виджет «Быстрые вопросы» или напишите на tacticaltennislab@gmail.com.",
+      "Частые вопросы академий, родителей и игроков. Не нашли ответ? Спросите виджет «Быстрые вопросы» или напишите на tacticaltennislab@gmail.com.",
   },
   categories: [
+    {
+      title: "Для академий и клубов",
+      items: [
+        {
+          question: "Как это работает для академии?",
+          answer:
+            "У вашей академии есть собственный аккаунт, который мы создаём после согласования сотрудничества. Владелец приглашает тренеров и игроков по электронной почте. Игроки загружают записи тренировок или матчей из своих аккаунтов, настоящий тренер — бывший игрок ATP или сертифицированный тренер ITF Level 2 — разбирает их, а обратная связь появляется в панели академии для ваших тренеров и игрока.",
+        },
+        {
+          question: "Вы заменяете наших тренеров?",
+          answer:
+            "Нет. Мы — система поддержки для ваших тренеров. Мы берём на себя трудоёмкий видео- и матч-анализ, чтобы они могли направить силы на корт, и работаем вместе с ними, а не вместо них.",
+        },
+        {
+          question: "Что входит в пакеты для академий?",
+          answer:
+            "Club Starter (550 USD/мес.) — 5–8 анализов в месяц, Academy Standard (1100 USD/мес.) — 10–15 анализов и выделенный контакт, High Performance Club (1950 USD/мес.) — более 20 анализов, приоритетная поддержка и общие планы тренировок. Сезонные пакеты — 40–50 анализов за 3 месяца (5500 USD) или 80–90 за 6 месяцев (9500 USD). Подробности на /pricing.",
+        },
+        {
+          question: "Кто видит видео наших игроков?",
+          answer:
+            "Собственный аккаунт игрока, тренеры вашей академии и наши тренеры. Игроки присоединяются к академии только приняв приглашение, что оставляет чёткую запись о согласии — это важно для несовершеннолетних. Ваши тренеры могут просматривать видео и оставлять отзывы, но удалить видео может только наша команда.",
+        },
+        {
+          question: "Как начать?",
+          answer:
+            "Выберите пакет на /pricing или напишите нам на /contact. После согласования сотрудничества мы создаём аккаунт академии и отправляем владельцу приглашение по электронной почте.",
+        },
+      ],
+    },
     {
       title: "Начало работы",
       items: [
         {
-          question: "Как это вообще работает?",
+          question: "Как это работает для индивидуального игрока?",
           answer:
             "Вы создаёте аккаунт, отправляете видео с тренировки или матча вместе с тем, что хотите разобрать, и настоящий тренер — бывший игрок ATP или сертифицированный тренер ITF Level 2 — лично разбирает его покадрово. Ничего не генерируется автоматически. Вы получаете анализ и план через аккаунт и по email.",
         },
@@ -466,14 +616,14 @@ const ru: FaqDict = {
             "Да. Отправка видео, сообщения тренеру и покупка плана требуют аккаунта, так как ваши видео, обратная связь и сообщения привязаны к нему.",
         },
         {
-          question: "Это для клубов и академий или для отдельных игроков?",
+          question: "Это для академий или для индивидуальных игроков?",
           answer:
-            "Наш основной фокус — отдельные юниоры и соревнующиеся игроки и их семьи — второе независимое экспертное мнение в дополнение к тренеру на корте, а не замена ему. По запросу мы также составляем индивидуальные пакеты для клубов и академий, но это не главная аудитория сервиса.",
+            "Для обоих. Академии и клубы — наш главный фокус: мы поддерживаем их тренеров видео- и матч-анализом. Индивидуальные игроки тоже приветствуются: они могут отправить видео и выбрать разовый или ежемесячный план.",
         },
       ],
     },
     {
-      title: "Планы и цены",
+      title: "Индивидуальные планы и цены",
       items: [
         {
           question: "Какие планы вы предлагаете?",

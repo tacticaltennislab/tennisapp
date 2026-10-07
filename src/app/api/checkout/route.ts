@@ -75,7 +75,7 @@ export async function POST(request: Request) {
       },
     ],
     success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${siteUrl}/pricing`,
+    cancel_url: `${siteUrl}/pricing?audience=players`,
     metadata: { userId: session.user.id, planName: plan.name, discountPercent: String(discountPercent) },
   });
 

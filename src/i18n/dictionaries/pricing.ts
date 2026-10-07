@@ -58,9 +58,9 @@ export interface PricingDict {
 const en: PricingDict = {
   pageHeader: {
     eyebrow: "Pricing",
-    title: "Coaching plans for every goal",
+    title: "Packages for academies and players",
     subtitle:
-      "Send your video, choose the analysis that fits what you're working on, and get feedback from a real coach — not an algorithm.",
+      "Choose an academy or club package that supports your coaches, or send a single video as an individual player. Feedback from real coaches — not an algorithm.",
   },
   noVatNote: "All prices are in USD. No VAT or sales tax is added at checkout.",
   audience: {
@@ -181,9 +181,9 @@ const en: PricingDict = {
 const pl: PricingDict = {
   pageHeader: {
     eyebrow: "Cennik",
-    title: "Plany treningowe dla każdego celu",
+    title: "Pakiety dla akademii i zawodników",
     subtitle:
-      "Wyślij swoje wideo, wybierz analizę dopasowaną do tego, nad czym pracujesz, i otrzymaj informację zwrotną od prawdziwego trenera — nie algorytmu.",
+      "Wybierz pakiet dla akademii lub klubu, który wesprze Twoich trenerów, albo wyślij jedno wideo jako zawodnik indywidualny. Opinie prawdziwych trenerów — nie algorytmu.",
   },
   noVatNote: "Wszystkie ceny podane są w USD. Przy płatności nie doliczamy VAT ani podatku od sprzedaży.",
   audience: {
@@ -304,9 +304,9 @@ const pl: PricingDict = {
 const es: PricingDict = {
   pageHeader: {
     eyebrow: "Precios",
-    title: "Planes de coaching para cada objetivo",
+    title: "Paquetes para academias y jugadores",
     subtitle:
-      "Envía tu vídeo, elige el análisis que se ajuste a lo que estás trabajando, y recibe feedback de un entrenador real — no de un algoritmo.",
+      "Elige un paquete para academias o clubes que apoye a tus entrenadores, o envía un solo vídeo como jugador individual. Comentarios de entrenadores reales, no de un algoritmo.",
   },
   noVatNote: "Todos los precios están en USD. No se añade IVA ni impuesto de ventas al finalizar la compra.",
   audience: {
@@ -427,9 +427,9 @@ const es: PricingDict = {
 const it: PricingDict = {
   pageHeader: {
     eyebrow: "Prezzi",
-    title: "Piani di coaching per ogni obiettivo",
+    title: "Pacchetti per accademie e giocatori",
     subtitle:
-      "Invia il tuo video, scegli l'analisi adatta a ciò su cui stai lavorando, e ricevi un feedback da un allenatore vero — non da un algoritmo.",
+      "Scegli un pacchetto per accademie o club che supporti i tuoi allenatori, oppure invia un singolo video come giocatore individuale. Feedback di allenatori veri, non di un algoritmo.",
   },
   noVatNote: "Tutti i prezzi sono in USD. Nessuna IVA o imposta sulle vendite viene aggiunta al checkout.",
   audience: {
@@ -550,9 +550,9 @@ const it: PricingDict = {
 const ru: PricingDict = {
   pageHeader: {
     eyebrow: "Цены",
-    title: "Планы коучинга под любую цель",
+    title: "Пакеты для академий и игроков",
     subtitle:
-      "Отправьте видео, выберите анализ, который подходит под вашу задачу, и получите обратную связь от настоящего тренера — а не от алгоритма.",
+      "Выберите пакет для академии или клуба, который поддержит ваших тренеров, или отправьте одно видео как индивидуальный игрок. Обратная связь от настоящих тренеров, а не алгоритма.",
   },
   noVatNote: "Все цены указаны в USD. При оплате НДС или налог с продаж не добавляются.",
   audience: {

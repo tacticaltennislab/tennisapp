@@ -139,7 +139,7 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
           >
             {dict.hero.playersNote}{" "}
             <Link
-              href={localizedHref(lang, "/pricing")}
+              href={`${localizedHref(lang, "/pricing")}?audience=players`}
               className="font-medium text-white underline underline-offset-4 hover:text-lime-300"
             >
               {dict.hero.playersLink}

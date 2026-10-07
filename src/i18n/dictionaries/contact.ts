@@ -20,7 +20,7 @@ const en: ContactDict = {
   pageHeader: {
     eyebrow: "Get in touch",
     title: "Contact us",
-    subtitle: "Questions about coaching, plans, or anything else — send us a message and we'll reply by email.",
+    subtitle: "Want to partner with us, or have a question about academy packages or individual plans? Send us a message and we'll reply by email.",
   },
   otherWays: "Other ways to reach us",
   repliesNote: "We typically reply within 24 hours.",
@@ -40,7 +40,7 @@ const pl: ContactDict = {
   pageHeader: {
     eyebrow: "Skontaktuj się",
     title: "Kontakt",
-    subtitle: "Pytania o coaching, plany lub cokolwiek innego — napisz do nas, a odpowiemy mailem.",
+    subtitle: "Chcesz zostać naszym partnerem lub masz pytanie o pakiety dla akademii albo plany indywidualne? Napisz do nas, a odpowiemy mailem.",
   },
   otherWays: "Inne sposoby kontaktu",
   repliesNote: "Zazwyczaj odpowiadamy w ciągu 24 godzin.",
@@ -60,7 +60,7 @@ const es: ContactDict = {
   pageHeader: {
     eyebrow: "Ponte en contacto",
     title: "Contáctanos",
-    subtitle: "Preguntas sobre coaching, planes o cualquier otra cosa — envíanos un mensaje y te responderemos por email.",
+    subtitle: "¿Quieres colaborar con nosotros o tienes una pregunta sobre los paquetes para academias o los planes individuales? Envíanos un mensaje y te responderemos por correo.",
   },
   otherWays: "Otras formas de contactarnos",
   repliesNote: "Normalmente respondemos en 24 horas.",
@@ -80,7 +80,7 @@ const it: ContactDict = {
   pageHeader: {
     eyebrow: "Contattaci",
     title: "Contattaci",
-    subtitle: "Domande sul coaching, sui piani o su qualsiasi altra cosa — inviaci un messaggio e ti risponderemo via email.",
+    subtitle: "Vuoi collaborare con noi o hai domande sui pacchetti per accademie o sui piani individuali? Scrivici e ti risponderemo via e-mail.",
   },
   otherWays: "Altri modi per contattarci",
   repliesNote: "Di solito rispondiamo entro 24 ore.",
@@ -100,7 +100,7 @@ const ru: ContactDict = {
   pageHeader: {
     eyebrow: "Связаться с нами",
     title: "Контакты",
-    subtitle: "Вопросы о коучинге, планах или что-то ещё — напишите нам, и мы ответим по email.",
+    subtitle: "Хотите стать нашим партнёром или есть вопрос о пакетах для академий или индивидуальных планах? Напишите нам, и мы ответим по электронной почте.",
   },
   otherWays: "Другие способы связи",
   repliesNote: "Обычно мы отвечаем в течение 24 часов.",

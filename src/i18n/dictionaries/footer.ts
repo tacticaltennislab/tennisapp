@@ -11,7 +11,7 @@ export interface FooterDict {
 }
 
 const en: FooterDict = {
-  tagline: "Tactical Tennis Lab — independent video and match analysis.",
+  tagline: "Tactical Tennis Lab — video and match analysis for tennis academies and clubs.",
   about: "About",
   faq: "FAQ",
   leaveReview: "Leave a review",
@@ -21,7 +21,7 @@ const en: FooterDict = {
 };
 
 const pl: FooterDict = {
-  tagline: "Tactical Tennis Lab — niezależna analiza wideo i meczowa.",
+  tagline: "Tactical Tennis Lab — analiza wideo i meczowa dla akademii i klubów tenisowych.",
   about: "O nas",
   faq: "FAQ",
   leaveReview: "Zostaw opinię",
@@ -31,7 +31,7 @@ const pl: FooterDict = {
 };
 
 const es: FooterDict = {
-  tagline: "Tactical Tennis Lab — análisis independiente de vídeo y de partido.",
+  tagline: "Tactical Tennis Lab — análisis de vídeo y de partidos para academias y clubes de tenis.",
   about: "Sobre nosotros",
   faq: "Preguntas frecuentes",
   leaveReview: "Deja una opinión",
@@ -41,7 +41,7 @@ const es: FooterDict = {
 };
 
 const it: FooterDict = {
-  tagline: "Tactical Tennis Lab — analisi video e di partita indipendente.",
+  tagline: "Tactical Tennis Lab — analisi video e di partita per accademie e club di tennis.",
   about: "Chi siamo",
   faq: "Domande frequenti",
   leaveReview: "Lascia una recensione",
@@ -51,7 +51,7 @@ const it: FooterDict = {
 };
 
 const ru: FooterDict = {
-  tagline: "Tactical Tennis Lab — независимый видео- и матч-анализ.",
+  tagline: "Tactical Tennis Lab — видео- и матч-анализ для теннисных академий и клубов.",
   about: "О нас",
   faq: "Вопросы и ответы",
   leaveReview: "Оставить отзыв",

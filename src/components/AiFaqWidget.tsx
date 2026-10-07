@@ -8,7 +8,7 @@ interface ChatMessage {
   content: string;
 }
 
-const SUGGESTIONS = ["What's included in Match IQ?", "Can I cancel PRO Tour anytime?", "How does the referral discount work?"];
+const SUGGESTIONS = ["What do the academy packages include?", "How do academy accounts work?", "What's included in Match IQ?"];
 
 export default function AiFaqWidget() {
   const [open, setOpen] = useState(false);

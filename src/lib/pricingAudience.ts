@@ -1,6 +1,7 @@
 export type Audience = "players" | "clubs";
 
-/** Reads the `?audience=` query value; anything but "clubs" means players. */
+/** Reads the `?audience=` query value. Academies & clubs are the default
+ * view; only an explicit "players" selects the individual-player plans. */
 export function parseAudience(value: string | string[] | undefined): Audience {
-  return value === "clubs" ? "clubs" : "players";
+  return value === "players" ? "players" : "clubs";
 }

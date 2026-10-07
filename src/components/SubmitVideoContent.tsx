@@ -68,7 +68,7 @@ export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLo
                   <IconArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href={localizedHref(lang, "/pricing")}
+                  href={`${localizedHref(lang, "/pricing")}?audience=players`}
                   className="inline-flex items-center gap-2 rounded-xl border border-line px-5 py-3 font-semibold hover:border-brand-600 transition-colors"
                 >
                   {t.seePricingCta}

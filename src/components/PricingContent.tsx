@@ -12,7 +12,7 @@ import type { AppLocale } from "@/i18n/locales";
 
 export default async function PricingContent({
   lang = "en",
-  initialAudience = "players",
+  initialAudience = "clubs",
 }: {
   lang?: AppLocale;
   initialAudience?: Audience;

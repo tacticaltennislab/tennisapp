@@ -8,7 +8,7 @@ export default function PricingAudienceSwitch({
   clubsLabel,
   players,
   clubs,
-  initialAudience = "players",
+  initialAudience = "clubs",
 }: {
   playersLabel: string;
   clubsLabel: string;
@@ -20,11 +20,11 @@ export default function PricingAudienceSwitch({
 
   function select(next: Audience) {
     setAudience(next);
-    // Keep the address bar shareable (e.g. /pricing?audience=clubs) without
+    // Keep the address bar shareable (e.g. /pricing?audience=players) without
     // triggering a navigation or re-fetching the page.
     const url = new URL(window.location.href);
-    if (next === "clubs") {
-      url.searchParams.set("audience", "clubs");
+    if (next === "players") {
+      url.searchParams.set("audience", "players");
     } else {
       url.searchParams.delete("audience");
     }
@@ -32,8 +32,8 @@ export default function PricingAudienceSwitch({
   }
 
   const options: { value: Audience; label: string }[] = [
-    { value: "players", label: playersLabel },
     { value: "clubs", label: clubsLabel },
+    { value: "players", label: playersLabel },
   ];
 
   return (

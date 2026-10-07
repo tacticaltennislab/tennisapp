@@ -4,7 +4,7 @@ import ContactContent from "@/components/ContactContent";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Questions about coaching plans, pricing, or how video analysis works for junior and competitive players? Get in touch with Tactical Tennis Lab.",
+    "Want to partner with us or have a question about academy packages, pricing, or how video analysis works? Get in touch with Tactical Tennis Lab.",
   alternates: {
     canonical: "/contact",
     languages: {
