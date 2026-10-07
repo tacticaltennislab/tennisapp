@@ -22,9 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const DEFAULT_TITLE = "Tactical Tennis Lab — Tennis Coach for Junior & Competitive Players";
+const DEFAULT_TITLE = "Tactical Tennis Lab — Video & Match Analysis for Tennis Academies and Clubs";
 const DEFAULT_DESCRIPTION =
-  "Independent video and match analysis for junior and competitive tennis players. Personal feedback from former ATP-ranked players and ITF Level 2 coaches — a second expert opinion alongside your child's on-court coach, not a club or academy.";
+  "Professional video and match analysis that supports tennis academies, clubs and their coaches. Tactical and technical feedback from former ATP-ranked players and ITF Level 2 coaches, so players improve faster and coaches spend more time on court.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -34,11 +34,12 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
-    "tennis coach for junior players",
-    "junior tennis coaching online",
-    "tennis coach for competitive players",
+    "tennis academy video analysis",
+    "tennis club match analysis",
+    "tennis coaching support software",
+    "tennis match analysis for academies",
     "online tennis video analysis",
-    "tennis technique analysis",
+    "tennis tactical analysis",
   ],
   openGraph: {
     title: DEFAULT_TITLE,
@@ -82,7 +83,7 @@ const organizationJsonLd = {
       serviceType: "Tennis coaching",
       audience: {
         "@type": "Audience",
-        audienceType: "Junior and competitive tennis players",
+        audienceType: "Tennis academies, clubs and their coaches and players",
       },
     },
   },

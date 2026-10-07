@@ -5,7 +5,7 @@ import { IconArrowRight } from "@/components/icons";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
-const HREFS = ["/#how-it-works", "/coaches", "/pricing", "/about"];
+const HREFS = ["/#how-it-works", "/coaches", "/pricing?audience=clubs", "/about"];
 
 export default function JourneySection({ lang = "en" }: { lang?: AppLocale }) {
   const t = homeDictionaries[lang].journey;

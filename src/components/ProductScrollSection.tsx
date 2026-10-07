@@ -1,7 +1,5 @@
-"use client";
-
-import Image from "next/image";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import SampleAnalysisMock from "@/components/SampleAnalysisMock";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import type { AppLocale } from "@/i18n/locales";
 
@@ -24,14 +22,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
           </>
         }
       >
-        <Image
-          src="/product-preview.png"
-          alt="A weekly tennis training plan built by a coach, showing session drills and tips"
-          height={630}
-          width={1568}
-          className="mx-auto rounded-2xl object-contain h-full w-full"
-          draggable={false}
-        />
+        <SampleAnalysisMock lang={lang} />
       </ContainerScroll>
     </div>
   );

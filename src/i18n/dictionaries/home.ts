@@ -7,8 +7,10 @@ export interface HomeDict {
     titleHighlight: string;
     titleSuffix: string;
     subtitle: string;
-    ctaSendVideo: string;
-    ctaViewPlans: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    playersNote: string;
+    playersLink: string;
   };
   offersPreview: {
     cta: string;
@@ -60,67 +62,84 @@ export interface HomeDict {
     titleLine1: string;
     titleLine2: string;
   };
+  sampleAnalysis: {
+    badge: string;
+    reportTitle: string;
+    meta: string;
+    player: string;
+    mistakesTitle: string;
+    mistakes: string[];
+    winningTitle: string;
+    winning: string[];
+    focusTitle: string;
+    focus: string[];
+    patternsTitle: string;
+    patterns: { label: string; value: number }[];
+    footer: string;
+  };
 }
 
 const en: HomeDict = {
   badges: ["Former ATP Players", "ATP Certified Coaches", "ITF Level 2 Coaches", "Worldwide Coaching"],
   hero: {
-    titlePre: "Train like it's ",
-    titleHighlight: "match point",
-    titleSuffix: "every session.",
+    titlePre: "Build a stronger academy with ",
+    titleHighlight: "better analysis",
+    titleSuffix: "of every player.",
     subtitle:
-      "Real coaches review your game on video and tell you exactly what to work on next — built for ambitious amateurs and competitive players, from your first tournament to your next ranking point.",
-    ctaSendVideo: "Send your video",
-    ctaViewPlans: "View coaching plans",
+      "We support your coaches with professional video and match analysis — tactical patterns, how points are won and lost, and clear next steps for every player — so your coaches can focus their energy on the court.",
+    ctaPrimary: "Partner with us",
+    ctaSecondary: "View academy packages",
+    playersNote: "Training on your own?",
+    playersLink: "See player plans",
   },
   offersPreview: {
     cta: "See full details & get started",
   },
   whoThisFor: {
     eyebrow: "Who this is for",
-    title: "Built for how you actually play",
+    title: "Built for academies and clubs",
     subtitle:
-      "Independent video and match analysis for ambitious amateurs and competitive juniors — not a generic plan for everyone. Pick the lane that matches where you're at.",
+      "A support system for the people who develop players — directors, head coaches, and the players and families who trust them.",
   },
   audiences: [
     {
-      title: "Ambitious amateur",
-      hook: "One flaw is quietly costing you matches.",
+      title: "Academy owners & directors",
+      hook: "Become the academy families choose.",
       detail:
-        "Send one video. We'll find the technical issue holding your game back and show you exactly how to fix it.",
-      cta: "Start with Stroke Fix",
+        "Better analysis means better results, and results attract new players. Offer modern, data-informed development that sets your academy apart.",
+      cta: "See academy packages",
     },
     {
-      title: "Competitive junior & parent",
-      hook: "A second, objective pair of eyes on their game.",
+      title: "Head coaches & coaching teams",
+      hook: "Spend your energy on court, not on video.",
       detail:
-        "Their on-court coach does the work that matters most, day to day. We add the frame-by-frame video review most coaches don't have hours in the week for.",
-      cta: "See development plans",
+        "We take on the frame-by-frame video and match analysis and return clear, shared feedback in one academy dashboard, so your coaches can build sessions around it.",
+      cta: "How it works",
     },
     {
-      title: "Advanced & tournament player",
-      hook: "Win the point before you're on court.",
+      title: "Players & parents",
+      hook: "Feedback that shows the way to the next win.",
       detail:
-        "Scout your next opponent, break down match patterns, and sharpen the tactical decisions that separate close matches.",
-      cta: "See Match IQ",
+        "Players see what they do well, which tactical mistakes cost them points, and what to work on next, backed by their own coaches.",
+      cta: "Talk to us",
     },
   ],
   howItWorks: {
     title: "How it works",
-    subtitle: "Three steps from raw footage to a plan you can put on court.",
+    subtitle: "From your players' footage to feedback your coaches can use on court.",
   },
   steps: [
     {
-      title: "Send your video",
-      detail: "Upload a practice or match clip, plus what you want feedback on.",
+      title: "Players send video",
+      detail: "Players in your academy upload practice or match clips from their own accounts.",
     },
     {
       title: "Professional analysis",
-      detail: "Former ATP players and ITF-level coaches review it frame by frame.",
+      detail: "Former ATP players and ITF-level coaches break down technique, tactical mistakes and how points are won.",
     },
     {
-      title: "Receive your plan",
-      detail: "Personalized drills, corrections, and tactical advice you can act on.",
+      title: "Shared feedback for your team",
+      detail: "Coaches and players see the feedback in your academy dashboard, ready to turn into sessions.",
     },
   ],
   testimonials: {
@@ -137,7 +156,7 @@ const en: HomeDict = {
     steps: [
       {
         title: "See how it works",
-        detail: "Send a video, get a frame-by-frame breakdown, receive your plan.",
+        detail: "Players send video, we analyse it, and your coaches get clear feedback.",
         cta: "How it works",
       },
       {
@@ -146,9 +165,9 @@ const en: HomeDict = {
         cta: "Meet the coaches",
       },
       {
-        title: "Choose your plan",
-        detail: "One-time analysis from $49, or the full PRO Tour coaching experience.",
-        cta: "See pricing",
+        title: "Choose your academy package",
+        detail: "Packages from $550/month for clubs and academies, or season packages for a full training block.",
+        cta: "See academy packages",
       },
       {
         title: "Read our story",
@@ -159,77 +178,111 @@ const en: HomeDict = {
   },
   coachesRoom: {
     eyebrow: "Real coaches, not an algorithm",
-    title: "The room behind your training plan",
+    title: "The coaches behind your academy's analysis",
     subtitle:
-      "Every submission is reviewed by former ATP players and ITF Level 2 certified coaches — frame-by-frame technical and tactical breakdowns, then a plan built around what you actually need to fix.",
+      "Every submission is reviewed by former ATP players and ITF Level 2 certified coaches — frame-by-frame technical and tactical breakdowns, then clear feedback your coaches can use straight away.",
     viewProfile: "View full profile",
   },
   productScroll: {
     eyebrow: "See it in action",
-    titleLine1: "Your plan, built by real coaches,",
-    titleLine2: "not generated by AI.",
+    titleLine1: "See the analysis your coaches receive,",
+    titleLine2: "built by real coaches, not generated by AI.",
+  },
+  sampleAnalysis: {
+    badge: "Illustrative example",
+    reportTitle: "Match analysis report",
+    meta: "Singles match · hard court · 3 sets",
+    player: "Player A · U16 · right-handed baseline player",
+    mistakesTitle: "Tactical mistakes",
+    mistakes: [
+      "Second serve is predictable — mostly to the backhand, so opponents step in and attack it.",
+      "Changes direction too late in cross-court rallies and loses patience around shot 7.",
+      "Hesitates to approach after a short ball, giving the opponent time to reset.",
+    ],
+    winningTitle: "How the player wins points",
+    winning: [
+      "Serve + forehand: the first strike to the open court wins most of the points.",
+      "Strong forehand down the line when the opponent is pulled wide.",
+      "Wins most short rallies of four shots or fewer.",
+    ],
+    focusTitle: "Focus for the next sessions",
+    focus: [
+      "Add second-serve variations to the body and wide.",
+      "Drill: down-the-line change of direction on the first neutral ball.",
+      "Drill: approach and finish after a short ball, then play out the point.",
+    ],
+    patternsTitle: "Points won by pattern",
+    patterns: [
+      { label: "Serve + forehand", value: 68 },
+      { label: "Rallies of 1–4 shots", value: 62 },
+      { label: "Second-serve points", value: 41 },
+      { label: "Rallies of 9+ shots", value: 38 },
+    ],
+    footer: "Reviewed by Tactical Tennis Lab coaches · shared with the academy's coaching team",
   },
 };
 
 const pl: HomeDict = {
   badges: ["Byli zawodnicy ATP", "Trenerzy certyfikowani ATP", "Trenerzy ITF Level 2", "Trenerzy na całym świecie"],
   hero: {
-    titlePre: "Trenuj tak, jakby to był ",
-    titleHighlight: "piłka meczowa",
-    titleSuffix: "na każdej sesji.",
+    titlePre: "Zbuduj silniejszą akademię dzięki ",
+    titleHighlight: "lepszej analizie",
+    titleSuffix: "każdego zawodnika.",
     subtitle:
-      "Prawdziwi trenerzy analizują Twoją grę na wideo i mówią dokładnie, nad czym pracować dalej — dla ambitnych amatorów i zawodników, od pierwszego turnieju po kolejny punkt rankingowy.",
-    ctaSendVideo: "Wyślij swoje wideo",
-    ctaViewPlans: "Zobacz plany treningowe",
+      "Wspieramy Twoich trenerów profesjonalną analizą wideo i meczową — wzorce taktyczne, to jak punkty są wygrywane i tracone, oraz jasne kolejne kroki dla każdego zawodnika — aby trenerzy mogli skupić energię na korcie.",
+    ctaPrimary: "Zostań naszym partnerem",
+    ctaSecondary: "Zobacz pakiety dla akademii",
+    playersNote: "Trenujesz indywidualnie?",
+    playersLink: "Zobacz plany dla zawodników",
   },
   offersPreview: {
     cta: "Zobacz pełne szczegóły i zacznij",
   },
   whoThisFor: {
     eyebrow: "Dla kogo to jest",
-    title: "Stworzone pod to, jak naprawdę grasz",
+    title: "Stworzone dla akademii i klubów",
     subtitle:
-      "Niezależna analiza wideo i meczowa dla ambitnych amatorów i zawodników juniorskich — nie ogólny plan dla wszystkich. Wybierz ścieżkę dopasowaną do Twojego poziomu.",
+      "System wsparcia dla ludzi, którzy rozwijają zawodników — dyrektorów, głównych trenerów oraz zawodników i rodzin, które im ufają.",
   },
   audiences: [
     {
-      title: "Ambitny amator",
-      hook: "Jeden błąd po cichu kosztuje Cię mecze.",
+      title: "Właściciele i dyrektorzy akademii",
+      hook: "Zostań akademią, którą wybierają rodziny.",
       detail:
-        "Wyślij jedno wideo. Znajdziemy techniczny problem, który hamuje Twoją grę, i pokażemy dokładnie, jak go naprawić.",
-      cta: "Zacznij od Stroke Fix",
+        "Lepsza analiza to lepsze wyniki, a wyniki przyciągają nowych zawodników. Zaoferuj nowoczesny, oparty na danych rozwój, który wyróżni Twoją akademię.",
+      cta: "Zobacz pakiety dla akademii",
     },
     {
-      title: "Zawodnik juniorski i rodzic",
-      hook: "Drugie, obiektywne spojrzenie na jego grę.",
+      title: "Główni trenerzy i zespoły trenerskie",
+      hook: "Energię zostaw na korcie, nie na wideo.",
       detail:
-        "Trener na korcie robi to, co najważniejsze, na co dzień. My dodajemy analizę wideo klatka po klatce, na którą większość trenerów nie ma czasu w tygodniu.",
-      cta: "Zobacz plany rozwoju",
+        "Bierzemy na siebie analizę wideo i meczową klatka po klatce i zwracamy jasną, wspólną informację zwrotną w jednym panelu akademii, aby trenerzy mogli budować wokół niej treningi.",
+      cta: "Jak to działa",
     },
     {
-      title: "Zaawansowany zawodnik turniejowy",
-      hook: "Wygraj punkt, zanim wejdziesz na kort.",
+      title: "Zawodnicy i rodzice",
+      hook: "Informacja zwrotna, która wskazuje drogę do kolejnego zwycięstwa.",
       detail:
-        "Zwiadowaj kolejnego przeciwnika, rozłóż na czynniki pierwsze wzorce meczowe i wyostrz decyzje taktyczne, które decydują o wyrównanych meczach.",
-      cta: "Zobacz Match IQ",
+        "Zawodnicy widzą, co robią dobrze, jakie błędy taktyczne kosztują ich punkty i nad czym pracować dalej — wspierani przez własnych trenerów.",
+      cta: "Porozmawiajmy",
     },
   ],
   howItWorks: {
     title: "Jak to działa",
-    subtitle: "Trzy kroki od surowego nagrania do planu, który wdrożysz na korcie.",
+    subtitle: "Od nagrań Twoich zawodników do informacji zwrotnej, z której trenerzy skorzystają na korcie.",
   },
   steps: [
     {
-      title: "Wyślij swoje wideo",
-      detail: "Prześlij nagranie z treningu lub meczu oraz informację, na czym Ci zależy.",
+      title: "Zawodnicy wysyłają wideo",
+      detail: "Zawodnicy Twojej akademii przesyłają nagrania treningów lub meczów ze swoich kont.",
     },
     {
       title: "Profesjonalna analiza",
-      detail: "Byli zawodnicy ATP i trenerzy poziomu ITF analizują je klatka po klatce.",
+      detail: "Byli zawodnicy ATP i trenerzy na poziomie ITF analizują technikę, błędy taktyczne i to, jak wygrywane są punkty.",
     },
     {
-      title: "Otrzymaj swój plan",
-      detail: "Spersonalizowane ćwiczenia, poprawki i wskazówki taktyczne, które możesz od razu wdrożyć.",
+      title: "Wspólna informacja zwrotna dla zespołu",
+      detail: "Trenerzy i zawodnicy widzą opinie w panelu akademii, gotowe do przełożenia na treningi.",
     },
   ],
   testimonials: {
@@ -246,7 +299,7 @@ const pl: HomeDict = {
     steps: [
       {
         title: "Zobacz, jak to działa",
-        detail: "Wyślij wideo, otrzymaj analizę klatka po klatce i swój plan.",
+        detail: "Zawodnicy wysyłają wideo, my je analizujemy, a Twoi trenerzy dostają jasną informację zwrotną.",
         cta: "Jak to działa",
       },
       {
@@ -255,9 +308,9 @@ const pl: HomeDict = {
         cta: "Poznaj trenerów",
       },
       {
-        title: "Wybierz swój plan",
-        detail: "Jednorazowa analiza już od 49 USD lub pełne doświadczenie PRO Tour.",
-        cta: "Zobacz cennik",
+        title: "Wybierz pakiet dla akademii",
+        detail: "Pakiety od 550 USD miesięcznie dla klubów i akademii oraz pakiety sezonowe na cały blok treningowy.",
+        cta: "Zobacz pakiety dla akademii",
       },
       {
         title: "Przeczytaj naszą historię",
@@ -268,77 +321,111 @@ const pl: HomeDict = {
   },
   coachesRoom: {
     eyebrow: "Prawdziwi trenerzy, nie algorytm",
-    title: "Zespół, który stoi za Twoim planem treningowym",
+    title: "Trenerzy stojący za analizą Twojej akademii",
     subtitle:
-      "Każde zgłoszenie jest analizowane przez byłych zawodników ATP i certyfikowanych trenerów ITF Level 2 — techniczna i taktyczna analiza klatka po klatce, a następnie plan dopasowany do tego, co naprawdę wymaga poprawy.",
+      "Każde zgłoszenie analizują byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2 — techniczna i taktyczna analiza klatka po klatce, a potem jasna informacja zwrotna, z której trenerzy mogą od razu korzystać.",
     viewProfile: "Zobacz pełny profil",
   },
   productScroll: {
     eyebrow: "Zobacz to w akcji",
-    titleLine1: "Twój plan, stworzony przez prawdziwych trenerów,",
-    titleLine2: "a nie wygenerowany przez AI.",
+    titleLine1: "Zobacz analizę, którą dostają Twoi trenerzy,",
+    titleLine2: "stworzona przez prawdziwych trenerów, a nie wygenerowana przez AI.",
+  },
+  sampleAnalysis: {
+    badge: "Przykład poglądowy",
+    reportTitle: "Raport z analizy meczu",
+    meta: "Mecz singlowy · twarda nawierzchnia · 3 sety",
+    player: "Zawodnik A · U16 · praworęczny, gra z głębi kortu",
+    mistakesTitle: "Błędy taktyczne",
+    mistakes: [
+      "Drugi serwis jest przewidywalny — głównie na bekhend, więc rywale wchodzą w kort i atakują.",
+      "Zbyt późno zmienia kierunek w wymianach po przekątnej i traci cierpliwość około 7. uderzenia.",
+      "Waha się przed podejściem do siatki po krótkiej piłce, dając rywalowi czas na odbudowanie gry.",
+    ],
+    winningTitle: "Jak zawodnik wygrywa punkty",
+    winning: [
+      "Serwis + forehand: pierwsze uderzenie w otwarty kort wygrywa większość punktów.",
+      "Mocny forehand po linii, gdy rywal jest wyciągnięty na bok.",
+      "Wygrywa większość krótkich wymian do czterech uderzeń.",
+    ],
+    focusTitle: "Fokus na kolejne treningi",
+    focus: [
+      "Dodać warianty drugiego serwisu w ciało i szeroko.",
+      "Ćwiczenie: zmiana kierunku po linii przy pierwszej neutralnej piłce.",
+      "Ćwiczenie: podejście i wykończenie po krótkiej piłce, a potem rozegranie punktu.",
+    ],
+    patternsTitle: "Wygrane punkty według schematu",
+    patterns: [
+      { label: "Serwis + forehand", value: 68 },
+      { label: "Wymiany 1–4 uderzeń", value: 62 },
+      { label: "Punkty przy drugim serwisie", value: 41 },
+      { label: "Wymiany 9+ uderzeń", value: 38 },
+    ],
+    footer: "Przeanalizowane przez trenerów Tactical Tennis Lab · udostępnione zespołowi trenerskiemu akademii",
   },
 };
 
 const es: HomeDict = {
   badges: ["Exjugadores del ATP", "Entrenadores certificados por la ATP", "Entrenadores ITF Level 2", "Entrenamiento en todo el mundo"],
   hero: {
-    titlePre: "Entrena como si fuera ",
-    titleHighlight: "punto de partido",
-    titleSuffix: "en cada sesión.",
+    titlePre: "Construye una academia más fuerte con ",
+    titleHighlight: "mejor análisis",
+    titleSuffix: "de cada jugador.",
     subtitle:
-      "Entrenadores reales revisan tu juego en vídeo y te dicen exactamente en qué trabajar a continuación — pensado para amateurs ambiciosos y jugadores competitivos, desde tu primer torneo hasta tu próximo punto de ranking.",
-    ctaSendVideo: "Envía tu vídeo",
-    ctaViewPlans: "Ver planes de entrenamiento",
+      "Apoyamos a tus entrenadores con análisis profesional de vídeo y de partidos — patrones tácticos, cómo se ganan y se pierden los puntos y próximos pasos claros para cada jugador — para que tus entrenadores concentren su energía en la pista.",
+    ctaPrimary: "Colabora con nosotros",
+    ctaSecondary: "Ver paquetes para academias",
+    playersNote: "¿Entrenas por tu cuenta?",
+    playersLink: "Ver planes para jugadores",
   },
   offersPreview: {
     cta: "Ver todos los detalles y empezar",
   },
   whoThisFor: {
     eyebrow: "Para quién es esto",
-    title: "Pensado para cómo juegas de verdad",
+    title: "Pensado para academias y clubes",
     subtitle:
-      "Análisis independiente de vídeo y de partido para amateurs ambiciosos y juniors competitivos — no un plan genérico para todos. Elige el camino que se ajuste a tu nivel.",
+      "Un sistema de apoyo para quienes desarrollan jugadores: directores, entrenadores principales y los jugadores y familias que confían en ellos.",
   },
   audiences: [
     {
-      title: "Amateur ambicioso",
-      hook: "Un solo fallo te está costando partidos en silencio.",
+      title: "Propietarios y directores de academia",
+      hook: "Conviértete en la academia que eligen las familias.",
       detail:
-        "Envía un vídeo. Encontraremos el problema técnico que frena tu juego y te mostraremos exactamente cómo solucionarlo.",
-      cta: "Empieza con Stroke Fix",
+        "Mejor análisis significa mejores resultados, y los resultados atraen a nuevos jugadores. Ofrece un desarrollo moderno basado en datos que distinga a tu academia.",
+      cta: "Ver paquetes para academias",
     },
     {
-      title: "Junior competitivo y padre/madre",
-      hook: "Una segunda mirada objetiva sobre su juego.",
+      title: "Entrenadores principales y equipos técnicos",
+      hook: "Dedica tu energía a la pista, no al vídeo.",
       detail:
-        "Su entrenador en pista hace el trabajo más importante, día a día. Nosotros añadimos el análisis de vídeo fotograma a fotograma para el que la mayoría de entrenadores no tiene horas en la semana.",
-      cta: "Ver planes de desarrollo",
+        "Nos encargamos del análisis de vídeo y de partidos fotograma a fotograma y devolvemos comentarios claros y compartidos en un único panel de la academia, para que tus entrenadores construyan las sesiones a partir de ellos.",
+      cta: "Cómo funciona",
     },
     {
-      title: "Jugador avanzado de torneos",
-      hook: "Gana el punto antes de pisar la pista.",
+      title: "Jugadores y padres",
+      hook: "Comentarios que marcan el camino hacia la próxima victoria.",
       detail:
-        "Estudia a tu próximo rival, analiza patrones de partido y afina las decisiones tácticas que deciden los partidos ajustados.",
-      cta: "Ver Match IQ",
+        "Los jugadores ven qué hacen bien, qué errores tácticos les cuestan puntos y en qué trabajar a continuación, con el respaldo de sus propios entrenadores.",
+      cta: "Hablemos",
     },
   ],
   howItWorks: {
     title: "Cómo funciona",
-    subtitle: "Tres pasos, del vídeo en bruto a un plan que puedes aplicar en pista.",
+    subtitle: "De las grabaciones de tus jugadores a comentarios que tus entrenadores pueden usar en la pista.",
   },
   steps: [
     {
-      title: "Envía tu vídeo",
-      detail: "Sube un clip de entrenamiento o partido, junto con lo que quieres que se revise.",
+      title: "Los jugadores envían vídeo",
+      detail: "Los jugadores de tu academia suben clips de entrenamientos o partidos desde sus propias cuentas.",
     },
     {
       title: "Análisis profesional",
-      detail: "Exjugadores del ATP y entrenadores de nivel ITF lo revisan fotograma a fotograma.",
+      detail: "Exjugadores del ATP y entrenadores de nivel ITF analizan la técnica, los errores tácticos y cómo se ganan los puntos.",
     },
     {
-      title: "Recibe tu plan",
-      detail: "Ejercicios personalizados, correcciones y consejos tácticos que puedes aplicar ya.",
+      title: "Comentarios compartidos para tu equipo",
+      detail: "Entrenadores y jugadores ven los comentarios en el panel de la academia, listos para convertirlos en sesiones.",
     },
   ],
   testimonials: {
@@ -355,7 +442,7 @@ const es: HomeDict = {
     steps: [
       {
         title: "Mira cómo funciona",
-        detail: "Envía un vídeo, recibe un análisis fotograma a fotograma y tu plan.",
+        detail: "Los jugadores envían vídeo, nosotros lo analizamos y tus entrenadores reciben comentarios claros.",
         cta: "Cómo funciona",
       },
       {
@@ -364,9 +451,9 @@ const es: HomeDict = {
         cta: "Conocer entrenadores",
       },
       {
-        title: "Elige tu plan",
-        detail: "Análisis puntual desde $49, o la experiencia completa de coaching PRO Tour.",
-        cta: "Ver precios",
+        title: "Elige tu paquete para academias",
+        detail: "Paquetes desde 550 USD al mes para clubes y academias, o paquetes de temporada para un bloque completo de entrenamiento.",
+        cta: "Ver paquetes para academias",
       },
       {
         title: "Lee nuestra historia",
@@ -377,77 +464,111 @@ const es: HomeDict = {
   },
   coachesRoom: {
     eyebrow: "Entrenadores reales, no un algoritmo",
-    title: "El equipo detrás de tu plan de entrenamiento",
+    title: "Los entrenadores detrás del análisis de tu academia",
     subtitle:
-      "Cada envío es revisado por exjugadores del ATP y entrenadores certificados ITF Level 2 — análisis técnico y táctico fotograma a fotograma, y después un plan construido alrededor de lo que realmente necesitas corregir.",
+      "Cada envío lo revisan exjugadores del ATP y entrenadores certificados ITF Level 2: análisis técnico y táctico fotograma a fotograma y, después, comentarios claros que tus entrenadores pueden usar de inmediato.",
     viewProfile: "Ver perfil completo",
   },
   productScroll: {
     eyebrow: "Míralo en acción",
-    titleLine1: "Tu plan, creado por entrenadores reales,",
-    titleLine2: "no generado por IA.",
+    titleLine1: "Mira el análisis que reciben tus entrenadores,",
+    titleLine2: "creado por entrenadores reales, no generado por IA.",
+  },
+  sampleAnalysis: {
+    badge: "Ejemplo ilustrativo",
+    reportTitle: "Informe de análisis de partido",
+    meta: "Partido individual · pista dura · 3 sets",
+    player: "Jugador A · U16 · diestro, juega desde el fondo",
+    mistakesTitle: "Errores tácticos",
+    mistakes: [
+      "El segundo saque es predecible: casi siempre al revés, así que los rivales entran y lo atacan.",
+      "Cambia de dirección demasiado tarde en los intercambios cruzados y pierde la paciencia hacia el golpe 7.",
+      "Duda en subir a la red tras una bola corta y da tiempo al rival para reorganizarse.",
+    ],
+    winningTitle: "Cómo gana puntos el jugador",
+    winning: [
+      "Saque + derecha: el primer golpe a la pista abierta gana la mayoría de los puntos.",
+      "Derecha paralela potente cuando el rival está abierto.",
+      "Gana la mayoría de los puntos cortos, de cuatro golpes o menos.",
+    ],
+    focusTitle: "Enfoque para las próximas sesiones",
+    focus: [
+      "Añadir variantes de segundo saque al cuerpo y abierto.",
+      "Ejercicio: cambio de dirección paralelo en la primera bola neutra.",
+      "Ejercicio: subida y definición tras una bola corta y jugar el punto hasta el final.",
+    ],
+    patternsTitle: "Puntos ganados por patrón",
+    patterns: [
+      { label: "Saque + derecha", value: 68 },
+      { label: "Intercambios de 1–4 golpes", value: 62 },
+      { label: "Puntos con segundo saque", value: 41 },
+      { label: "Intercambios de 9+ golpes", value: 38 },
+    ],
+    footer: "Revisado por los entrenadores de Tactical Tennis Lab · compartido con el equipo técnico de la academia",
   },
 };
 
 const it: HomeDict = {
   badges: ["Ex giocatori ATP", "Allenatori certificati ATP", "Allenatori ITF Level 2", "Coaching in tutto il mondo"],
   hero: {
-    titlePre: "Allenati come se fosse ",
-    titleHighlight: "match point",
-    titleSuffix: "ad ogni sessione.",
+    titlePre: "Costruisci un'accademia più forte con ",
+    titleHighlight: "un'analisi migliore",
+    titleSuffix: "di ogni giocatore.",
     subtitle:
-      "Allenatori veri analizzano il tuo gioco su video e ti dicono esattamente su cosa lavorare — pensato per amatori ambiziosi e giocatori competitivi, dal tuo primo torneo al tuo prossimo punto in classifica.",
-    ctaSendVideo: "Invia il tuo video",
-    ctaViewPlans: "Vedi i piani di coaching",
+      "Supportiamo i tuoi allenatori con analisi professionale di video e partite — schemi tattici, come si vincono e si perdono i punti e prossimi passi chiari per ogni giocatore — così i tuoi allenatori possono concentrare le energie sul campo.",
+    ctaPrimary: "Collabora con noi",
+    ctaSecondary: "Vedi i pacchetti per accademie",
+    playersNote: "Ti alleni da solo?",
+    playersLink: "Vedi i piani per giocatori",
   },
   offersPreview: {
     cta: "Vedi tutti i dettagli e inizia",
   },
   whoThisFor: {
     eyebrow: "Per chi è pensato",
-    title: "Pensato per come giochi davvero",
+    title: "Pensato per accademie e club",
     subtitle:
-      "Analisi video e di partita indipendente per amatori ambiziosi e junior competitivi — non un piano generico per tutti. Scegli il percorso adatto al tuo livello.",
+      "Un sistema di supporto per chi sviluppa i giocatori: direttori, capo allenatori e i giocatori e le famiglie che si affidano a loro.",
   },
   audiences: [
     {
-      title: "Amatore ambizioso",
-      hook: "Un solo difetto ti sta silenziosamente costando partite.",
+      title: "Titolari e direttori di accademia",
+      hook: "Diventa l'accademia che le famiglie scelgono.",
       detail:
-        "Invia un video. Troveremo il problema tecnico che frena il tuo gioco e ti mostreremo esattamente come risolverlo.",
-      cta: "Inizia con Stroke Fix",
+        "Un'analisi migliore significa risultati migliori, e i risultati attirano nuovi giocatori. Offri uno sviluppo moderno e basato sui dati che distingua la tua accademia.",
+      cta: "Vedi i pacchetti per accademie",
     },
     {
-      title: "Junior competitivo e genitore",
-      hook: "Un secondo sguardo obiettivo sul suo gioco.",
+      title: "Capo allenatori e staff tecnici",
+      hook: "Dedica le energie al campo, non ai video.",
       detail:
-        "Il suo allenatore in campo fa il lavoro più importante, giorno per giorno. Noi aggiungiamo l'analisi video fotogramma per fotogramma per cui la maggior parte degli allenatori non ha ore in settimana.",
-      cta: "Vedi i piani di sviluppo",
+        "Ci occupiamo dell'analisi di video e partite fotogramma per fotogramma e restituiamo feedback chiari e condivisi in un'unica dashboard dell'accademia, così i tuoi allenatori possono costruire le sedute a partire da essi.",
+      cta: "Come funziona",
     },
     {
-      title: "Giocatore avanzato da torneo",
-      hook: "Vinci il punto prima ancora di scendere in campo.",
+      title: "Giocatori e genitori",
+      hook: "Un feedback che indica la strada verso la prossima vittoria.",
       detail:
-        "Studia il tuo prossimo avversario, scomponi gli schemi di gioco e affina le decisioni tattiche che decidono le partite equilibrate.",
-      cta: "Vedi Match IQ",
+        "I giocatori vedono cosa fanno bene, quali errori tattici costano loro punti e su cosa lavorare dopo, con il supporto dei propri allenatori.",
+      cta: "Parliamone",
     },
   ],
   howItWorks: {
     title: "Come funziona",
-    subtitle: "Tre passaggi dal video grezzo a un piano da portare in campo.",
+    subtitle: "Dai filmati dei tuoi giocatori a un feedback che i tuoi allenatori possono usare in campo.",
   },
   steps: [
     {
-      title: "Invia il tuo video",
-      detail: "Carica un video di allenamento o partita, con quello su cui vuoi un feedback.",
+      title: "I giocatori inviano i video",
+      detail: "I giocatori della tua accademia caricano clip di allenamenti o partite dai propri account.",
     },
     {
       title: "Analisi professionale",
-      detail: "Ex giocatori ATP e allenatori di livello ITF lo rivedono fotogramma per fotogramma.",
+      detail: "Ex giocatori ATP e allenatori di livello ITF analizzano tecnica, errori tattici e come si vincono i punti.",
     },
     {
-      title: "Ricevi il tuo piano",
-      detail: "Esercizi personalizzati, correzioni e consigli tattici che puoi mettere in pratica subito.",
+      title: "Feedback condiviso per il tuo staff",
+      detail: "Allenatori e giocatori vedono il feedback nella dashboard dell'accademia, pronto per trasformarsi in sedute.",
     },
   ],
   testimonials: {
@@ -464,7 +585,7 @@ const it: HomeDict = {
     steps: [
       {
         title: "Scopri come funziona",
-        detail: "Invia un video, ricevi un'analisi fotogramma per fotogramma e il tuo piano.",
+        detail: "I giocatori inviano i video, noi li analizziamo e i tuoi allenatori ricevono un feedback chiaro.",
         cta: "Come funziona",
       },
       {
@@ -473,9 +594,9 @@ const it: HomeDict = {
         cta: "Conosci gli allenatori",
       },
       {
-        title: "Scegli il tuo piano",
-        detail: "Analisi singola da $49, oppure l'esperienza completa di coaching PRO Tour.",
-        cta: "Vedi i prezzi",
+        title: "Scegli il pacchetto per la tua accademia",
+        detail: "Pacchetti da 550 USD al mese per club e accademie, oppure pacchetti stagionali per un intero blocco di allenamento.",
+        cta: "Vedi i pacchetti per accademie",
       },
       {
         title: "Leggi la nostra storia",
@@ -486,77 +607,111 @@ const it: HomeDict = {
   },
   coachesRoom: {
     eyebrow: "Allenatori veri, non un algoritmo",
-    title: "Il team dietro il tuo piano di allenamento",
+    title: "Gli allenatori dietro l'analisi della tua accademia",
     subtitle:
-      "Ogni invio viene rivisto da ex giocatori ATP e allenatori certificati ITF Level 2 — analisi tecnica e tattica fotogramma per fotogramma, poi un piano costruito su ciò che devi davvero correggere.",
+      "Ogni invio è esaminato da ex giocatori ATP e allenatori certificati ITF Level 2: analisi tecnica e tattica fotogramma per fotogramma, poi un feedback chiaro che i tuoi allenatori possono usare subito.",
     viewProfile: "Vedi il profilo completo",
   },
   productScroll: {
     eyebrow: "Guardalo in azione",
-    titleLine1: "Il tuo piano, creato da allenatori reali,",
-    titleLine2: "non generato dall'IA.",
+    titleLine1: "Guarda l'analisi che ricevono i tuoi allenatori,",
+    titleLine2: "creata da veri allenatori, non generata dall'IA.",
+  },
+  sampleAnalysis: {
+    badge: "Esempio illustrativo",
+    reportTitle: "Report di analisi della partita",
+    meta: "Singolare · cemento · 3 set",
+    player: "Giocatore A · U16 · destrorso, gioca da fondo campo",
+    mistakesTitle: "Errori tattici",
+    mistakes: [
+      "La seconda di servizio è prevedibile: quasi sempre sul rovescio, così gli avversari entrano in campo e attaccano.",
+      "Cambia direzione troppo tardi negli scambi incrociati e perde la pazienza intorno al settimo colpo.",
+      "Esita a scendere a rete dopo una palla corta e concede all'avversario il tempo di riorganizzarsi.",
+    ],
+    winningTitle: "Come il giocatore vince i punti",
+    winning: [
+      "Servizio + dritto: il primo colpo verso il campo aperto vince la maggior parte dei punti.",
+      "Dritto lungolinea potente quando l'avversario è tirato fuori campo.",
+      "Vince la maggior parte degli scambi brevi, di quattro colpi o meno.",
+    ],
+    focusTitle: "Focus per le prossime sedute",
+    focus: [
+      "Aggiungere varianti di seconda di servizio sul corpo e largo.",
+      "Esercizio: cambio di direzione lungolinea sulla prima palla neutra.",
+      "Esercizio: discesa a rete e chiusura dopo una palla corta, poi giocare il punto fino in fondo.",
+    ],
+    patternsTitle: "Punti vinti per schema",
+    patterns: [
+      { label: "Servizio + dritto", value: 68 },
+      { label: "Scambi di 1–4 colpi", value: 62 },
+      { label: "Punti con la seconda di servizio", value: 41 },
+      { label: "Scambi di 9+ colpi", value: 38 },
+    ],
+    footer: "Esaminato dagli allenatori di Tactical Tennis Lab · condiviso con lo staff tecnico dell'accademia",
   },
 };
 
 const ru: HomeDict = {
   badges: ["Бывшие игроки ATP", "Тренеры с сертификатом ATP", "Тренеры уровня ITF Level 2", "Тренировки по всему миру"],
   hero: {
-    titlePre: "Тренируйся так, будто это ",
-    titleHighlight: "матчбол",
-    titleSuffix: "на каждой сессии.",
+    titlePre: "Постройте более сильную академию с ",
+    titleHighlight: "лучшим анализом",
+    titleSuffix: "каждого игрока.",
     subtitle:
-      "Настоящие тренеры разбирают вашу игру по видео и говорят точно, над чем работать дальше — для амбициозных любителей и соревнующихся игроков, от первого турнира до следующего рейтингового очка.",
-    ctaSendVideo: "Отправить видео",
-    ctaViewPlans: "Смотреть планы тренировок",
+      "Мы поддерживаем ваших тренеров профессиональным видеоанализом и разбором матчей — тактические паттерны, как выигрываются и проигрываются очки и понятные следующие шаги для каждого игрока, — чтобы тренеры могли направить энергию на корт.",
+    ctaPrimary: "Стать партнёром",
+    ctaSecondary: "Пакеты для академий",
+    playersNote: "Тренируетесь самостоятельно?",
+    playersLink: "Планы для игроков",
   },
   offersPreview: {
     cta: "Смотреть все детали и начать",
   },
   whoThisFor: {
     eyebrow: "Кому это подходит",
-    title: "Создано под то, как вы играете на самом деле",
+    title: "Создано для академий и клубов",
     subtitle:
-      "Независимый видео- и матч-анализ для амбициозных любителей и юниоров — не общий план для всех. Выберите направление, которое соответствует вашему уровню.",
+      "Система поддержки для тех, кто растит игроков: директоров, главных тренеров, а также игроков и семей, которые им доверяют.",
   },
   audiences: [
     {
-      title: "Амбициозный любитель",
-      hook: "Одна ошибка незаметно стоит вам матчей.",
+      title: "Владельцы и директора академий",
+      hook: "Станьте академией, которую выбирают семьи.",
       detail:
-        "Отправьте одно видео. Мы найдём техническую проблему, которая тормозит вашу игру, и покажем точно, как её исправить.",
-      cta: "Начать со Stroke Fix",
+        "Лучший анализ — лучшие результаты, а результаты привлекают новых игроков. Предложите современное развитие на основе данных, которое выделит вашу академию.",
+      cta: "Пакеты для академий",
     },
     {
-      title: "Юниор-соревнователь и родитель",
-      hook: "Второй, объективный взгляд на его игру.",
+      title: "Главные тренеры и тренерские команды",
+      hook: "Тратьте силы на корт, а не на видео.",
       detail:
-        "Тренер на корте делает самую важную работу день за днём. Мы добавляем покадровый видеоразбор, на который у большинства тренеров просто не хватает часов в неделю.",
-      cta: "Смотреть планы развития",
+        "Мы берём на себя покадровый видеоанализ и разбор матчей и возвращаем понятную общую обратную связь в одной панели академии, чтобы тренеры могли строить на ней занятия.",
+      cta: "Как это работает",
     },
     {
-      title: "Продвинутый турнирный игрок",
-      hook: "Выиграй розыгрыш ещё до выхода на корт.",
+      title: "Игроки и родители",
+      hook: "Обратная связь, которая показывает путь к следующей победе.",
       detail:
-        "Изучите следующего соперника, разберите паттерны матча и отточите тактические решения, которые решают исход равных матчей.",
-      cta: "Смотреть Match IQ",
+        "Игроки видят, что у них получается, какие тактические ошибки стоят им очков и над чем работать дальше, при поддержке собственных тренеров.",
+      cta: "Давайте поговорим",
     },
   ],
   howItWorks: {
     title: "Как это работает",
-    subtitle: "Три шага от сырого видео до плана, который можно применить на корте.",
+    subtitle: "От записей ваших игроков до обратной связи, которую тренеры могут использовать на корте.",
   },
   steps: [
     {
-      title: "Отправьте видео",
-      detail: "Загрузите ролик с тренировки или матча и укажите, что именно хотите разобрать.",
+      title: "Игроки присылают видео",
+      detail: "Игроки вашей академии загружают записи тренировок или матчей из своих аккаунтов.",
     },
     {
       title: "Профессиональный анализ",
-      detail: "Бывшие игроки ATP и тренеры уровня ITF разбирают его покадрово.",
+      detail: "Бывшие игроки ATP и тренеры уровня ITF разбирают технику, тактические ошибки и то, как выигрываются очки.",
     },
     {
-      title: "Получите свой план",
-      detail: "Персональные упражнения, исправления и тактические советы, которые можно применить сразу.",
+      title: "Общая обратная связь для команды",
+      detail: "Тренеры и игроки видят отзывы в панели академии, готовые к превращению в занятия.",
     },
   ],
   testimonials: {
@@ -573,7 +728,7 @@ const ru: HomeDict = {
     steps: [
       {
         title: "Посмотрите, как это работает",
-        detail: "Отправьте видео, получите покадровый разбор и свой план.",
+        detail: "Игроки присылают видео, мы анализируем его, а ваши тренеры получают понятную обратную связь.",
         cta: "Как это работает",
       },
       {
@@ -582,9 +737,9 @@ const ru: HomeDict = {
         cta: "Познакомиться с тренерами",
       },
       {
-        title: "Выберите свой план",
-        detail: "Разовый анализ от $49 или полный опыт коучинга PRO Tour.",
-        cta: "Смотреть цены",
+        title: "Выберите пакет для академии",
+        detail: "Пакеты от 550 USD в месяц для клубов и академий или сезонные пакеты на весь тренировочный блок.",
+        cta: "Пакеты для академий",
       },
       {
         title: "Прочитайте нашу историю",
@@ -595,15 +750,47 @@ const ru: HomeDict = {
   },
   coachesRoom: {
     eyebrow: "Настоящие тренеры, а не алгоритм",
-    title: "Команда, которая стоит за вашим планом тренировок",
+    title: "Тренеры, стоящие за анализом вашей академии",
     subtitle:
-      "Каждую заявку рассматривают бывшие игроки ATP и сертифицированные тренеры ITF Level 2 — технический и тактический покадровый разбор, а затем план, построенный вокруг того, что действительно нужно исправить.",
+      "Каждую заявку разбирают бывшие игроки ATP и сертифицированные тренеры ITF Level 2 — покадровый технический и тактический разбор, а затем понятная обратная связь, которую тренеры могут использовать сразу.",
     viewProfile: "Смотреть полный профиль",
   },
   productScroll: {
     eyebrow: "Посмотрите это в деле",
-    titleLine1: "Ваш план, составленный настоящими тренерами,",
-    titleLine2: "а не сгенерированный ИИ.",
+    titleLine1: "Посмотрите анализ, который получают ваши тренеры,",
+    titleLine2: "созданный настоящими тренерами, а не сгенерированный ИИ.",
+  },
+  sampleAnalysis: {
+    badge: "Иллюстративный пример",
+    reportTitle: "Отчёт по анализу матча",
+    meta: "Одиночный матч · хард · 3 сета",
+    player: "Игрок A · U16 · правша, играет с задней линии",
+    mistakesTitle: "Тактические ошибки",
+    mistakes: [
+      "Вторая подача предсказуема — в основном на бэкхенд, поэтому соперники заходят в корт и атакуют.",
+      "Слишком поздно меняет направление в розыгрышах по диагонали и теряет терпение около 7-го удара.",
+      "Колеблется перед выходом к сетке после короткого мяча и даёт сопернику время перестроиться.",
+    ],
+    winningTitle: "Как игрок выигрывает очки",
+    winning: [
+      "Подача + форхенд: первый удар в открытый корт выигрывает большинство очков.",
+      "Мощный форхенд вдоль линии, когда соперник выведен в сторону.",
+      "Выигрывает большинство коротких розыгрышей — до четырёх ударов.",
+    ],
+    focusTitle: "Фокус на ближайшие тренировки",
+    focus: [
+      "Добавить варианты второй подачи в корпус и в сторону.",
+      "Упражнение: смена направления вдоль линии на первом нейтральном мяче.",
+      "Упражнение: выход к сетке и завершение после короткого мяча, затем доигрывание очка.",
+    ],
+    patternsTitle: "Выигранные очки по схемам",
+    patterns: [
+      { label: "Подача + форхенд", value: 68 },
+      { label: "Розыгрыши в 1–4 удара", value: 62 },
+      { label: "Очки на второй подаче", value: 41 },
+      { label: "Розыгрыши от 9 ударов", value: 38 },
+    ],
+    footer: "Проверено тренерами Tactical Tennis Lab · доступно тренерской команде академии",
   },
 };
 

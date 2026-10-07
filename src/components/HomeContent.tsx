@@ -23,7 +23,8 @@ import {
 } from "@/components/icons";
 
 const AUDIENCE_ICONS = [IconTarget, IconGrowth, IconVideo];
-const AUDIENCE_HREFS = ["/pricing", "/pricing", "/pricing"];
+// Card 1 -> academy packages, card 2 -> how it works (anchor, built inline), card 3 -> contact.
+const AUDIENCE_PATHS = ["/pricing?audience=clubs", "", "/contact"];
 const STEP_ICONS = [IconUpload, IconTarget, IconPlan];
 
 export default async function HomeContent({ lang = "en" }: { lang?: AppLocale }) {
@@ -39,14 +40,14 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: "Tennis coaching",
-    name: "Tactical Tennis Lab — Online Tennis Coaching for Junior & Competitive Players",
+    name: "Tactical Tennis Lab — Video & Match Analysis for Tennis Academies and Clubs",
     provider: {
       "@type": "Organization",
       name: "Tactical Tennis Lab",
     },
     audience: {
       "@type": "Audience",
-      audienceType: "Junior and competitive tennis players",
+      audienceType: "Tennis academies, clubs and their coaches and players",
     },
     areaServed: "Worldwide",
     ...(reviewStats._count.rating > 0
@@ -119,19 +120,31 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
             style={{ animationDelay: "180ms" }}
           >
             <Link
-              href={localizedHref(lang, "/submit-video")}
+              href={localizedHref(lang, "/contact")}
               className="group inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold px-5 py-3 shadow-lg shadow-black/30 hover:shadow-xl transition-all hover:-translate-y-0.5"
             >
-              {dict.hero.ctaSendVideo}
+              {dict.hero.ctaPrimary}
               <IconArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
-              href={localizedHref(lang, "/pricing")}
+              href={`${localizedHref(lang, "/pricing")}?audience=clubs`}
               className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/25 hover:bg-white/20 backdrop-blur text-white font-semibold px-5 py-3 transition-colors"
             >
-              {dict.hero.ctaViewPlans}
+              {dict.hero.ctaSecondary}
             </Link>
           </div>
+          <p
+            className="animate-fade-up mt-5 text-sm text-white/70"
+            style={{ animationDelay: "240ms" }}
+          >
+            {dict.hero.playersNote}{" "}
+            <Link
+              href={localizedHref(lang, "/pricing")}
+              className="font-medium text-white underline underline-offset-4 hover:text-lime-300"
+            >
+              {dict.hero.playersLink}
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -170,7 +183,7 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
                     <h3 className="mt-1 font-bold text-lg leading-snug">{a.hook}</h3>
                     <p className="mt-2 text-sm text-body flex-1">{a.detail}</p>
                     <Link
-                      href={localizedHref(lang, AUDIENCE_HREFS[i])}
+                      href={i === 1 ? `${localizedHref(lang, "/")}#how-it-works` : localizedHref(lang, AUDIENCE_PATHS[i])}
                       className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
                     >
                       {a.cta}
