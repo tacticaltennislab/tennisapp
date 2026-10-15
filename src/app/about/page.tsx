@@ -4,7 +4,7 @@ import AboutContent from "@/components/AboutContent";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Why we built a video and tactical analysis service that supports tennis academies, clubs and their coaches — more time on court for coaches, clearer feedback for players.",
+    "Why we built a video and tactical analysis service that supports tennis academies, clubs and their coaches, with more time on court for coaches, clearer feedback for players.",
   alternates: {
     canonical: "/about",
     languages: {

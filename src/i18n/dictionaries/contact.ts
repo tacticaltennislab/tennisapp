@@ -31,7 +31,7 @@ const en: ContactDict = {
     sending: "Sending...",
     send: "Send message",
     sentTitle: "Message sent",
-    sentBody: "Thanks for reaching out — we'll get back to you soon.",
+    sentBody: "Thanks for reaching out: we'll get back to you soon.",
     error: "Something went wrong.",
   },
 };
@@ -46,12 +46,12 @@ const pl: ContactDict = {
   repliesNote: "Zazwyczaj odpowiadamy w ciągu 24 godzin.",
   form: {
     name: "Imię",
-    email: "E-mail",
+    email: "Email",
     message: "Wiadomość",
     sending: "Wysyłanie...",
     send: "Wyślij wiadomość",
     sentTitle: "Wiadomość wysłana",
-    sentBody: "Dziękujemy za kontakt — wkrótce odpowiemy.",
+    sentBody: "Dziękujemy za kontakt: wkrótce odpowiemy.",
     error: "Coś poszło nie tak.",
   },
 };
@@ -71,7 +71,7 @@ const es: ContactDict = {
     sending: "Enviando...",
     send: "Enviar mensaje",
     sentTitle: "Mensaje enviado",
-    sentBody: "Gracias por escribirnos — te responderemos pronto.",
+    sentBody: "Gracias por escribirnos: te responderemos pronto.",
     error: "Algo salió mal.",
   },
 };
@@ -80,7 +80,7 @@ const it: ContactDict = {
   pageHeader: {
     eyebrow: "Contattaci",
     title: "Contattaci",
-    subtitle: "Vuoi collaborare con noi o hai domande sui pacchetti per accademie o sui piani individuali? Scrivici e ti risponderemo via e-mail.",
+    subtitle: "Vuoi collaborare con noi o hai domande sui pacchetti per accademie o sui piani individuali? Scrivici e ti risponderemo via email.",
   },
   otherWays: "Altri modi per contattarci",
   repliesNote: "Di solito rispondiamo entro 24 ore.",
@@ -91,7 +91,7 @@ const it: ContactDict = {
     sending: "Invio in corso...",
     send: "Invia messaggio",
     sentTitle: "Messaggio inviato",
-    sentBody: "Grazie per averci contattato — ti risponderemo presto.",
+    sentBody: "Grazie per averci contattato: ti risponderemo presto.",
     error: "Qualcosa è andato storto.",
   },
 };
@@ -111,8 +111,8 @@ const ru: ContactDict = {
     sending: "Отправка...",
     send: "Отправить сообщение",
     sentTitle: "Сообщение отправлено",
-    sentBody: "Спасибо, что написали нам — мы скоро ответим.",
-    error: "Что-то пошло не так.",
+    sentBody: "Спасибо, что написали нам: мы скоро ответим.",
+    error: "Произошла ошибка.",
   },
 };
 

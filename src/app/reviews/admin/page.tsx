@@ -30,7 +30,7 @@ export default async function ReviewsAdminPage() {
         subtitle={
           pendingCount > 0
             ? `${pendingCount} awaiting approval.`
-            : "All caught up — nothing pending."
+            : "All caught up, nothing pending."
         }
       />
       <main className="flex-1 px-4 py-12">

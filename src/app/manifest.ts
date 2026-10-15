@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Tactical Tennis Lab",
     short_name: "Tennis Lab",
     description:
-      "Personalized tennis training plans and video-based coaching, for amateurs and everyone who plays.",
+      "Video and match analysis for tennis academies, clubs and players.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

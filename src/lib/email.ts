@@ -47,7 +47,7 @@ function layout(title: string, bodyHtml: string) {
       <p style="font-size: 13px; font-weight: 700; color: #1b7a45; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 8px;">Tactical Tennis Lab</p>
       <h1 style="font-size: 22px; margin: 0 0 16px;">${title}</h1>
       ${bodyHtml}
-      <p style="margin-top: 32px; font-size: 12px; color: #6b7280;">Tactical Tennis Lab &mdash; training plans for every level.</p>
+      <p style="margin-top: 32px; font-size: 12px; color: #6b7280;">Tactical Tennis Lab: video and match analysis for tennis academies and clubs.</p>
     </div>
   `;
 }

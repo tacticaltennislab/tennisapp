@@ -34,32 +34,32 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. The service",
           body: [
-            "We offer video-based technical and tactical analysis, personalized training plans, and coach feedback delivered through the website. Every plan is built personally by one of our coaches based on your video and goals — not generated automatically. Submitting a video, messaging a coach, and purchasing a plan all require an account.",
-            "Coaching feedback is based on the video and information you provide. It is educational and developmental in nature and is not a substitute for in-person instruction, medical advice, or a fitness assessment. You are responsible for your own physical safety while training.",
+            "We offer video based technical and tactical analysis, personalized training plans, and coach feedback delivered through the website. Every plan is built personally by one of our coaches based on your video and goals, not generated automatically. Submitting a video, messaging a coach, and purchasing a plan all require an account.",
+            "Coaching feedback is based on the video and information you provide. It is educational and developmental in nature and is not a substitute for in person instruction, medical advice, or a fitness assessment. You are responsible for your own physical safety while training.",
           ],
         },
         {
           title: "3. Accounts and minors",
           body: [
             "You must provide accurate information when creating an account and keep your login credentials confidential. You are responsible for all activity under your account.",
-            "You must be at least 16 years old to create an account. If a player is under 18, a parent or guardian must create and manage the account on their behalf. There is only one login per account, so every video, coach note, and message exchanged with a coach passes through that single account and is visible to whoever holds it — there is no separate or hidden channel between a coach and a minor. Coaches will maintain professional conduct at all times when working with minors; if you have any safeguarding concern, contact us immediately at tacticaltennislab@gmail.com.",
+            "You must be at least 16 years old to create an account. If a player is under 18, a parent or guardian must create and manage the account on their behalf. There is only one login per account, so every video, coach note, and message exchanged with a coach passes through that single account and is visible to whoever holds it, there is no separate or hidden channel between a coach and a minor. Coaches will maintain professional conduct at all times when working with minors; if you have any safeguarding concern, contact us immediately at tacticaltennislab@gmail.com.",
           ],
         },
         {
           title: "4. Payments and subscriptions",
           body: [
             "Paid plans are processed securely through Stripe. We do not store your full card details on our servers. All prices are listed in USD; we do not add VAT or sales tax at checkout.",
-            "One-time plans (such as Stroke Fix, Smart System, and Match IQ) are billed once at purchase. PRO Tour is a recurring monthly subscription that renews automatically until cancelled.",
+            "One time plans (such as Stroke Fix, Smart System, and Match IQ) are billed once at purchase. PRO Tour is a recurring monthly subscription that renews automatically until cancelled.",
             "You can cancel a subscription at any time from your account; cancellation takes effect at the end of the current billing period, and you keep access until then. We don't provide partial refunds for unused time in a billing period.",
             "You can earn a discount by sharing your personal referral link (found in your account). A referral only counts once the person you referred completes their first paid purchase. Once you reach a referral milestone, the corresponding discount applies automatically to your own future purchases: currently 20% off after 1 successful referral, 40% off after 2, and most plans free after 5 (Match IQ: Full is capped at 50% off and PRO Tour at 40% off, even at higher referral counts). Referral discounts cannot be exchanged for cash and cannot be combined with other promotional offers unless we say otherwise.",
-            "We may modify, pause, or end the referral program, or change future discount tiers, at any time; a discount tier you've already unlocked will keep applying to your account going forward unless we notify you otherwise. We may reverse referral credit and suspend accounts involved in self-referral, fake accounts, or other abuse of the program, including where a qualifying purchase is later refunded or charged back.",
+            "We may modify, pause, or end the referral program, or change future discount tiers, at any time; a discount tier you've already unlocked will keep applying to your account going forward unless we notify you otherwise. We may reverse referral credit and suspend accounts involved in self referral, fake accounts, or other abuse of the program, including where a qualifying purchase is later refunded or charged back.",
           ],
         },
         {
           title: "5. Your right to cancel (EU/EEA and UK consumers)",
           body: [
             "If you are a consumer in the EU, EEA, or UK, you normally have the right to withdraw from an online purchase within 14 days without giving a reason.",
-            "Because our one-time plans (Stroke Fix, Smart System, Match IQ) involve personalized analysis that we begin as soon as you submit your video, you agree that performance starts immediately and acknowledge that once a coach has begun or completed your analysis, you lose the right of withdrawal for that purchase, as permitted under EU Consumer Rights Directive 2011/83/EU Article 16(m). Before a coach has started work on your submission, you can still request a full refund.",
+            "Because our one time plans (Stroke Fix, Smart System, Match IQ) involve personalized analysis that we begin as soon as you submit your video, you agree that performance starts immediately and acknowledge that once a coach has begun or completed your analysis, you lose the right of withdrawal for that purchase, as permitted under EU Consumer Rights Directive 2011/83/EU Article 16(m). Before a coach has started work on your submission, you can still request a full refund.",
             "For the PRO Tour subscription, you may withdraw within 14 days of first subscribing, minus the value of any analysis already delivered during that period. After the initial 14 days, the cancellation terms in Section 4 apply.",
             "To request a refund or cancellation under this section, email tacticaltennislab@gmail.com.",
           ],
@@ -76,7 +76,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "7. Acceptable use",
           body: [
-            "Don't misuse the Service — this includes attempting to access another user's account, disrupting the Service, or using it for anything unlawful. We may suspend or terminate accounts that violate these terms.",
+            "Don't misuse the Service: this includes attempting to access another user's account, disrupting the Service, or using it for anything unlawful. We may suspend or terminate accounts that violate these terms.",
           ],
         },
         {
@@ -89,7 +89,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "9. Disclaimers and limitation of liability",
           body: [
             "The Service is provided “as is.” We do not guarantee specific results from coaching or training plans. To the extent permitted by law, Tactical Tennis Lab is not liable for indirect, incidental, or consequential damages arising from your use of the Service, including injury sustained while training. Nothing in these Terms limits any liability that cannot be limited under applicable law, or affects the statutory rights you have as a consumer in your country of residence.",
-            "The \"Quick questions\" widget is an automated AI assistant for general questions about pricing and how the Service works — it is not a coach, does not review video or technique, and does not create training plans. Its answers are provided for convenience and may occasionally be wrong; they are not professional coaching advice and don't override these Terms. For anything coaching-related, submit a video for a real coach to review; for anything else, email tacticaltennislab@gmail.com.",
+            "The \"Quick questions\" widget is an automated AI assistant for general questions about pricing and how the Service works, it is not a coach, does not review video or technique, and does not create training plans. Its answers are provided for convenience and may occasionally be wrong; they are not professional coaching advice and don't override these Terms. For anything coaching related, submit a video for a real coach to review; for anything else, email tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -124,20 +124,20 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. What we collect",
           body: [
-            "Account information: your name, email address, and password (stored as a secure hash — we never store your password in plain text). If you sign in with Google, we receive your name and email from Google.",
+            "Account information: your name, email address, and password (stored as a secure hash, we never store your password in plain text). If you sign in with Google, we receive your name and email from Google.",
             "Content you provide: video submissions, the details you enter when requesting a training plan or contacting a coach, and messages you send through the Service.",
             "Payment information: when you purchase a plan, payment is handled directly by Stripe. We receive confirmation of your purchase and plan, but never your full card number.",
             "Referral information: if you sign up using a friend's referral link, we record which account referred you, and how many people you've successfully referred, so we can calculate referral discounts.",
-            "Reviews: if you choose to submit a review, we store the rating and text you write. If we approve it, it's displayed publicly on our website together with your name — this only happens if you submit a review yourself, and you can ask us to take it down at any time.",
+            "Reviews: if you choose to submit a review, we store the rating and text you write. If we approve it, it's displayed publicly on our website together with your name, this only happens if you submit a review yourself, and you can ask us to take it down at any time.",
           ],
         },
         {
           title: "3. How we use it, and why we're allowed to",
           body: [
-            "To provide the Service — reviewing your video, building your training plan, and letting you message your coach — because it's necessary to perform our contract with you.",
-            "To send you account-related email — welcome messages, password resets, coach feedback notifications, and purchase confirmations — also necessary to perform our contract with you.",
-            "To calculate and apply the discount you've earned through our referral program, if you take part in it — also necessary to perform our contract with you.",
-            "To keep the Service secure and prevent misuse, and to comply with our legal obligations (for example, tax and payment records) — based on our legitimate interest and legal obligations.",
+            "To provide the Service, reviewing your video, building your training plan, and letting you message your coach, because it's necessary to perform our contract with you.",
+            "To send you account related email, welcome messages, password resets, coach feedback notifications, and purchase confirmations, also necessary to perform our contract with you.",
+            "To calculate and apply the discount you've earned through our referral program, if you take part in it, also necessary to perform our contract with you.",
+            "To keep the Service secure and prevent misuse, and to comply with our legal obligations (for example, tax and payment records), based on our legitimate interest and legal obligations.",
             "We do not sell your personal information to third parties, and we do not use your data for advertising.",
           ],
         },
@@ -145,8 +145,8 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "4. Who we share it with",
           body: [
             "We use a small number of service providers to run Tactical Tennis Lab: Vercel (hosting), Neon (database), Vercel Blob (video storage), Resend (transactional email), and Stripe (payments). We also use Vercel Analytics to understand overall site traffic; it's aggregated, cookieless, and doesn't identify you individually. Each provider only receives the data it needs to perform its function, and each has its own privacy and security practices.",
-            "If you use the \"Quick questions\" AI assistant on the site, whatever you type is sent to Anthropic (our AI provider) to generate a response. That conversation isn't linked to your account or saved on our servers — it only exists in your browser for that visit. Avoid sharing personal details in it.",
-            "Some of these providers may process data on servers outside the EU/EEA (for example, in the United States). Where that happens, they do so under their own GDPR-compliant safeguards, such as Standard Contractual Clauses.",
+            "If you use the \"Quick questions\" AI assistant on the site, whatever you type is sent to Anthropic (our AI provider) to generate a response. That conversation isn't linked to your account or saved on our servers, it only exists in your browser for that visit. Avoid sharing personal details in it.",
+            "Some of these providers may process data on servers outside the EU/EEA (for example, in the United States). Where that happens, they do so under their own GDPR compliant safeguards, such as Standard Contractual Clauses.",
           ],
         },
         {
@@ -171,7 +171,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "8. Cookies",
           body: [
-            "We use essential cookies to keep you signed in and remember your session, and a first-party cookie that remembers which referral link you arrived through (if any) for up to 30 days, so we can credit the right account if you sign up. We don't use third-party advertising or tracking cookies.",
+            "We use essential cookies to keep you signed in and remember your session, and a first party cookie that remembers which referral link you arrived through (if any) for up to 30 days, so we can credit the right account if you sign up. We don't use third party advertising or tracking cookies.",
           ],
         },
         {
@@ -203,7 +203,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. Usługa",
           body: [
-            "Oferujemy techniczną i taktyczną analizę na podstawie wideo, spersonalizowane plany treningowe oraz opinie trenerów przekazywane za pośrednictwem strony internetowej. Każdy plan jest tworzony osobiście przez jednego z naszych trenerów na podstawie Twojego wideo i celów — nie jest generowany automatycznie. Przesyłanie wideo, wysyłanie wiadomości do trenera oraz zakup planu wymagają posiadania konta.",
+            "Oferujemy techniczną i taktyczną analizę na podstawie wideo, spersonalizowane plany treningowe oraz opinie trenerów przekazywane za pośrednictwem strony internetowej. Każdy plan jest tworzony osobiście przez jednego z naszych trenerów na podstawie Twojego wideo i celów, nie jest generowany automatycznie. Przesyłanie wideo, wysyłanie wiadomości do trenera oraz zakup planu wymagają posiadania konta.",
             "Informacja zwrotna od trenera opiera się na przesłanym przez Ciebie wideo i podanych informacjach. Ma charakter edukacyjny i rozwojowy i nie zastępuje instruktażu prowadzonego osobiście, porady medycznej ani oceny sprawności fizycznej. Odpowiadasz samodzielnie za swoje bezpieczeństwo fizyczne podczas treningu.",
           ],
         },
@@ -211,7 +211,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "3. Konta i osoby niepełnoletnie",
           body: [
             "Podczas zakładania konta musisz podać prawdziwe dane i zachować poufność danych logowania. Odpowiadasz za wszystkie działania wykonywane w ramach Twojego konta.",
-            "Aby założyć konto, musisz mieć ukończone 16 lat. Jeśli zawodnik ma mniej niż 18 lat, konto w jego imieniu musi założyć i prowadzić rodzic lub opiekun prawny. Do każdego konta przypisane jest tylko jedno logowanie, więc każde wideo, notatka trenera i wiadomość wymieniona z trenerem przechodzi przez to jedno konto i jest widoczna dla osoby, która je posiada — nie istnieje osobny ani ukryty kanał komunikacji między trenerem a osobą niepełnoletnią. Trenerzy zawsze zachowują profesjonalizm podczas pracy z osobami niepełnoletnimi; w razie jakichkolwiek wątpliwości dotyczących bezpieczeństwa prosimy o niezwłoczny kontakt pod adresem tacticaltennislab@gmail.com.",
+            "Aby założyć konto, musisz mieć ukończone 16 lat. Jeśli zawodnik ma mniej niż 18 lat, konto w jego imieniu musi założyć i prowadzić rodzic lub opiekun prawny. Do każdego konta przypisane jest tylko jedno logowanie, więc każde wideo, notatka trenera i wiadomość wymieniona z trenerem przechodzi przez to jedno konto i jest widoczna dla osoby, która je posiada, nie istnieje osobny ani ukryty kanał komunikacji między trenerem a osobą niepełnoletnią. Trenerzy zawsze zachowują profesjonalizm podczas pracy z osobami niepełnoletnimi; w razie jakichkolwiek wątpliwości dotyczących bezpieczeństwa prosimy o niezwłoczny kontakt pod adresem tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -245,7 +245,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "7. Dopuszczalne korzystanie z Usługi",
           body: [
-            "Nie nadużywaj Usługi — dotyczy to m.in. prób uzyskania dostępu do konta innego użytkownika, zakłócania działania Usługi lub wykorzystywania jej do jakichkolwiek niezgodnych z prawem celów. Możemy zawiesić lub zamknąć konta naruszające niniejszy regulamin.",
+            "Nie nadużywaj Usługi: dotyczy to m.in. prób uzyskania dostępu do konta innego użytkownika, zakłócania działania Usługi lub wykorzystywania jej do jakichkolwiek niezgodnych z prawem celów. Możemy zawiesić lub zamknąć konta naruszające niniejszy regulamin.",
           ],
         },
         {
@@ -258,7 +258,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "9. Zastrzeżenia i ograniczenie odpowiedzialności",
           body: [
             "Usługa jest świadczona w stanie „takim, jaki jest” („as is”). Nie gwarantujemy konkretnych rezultatów treningów ani planów treningowych. W zakresie dopuszczalnym przez prawo Tactical Tennis Lab nie ponosi odpowiedzialności za szkody pośrednie, uboczne lub następcze wynikające z korzystania z Usługi, w tym za kontuzje odniesione podczas treningu. Żadne postanowienie niniejszego Regulaminu nie ogranicza odpowiedzialności, której nie można ograniczyć na mocy obowiązującego prawa, ani nie wpływa na ustawowe prawa przysługujące Ci jako konsumentowi w kraju Twojego zamieszkania.",
-            "Widżet „Szybkie pytania” to zautomatyzowany asystent AI odpowiadający na ogólne pytania dotyczące cennika i zasad działania Usługi — nie jest trenerem, nie ocenia wideo ani techniki i nie tworzy planów treningowych. Jego odpowiedzi mają charakter pomocniczy i mogą czasem być błędne; nie stanowią profesjonalnej porady trenerskiej i nie zastępują niniejszego Regulaminu. W sprawach związanych z treningiem prześlij wideo do oceny przez prawdziwego trenera; w pozostałych sprawach napisz do nas na adres tacticaltennislab@gmail.com.",
+            "Widżet „Szybkie pytania” to zautomatyzowany asystent AI odpowiadający na ogólne pytania dotyczące cennika i zasad działania Usługi, nie jest trenerem, nie ocenia wideo ani techniki i nie tworzy planów treningowych. Jego odpowiedzi mają charakter pomocniczy i mogą czasem być błędne; nie stanowią profesjonalnej porady trenerskiej i nie zastępują niniejszego Regulaminu. W sprawach związanych z treningiem prześlij wideo do oceny przez prawdziwego trenera; w pozostałych sprawach napisz do nas na adres tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -293,28 +293,28 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. Jakie dane zbieramy",
           body: [
-            "Dane konta: imię i nazwisko, adres e-mail oraz hasło (przechowywane w postaci bezpiecznego skrótu — nigdy nie przechowujemy hasła w postaci jawnej). Jeśli logujesz się przez Google, otrzymujemy od Google Twoje imię i nazwisko oraz adres e-mail.",
+            "Dane konta: imię i nazwisko, adres email oraz hasło (przechowywane w postaci bezpiecznego skrótu, nigdy nie przechowujemy hasła w postaci jawnej). Jeśli logujesz się przez Google, otrzymujemy od Google Twoje imię i nazwisko oraz adres email.",
             "Treści, które przekazujesz: przesłane wideo, dane podane przy zamawianiu planu treningowego lub kontakcie z trenerem oraz wiadomości wysyłane za pośrednictwem Usługi.",
             "Dane płatności: przy zakupie planu płatność jest obsługiwana bezpośrednio przez Stripe. Otrzymujemy potwierdzenie zakupu i wybranego planu, ale nigdy pełnego numeru karty.",
             "Dane dotyczące poleceń: jeśli rejestrujesz się z wykorzystaniem linku polecającego znajomego, zapisujemy, które konto Cię poleciło, oraz ile osób skutecznie poleciłeś, aby móc naliczyć zniżki z programu poleceń.",
-            "Opinie: jeśli zdecydujesz się przesłać opinię, przechowujemy przyznaną ocenę i wpisany tekst. Po zatwierdzeniu opinia jest wyświetlana publicznie na naszej stronie wraz z Twoim imieniem i nazwiskiem — dzieje się tak wyłącznie, gdy sam przesyłasz opinię, a w każdej chwili możesz poprosić o jej usunięcie.",
+            "Opinie: jeśli zdecydujesz się przesłać opinię, przechowujemy przyznaną ocenę i wpisany tekst. Po zatwierdzeniu opinia jest wyświetlana publicznie na naszej stronie wraz z Twoim imieniem i nazwiskiem, dzieje się tak wyłącznie, gdy sam przesyłasz opinię, a w każdej chwili możesz poprosić o jej usunięcie.",
           ],
         },
         {
           title: "3. Jak wykorzystujemy dane i na jakiej podstawie prawnej",
           body: [
-            "W celu świadczenia Usługi — oceny Twojego wideo, przygotowania planu treningowego i umożliwienia kontaktu z trenerem — ponieważ jest to niezbędne do wykonania zawartej z Tobą umowy.",
-            "W celu wysyłania wiadomości e-mail związanych z kontem — powitalnych, dotyczących resetowania hasła, powiadomień o informacji zwrotnej trenera oraz potwierdzeń zakupu — również niezbędnych do wykonania zawartej z Tobą umowy.",
-            "W celu naliczenia i zastosowania zniżki uzyskanej w ramach programu poleceń, jeśli w nim uczestniczysz — również niezbędnych do wykonania zawartej z Tobą umowy.",
-            "W celu zapewnienia bezpieczeństwa Usługi i zapobiegania nadużyciom oraz wypełnienia naszych obowiązków prawnych (na przykład dotyczących dokumentacji podatkowej i płatniczej) — na podstawie naszego prawnie uzasadnionego interesu i obowiązków prawnych.",
+            "W celu świadczenia Usługi, oceny Twojego wideo, przygotowania planu treningowego i umożliwienia kontaktu z trenerem, ponieważ jest to niezbędne do wykonania zawartej z Tobą umowy.",
+            "W celu wysyłania wiadomości email związanych z kontem, powitalnych, dotyczących resetowania hasła, powiadomień o informacji zwrotnej trenera oraz potwierdzeń zakupu, również niezbędnych do wykonania zawartej z Tobą umowy.",
+            "W celu naliczenia i zastosowania zniżki uzyskanej w ramach programu poleceń, jeśli w nim uczestniczysz, również niezbędnych do wykonania zawartej z Tobą umowy.",
+            "W celu zapewnienia bezpieczeństwa Usługi i zapobiegania nadużyciom oraz wypełnienia naszych obowiązków prawnych (na przykład dotyczących dokumentacji podatkowej i płatniczej), na podstawie naszego prawnie uzasadnionego interesu i obowiązków prawnych.",
             "Nie sprzedajemy Twoich danych osobowych podmiotom trzecim i nie wykorzystujemy Twoich danych do celów reklamowych.",
           ],
         },
         {
           title: "4. Komu udostępniamy dane",
           body: [
-            "Korzystamy z niewielkiej liczby dostawców usług potrzebnych do prowadzenia Tactical Tennis Lab: Vercel (hosting), Neon (baza danych), Vercel Blob (przechowywanie wideo), Resend (transakcyjna poczta e-mail) oraz Stripe (płatności). Korzystamy również z Vercel Analytics w celu analizy ogólnego ruchu na stronie; dane te są zagregowane, nie wykorzystują plików cookie i nie pozwalają na identyfikację poszczególnych osób. Każdy dostawca otrzymuje wyłącznie dane niezbędne do realizacji swojej funkcji i stosuje własne zasady ochrony prywatności i bezpieczeństwa.",
-            "Jeśli korzystasz z asystenta AI „Szybkie pytania” na stronie, wszystko, co wpiszesz, jest przesyłane do Anthropic (naszego dostawcy AI) w celu wygenerowania odpowiedzi. Taka rozmowa nie jest powiązana z Twoim kontem ani zapisywana na naszych serwerach — istnieje wyłącznie w Twojej przeglądarce podczas danej wizyty. Unikaj podawania w niej danych osobowych.",
+            "Korzystamy z niewielkiej liczby dostawców usług potrzebnych do prowadzenia Tactical Tennis Lab: Vercel (hosting), Neon (baza danych), Vercel Blob (przechowywanie wideo), Resend (transakcyjna poczta email) oraz Stripe (płatności). Korzystamy również z Vercel Analytics w celu analizy ogólnego ruchu na stronie; dane te są zagregowane, nie wykorzystują plików cookie i nie pozwalają na identyfikację poszczególnych osób. Każdy dostawca otrzymuje wyłącznie dane niezbędne do realizacji swojej funkcji i stosuje własne zasady ochrony prywatności i bezpieczeństwa.",
+            "Jeśli korzystasz z asystenta AI „Szybkie pytania” na stronie, wszystko, co wpiszesz, jest przesyłane do Anthropic (naszego dostawcy AI) w celu wygenerowania odpowiedzi. Taka rozmowa nie jest powiązana z Twoim kontem ani zapisywana na naszych serwerach, istnieje wyłącznie w Twojej przeglądarce podczas danej wizyty. Unikaj podawania w niej danych osobowych.",
             "Niektórzy z tych dostawców mogą przetwarzać dane na serwerach zlokalizowanych poza UE/EOG (na przykład w Stanach Zjednoczonych). W takich przypadkach czynią to na podstawie własnych zabezpieczeń zgodnych z RODO, takich jak standardowe klauzule umowne.",
           ],
         },
@@ -346,7 +346,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "9. Zmiany niniejszej polityki",
           body: [
-            "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. W przypadku istotnych zmian zaktualizujemy datę widoczną poniżej i, w stosownych przypadkach, powiadomimy Cię za pośrednictwem wiadomości e-mail.",
+            "Możemy od czasu do czasu aktualizować niniejszą Politykę prywatności. W przypadku istotnych zmian zaktualizujemy datę widoczną poniżej i, w stosownych przypadkach, powiadomimy Cię za pośrednictwem wiadomości email.",
           ],
         },
         {
@@ -380,7 +380,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "3. Cuentas y menores de edad",
           body: [
             "Debes proporcionar información precisa al crear una cuenta y mantener la confidencialidad de tus credenciales de acceso. Eres responsable de toda actividad realizada bajo tu cuenta.",
-            "Debes tener al menos 16 años para crear una cuenta. Si un jugador es menor de 18 años, un padre, madre o tutor legal debe crear y gestionar la cuenta en su nombre. Cada cuenta tiene un único inicio de sesión, por lo que todos los vídeos, notas del entrenador y mensajes intercambiados con un entrenador pasan por esa misma cuenta y son visibles para quien la posea — no existe un canal separado u oculto entre un entrenador y un menor. Los entrenadores mantendrán en todo momento una conducta profesional al trabajar con menores; si tienes cualquier inquietud sobre la seguridad, contáctanos de inmediato en tacticaltennislab@gmail.com.",
+            "Debes tener al menos 16 años para crear una cuenta. Si un jugador es menor de 18 años, un padre, madre o tutor legal debe crear y gestionar la cuenta en su nombre. Cada cuenta tiene un único inicio de sesión, por lo que todos los vídeos, notas del entrenador y mensajes intercambiados con un entrenador pasan por esa misma cuenta y son visibles para quien la posea, no existe un canal separado u oculto entre un entrenador y un menor. Los entrenadores mantendrán en todo momento una conducta profesional al trabajar con menores; si tienes cualquier inquietud sobre la seguridad, contáctanos de inmediato en tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -414,7 +414,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "7. Uso aceptable",
           body: [
-            "No hagas un uso indebido del Servicio — esto incluye intentar acceder a la cuenta de otro usuario, interrumpir el funcionamiento del Servicio o utilizarlo para cualquier fin ilícito. Podemos suspender o cancelar cuentas que infrinjan estos términos.",
+            "No hagas un uso indebido del Servicio, esto incluye intentar acceder a la cuenta de otro usuario, interrumpir el funcionamiento del Servicio o utilizarlo para cualquier fin ilícito. Podemos suspender o cancelar cuentas que infrinjan estos términos.",
           ],
         },
         {
@@ -427,7 +427,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "9. Exenciones de responsabilidad y limitación de responsabilidad",
           body: [
             "El Servicio se proporciona «tal cual». No garantizamos resultados específicos derivados del entrenamiento o de los planes de entrenamiento. En la medida permitida por la ley, Tactical Tennis Lab no será responsable de daños indirectos, incidentales o consecuentes derivados del uso del Servicio, incluidas lesiones sufridas durante el entrenamiento. Nada en estos Términos limita ninguna responsabilidad que no pueda limitarse conforme a la legislación aplicable, ni afecta a los derechos legales que te correspondan como consumidor en tu país de residencia.",
-            "El widget «Preguntas rápidas» es un asistente de IA automatizado para preguntas generales sobre precios y el funcionamiento del Servicio — no es un entrenador, no revisa vídeos ni técnica, y no crea planes de entrenamiento. Sus respuestas se ofrecen por comodidad y pueden ser ocasionalmente incorrectas; no constituyen asesoramiento profesional de entrenamiento ni sustituyen estos Términos. Para cualquier asunto relacionado con el entrenamiento, envía un vídeo para que lo revise un entrenador real; para cualquier otro asunto, escribe a tacticaltennislab@gmail.com.",
+            "El widget «Preguntas rápidas» es un asistente de IA automatizado para preguntas generales sobre precios y el funcionamiento del Servicio, no es un entrenador, no revisa vídeos ni técnica, y no crea planes de entrenamiento. Sus respuestas se ofrecen por comodidad y pueden ser ocasionalmente incorrectas; no constituyen asesoramiento profesional de entrenamiento ni sustituyen estos Términos. Para cualquier asunto relacionado con el entrenamiento, envía un vídeo para que lo revise un entrenador real; para cualquier otro asunto, escribe a tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -462,20 +462,20 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. Qué datos recopilamos",
           body: [
-            "Información de la cuenta: tu nombre, dirección de correo electrónico y contraseña (almacenada como un hash seguro — nunca almacenamos tu contraseña en texto plano). Si inicias sesión con Google, recibimos tu nombre y correo electrónico desde Google.",
+            "Información de la cuenta: tu nombre, dirección de correo electrónico y contraseña (almacenada como un hash seguro, nunca almacenamos tu contraseña en texto plano). Si inicias sesión con Google, recibimos tu nombre y correo electrónico desde Google.",
             "Contenido que nos proporcionas: los vídeos enviados, los datos que introduces al solicitar un plan de entrenamiento o contactar con un entrenador, y los mensajes que envías a través del Servicio.",
             "Información de pago: al comprar un plan, el pago es gestionado directamente por Stripe. Recibimos la confirmación de tu compra y plan, pero nunca el número completo de tu tarjeta.",
             "Información de referidos: si te registras utilizando el enlace de referido de un amigo, registramos qué cuenta te refirió y a cuántas personas has referido con éxito, para poder calcular los descuentos por referidos.",
-            "Reseñas: si decides enviar una reseña, almacenamos la valoración y el texto que escribes. Si la aprobamos, se muestra públicamente en nuestro sitio web junto con tu nombre — esto solo ocurre si tú mismo envías la reseña, y puedes solicitarnos su retirada en cualquier momento.",
+            "Reseñas: si decides enviar una reseña, almacenamos la valoración y el texto que escribes. Si la aprobamos, se muestra públicamente en nuestro sitio web junto con tu nombre, esto solo ocurre si tú mismo envías la reseña, y puedes solicitarnos su retirada en cualquier momento.",
           ],
         },
         {
           title: "3. Cómo utilizamos tus datos y por qué estamos autorizados a hacerlo",
           body: [
-            "Para prestar el Servicio — revisar tu vídeo, elaborar tu plan de entrenamiento y permitirte enviar mensajes a tu entrenador — porque es necesario para ejecutar el contrato contigo.",
-            "Para enviarte correos electrónicos relacionados con la cuenta — mensajes de bienvenida, restablecimiento de contraseña, notificaciones de comentarios del entrenador y confirmaciones de compra — también necesario para ejecutar el contrato contigo.",
-            "Para calcular y aplicar el descuento que hayas obtenido a través de nuestro programa de referidos, si participas en él — también necesario para ejecutar el contrato contigo.",
-            "Para mantener la seguridad del Servicio y prevenir su uso indebido, y para cumplir con nuestras obligaciones legales (por ejemplo, registros fiscales y de pago) — sobre la base de nuestro interés legítimo y nuestras obligaciones legales.",
+            "Para prestar el Servicio, revisar tu vídeo, elaborar tu plan de entrenamiento y permitirte enviar mensajes a tu entrenador, porque es necesario para ejecutar el contrato contigo.",
+            "Para enviarte correos electrónicos relacionados con la cuenta, mensajes de bienvenida, restablecimiento de contraseña, notificaciones de comentarios del entrenador y confirmaciones de compra, también necesario para ejecutar el contrato contigo.",
+            "Para calcular y aplicar el descuento que hayas obtenido a través de nuestro programa de referidos, si participas en él, también necesario para ejecutar el contrato contigo.",
+            "Para mantener la seguridad del Servicio y prevenir su uso indebido, y para cumplir con nuestras obligaciones legales (por ejemplo, registros fiscales y de pago), sobre la base de nuestro interés legítimo y nuestras obligaciones legales.",
             "No vendemos tu información personal a terceros ni utilizamos tus datos con fines publicitarios.",
           ],
         },
@@ -483,7 +483,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "4. Con quién compartimos tus datos",
           body: [
             "Utilizamos un número reducido de proveedores de servicios para operar Tactical Tennis Lab: Vercel (alojamiento), Neon (base de datos), Vercel Blob (almacenamiento de vídeo), Resend (correo electrónico transaccional) y Stripe (pagos). También utilizamos Vercel Analytics para comprender el tráfico general del sitio; estos datos están agregados, no utilizan cookies y no te identifican individualmente. Cada proveedor recibe únicamente los datos necesarios para cumplir su función, y cada uno cuenta con sus propias prácticas de privacidad y seguridad.",
-            "Si utilizas el asistente de IA «Preguntas rápidas» del sitio, todo lo que escribas se envía a Anthropic (nuestro proveedor de IA) para generar una respuesta. Esa conversación no está vinculada a tu cuenta ni se guarda en nuestros servidores — solo existe en tu navegador durante esa visita. Evita compartir datos personales en ella.",
+            "Si utilizas el asistente de IA «Preguntas rápidas» del sitio, todo lo que escribas se envía a Anthropic (nuestro proveedor de IA) para generar una respuesta. Esa conversación no está vinculada a tu cuenta ni se guarda en nuestros servidores, solo existe en tu navegador durante esa visita. Evita compartir datos personales en ella.",
             "Algunos de estos proveedores pueden procesar datos en servidores ubicados fuera de la UE/EEE (por ejemplo, en Estados Unidos). Cuando esto ocurre, lo hacen conforme a sus propias garantías compatibles con el RGPD, como las Cláusulas Contractuales Tipo.",
           ],
         },
@@ -541,7 +541,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. Il servizio",
           body: [
-            "Offriamo analisi tecnica e tattica basata su video, piani di allenamento personalizzati e feedback dei coach forniti tramite il sito web. Ogni piano viene costruito personalmente da uno dei nostri coach sulla base del tuo video e dei tuoi obiettivi — non è generato automaticamente. Inviare un video, scrivere a un coach e acquistare un piano richiedono tutti la presenza di un account.",
+            "Offriamo analisi tecnica e tattica basata su video, piani di allenamento personalizzati e feedback dei coach forniti tramite il sito web. Ogni piano viene costruito personalmente da uno dei nostri coach sulla base del tuo video e dei tuoi obiettivi, non è generato automaticamente. Inviare un video, scrivere a un coach e acquistare un piano richiedono tutti la presenza di un account.",
             "Il feedback del coach si basa sul video e sulle informazioni che fornisci. Ha natura educativa e formativa e non sostituisce l'istruzione in presenza, il parere medico o una valutazione della forma fisica. Sei responsabile della tua sicurezza fisica durante l'allenamento.",
           ],
         },
@@ -549,7 +549,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "3. Account e minorenni",
           body: [
             "Devi fornire informazioni accurate al momento della creazione dell'account e mantenere riservate le tue credenziali di accesso. Sei responsabile di tutte le attività svolte con il tuo account.",
-            "Per creare un account devi avere almeno 16 anni. Se un giocatore ha meno di 18 anni, l'account deve essere creato e gestito da un genitore o tutore legale per suo conto. Ogni account ha un unico accesso, quindi ogni video, nota del coach e messaggio scambiato con un coach passa attraverso quell'unico account ed è visibile a chi lo detiene — non esiste un canale separato o nascosto tra un coach e un minore. I coach manterranno sempre una condotta professionale quando lavorano con i minori; in caso di qualsiasi preoccupazione relativa alla tutela dei minori, contattaci immediatamente all'indirizzo tacticaltennislab@gmail.com.",
+            "Per creare un account devi avere almeno 16 anni. Se un giocatore ha meno di 18 anni, l'account deve essere creato e gestito da un genitore o tutore legale per suo conto. Ogni account ha un unico accesso, quindi ogni video, nota del coach e messaggio scambiato con un coach passa attraverso quell'unico account ed è visibile a chi lo detiene, non esiste un canale separato o nascosto tra un coach e un minore. I coach manterranno sempre una condotta professionale quando lavorano con i minori; in caso di qualsiasi preoccupazione relativa alla tutela dei minori, contattaci immediatamente all'indirizzo tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -559,7 +559,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
             "I piani una tantum (come Stroke Fix, Smart System e Match IQ) vengono addebitati una sola volta al momento dell'acquisto. PRO Tour è un abbonamento mensile ricorrente che si rinnova automaticamente fino alla disdetta.",
             "Puoi annullare un abbonamento in qualsiasi momento dal tuo account; l'annullamento ha effetto alla fine del periodo di fatturazione in corso e mantieni l'accesso fino a quel momento. Non offriamo rimborsi parziali per il tempo non utilizzato all'interno di un periodo di fatturazione.",
             "Puoi ottenere uno sconto condividendo il tuo link di invito personale (disponibile nel tuo account). Un invito viene conteggiato solo quando la persona invitata completa il suo primo acquisto a pagamento. Al raggiungimento di una soglia di inviti, lo sconto corrispondente si applica automaticamente ai tuoi acquisti futuri: attualmente 20% di sconto dopo 1 invito andato a buon fine, 40% dopo 2, e la maggior parte dei piani gratuiti dopo 5 (Match IQ: Full è limitato a un massimo del 50% di sconto e PRO Tour al 40%, anche con un numero maggiore di inviti). Gli sconti da invito non possono essere convertiti in denaro né combinati con altre offerte promozionali, salvo diversa indicazione da parte nostra.",
-            "Possiamo modificare, sospendere o interrompere il programma di invito, o modificare le future soglie di sconto, in qualsiasi momento; una soglia di sconto già sbloccata continuerà ad applicarsi al tuo account, salvo diversa comunicazione da parte nostra. Possiamo revocare il credito da invito e sospendere gli account coinvolti in auto-inviti, account falsi o altri abusi del programma, anche nei casi in cui un acquisto idoneo venga successivamente rimborsato o contestato (chargeback).",
+            "Possiamo modificare, sospendere o interrompere il programma di invito, o modificare le future soglie di sconto, in qualsiasi momento; una soglia di sconto già sbloccata continuerà ad applicarsi al tuo account, salvo diversa comunicazione da parte nostra. Possiamo revocare il credito da invito e sospendere gli account coinvolti in autoinviti, account falsi o altri abusi del programma, anche nei casi in cui un acquisto idoneo venga successivamente rimborsato o contestato (chargeback).",
           ],
         },
         {
@@ -583,7 +583,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "7. Uso consentito",
           body: [
-            "Non abusare del Servizio — ciò include il tentativo di accedere all'account di un altro utente, l'interruzione del funzionamento del Servizio o il suo utilizzo per scopi illeciti. Possiamo sospendere o chiudere gli account che violano i presenti termini.",
+            "Non abusare del Servizio: ciò include il tentativo di accedere all'account di un altro utente, l'interruzione del funzionamento del Servizio o il suo utilizzo per scopi illeciti. Possiamo sospendere o chiudere gli account che violano i presenti termini.",
           ],
         },
         {
@@ -596,7 +596,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "9. Esclusioni di responsabilità e limitazione di responsabilità",
           body: [
             "Il Servizio è fornito «così com'è». Non garantiamo risultati specifici derivanti dal coaching o dai piani di allenamento. Nella misura consentita dalla legge, Tactical Tennis Lab non è responsabile per danni indiretti, accidentali o consequenziali derivanti dall'uso del Servizio, compresi gli infortuni subiti durante l'allenamento. Nessuna disposizione dei presenti Termini limita una responsabilità che non può essere limitata ai sensi della legge applicabile, né incide sui diritti previsti dalla legge di cui godi come consumatore nel tuo paese di residenza.",
-            "Il widget «Domande rapide» è un assistente IA automatizzato per domande generali su prezzi e funzionamento del Servizio — non è un coach, non valuta video o tecnica e non crea piani di allenamento. Le sue risposte sono fornite per comodità e possono occasionalmente essere errate; non costituiscono una consulenza professionale di coaching e non prevalgono sui presenti Termini. Per qualsiasi questione relativa al coaching, invia un video da far valutare a un coach reale; per qualsiasi altra questione, scrivi a tacticaltennislab@gmail.com.",
+            "Il widget «Domande rapide» è un assistente IA automatizzato per domande generali su prezzi e funzionamento del Servizio, non è un coach, non valuta video o tecnica e non crea piani di allenamento. Le sue risposte sono fornite per comodità e possono occasionalmente essere errate; non costituiscono una consulenza professionale di coaching e non prevalgono sui presenti Termini. Per qualsiasi questione relativa al coaching, invia un video da far valutare a un coach reale; per qualsiasi altra questione, scrivi a tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -631,20 +631,20 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. Quali dati raccogliamo",
           body: [
-            "Informazioni sull'account: nome, indirizzo email e password (memorizzata come hash sicuro — non memorizziamo mai la password in chiaro). Se accedi con Google, riceviamo il tuo nome e la tua email da Google.",
+            "Informazioni sull'account: nome, indirizzo email e password (memorizzata come hash sicuro, non memorizziamo mai la password in chiaro). Se accedi con Google, riceviamo il tuo nome e la tua email da Google.",
             "Contenuti che fornisci: i video inviati, i dettagli che inserisci quando richiedi un piano di allenamento o contatti un coach, e i messaggi che invii tramite il Servizio.",
             "Informazioni di pagamento: quando acquisti un piano, il pagamento è gestito direttamente da Stripe. Riceviamo la conferma del tuo acquisto e del piano scelto, ma mai il numero completo della tua carta.",
             "Informazioni sugli inviti: se ti registri utilizzando il link di invito di un amico, registriamo quale account ti ha invitato e quante persone hai invitato con successo, in modo da poter calcolare gli sconti da invito.",
-            "Recensioni: se scegli di inviare una recensione, memorizziamo la valutazione e il testo che scrivi. Se la approviamo, viene mostrata pubblicamente sul nostro sito web insieme al tuo nome — ciò avviene solo se invii tu stesso la recensione, e puoi chiederci di rimuoverla in qualsiasi momento.",
+            "Recensioni: se scegli di inviare una recensione, memorizziamo la valutazione e il testo che scrivi. Se la approviamo, viene mostrata pubblicamente sul nostro sito web insieme al tuo nome, ciò avviene solo se invii tu stesso la recensione, e puoi chiederci di rimuoverla in qualsiasi momento.",
           ],
         },
         {
           title: "3. Come utilizziamo i tuoi dati e su quale base giuridica",
           body: [
-            "Per fornire il Servizio — valutare il tuo video, costruire il tuo piano di allenamento e permetterti di scrivere al tuo coach — perché necessario per l'esecuzione del contratto con te.",
-            "Per inviarti email relative all'account — messaggi di benvenuto, reimpostazione della password, notifiche di feedback del coach e conferme d'acquisto — anch'esso necessario per l'esecuzione del contratto con te.",
-            "Per calcolare e applicare lo sconto che hai maturato tramite il nostro programma di invito, se vi partecipi — anch'esso necessario per l'esecuzione del contratto con te.",
-            "Per mantenere sicuro il Servizio e prevenire abusi, e per adempiere ai nostri obblighi legali (ad esempio, registrazioni fiscali e di pagamento) — sulla base del nostro legittimo interesse e dei nostri obblighi legali.",
+            "Per fornire il Servizio, valutare il tuo video, costruire il tuo piano di allenamento e permetterti di scrivere al tuo coach, perché necessario per l'esecuzione del contratto con te.",
+            "Per inviarti email relative all'account, messaggi di benvenuto, reimpostazione della password, notifiche di feedback del coach e conferme d'acquisto, anch'esso necessario per l'esecuzione del contratto con te.",
+            "Per calcolare e applicare lo sconto che hai maturato tramite il nostro programma di invito, se vi partecipi, anch'esso necessario per l'esecuzione del contratto con te.",
+            "Per mantenere sicuro il Servizio e prevenire abusi, e per adempiere ai nostri obblighi legali (ad esempio, registrazioni fiscali e di pagamento), sulla base del nostro legittimo interesse e dei nostri obblighi legali.",
             "Non vendiamo i tuoi dati personali a terzi e non utilizziamo i tuoi dati a fini pubblicitari.",
           ],
         },
@@ -652,7 +652,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "4. Con chi condividiamo i tuoi dati",
           body: [
             "Utilizziamo un numero limitato di fornitori di servizi per gestire Tactical Tennis Lab: Vercel (hosting), Neon (database), Vercel Blob (archiviazione video), Resend (email transazionali) e Stripe (pagamenti). Utilizziamo inoltre Vercel Analytics per comprendere il traffico complessivo del sito; si tratta di dati aggregati, privi di cookie e che non ti identificano individualmente. Ciascun fornitore riceve solo i dati necessari a svolgere la propria funzione e adotta proprie pratiche di privacy e sicurezza.",
-            "Se utilizzi l'assistente IA «Domande rapide» sul sito, tutto ciò che digiti viene inviato ad Anthropic (il nostro fornitore di IA) per generare una risposta. Quella conversazione non è collegata al tuo account né viene salvata sui nostri server — esiste solo nel tuo browser per quella visita. Evita di condividere dati personali al suo interno.",
+            "Se utilizzi l'assistente IA «Domande rapide» sul sito, tutto ciò che digiti viene inviato ad Anthropic (il nostro fornitore di IA) per generare una risposta. Quella conversazione non è collegata al tuo account né viene salvata sui nostri server, esiste solo nel tuo browser per quella visita. Evita di condividere dati personali al suo interno.",
             "Alcuni di questi fornitori possono trattare i dati su server situati al di fuori dell'UE/SEE (ad esempio negli Stati Uniti). In tali casi, lo fanno nel rispetto delle proprie garanzie conformi al RGPD, come le Clausole Contrattuali Standard.",
           ],
         },
@@ -703,7 +703,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Кто мы",
           body: [
-            "Tactical Tennis Lab («мы», «нас», «наш») в настоящее время управляется Пиотром Кусевичем и Матеушем Кулаковским как физическими лицами, действующими под названием Tactical Tennis Lab (официальная регистрация бизнеса находится в процессе оформления). Мы предоставляем услуги онлайн-тренировок по теннису, включая видеоанализ и персонализированные планы тренировок, доступные на tacticaltennislab.com («Сервис»). Связаться с нами можно по адресу tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab («мы», «нас», «наш») в настоящее время управляется Пиотром Кусевичем и Матеушем Кулаковским как физическими лицами, действующими под названием Tactical Tennis Lab (официальная регистрация бизнеса находится в процессе оформления). Мы предоставляем услуги онлайн тренировок по теннису, включая видеоанализ и персонализированные планы тренировок, доступные на tacticaltennislab.com («Сервис»). Связаться с нами можно по адресу tacticaltennislab@gmail.com.",
             "Создавая аккаунт, отправляя видео или приобретая план, вы соглашаетесь с настоящими Условиями обслуживания.",
           ],
         },
@@ -718,24 +718,24 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "3. Аккаунты и несовершеннолетние",
           body: [
             "При создании аккаунта вы обязаны указывать достоверную информацию и хранить учётные данные для входа в тайне. Вы несёте ответственность за все действия, совершённые в рамках вашего аккаунта.",
-            "Для создания аккаунта необходимо достичь 16 лет. Если игроку менее 18 лет, аккаунт от его имени должен создавать и вести родитель или законный опекун. У каждого аккаунта только один логин, поэтому все видео, заметки тренера и сообщения, которыми обмениваются с тренером, проходят через этот единственный аккаунт и видны тому, кто им владеет — отдельного или скрытого канала связи между тренером и несовершеннолетним не существует. Тренеры всегда соблюдают профессиональную этику при работе с несовершеннолетними; при любых опасениях, связанных с безопасностью, немедленно свяжитесь с нами по адресу tacticaltennislab@gmail.com.",
+            "Для создания аккаунта необходимо достичь 16 лет. Если игроку менее 18 лет, аккаунт от его имени должен создавать и вести родитель или законный опекун. У каждого аккаунта только один логин, поэтому все видео, заметки тренера и сообщения, которыми обмениваются с тренером, проходят через этот единственный аккаунт и видны тому, кто им владеет, отдельного или скрытого канала связи между тренером и несовершеннолетним не существует. Тренеры всегда соблюдают профессиональную этику при работе с несовершеннолетними; при любых опасениях, связанных с безопасностью, немедленно свяжитесь с нами по адресу tacticaltennislab@gmail.com.",
           ],
         },
         {
           title: "4. Платежи и подписки",
           body: [
             "Платные планы обрабатываются безопасно через Stripe. Мы не храним полные данные вашей карты на наших серверах. Все цены указаны в долларах США; НДС или налог с продаж при оформлении заказа не добавляются.",
-            "Разовые планы (например, Stroke Fix, Smart System и Match IQ) оплачиваются единовременно при покупке. PRO Tour — это регулярная ежемесячная подписка, которая автоматически продлевается до момента отмены.",
+            "Разовые планы (например, Stroke Fix, Smart System и Match IQ) оплачиваются единовременно при покупке. PRO Tour это регулярная ежемесячная подписка, которая автоматически продлевается до момента отмены.",
             "Вы можете отменить подписку в любой момент в своём аккаунте; отмена вступает в силу в конце текущего расчётного периода, и доступ сохраняется до этого момента. Частичный возврат средств за неиспользованное время в рамках расчётного периода не предоставляется.",
-            "Вы можете получить скидку, поделившись своей персональной реферальной ссылкой (доступна в вашем аккаунте). Реферал засчитывается только после того, как приглашённый вами человек совершит свою первую платную покупку. По достижении определённого количества рефералов соответствующая скидка автоматически применяется к вашим будущим покупкам: в настоящее время 20% скидки после 1 успешного реферала, 40% после 2, а большинство планов становятся бесплатными после 5 (для Match IQ: Full максимальная скидка ограничена 50%, а для PRO Tour — 40%, даже при большем количестве рефералов). Реферальные скидки нельзя обменять на денежные средства или совмещать с другими промо-предложениями, если иное не указано нами отдельно.",
+            "Вы можете получить скидку, поделившись своей персональной реферальной ссылкой (доступна в вашем аккаунте). Реферал засчитывается только после того, как приглашённый вами человек совершит свою первую платную покупку. По достижении определённого количества рефералов соответствующая скидка автоматически применяется к вашим будущим покупкам: в настоящее время 20% скидки после 1 успешного реферала, 40% после 2, а большинство планов становятся бесплатными после 5 (для Match IQ: Full максимальная скидка ограничена 50%, а для PRO Tour, 40%, даже при большем количестве рефералов). Реферальные скидки нельзя обменять на денежные средства или совмещать с другими рекламными предложениями, если иное не указано нами отдельно.",
             "Мы можем в любое время изменить, приостановить или прекратить реферальную программу либо изменить будущие уровни скидок; уровень скидки, который вы уже разблокировали, будет и далее применяться к вашему аккаунту, если мы не уведомим вас об ином. Мы можем аннулировать реферальный бонус и приостановить действие аккаунтов, вовлечённых в самореферальство, создание фиктивных аккаунтов или иные злоупотребления программой, в том числе в случаях, когда засчитанная покупка впоследствии возвращена или оспорена (чарджбэк).",
           ],
         },
         {
           title: "5. Ваше право на отказ от договора (потребители из ЕС/ЕЭЗ и Великобритании)",
           body: [
-            "Если вы являетесь потребителем из ЕС, ЕЭЗ или Великобритании, вы, как правило, имеете право отказаться от онлайн-покупки в течение 14 дней без объяснения причин.",
-            "Поскольку наши разовые планы (Stroke Fix, Smart System, Match IQ) предполагают персонализированный анализ, который мы начинаем сразу после получения вашего видео, вы соглашаетесь с тем, что исполнение услуги начинается немедленно, и подтверждаете, что после того, как тренер приступил к анализу или завершил его, вы теряете право на отказ от договора в отношении этой покупки — в соответствии со статьёй 16(m) Директивы Европейского парламента и Совета 2011/83/ЕС о правах потребителей. До начала работы тренера над вашей заявкой вы всё ещё можете запросить полный возврат средств.",
+            "Если вы являетесь потребителем из ЕС, ЕЭЗ или Великобритании, вы, как правило, имеете право отказаться от покупки онлайн в течение 14 дней без объяснения причин.",
+            "Поскольку наши разовые планы (Stroke Fix, Smart System, Match IQ) предполагают персонализированный анализ, который мы начинаем сразу после получения вашего видео, вы соглашаетесь с тем, что исполнение услуги начинается немедленно, и подтверждаете, что после того, как тренер приступил к анализу или завершил его, вы теряете право на отказ от договора в отношении этой покупки, в соответствии со статьёй 16(m) Директивы Европейского парламента и Совета 2011/83/ЕС о правах потребителей. До начала работы тренера над вашей заявкой вы всё ещё можете запросить полный возврат средств.",
             "Для подписки PRO Tour вы можете отказаться от договора в течение 14 дней с момента первой подписки, за вычетом стоимости уже предоставленного за этот период анализа. По истечении первых 14 дней применяются условия отмены, указанные в разделе 4.",
             "Чтобы запросить возврат средств или отмену в соответствии с настоящим разделом, напишите на tacticaltennislab@gmail.com.",
           ],
@@ -752,7 +752,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "7. Допустимое использование",
           body: [
-            "Не злоупотребляйте Сервисом — это включает попытки получить доступ к аккаунту другого пользователя, нарушение работы Сервиса или его использование в незаконных целях. Мы можем приостановить или прекратить действие аккаунтов, нарушающих настоящие условия.",
+            "Не злоупотребляйте Сервисом: это включает попытки получить доступ к аккаунту другого пользователя, нарушение работы Сервиса или его использование в незаконных целях. Мы можем приостановить или прекратить действие аккаунтов, нарушающих настоящие условия.",
           ],
         },
         {
@@ -765,7 +765,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "9. Отказ от гарантий и ограничение ответственности",
           body: [
             "Сервис предоставляется «как есть». Мы не гарантируем конкретных результатов от тренировок или планов тренировок. В пределах, допустимых законом, Tactical Tennis Lab не несёт ответственности за косвенные, случайные или последующие убытки, возникшие в связи с использованием Сервиса, включая травмы, полученные во время тренировок. Ничто в настоящих Условиях не ограничивает ответственность, которую нельзя ограничить в соответствии с применимым правом, и не затрагивает установленные законом права, которыми вы обладаете как потребитель в стране вашего проживания.",
-            "Виджет «Быстрые вопросы» представляет собой автоматизированного ИИ-ассистента для общих вопросов о ценах и работе Сервиса — он не является тренером, не оценивает видео или технику и не составляет планы тренировок. Его ответы предоставляются для удобства и иногда могут быть неверными; они не являются профессиональной тренерской консультацией и не отменяют настоящие Условия. По любым вопросам, связанным с тренировками, отправьте видео на рассмотрение настоящему тренеру; по остальным вопросам напишите на tacticaltennislab@gmail.com.",
+            "Виджет «Быстрые вопросы» представляет собой автоматизированного ассистента на основе ИИ для общих вопросов о ценах и работе Сервиса, он не является тренером, не оценивает видео или технику и не составляет планы тренировок. Его ответы предоставляются для удобства и иногда могут быть неверными; они не являются профессиональной тренерской консультацией и не отменяют настоящие Условия. По любым вопросам, связанным с тренировками, отправьте видео на рассмотрение настоящему тренеру; по остальным вопросам напишите на tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -800,20 +800,20 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "2. Какие данные мы собираем",
           body: [
-            "Информация об аккаунте: ваше имя, адрес электронной почты и пароль (хранится в виде защищённого хеша — мы никогда не храним пароль в открытом виде). Если вы входите через Google, мы получаем от Google ваше имя и адрес электронной почты.",
+            "Информация об аккаунте: ваше имя, адрес электронной почты и пароль (хранится в виде защищённого хеша, мы никогда не храним пароль в открытом виде). Если вы входите через Google, мы получаем от Google ваше имя и адрес электронной почты.",
             "Предоставляемый вами контент: отправленные видео, данные, которые вы вводите при заказе плана тренировок или обращении к тренеру, а также сообщения, отправляемые через Сервис.",
             "Платёжная информация: при покупке плана оплата обрабатывается непосредственно через Stripe. Мы получаем подтверждение вашей покупки и выбранного плана, но никогда не получаем полный номер вашей карты.",
             "Реферальная информация: если вы регистрируетесь по реферальной ссылке друга, мы фиксируем, какой аккаунт вас пригласил, и сколько людей вы успешно пригласили, чтобы рассчитать реферальные скидки.",
-            "Отзывы: если вы решите оставить отзыв, мы сохраняем указанную вами оценку и текст. После одобрения он отображается публично на нашем сайте вместе с вашим именем — это происходит только если вы сами отправляете отзыв, и вы можете в любой момент попросить нас удалить его.",
+            "Отзывы: если вы решите оставить отзыв, мы сохраняем указанную вами оценку и текст. После одобрения он отображается публично на нашем сайте вместе с вашим именем, это происходит только если вы сами отправляете отзыв, и вы можете в любой момент попросить нас удалить его.",
           ],
         },
         {
           title: "3. Как мы используем данные и на каком основании",
           body: [
-            "Для предоставления Сервиса — анализа вашего видео, составления плана тренировок и предоставления возможности переписки с тренером — поскольку это необходимо для исполнения нашего договора с вами.",
-            "Для отправки вам писем, связанных с аккаунтом, — приветственных сообщений, сброса пароля, уведомлений об обратной связи от тренера и подтверждений покупки — также необходимо для исполнения нашего договора с вами.",
-            "Для расчёта и применения скидки, заработанной через нашу реферальную программу, если вы в ней участвуете, — также необходимо для исполнения нашего договора с вами.",
-            "Для обеспечения безопасности Сервиса и предотвращения злоупотреблений, а также для соблюдения наших юридических обязательств (например, налоговой и платёжной отчётности) — на основании нашего законного интереса и юридических обязательств.",
+            "Для предоставления Сервиса, анализа вашего видео, составления плана тренировок и предоставления возможности переписки с тренером, поскольку это необходимо для исполнения нашего договора с вами.",
+            "Для отправки вам писем, связанных с аккаунтом,, приветственных сообщений, сброса пароля, уведомлений об обратной связи от тренера и подтверждений покупки, также необходимо для исполнения нашего договора с вами.",
+            "Для расчёта и применения скидки, заработанной через нашу реферальную программу, если вы в ней участвуете,, также необходимо для исполнения нашего договора с вами.",
+            "Для обеспечения безопасности Сервиса и предотвращения злоупотреблений, а также для соблюдения наших юридических обязательств (например, налоговой и платёжной отчётности), на основании нашего законного интереса и юридических обязательств.",
             "Мы не продаём ваши персональные данные третьим лицам и не используем ваши данные в рекламных целях.",
           ],
         },
@@ -821,7 +821,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
           title: "4. С кем мы делимся данными",
           body: [
             "Мы используем небольшое число поставщиков услуг для работы Tactical Tennis Lab: Vercel (хостинг), Neon (база данных), Vercel Blob (хранение видео), Resend (транзакционная электронная почта) и Stripe (платежи). Мы также используем Vercel Analytics для анализа общего трафика сайта; эти данные агрегированы, не используют файлы cookie и не позволяют идентифицировать вас лично. Каждый поставщик получает только те данные, которые необходимы для выполнения его функции, и придерживается собственных практик конфиденциальности и безопасности.",
-            "Если вы используете ИИ-ассистента «Быстрые вопросы» на сайте, всё введённое вами текст отправляется в Anthropic (наш поставщик ИИ) для генерации ответа. Эта переписка не связана с вашим аккаунтом и не сохраняется на наших серверах — она существует только в вашем браузере во время посещения. Избегайте указания в ней личных данных.",
+            "Если вы используете ассистента на основе ИИ «Быстрые вопросы» на сайте, всё введённое вами текст отправляется в Anthropic (наш поставщик ИИ) для генерации ответа. Эта переписка не связана с вашим аккаунтом и не сохраняется на наших серверах, она существует только в вашем браузере во время посещения. Избегайте указания в ней личных данных.",
             "Некоторые из этих поставщиков могут обрабатывать данные на серверах за пределами ЕС/ЕЭЗ (например, в США). В таких случаях они делают это в соответствии с собственными гарантиями, соответствующими GDPR, такими как стандартные договорные положения.",
           ],
         },

@@ -40,7 +40,7 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: "Tennis coaching",
-    name: "Tactical Tennis Lab — Video & Match Analysis for Tennis Academies and Clubs",
+    name: "Tactical Tennis Lab: Video & Match Analysis for Tennis Academies and Clubs",
     provider: {
       "@type": "Organization",
       name: "Tactical Tennis Lab",

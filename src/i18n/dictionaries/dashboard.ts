@@ -109,7 +109,7 @@ const en: DashboardDict = {
     coachFeedback: "Coach feedback",
     messagesTitle: "Messages",
     messagesNote:
-      "Managing this account for a junior player? Everything here — every message, note, and piece of feedback — is visible to whoever holds this login.",
+      "Managing this account for a junior player? Everything here, every message, note, and piece of feedback, is visible to whoever holds this login.",
   },
   referral: {
     title: "Refer a friend",
@@ -127,7 +127,7 @@ const en: DashboardDict = {
   },
   messages: {
     emptyAdmin: "No messages with this customer yet.",
-    emptyCustomer: "No messages yet — send one below.",
+    emptyCustomer: "No messages yet: send one below.",
     placeholder: "Type a message...",
     send: "Send",
   },
@@ -136,8 +136,8 @@ const en: DashboardDict = {
     pageTitle: "Leave a review",
     pageSubtitle: "Tell other players what working with your coach has been like.",
     formTitle: "Leave a review",
-    formSubtitle: "Help other players decide — share what working with your coach has been like.",
-    statusPending: "Awaiting approval — thanks for your patience.",
+    formSubtitle: "Help other players decide: share what working with your coach has been like.",
+    statusPending: "Awaiting approval. Thanks for your patience.",
     statusApproved: "Live on the site. Thank you!",
     statusRejected: "Not published. Feel free to update and resubmit.",
     ratingAria: "stars",
@@ -159,7 +159,7 @@ const en: DashboardDict = {
   submitVideo: {
     beforeEyebrow: "Before you send",
     beforeTitle: "What happens when you send your video",
-    beforeSubtitle: "Here's exactly what to expect — no account needed to read this part.",
+    beforeSubtitle: "Here's exactly what to expect: no account needed to read this part.",
     processTitle: "The process",
     process: [
       {
@@ -168,17 +168,17 @@ const en: DashboardDict = {
       },
       {
         title: "Your coach reviews it personally",
-        detail: "Frame by frame, by a former ATP-ranked player or ITF Level 2 coach — not a template, not an algorithm.",
+        detail: "Frame by frame, by a former ATP ranked player or ITF Level 2 coach, not a template, not an algorithm.",
       },
       {
         title: "Get your analysis back",
-        detail: "Clear priorities to work on, drills to practice, and the reasoning behind each note — through your account and by email.",
+        detail: "Clear priorities to work on, drills to practice, and the reasoning behind each note, through your account and by email.",
       },
     ],
     tipsTitle: "Tips for a great video",
     tips: [
       "Film from the side so your coach can see your full swing, footwork, and body position.",
-      "Capture a few points or a short rally — a single shot doesn't show enough to work with.",
+      "Capture a few points or a short rally, a single shot doesn't show enough to work with.",
       "Steady the camera. Prop your phone against something solid, or use a tripod if you have one.",
       "Use the notes field to tell your coach exactly what you want feedback on.",
     ],
@@ -225,7 +225,7 @@ const pl: DashboardDict = {
     coachFeedback: "Informacja zwrotna trenera",
     messagesTitle: "Wiadomości",
     messagesNote:
-      "Prowadzisz to konto dla juniora? Wszystko tutaj — każda wiadomość, notatka i informacja zwrotna — jest widoczne dla osoby posiadającej to logowanie.",
+      "Prowadzisz to konto dla juniora? Wszystko tutaj, każda wiadomość, notatka i informacja zwrotna, jest widoczne dla osoby posiadającej to logowanie.",
   },
   referral: {
     title: "Poleć znajomego",
@@ -243,7 +243,7 @@ const pl: DashboardDict = {
   },
   messages: {
     emptyAdmin: "Brak wiadomości z tym klientem.",
-    emptyCustomer: "Brak wiadomości — wyślij jedną poniżej.",
+    emptyCustomer: "Brak wiadomości. Wyślij jedną poniżej.",
     placeholder: "Napisz wiadomość...",
     send: "Wyślij",
   },
@@ -252,8 +252,8 @@ const pl: DashboardDict = {
     pageTitle: "Zostaw opinię",
     pageSubtitle: "Powiedz innym zawodnikom, jak wyglądała współpraca z Twoim trenerem.",
     formTitle: "Zostaw opinię",
-    formSubtitle: "Pomóż innym zawodnikom podjąć decyzję — podziel się tym, jak wyglądała współpraca z trenerem.",
-    statusPending: "Oczekuje na zatwierdzenie — dziękujemy za cierpliwość.",
+    formSubtitle: "Pomóż innym zawodnikom podjąć decyzję: podziel się tym, jak wyglądała współpraca z trenerem.",
+    statusPending: "Oczekuje na zatwierdzenie: dziękujemy za cierpliwość.",
     statusApproved: "Opublikowano na stronie. Dziękujemy!",
     statusRejected: "Nieopublikowane. Możesz zaktualizować i wysłać ponownie.",
     ratingAria: "gwiazdek",
@@ -275,7 +275,7 @@ const pl: DashboardDict = {
   submitVideo: {
     beforeEyebrow: "Zanim wyślesz",
     beforeTitle: "Co się dzieje, gdy wysyłasz swoje wideo",
-    beforeSubtitle: "Oto dokładnie, czego się spodziewać — nie potrzebujesz konta, aby to przeczytać.",
+    beforeSubtitle: "Oto dokładnie, czego się spodziewać: nie potrzebujesz konta, aby to przeczytać.",
     processTitle: "Proces",
     process: [
       {
@@ -284,17 +284,17 @@ const pl: DashboardDict = {
       },
       {
         title: "Twój trener osobiście je analizuje",
-        detail: "Klatka po klatce, przez byłego zawodnika ATP lub trenera ITF Level 2 — nie szablon, nie algorytm.",
+        detail: "Klatka po klatce, przez byłego zawodnika ATP lub trenera ITF Level 2, nie szablon, nie algorytm.",
       },
       {
         title: "Otrzymaj swoją analizę",
-        detail: "Jasne priorytety do pracy, ćwiczenia do wykonania i uzasadnienie każdej uwagi — przez konto i mailem.",
+        detail: "Jasne priorytety do pracy, ćwiczenia do wykonania i uzasadnienie każdej uwagi, przez konto i mailem.",
       },
     ],
     tipsTitle: "Wskazówki dla świetnego wideo",
     tips: [
       "Nagrywaj z boku, żeby trener widział pełne wymachy, pracę nóg i pozycję ciała.",
-      "Nagraj kilka piłek lub krótką wymianę — pojedyncze uderzenie to za mało, by nad czymś pracować.",
+      "Nagraj kilka piłek lub krótką wymianę, pojedyncze uderzenie to za mało, by nad czymś pracować.",
       "Trzymaj kamerę stabilnie. Oprzyj telefon o coś solidnego lub użyj statywu, jeśli go masz.",
       "W polu notatek napisz trenerowi dokładnie, o jaką informację zwrotną Ci chodzi.",
     ],
@@ -341,7 +341,7 @@ const es: DashboardDict = {
     coachFeedback: "Feedback del entrenador",
     messagesTitle: "Mensajes",
     messagesNote:
-      "¿Gestionas esta cuenta para un jugador junior? Todo aquí — cada mensaje, nota y feedback — es visible para quien tenga este inicio de sesión.",
+      "¿Gestionas esta cuenta para un jugador junior? Todo aquí, cada mensaje, nota y feedback, es visible para quien tenga este inicio de sesión.",
   },
   referral: {
     title: "Recomienda a un amigo",
@@ -359,7 +359,7 @@ const es: DashboardDict = {
   },
   messages: {
     emptyAdmin: "Aún no hay mensajes con este cliente.",
-    emptyCustomer: "Aún no hay mensajes — envía uno abajo.",
+    emptyCustomer: "Aún no hay mensajes: envía uno abajo.",
     placeholder: "Escribe un mensaje...",
     send: "Enviar",
   },
@@ -368,8 +368,8 @@ const es: DashboardDict = {
     pageTitle: "Deja una opinión",
     pageSubtitle: "Cuenta a otros jugadores cómo ha sido trabajar con tu entrenador.",
     formTitle: "Deja una opinión",
-    formSubtitle: "Ayuda a otros jugadores a decidir — comparte cómo ha sido trabajar con tu entrenador.",
-    statusPending: "Pendiente de aprobación — gracias por tu paciencia.",
+    formSubtitle: "Ayuda a otros jugadores a decidir, comparte cómo ha sido trabajar con tu entrenador.",
+    statusPending: "Pendiente de aprobación: gracias por tu paciencia.",
     statusApproved: "Publicada en la web. ¡Gracias!",
     statusRejected: "No publicada. Puedes actualizarla y reenviarla.",
     ratingAria: "estrellas",
@@ -391,7 +391,7 @@ const es: DashboardDict = {
   submitVideo: {
     beforeEyebrow: "Antes de enviar",
     beforeTitle: "Qué pasa cuando envías tu vídeo",
-    beforeSubtitle: "Esto es exactamente lo que puedes esperar — no necesitas una cuenta para leer esta parte.",
+    beforeSubtitle: "Esto es exactamente lo que puedes esperar, no necesitas una cuenta para leer esta parte.",
     processTitle: "El proceso",
     process: [
       {
@@ -400,17 +400,17 @@ const es: DashboardDict = {
       },
       {
         title: "Tu entrenador lo revisa personalmente",
-        detail: "Fotograma a fotograma, por un exjugador del ATP o un entrenador ITF Level 2 — no una plantilla, no un algoritmo.",
+        detail: "Fotograma a fotograma, por un exjugador del ATP o un entrenador ITF Level 2, no una plantilla, no un algoritmo.",
       },
       {
         title: "Recibe tu análisis",
-        detail: "Prioridades claras en las que trabajar, ejercicios para practicar, y el razonamiento detrás de cada nota — a través de tu cuenta y por email.",
+        detail: "Prioridades claras en las que trabajar, ejercicios para practicar, y el razonamiento detrás de cada nota, a través de tu cuenta y por email.",
       },
     ],
     tipsTitle: "Consejos para un buen vídeo",
     tips: [
       "Graba desde el lateral para que tu entrenador vea tu swing completo, tu juego de piernas y tu posición corporal.",
-      "Capta varios puntos o un peloteo corto — un solo golpe no muestra suficiente para trabajar.",
+      "Capta varios puntos o un peloteo corto, un solo golpe no muestra suficiente para trabajar.",
       "Mantén la cámara estable. Apoya el móvil sobre algo firme, o usa un trípode si tienes uno.",
       "Usa el campo de notas para decirle a tu entrenador exactamente qué feedback quieres.",
     ],
@@ -457,7 +457,7 @@ const it: DashboardDict = {
     coachFeedback: "Feedback dell'allenatore",
     messagesTitle: "Messaggi",
     messagesNote:
-      "Gestisci questo account per un giocatore junior? Tutto qui — ogni messaggio, nota e feedback — è visibile a chi possiede questo accesso.",
+      "Gestisci questo account per un giocatore junior? Tutto qui, ogni messaggio, nota e feedback, è visibile a chi possiede questo accesso.",
   },
   referral: {
     title: "Invita un amico",
@@ -475,7 +475,7 @@ const it: DashboardDict = {
   },
   messages: {
     emptyAdmin: "Ancora nessun messaggio con questo cliente.",
-    emptyCustomer: "Ancora nessun messaggio — inviane uno qui sotto.",
+    emptyCustomer: "Ancora nessun messaggio: inviane uno qui sotto.",
     placeholder: "Scrivi un messaggio...",
     send: "Invia",
   },
@@ -484,8 +484,8 @@ const it: DashboardDict = {
     pageTitle: "Lascia una recensione",
     pageSubtitle: "Racconta ad altri giocatori com'è stato lavorare con il tuo allenatore.",
     formTitle: "Lascia una recensione",
-    formSubtitle: "Aiuta altri giocatori a decidere — condividi com'è stato lavorare con il tuo allenatore.",
-    statusPending: "In attesa di approvazione — grazie per la pazienza.",
+    formSubtitle: "Aiuta altri giocatori a decidere: condividi com'è stato lavorare con il tuo allenatore.",
+    statusPending: "In attesa di approvazione: grazie per la pazienza.",
     statusApproved: "Pubblicata sul sito. Grazie!",
     statusRejected: "Non pubblicata. Sentiti libero di aggiornarla e reinviarla.",
     ratingAria: "stelle",
@@ -507,7 +507,7 @@ const it: DashboardDict = {
   submitVideo: {
     beforeEyebrow: "Prima di inviare",
     beforeTitle: "Cosa succede quando invii il tuo video",
-    beforeSubtitle: "Ecco esattamente cosa aspettarti — non serve un account per leggere questa parte.",
+    beforeSubtitle: "Ecco esattamente cosa aspettarti: non serve un account per leggere questa parte.",
     processTitle: "Il processo",
     process: [
       {
@@ -516,17 +516,17 @@ const it: DashboardDict = {
       },
       {
         title: "Il tuo allenatore lo rivede personalmente",
-        detail: "Fotogramma per fotogramma, da un ex giocatore ATP o un allenatore ITF Level 2 — non un modello, non un algoritmo.",
+        detail: "Fotogramma per fotogramma, da un ex giocatore ATP o un allenatore ITF Level 2, non un modello, non un algoritmo.",
       },
       {
         title: "Ricevi la tua analisi",
-        detail: "Priorità chiare su cui lavorare, esercizi da praticare, e il ragionamento dietro ogni nota — tramite il tuo account e via email.",
+        detail: "Priorità chiare su cui lavorare, esercizi da praticare, e il ragionamento dietro ogni nota, tramite il tuo account e via email.",
       },
     ],
     tipsTitle: "Consigli per un ottimo video",
     tips: [
       "Filma di lato così il tuo allenatore può vedere tutto lo swing, il gioco di gambe e la posizione del corpo.",
-      "Cattura alcuni punti o uno scambio breve — un singolo colpo non mostra abbastanza su cui lavorare.",
+      "Cattura alcuni punti o uno scambio breve, un singolo colpo non mostra abbastanza su cui lavorare.",
       "Tieni la fotocamera stabile. Appoggia il telefono a qualcosa di solido, o usa un treppiede se ne hai uno.",
       "Usa il campo note per dire al tuo allenatore esattamente su cosa vuoi un feedback.",
     ],
@@ -573,7 +573,7 @@ const ru: DashboardDict = {
     coachFeedback: "Обратная связь тренера",
     messagesTitle: "Сообщения",
     messagesNote:
-      "Ведёте этот аккаунт для юниора? Всё здесь — каждое сообщение, заметка и обратная связь — видно тому, кто владеет этим логином.",
+      "Ведёте этот аккаунт для юниора? Всё здесь, каждое сообщение, заметка и обратная связь, видно тому, кто владеет этим логином.",
   },
   referral: {
     title: "Пригласить друга",
@@ -584,14 +584,14 @@ const ru: DashboardDict = {
     friendSingular: "друг",
     friendPlural: "друзей",
     referredSoFar: "приглашено на данный момент.",
-    status5: "У вас большинство планов бесплатно (PRO Tour ограничен скидкой 40%, Match IQ: Full — 50%).",
-    status2: "У вас скидка 40% на все планы. Пригласите ещё 3 (всего 5) — и большинство планов станут бесплатными.",
+    status5: "У вас большинство планов бесплатно (PRO Tour ограничен скидкой 40%, Match IQ: Full, 50%).",
+    status2: "У вас скидка 40% на все планы. Пригласите ещё 3 (всего 5), и большинство планов станут бесплатными.",
     status1: "У вас скидка 20% на все планы. Пригласите ещё 1 человека, чтобы получить 40%.",
     status0: "Пригласите 1 друга, чтобы разблокировать скидку 20% на все планы.",
   },
   messages: {
     emptyAdmin: "С этим клиентом пока нет сообщений.",
-    emptyCustomer: "Сообщений пока нет — отправьте одно ниже.",
+    emptyCustomer: "Сообщений пока нет: отправьте одно ниже.",
     placeholder: "Введите сообщение...",
     send: "Отправить",
   },
@@ -600,8 +600,8 @@ const ru: DashboardDict = {
     pageTitle: "Оставить отзыв",
     pageSubtitle: "Расскажите другим игрокам, каково было работать с вашим тренером.",
     formTitle: "Оставить отзыв",
-    formSubtitle: "Помогите другим игрокам определиться — поделитесь опытом работы с тренером.",
-    statusPending: "Ожидает подтверждения — спасибо за терпение.",
+    formSubtitle: "Помогите другим игрокам определиться: поделитесь опытом работы с тренером.",
+    statusPending: "Ожидает подтверждения. Спасибо за терпение.",
     statusApproved: "Опубликован на сайте. Спасибо!",
     statusRejected: "Не опубликован. Вы можете обновить и отправить снова.",
     ratingAria: "звёзд",
@@ -614,7 +614,7 @@ const ru: DashboardDict = {
     noFileSelected: "Файл не выбран",
     fileTooLarge: "Файл слишком большой (макс. 100МБ).",
     uploadFailed: "Не удалось загрузить файл. Попробуйте ещё раз.",
-    genericError: "Что-то пошло не так.",
+    genericError: "Произошла ошибка.",
     publicNote: "После одобрения это будет опубликовано на нашем сайте вместе с вашим именем.",
     submit: "Отправить отзыв",
     submitting: "Отправка...",
@@ -623,7 +623,7 @@ const ru: DashboardDict = {
   submitVideo: {
     beforeEyebrow: "Перед отправкой",
     beforeTitle: "Что происходит, когда вы отправляете видео",
-    beforeSubtitle: "Вот чего именно стоит ожидать — аккаунт не нужен, чтобы прочитать эту часть.",
+    beforeSubtitle: "Вот чего именно стоит ожидать: аккаунт не нужен, чтобы прочитать эту часть.",
     processTitle: "Процесс",
     process: [
       {
@@ -632,18 +632,18 @@ const ru: DashboardDict = {
       },
       {
         title: "Тренер лично разбирает его",
-        detail: "Покадрово, бывшим игроком ATP или тренером ITF Level 2 — не по шаблону, не алгоритмом.",
+        detail: "Покадрово, бывшим игроком ATP или тренером ITF Level 2, не по шаблону, не алгоритмом.",
       },
       {
         title: "Получите свой анализ",
-        detail: "Чёткие приоритеты для работы, упражнения для отработки и обоснование каждой заметки — через аккаунт и по email.",
+        detail: "Чёткие приоритеты для работы, упражнения для отработки и обоснование каждой заметки, через аккаунт и по email.",
       },
     ],
     tipsTitle: "Советы для хорошего видео",
     tips: [
       "Снимайте сбоку, чтобы тренер видел весь замах, работу ног и положение тела.",
-      "Захватите несколько розыгрышей или короткий обмен ударами — одного удара недостаточно для разбора.",
-      "Держите камеру стабильно. Обоприте телефон о что-то устойчивое или используйте штатив, если он есть.",
+      "Захватите несколько розыгрышей или короткий обмен ударами, одного удара недостаточно для разбора.",
+      "Держите камеру стабильно. Обоприте телефон о устойчивую опору или используйте штатив, если он есть.",
       "В поле заметок укажите тренеру точно, что хотите разобрать.",
     ],
     readyText: "Готовы отправить своё? Выберите план или создайте бесплатный аккаунт, чтобы начать.",

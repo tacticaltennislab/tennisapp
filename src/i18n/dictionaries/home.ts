@@ -86,7 +86,7 @@ const en: HomeDict = {
     titleHighlight: "better analysis",
     titleSuffix: "of every player.",
     subtitle:
-      "We support your coaches with professional video and match analysis — tactical patterns, how points are won and lost, and clear next steps for every player — so your coaches can focus their energy on the court.",
+      "We support your coaches with professional video and match analysis, tactical patterns, how points are won and lost, and clear next steps for every player, so your coaches can focus their energy on the court.",
     ctaPrimary: "Partner with us",
     ctaSecondary: "View academy packages",
     playersNote: "Training on your own?",
@@ -99,21 +99,21 @@ const en: HomeDict = {
     eyebrow: "Who this is for",
     title: "Built for academies and clubs",
     subtitle:
-      "A support system for the people who develop players — directors, head coaches, and the players and families who trust them.",
+      "A support system for the people who develop players, directors, head coaches, and the players and families who trust them.",
   },
   audiences: [
     {
       title: "Academy owners & directors",
       hook: "Become the academy families choose.",
       detail:
-        "Better analysis means better results, and results attract new players. Offer modern, data-informed development that sets your academy apart.",
+        "Better analysis means better results, and results attract new players. Offer modern, data informed development that sets your academy apart.",
       cta: "See academy packages",
     },
     {
       title: "Head coaches & coaching teams",
       hook: "Spend your energy on court, not on video.",
       detail:
-        "We take on the frame-by-frame video and match analysis and return clear, shared feedback in one academy dashboard, so your coaches can build sessions around it.",
+        "We take on the frame by frame video and match analysis and return clear, shared feedback in one academy dashboard, so your coaches can build sessions around it.",
       cta: "How it works",
     },
     {
@@ -135,7 +135,7 @@ const en: HomeDict = {
     },
     {
       title: "Professional analysis",
-      detail: "Former ATP players and ITF-level coaches break down technique, tactical mistakes and how points are won.",
+      detail: "Former ATP players and ITF level coaches break down technique, tactical mistakes and how points are won.",
     },
     {
       title: "Shared feedback for your team",
@@ -145,7 +145,7 @@ const en: HomeDict = {
   testimonials: {
     eyebrow: "What players are saying",
     title: "Real feedback, from real customers",
-    emptyText: "No reviews yet — be the first to tell other players what working with your coach has been like.",
+    emptyText: "No reviews yet: be the first to tell other players what working with your coach has been like.",
     emptyCta: "Leave a review",
     filledPrefix: "Worked with a coach?",
     filledCta: "Leave your own review",
@@ -180,7 +180,7 @@ const en: HomeDict = {
     eyebrow: "Real coaches, not an algorithm",
     title: "The coaches behind your academy's analysis",
     subtitle:
-      "Every submission is reviewed by former ATP players and ITF Level 2 certified coaches — frame-by-frame technical and tactical breakdowns, then clear feedback your coaches can use straight away.",
+      "Every submission is reviewed by former ATP players and ITF Level 2 certified coaches, frame by frame technical and tactical breakdowns, then clear feedback your coaches can use straight away.",
     viewProfile: "View full profile",
   },
   productScroll: {
@@ -192,11 +192,11 @@ const en: HomeDict = {
     badge: "Illustrative example",
     reportTitle: "Match analysis report",
     meta: "Singles match · hard court · 3 sets",
-    player: "Player A · U16 · right-handed baseline player",
+    player: "Player A · U16 · right handed baseline player",
     mistakesTitle: "Tactical mistakes",
     mistakes: [
-      "Second serve is predictable — mostly to the backhand, so opponents step in and attack it.",
-      "Changes direction too late in cross-court rallies and loses patience around shot 7.",
+      "Second serve is predictable: mostly to the backhand, so opponents step in and attack it.",
+      "Changes direction too late in cross court rallies and loses patience around shot 7.",
       "Hesitates to approach after a short ball, giving the opponent time to reset.",
     ],
     winningTitle: "How the player wins points",
@@ -207,15 +207,15 @@ const en: HomeDict = {
     ],
     focusTitle: "Focus for the next sessions",
     focus: [
-      "Add second-serve variations to the body and wide.",
-      "Drill: down-the-line change of direction on the first neutral ball.",
+      "Add second serve variations to the body and wide.",
+      "Drill: down the line change of direction on the first neutral ball.",
       "Drill: approach and finish after a short ball, then play out the point.",
     ],
     patternsTitle: "Points won by pattern",
     patterns: [
       { label: "Serve + forehand", value: 68 },
-      { label: "Rallies of 1–4 shots", value: 62 },
-      { label: "Second-serve points", value: 41 },
+      { label: "Rallies of 1 to 4 shots", value: 62 },
+      { label: "Second serve points", value: 41 },
       { label: "Rallies of 9+ shots", value: 38 },
     ],
     footer: "Reviewed by Tactical Tennis Lab coaches · shared with the academy's coaching team",
@@ -229,7 +229,7 @@ const pl: HomeDict = {
     titleHighlight: "lepszej analizie",
     titleSuffix: "każdego zawodnika.",
     subtitle:
-      "Wspieramy Twoich trenerów profesjonalną analizą wideo i meczową — wzorce taktyczne, to jak punkty są wygrywane i tracone, oraz jasne kolejne kroki dla każdego zawodnika — aby trenerzy mogli skupić energię na korcie.",
+      "Wspieramy Twoich trenerów profesjonalną analizą wideo i meczową, wzorce taktyczne, to jak punkty są wygrywane i tracone, oraz jasne kolejne kroki dla każdego zawodnika, aby trenerzy mogli skupić energię na korcie.",
     ctaPrimary: "Zostań naszym partnerem",
     ctaSecondary: "Zobacz pakiety dla akademii",
     playersNote: "Trenujesz indywidualnie?",
@@ -242,7 +242,7 @@ const pl: HomeDict = {
     eyebrow: "Dla kogo to jest",
     title: "Stworzone dla akademii i klubów",
     subtitle:
-      "System wsparcia dla ludzi, którzy rozwijają zawodników — dyrektorów, głównych trenerów oraz zawodników i rodzin, które im ufają.",
+      "System wsparcia dla ludzi, którzy rozwijają zawodników, dyrektorów, głównych trenerów oraz zawodników i rodzin, które im ufają.",
   },
   audiences: [
     {
@@ -263,7 +263,7 @@ const pl: HomeDict = {
       title: "Zawodnicy i rodzice",
       hook: "Informacja zwrotna, która wskazuje drogę do kolejnego zwycięstwa.",
       detail:
-        "Zawodnicy widzą, co robią dobrze, jakie błędy taktyczne kosztują ich punkty i nad czym pracować dalej — wspierani przez własnych trenerów.",
+        "Zawodnicy widzą, co robią dobrze, jakie błędy taktyczne kosztują ich punkty i nad czym pracować dalej, wspierani przez własnych trenerów.",
       cta: "Porozmawiajmy",
     },
   ],
@@ -288,7 +288,7 @@ const pl: HomeDict = {
   testimonials: {
     eyebrow: "Co mówią zawodnicy",
     title: "Prawdziwe opinie prawdziwych klientów",
-    emptyText: "Brak opinii — bądź pierwszą osobą, która opowie innym, jak wygląda współpraca z Twoim trenerem.",
+    emptyText: "Brak opinii. Bądź pierwszą osobą, która opowie innym, jak wygląda współpraca z Twoim trenerem.",
     emptyCta: "Zostaw opinię",
     filledPrefix: "Pracowałeś z trenerem?",
     filledCta: "Zostaw własną opinię",
@@ -323,7 +323,7 @@ const pl: HomeDict = {
     eyebrow: "Prawdziwi trenerzy, nie algorytm",
     title: "Trenerzy stojący za analizą Twojej akademii",
     subtitle:
-      "Każde zgłoszenie analizują byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2 — techniczna i taktyczna analiza klatka po klatce, a potem jasna informacja zwrotna, z której trenerzy mogą od razu korzystać.",
+      "Każde zgłoszenie analizują byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2, techniczna i taktyczna analiza klatka po klatce, a potem jasna informacja zwrotna, z której trenerzy mogą od razu korzystać.",
     viewProfile: "Zobacz pełny profil",
   },
   productScroll: {
@@ -338,7 +338,7 @@ const pl: HomeDict = {
     player: "Zawodnik A · U16 · praworęczny, gra z głębi kortu",
     mistakesTitle: "Błędy taktyczne",
     mistakes: [
-      "Drugi serwis jest przewidywalny — głównie na bekhend, więc rywale wchodzą w kort i atakują.",
+      "Drugi serwis jest przewidywalny: głównie na bekhend, więc rywale wchodzą w kort i atakują.",
       "Zbyt późno zmienia kierunek w wymianach po przekątnej i traci cierpliwość około 7. uderzenia.",
       "Waha się przed podejściem do siatki po krótkiej piłce, dając rywalowi czas na odbudowanie gry.",
     ],
@@ -357,7 +357,7 @@ const pl: HomeDict = {
     patternsTitle: "Wygrane punkty według schematu",
     patterns: [
       { label: "Serwis + forehand", value: 68 },
-      { label: "Wymiany 1–4 uderzeń", value: 62 },
+      { label: "Wymiany 1 do 4 uderzeń", value: 62 },
       { label: "Punkty przy drugim serwisie", value: 41 },
       { label: "Wymiany 9+ uderzeń", value: 38 },
     ],
@@ -372,7 +372,7 @@ const es: HomeDict = {
     titleHighlight: "mejor análisis",
     titleSuffix: "de cada jugador.",
     subtitle:
-      "Apoyamos a tus entrenadores con análisis profesional de vídeo y de partidos — patrones tácticos, cómo se ganan y se pierden los puntos y próximos pasos claros para cada jugador — para que tus entrenadores concentren su energía en la pista.",
+      "Apoyamos a tus entrenadores con análisis profesional de vídeo y de partidos, patrones tácticos, cómo se ganan y se pierden los puntos y próximos pasos claros para cada jugador, para que tus entrenadores concentren su energía en la pista.",
     ctaPrimary: "Colabora con nosotros",
     ctaSecondary: "Ver paquetes para academias",
     playersNote: "¿Entrenas por tu cuenta?",
@@ -431,7 +431,7 @@ const es: HomeDict = {
   testimonials: {
     eyebrow: "Lo que dicen los jugadores",
     title: "Opiniones reales de clientes reales",
-    emptyText: "Aún no hay opiniones — sé el primero en contar a otros jugadores cómo ha sido trabajar con tu entrenador.",
+    emptyText: "Aún no hay opiniones: sé el primero en contar a otros jugadores cómo ha sido trabajar con tu entrenador.",
     emptyCta: "Deja una opinión",
     filledPrefix: "¿Trabajaste con un entrenador?",
     filledCta: "Deja tu propia opinión",
@@ -500,7 +500,7 @@ const es: HomeDict = {
     patternsTitle: "Puntos ganados por patrón",
     patterns: [
       { label: "Saque + derecha", value: 68 },
-      { label: "Intercambios de 1–4 golpes", value: 62 },
+      { label: "Intercambios de 1 a 4 golpes", value: 62 },
       { label: "Puntos con segundo saque", value: 41 },
       { label: "Intercambios de 9+ golpes", value: 38 },
     ],
@@ -515,7 +515,7 @@ const it: HomeDict = {
     titleHighlight: "un'analisi migliore",
     titleSuffix: "di ogni giocatore.",
     subtitle:
-      "Supportiamo i tuoi allenatori con analisi professionale di video e partite — schemi tattici, come si vincono e si perdono i punti e prossimi passi chiari per ogni giocatore — così i tuoi allenatori possono concentrare le energie sul campo.",
+      "Supportiamo i tuoi allenatori con analisi professionale di video e partite, schemi tattici, come si vincono e si perdono i punti e prossimi passi chiari per ogni giocatore, così i tuoi allenatori possono concentrare le energie sul campo.",
     ctaPrimary: "Collabora con noi",
     ctaSecondary: "Vedi i pacchetti per accademie",
     playersNote: "Ti alleni da solo?",
@@ -574,7 +574,7 @@ const it: HomeDict = {
   testimonials: {
     eyebrow: "Cosa dicono i giocatori",
     title: "Recensioni vere da clienti veri",
-    emptyText: "Ancora nessuna recensione — sii il primo a raccontare agli altri giocatori com'è lavorare con il tuo allenatore.",
+    emptyText: "Ancora nessuna recensione: sii il primo a raccontare agli altri giocatori com'è lavorare con il tuo allenatore.",
     emptyCta: "Lascia una recensione",
     filledPrefix: "Hai lavorato con un allenatore?",
     filledCta: "Lascia la tua recensione",
@@ -643,7 +643,7 @@ const it: HomeDict = {
     patternsTitle: "Punti vinti per schema",
     patterns: [
       { label: "Servizio + dritto", value: 68 },
-      { label: "Scambi di 1–4 colpi", value: 62 },
+      { label: "Scambi di 1 a 4 colpi", value: 62 },
       { label: "Punti con la seconda di servizio", value: 41 },
       { label: "Scambi di 9+ colpi", value: 38 },
     ],
@@ -658,7 +658,7 @@ const ru: HomeDict = {
     titleHighlight: "лучшим анализом",
     titleSuffix: "каждого игрока.",
     subtitle:
-      "Мы поддерживаем ваших тренеров профессиональным видеоанализом и разбором матчей — тактические паттерны, как выигрываются и проигрываются очки и понятные следующие шаги для каждого игрока, — чтобы тренеры могли направить энергию на корт.",
+      "Мы поддерживаем ваших тренеров профессиональным видеоанализом и разбором матчей, тактические паттерны, как выигрываются и проигрываются очки и понятные следующие шаги для каждого игрока,, чтобы тренеры могли направить энергию на корт.",
     ctaPrimary: "Стать партнёром",
     ctaSecondary: "Пакеты для академий",
     playersNote: "Тренируетесь самостоятельно?",
@@ -678,7 +678,7 @@ const ru: HomeDict = {
       title: "Владельцы и директора академий",
       hook: "Станьте академией, которую выбирают семьи.",
       detail:
-        "Лучший анализ — лучшие результаты, а результаты привлекают новых игроков. Предложите современное развитие на основе данных, которое выделит вашу академию.",
+        "Лучший анализ даёт лучшие результаты, а результаты привлекают новых игроков. Предложите современное развитие на основе данных, которое выделит вашу академию.",
       cta: "Пакеты для академий",
     },
     {
@@ -717,7 +717,7 @@ const ru: HomeDict = {
   testimonials: {
     eyebrow: "Что говорят игроки",
     title: "Настоящие отзывы настоящих клиентов",
-    emptyText: "Отзывов пока нет — станьте первым, кто расскажет другим игрокам, каково работать с вашим тренером.",
+    emptyText: "Отзывов пока нет: станьте первым, кто расскажет другим игрокам, каково работать с вашим тренером.",
     emptyCta: "Оставить отзыв",
     filledPrefix: "Работали с тренером?",
     filledCta: "Оставить свой отзыв",
@@ -752,7 +752,7 @@ const ru: HomeDict = {
     eyebrow: "Настоящие тренеры, а не алгоритм",
     title: "Тренеры, стоящие за анализом вашей академии",
     subtitle:
-      "Каждую заявку разбирают бывшие игроки ATP и сертифицированные тренеры ITF Level 2 — покадровый технический и тактический разбор, а затем понятная обратная связь, которую тренеры могут использовать сразу.",
+      "Каждую заявку разбирают бывшие игроки ATP и сертифицированные тренеры ITF Level 2, покадровый технический и тактический разбор, а затем понятная обратная связь, которую тренеры могут использовать сразу.",
     viewProfile: "Смотреть полный профиль",
   },
   productScroll: {
@@ -767,15 +767,15 @@ const ru: HomeDict = {
     player: "Игрок A · U16 · правша, играет с задней линии",
     mistakesTitle: "Тактические ошибки",
     mistakes: [
-      "Вторая подача предсказуема — в основном на бэкхенд, поэтому соперники заходят в корт и атакуют.",
-      "Слишком поздно меняет направление в розыгрышах по диагонали и теряет терпение около 7-го удара.",
+      "Вторая подача предсказуема: в основном на бэкхенд, поэтому соперники заходят в корт и атакуют.",
+      "Слишком поздно меняет направление в розыгрышах по диагонали и теряет терпение около седьмого удара.",
       "Колеблется перед выходом к сетке после короткого мяча и даёт сопернику время перестроиться.",
     ],
     winningTitle: "Как игрок выигрывает очки",
     winning: [
       "Подача + форхенд: первый удар в открытый корт выигрывает большинство очков.",
       "Мощный форхенд вдоль линии, когда соперник выведен в сторону.",
-      "Выигрывает большинство коротких розыгрышей — до четырёх ударов.",
+      "Выигрывает большинство коротких розыгрышей: до четырёх ударов.",
     ],
     focusTitle: "Фокус на ближайшие тренировки",
     focus: [
@@ -786,7 +786,7 @@ const ru: HomeDict = {
     patternsTitle: "Выигранные очки по схемам",
     patterns: [
       { label: "Подача + форхенд", value: 68 },
-      { label: "Розыгрыши в 1–4 удара", value: 62 },
+      { label: "Розыгрыши в от 1 до 4 удара", value: 62 },
       { label: "Очки на второй подаче", value: 41 },
       { label: "Розыгрыши от 9 ударов", value: 38 },
     ],

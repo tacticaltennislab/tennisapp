@@ -16,14 +16,14 @@ const en: AboutDict = {
     eyebrow: "About us",
     title: "Helping academies develop stronger players",
     subtitle:
-      "Video and match analysis that supports tennis academies, clubs and their coaches — so coaches get time back for the court and players get feedback that shows the way to the next win.",
+      "Video and match analysis that supports tennis academies, clubs and their coaches, so coaches get time back for the court and players get feedback that shows the way to the next win.",
   },
   story: {
     title: "Our story",
     paragraphs: [
-      "Tactical Tennis Lab is a support system for tennis academies and clubs. We take on the systematic video and match analysis that coaches rarely have hours in the week to do — so your coaches can spend their time and energy on court.",
-      "We analyse technique and tactics in detail: the mistakes that cost points, how players win them, and what to work on next. Better-developed players get better results in tournaments, and results are what bring new players to an academy.",
-      "A report on its own changes nothing. Every analysis comes with clear priorities and drills, shared with the coaches and the player — video, diagnosis, correction, repeat. We work alongside your coaches, never in place of them. Individual players are welcome too.",
+      "Tactical Tennis Lab is a support system for tennis academies and clubs. We take on the systematic video and match analysis that coaches rarely have hours in the week to do, so your coaches can spend their time and energy on court.",
+      "We analyse technique and tactics in detail: the mistakes that cost points, how players win them, and what to work on next. Better developed players get better results in tournaments, and results are what bring new players to an academy.",
+      "A report on its own changes nothing. Every analysis comes with clear priorities and drills, shared with the coaches and the player, video, diagnosis, correction, repeat. We work alongside your coaches, never in place of them. Individual players are welcome too.",
     ],
   },
   philosophyTitle: "Our philosophy",
@@ -38,7 +38,7 @@ const en: AboutDict = {
     },
     {
       title: "Continuous Improvement",
-      detail: "Every player follows an individual development path with measurable long-term progress.",
+      detail: "Every player follows an individual development path with measurable long term progress.",
     },
   ],
   trustTitle: "Why academies trust us",
@@ -57,14 +57,14 @@ const pl: AboutDict = {
     eyebrow: "O nas",
     title: "Pomagamy akademiom rozwijać silniejszych zawodników",
     subtitle:
-      "Analiza wideo i meczowa, która wspiera akademie tenisowe, kluby i ich trenerów — aby trenerzy odzyskali czas na korcie, a zawodnicy dostawali informację zwrotną wskazującą drogę do kolejnego zwycięstwa.",
+      "Analiza wideo i meczowa, która wspiera akademie tenisowe, kluby i ich trenerów, aby trenerzy odzyskali czas na korcie, a zawodnicy dostawali informację zwrotną wskazującą drogę do kolejnego zwycięstwa.",
   },
   story: {
     title: "Nasza historia",
     paragraphs: [
-      "Tactical Tennis Lab to system wsparcia dla akademii i klubów tenisowych. Bierzemy na siebie systematyczną analizę wideo i meczową, na którą trenerzy rzadko mają czas w tygodniu — aby Twoi trenerzy mogli poświęcić czas i energię pracy na korcie.",
+      "Tactical Tennis Lab to system wsparcia dla akademii i klubów tenisowych. Bierzemy na siebie systematyczną analizę wideo i meczową, na którą trenerzy rzadko mają czas w tygodniu, aby Twoi trenerzy mogli poświęcić czas i energię pracy na korcie.",
       "Szczegółowo analizujemy technikę i taktykę: błędy, które kosztują punkty, to, jak zawodnicy je wygrywają, i nad czym pracować dalej. Lepiej rozwinięci zawodnicy osiągają lepsze wyniki na turniejach, a wyniki przyciągają nowych zawodników do akademii.",
-      "Sam raport niczego nie zmienia. Każda analiza zawiera jasne priorytety i ćwiczenia, udostępnione trenerom i zawodnikowi — wideo, diagnoza, korekta, powtórka. Działamy razem z Twoimi trenerami, nigdy zamiast nich. Zawodnicy indywidualni są również mile widziani.",
+      "Sam raport niczego nie zmienia. Każda analiza zawiera jasne priorytety i ćwiczenia, udostępnione trenerom i zawodnikowi, wideo, diagnoza, korekta, powtórka. Działamy razem z Twoimi trenerami, nigdy zamiast nich. Zawodnicy indywidualni są również mile widziani.",
     ],
   },
   philosophyTitle: "Nasza filozofia",
@@ -180,12 +180,12 @@ const ru: AboutDict = {
     eyebrow: "О нас",
     title: "Помогаем академиям растить более сильных игроков",
     subtitle:
-      "Видео- и матч-анализ в поддержку теннисных академий, клубов и их тренеров: тренеры получают время для корта, а игроки — обратную связь, которая показывает путь к следующей победе.",
+      "Видеоанализ и анализ матчей в поддержку теннисных академий, клубов и их тренеров: тренеры получают время для корта, а игроки, обратную связь, которая показывает путь к следующей победе.",
   },
   story: {
     title: "Наша история",
     paragraphs: [
-      "Tactical Tennis Lab — система поддержки для теннисных академий и клубов. Мы берём на себя систематический видео- и матч-анализ, на который у тренеров редко хватает часов в неделе, чтобы ваши тренеры могли тратить время и силы на корт.",
+      "Tactical Tennis Lab: система поддержки для теннисных академий и клубов. Мы берём на себя систематический видеоанализ и анализ матчей, на который у тренеров редко хватает часов в неделе, чтобы ваши тренеры могли тратить время и силы на корт.",
       "Мы подробно разбираем технику и тактику: ошибки, которые стоят очков, то, как игроки их выигрывают, и над чем работать дальше. Лучше развитые игроки показывают лучшие результаты на турнирах, а результаты привлекают в академию новых игроков.",
       "Один отчёт ничего не меняет. Каждый анализ содержит чёткие приоритеты и упражнения, доступные тренерам и игроку: видео, диагноз, коррекция, повтор. Мы работаем вместе с вашими тренерами, а не вместо них. Индивидуальные игроки тоже приветствуются.",
     ],
@@ -198,7 +198,7 @@ const ru: AboutDict = {
     },
     {
       title: "Тактический интеллект",
-      detail: "Теннис — это больше, чем удар по мячу. Мы учим принятию решений, стратегии матча и построению розыгрышей.",
+      detail: "Теннис это больше, чем удар по мячу. Мы учим принятию решений, стратегии матча и построению розыгрышей.",
     },
     {
       title: "Постоянное развитие",
@@ -208,7 +208,7 @@ const ru: AboutDict = {
   trustTitle: "Почему академии нам доверяют",
   trust: [
     { title: "Профессиональный опыт", detail: "Коучинг, построенный на реальном опыте соревновательного тенниса." },
-    { title: "Тренировки по всему миру", detail: "Помогаем игрокам прогрессировать из любой точки мира благодаря онлайн-коучингу." },
+    { title: "Тренировки по всему миру", detail: "Помогаем игрокам прогрессировать из любой точки мира благодаря онлайн коучингу." },
     { title: "Детальный видеоанализ", detail: "Каждая рекомендация подкреплена наглядной визуальной обратной связью." },
     { title: "Общая обратная связь", detail: "Тренеры и игроки видят одну и ту же понятную обратную связь в единой панели академии." },
   ],

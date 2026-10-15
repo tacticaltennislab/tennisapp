@@ -33,22 +33,22 @@ const en: FaqDict = {
         {
           question: "How does it work for an academy?",
           answer:
-            "Your academy gets its own account, which we set up once the partnership is agreed. The owner invites coaches and players by email. Players upload practice or match videos from their own accounts, a real coach — a former ATP-ranked player or ITF Level 2 certified coach — analyses them, and the feedback appears in your academy dashboard for your coaches and the player.",
+            "Your academy gets its own account, which we set up once the partnership is agreed. The owner invites coaches and players by email. Players upload practice or match videos from their own accounts, a real coach, a former ATP ranked player or ITF Level 2 certified coach, analyses them, and the feedback appears in your academy dashboard for your coaches and the player.",
         },
         {
           question: "Do you replace our coaches?",
           answer:
-            "No. We're a support system for your coaches. We take on the time-consuming video and match analysis so they can spend their energy on court, and we work alongside them rather than in their place.",
+            "No. We're a support system for your coaches. We take on the time consuming video and match analysis so they can spend their energy on court, and we work alongside them rather than in their place.",
         },
         {
           question: "What do the academy packages include?",
           answer:
-            "Club Starter ($550/month) covers 5–8 analyses per month, Academy Standard ($1,100/month) 10–15 plus a dedicated contact, and High Performance Club ($1,950/month) 20+ with priority support and shared training plans. Season packages cover 40–50 analyses over 3 months ($5,500) or 80–90 over 6 months ($9,500). See /pricing for details.",
+            "Club Starter ($550/month) covers 5 to 8 analyses per month, Academy Standard ($1,100/month) 10 to 15 plus a dedicated contact, and High Performance Club ($1,950/month) 20+ with priority support and shared training plans. Season packages cover 40 to 50 analyses over 3 months ($5,500) or 80 to 90 over 6 months ($9,500). See /pricing for details.",
         },
         {
           question: "Who can see our players' videos?",
           answer:
-            "The player's own account, the coaches in your academy and our coaches. Players join an academy only by accepting an invitation, which gives you a clear record of consent — important for minors. Your coaches can review videos and leave feedback, but only our team can delete a video.",
+            "The player's own account, the coaches in your academy and our coaches. Players join an academy only by accepting an invitation, which gives you a clear record of consent, important for minors. Your coaches can review videos and leave feedback, but only our team can delete a video.",
         },
         {
           question: "How do we get started?",
@@ -63,12 +63,12 @@ const en: FaqDict = {
         {
           question: "How does it work for an individual player?",
           answer:
-            "You create an account, send a practice or match video along with what you want feedback on, and a real coach — a former ATP-ranked player or ITF Level 2 certified coach — personally reviews it frame by frame. Nothing is auto-generated. You get your analysis and a plan back through your account and by email.",
+            "You create an account, send a practice or match video along with what you want feedback on, and a real coach, a former ATP ranked player or ITF Level 2 certified coach, personally reviews it frame by frame. Nothing is automatically generated. You get your analysis and a plan back through your account and by email.",
         },
         {
           question: "What kind of video should I send?",
           answer:
-            "Film from the side so your coach can see your full swing, footwork, and body position. Capture a few points or a short rally rather than a single shot, and keep the camera steady — prop your phone against something solid or use a tripod. Use the notes field to say exactly what you want feedback on.",
+            "Film from the side so your coach can see your full swing, footwork, and body position. Capture a few points or a short rally rather than a single shot, and keep the camera steady, prop your phone against something solid or use a tripod. Use the notes field to say exactly what you want feedback on.",
         },
         {
           question: "Do I need an account to send a video?",
@@ -78,7 +78,7 @@ const en: FaqDict = {
         {
           question: "Is this for academies or individual players?",
           answer:
-            "Both. Academies and clubs are our main focus — we support their coaches with video and match analysis. Individual players are welcome too and can send a video and choose a one-time or monthly plan.",
+            "Both. Academies and clubs are our main focus, we support their coaches with video and match analysis. Individual players are welcome too and can send a video and choose a one time or monthly plan.",
         },
       ],
     },
@@ -88,7 +88,7 @@ const en: FaqDict = {
         {
           question: "What plans do you offer?",
           answer:
-            "Stroke Fix ($49, one-time) is a focused technical breakdown of one issue. Smart System ($99) is a 4-week development program for one stroke. Match IQ comes in Short ($99, up to 60 minutes of footage) and Full ($159, up to a full match). PRO Tour ($249/month) is ongoing coaching with up to 4 analyses a month and direct coach access.",
+            "Stroke Fix ($49, one time) is a focused technical breakdown of one issue. Smart System ($99) is a 4 week development program for one stroke. Match IQ comes in Short ($99, up to 60 minutes of footage) and Full ($159, up to a full match). PRO Tour ($249/month) is ongoing coaching with up to 4 analyses a month and direct coach access.",
         },
         {
           question: "Do prices include tax?",
@@ -97,12 +97,12 @@ const en: FaqDict = {
         {
           question: "Can I cancel PRO Tour anytime?",
           answer:
-            "Yes. Cancel anytime from your account — it takes effect at the end of your current billing period, and you keep access until then. We don't offer partial refunds for unused time in a billing period.",
+            "Yes. Cancel anytime from your account, it takes effect at the end of your current billing period, and you keep access until then. We don't offer partial refunds for unused time in a billing period.",
         },
         {
           question: "What's your refund policy?",
           answer:
-            "For one-time plans, you can get a full refund before a coach has started your analysis; once analysis begins, EU/EEA/UK consumers' 14-day right of withdrawal ends, since the service starts performing immediately at your request. For PRO Tour, you can withdraw within 14 days of first subscribing, minus the value of any analysis already delivered. Email tacticaltennislab@gmail.com to request a refund or see the full terms at /terms.",
+            "For one time plans, you can get a full refund before a coach has started your analysis; once analysis begins, EU/EEA/UK consumers' 14 day right of withdrawal ends, since the service starts performing immediately at your request. For PRO Tour, you can withdraw within 14 days of first subscribing, minus the value of any analysis already delivered. Email tacticaltennislab@gmail.com to request a refund or see the full terms at /terms.",
         },
       ],
     },
@@ -117,7 +117,7 @@ const en: FaqDict = {
         {
           question: "Can I see everything my child sends or receives?",
           answer:
-            "Yes. There's only one login per account, so every video, coach note, and message passes through that single account and is visible to whoever holds it — there's no separate or hidden channel between a coach and a minor.",
+            "Yes. There's only one login per account, so every video, coach note, and message passes through that single account and is visible to whoever holds it, there's no separate or hidden channel between a coach and a minor.",
         },
         {
           question: "Is my child's data safe?",
@@ -142,12 +142,12 @@ const en: FaqDict = {
         {
           question: "Is my analysis written by AI?",
           answer:
-            "No. Every plan and piece of feedback is built personally by one of our coaches — former ATP-ranked players and ITF Level 2 certified coaches — based on your video and goals. The \"Quick questions\" chat widget on the site is a separate AI assistant that only answers simple questions about pricing and policies; it doesn't review video or give coaching advice.",
+            "No. Every plan and piece of feedback is built personally by one of our coaches, former ATP ranked players and ITF Level 2 certified coaches, based on your video and goals. The \"Quick questions\" chat widget on the site is a separate AI assistant that only answers simple questions about pricing and policies; it doesn't review video or give coaching advice.",
         },
         {
           question: "Can I leave a review?",
           answer:
-            "Yes — go to /review (also linked in the footer). Reviews are checked by an admin before they appear publicly, so you won't see it on the homepage immediately.",
+            "Yes. Go to /review (also linked in the footer). Reviews are checked by an admin before they appear publicly, so you won't see it on the homepage immediately.",
         },
       ],
     },
@@ -168,7 +168,7 @@ const pl: FaqDict = {
         {
           question: "Jak to działa w przypadku akademii?",
           answer:
-            "Twoja akademia dostaje własne konto, które zakładamy po uzgodnieniu współpracy. Właściciel zaprasza trenerów i zawodników e-mailem. Zawodnicy przesyłają nagrania treningów lub meczów ze swoich kont, prawdziwy trener — były zawodnik ATP lub certyfikowany trener ITF Level 2 — je analizuje, a informacja zwrotna pojawia się w panelu akademii dla Twoich trenerów i zawodnika.",
+            "Twoja akademia dostaje własne konto, które zakładamy po uzgodnieniu współpracy. Właściciel zaprasza trenerów i zawodników mailem. Zawodnicy przesyłają nagrania treningów lub meczów ze swoich kont, prawdziwy trener, były zawodnik ATP lub certyfikowany trener ITF Level 2, je analizuje, a informacja zwrotna pojawia się w panelu akademii dla Twoich trenerów i zawodnika.",
         },
         {
           question: "Czy zastępujecie naszych trenerów?",
@@ -178,17 +178,17 @@ const pl: FaqDict = {
         {
           question: "Co zawierają pakiety dla akademii?",
           answer:
-            "Club Starter (550 USD/miesiąc) to 5–8 analiz miesięcznie, Academy Standard (1100 USD/miesiąc) to 10–15 analiz i dedykowana osoba kontaktowa, a High Performance Club (1950 USD/miesiąc) to ponad 20 analiz, priorytetowe wsparcie i wspólne plany treningowe. Pakiety sezonowe obejmują 40–50 analiz w 3 miesiące (5500 USD) lub 80–90 w 6 miesięcy (9500 USD). Szczegóły na /pricing.",
+            "Club Starter (550 USD/miesiąc) to 5 do 8 analiz miesięcznie, Academy Standard (1100 USD/miesiąc) to 10 do 15 analiz i dedykowana osoba kontaktowa, a High Performance Club (1950 USD/miesiąc) to ponad 20 analiz, priorytetowe wsparcie i wspólne plany treningowe. Pakiety sezonowe obejmują 40 do 50 analiz w 3 miesiące (5500 USD) lub 80 do 90 w 6 miesięcy (9500 USD). Szczegóły na /pricing.",
         },
         {
           question: "Kto widzi filmy naszych zawodników?",
           answer:
-            "Konto samego zawodnika, trenerzy Twojej akademii i nasi trenerzy. Zawodnicy dołączają do akademii wyłącznie po przyjęciu zaproszenia, co daje jasny zapis zgody — ważny w przypadku niepełnoletnich. Twoi trenerzy mogą oceniać filmy i zostawiać opinie, ale usunąć film może tylko nasz zespół.",
+            "Konto samego zawodnika, trenerzy Twojej akademii i nasi trenerzy. Zawodnicy dołączają do akademii wyłącznie po przyjęciu zaproszenia, co daje jasny zapis zgody, ważny w przypadku niepełnoletnich. Twoi trenerzy mogą oceniać filmy i zostawiać opinie, ale usunąć film może tylko nasz zespół.",
         },
         {
           question: "Jak zacząć?",
           answer:
-            "Wybierz pakiet na /pricing lub napisz do nas przez /contact. Po uzgodnieniu współpracy zakładamy konto akademii i wysyłamy zaproszenie e-mailem do właściciela.",
+            "Wybierz pakiet na /pricing lub napisz do nas przez /contact. Po uzgodnieniu współpracy zakładamy konto akademii i wysyłamy zaproszenie mailem do właściciela.",
         },
       ],
     },
@@ -198,12 +198,12 @@ const pl: FaqDict = {
         {
           question: "Jak to działa dla zawodnika indywidualnego?",
           answer:
-            "Zakładasz konto, wysyłasz wideo z treningu lub meczu wraz z informacją, na czym Ci zależy, a prawdziwy trener — były zawodnik ATP lub certyfikowany trener ITF Level 2 — osobiście analizuje je klatka po klatce. Nic nie jest generowane automatycznie. Analizę i plan otrzymujesz przez konto i mailem.",
+            "Zakładasz konto, wysyłasz wideo z treningu lub meczu wraz z informacją, na czym Ci zależy, a prawdziwy trener, były zawodnik ATP lub certyfikowany trener ITF Level 2, osobiście analizuje je klatka po klatce. Nic nie jest generowane automatycznie. Analizę i plan otrzymujesz przez konto i mailem.",
         },
         {
           question: "Jakie wideo powinienem wysłać?",
           answer:
-            "Nagrywaj z boku, żeby trener widział pełne wymachy, pracę nóg i pozycję ciała. Nagraj kilka piłek lub krótką wymianę, a nie pojedyncze uderzenie, i trzymaj kamerę stabilnie — oprzyj telefon o coś solidnego lub użyj statywu. W polu notatek napisz dokładnie, o jaką informację zwrotną Ci chodzi.",
+            "Nagrywaj z boku, żeby trener widział pełne wymachy, pracę nóg i pozycję ciała. Nagraj kilka piłek lub krótką wymianę, a nie pojedyncze uderzenie, i trzymaj kamerę stabilnie, oprzyj telefon o coś solidnego lub użyj statywu. W polu notatek napisz dokładnie, o jaką informację zwrotną Ci chodzi.",
         },
         {
           question: "Czy potrzebuję konta, żeby wysłać wideo?",
@@ -213,7 +213,7 @@ const pl: FaqDict = {
         {
           question: "Czy to dla akademii, czy dla indywidualnych zawodników?",
           answer:
-            "Dla obu. Akademie i kluby są naszym głównym celem — wspieramy ich trenerów analizą wideo i meczową. Zawodnicy indywidualni też są mile widziani i mogą wysłać wideo oraz wybrać plan jednorazowy lub miesięczny.",
+            "Dla obu. Akademie i kluby są naszym głównym celem, wspieramy ich trenerów analizą wideo i meczową. Zawodnicy indywidualni też są mile widziani i mogą wysłać wideo oraz wybrać plan jednorazowy lub miesięczny.",
         },
       ],
     },
@@ -223,7 +223,7 @@ const pl: FaqDict = {
         {
           question: "Jakie plany oferujecie?",
           answer:
-            "Stroke Fix (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu. Smart System (99 USD) to 4-tygodniowy program rozwoju jednego uderzenia. Match IQ jest dostępne w wersji Short (99 USD, do 60 minut nagrania) i Full (159 USD, do pełnego meczu). PRO Tour (249 USD/miesiąc) to ciągły coaching z do 4 analizami miesięcznie i bezpośrednim kontaktem z trenerem.",
+            "Stroke Fix (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu. Smart System (99 USD) to czterotygodniowy program rozwoju jednego uderzenia. Match IQ jest dostępne w wersji Short (99 USD, do 60 minut nagrania) i Full (159 USD, do pełnego meczu). PRO Tour (249 USD/miesiąc) to ciągły coaching z do 4 analizami miesięcznie i bezpośrednim kontaktem z trenerem.",
         },
         {
           question: "Czy ceny zawierają podatek?",
@@ -232,12 +232,12 @@ const pl: FaqDict = {
         {
           question: "Czy mogę anulować PRO Tour w dowolnym momencie?",
           answer:
-            "Tak. Anuluj w dowolnym momencie z poziomu konta — anulowanie wchodzi w życie na koniec bieżącego okresu rozliczeniowego, a dostęp zachowujesz do tego czasu. Nie oferujemy częściowych zwrotów za niewykorzystany czas w okresie rozliczeniowym.",
+            "Tak. Anuluj w dowolnym momencie z poziomu konta, anulowanie wchodzi w życie na koniec bieżącego okresu rozliczeniowego, a dostęp zachowujesz do tego czasu. Nie oferujemy częściowych zwrotów za niewykorzystany czas w okresie rozliczeniowym.",
         },
         {
           question: "Jaka jest Wasza polityka zwrotów?",
           answer:
-            "W przypadku planów jednorazowych pełny zwrot przysługuje przed rozpoczęciem analizy przez trenera; po jej rozpoczęciu 14-dniowe prawo do odstąpienia dla konsumentów z UE/EOG/UK wygasa, ponieważ usługa zaczyna być realizowana natychmiast na Twoje żądanie. W przypadku PRO Tour możesz odstąpić w ciągu 14 dni od pierwszej subskrypcji, pomniejszone o wartość już dostarczonej analizy. Napisz na tacticaltennislab@gmail.com, aby poprosić o zwrot, lub zobacz pełny regulamin na /terms.",
+            "W przypadku planów jednorazowych pełny zwrot przysługuje przed rozpoczęciem analizy przez trenera; po jej rozpoczęciu 14 dniowe prawo do odstąpienia dla konsumentów z UE/EOG/UK wygasa, ponieważ usługa zaczyna być realizowana natychmiast na Twoje żądanie. W przypadku PRO Tour możesz odstąpić w ciągu 14 dni od pierwszej subskrypcji, pomniejszone o wartość już dostarczonej analizy. Napisz na tacticaltennislab@gmail.com, aby poprosić o zwrot, lub zobacz pełny regulamin na /terms.",
         },
       ],
     },
@@ -252,7 +252,7 @@ const pl: FaqDict = {
         {
           question: "Czy widzę wszystko, co moje dziecko wysyła i otrzymuje?",
           answer:
-            "Tak. Konto ma tylko jedno logowanie, więc każde wideo, notatka trenera i wiadomość przechodzą przez to jedno konto i są widoczne dla osoby, która je posiada — nie ma osobnego ani ukrytego kanału między trenerem a niepełnoletnim.",
+            "Tak. Konto ma tylko jedno logowanie, więc każde wideo, notatka trenera i wiadomość przechodzą przez to jedno konto i są widoczne dla osoby, która je posiada, nie ma osobnego ani ukrytego kanału między trenerem a niepełnoletnim.",
         },
         {
           question: "Czy dane mojego dziecka są bezpieczne?",
@@ -267,7 +267,7 @@ const pl: FaqDict = {
         {
           question: "Jak działają zniżki za polecenie?",
           answer:
-            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2 — 40%, a 5 — większość planów za darmo (PRO Tour jest ograniczone do 40% zniżki, a Match IQ: Full do 50%, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
+            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2, 40%, a 5, większość planów za darmo (PRO Tour jest ograniczone do 40% zniżki, a Match IQ: Full do 50%, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
         },
       ],
     },
@@ -277,12 +277,12 @@ const pl: FaqDict = {
         {
           question: "Czy moja analiza jest pisana przez AI?",
           answer:
-            "Nie. Każdy plan i każda informacja zwrotna są tworzone osobiście przez jednego z naszych trenerów — byłych zawodników ATP i certyfikowanych trenerów ITF Level 2 — na podstawie Twojego wideo i celów. Widżet czatu \"Szybkie pytania\" na stronie to osobny asystent AI, który odpowiada wyłącznie na proste pytania o ceny i zasady; nie analizuje wideo ani nie udziela porad trenerskich.",
+            "Nie. Każdy plan i każda informacja zwrotna są tworzone osobiście przez jednego z naszych trenerów, byłych zawodników ATP i certyfikowanych trenerów ITF Level 2, na podstawie Twojego wideo i celów. Widżet czatu \"Szybkie pytania\" na stronie to osobny asystent AI, który odpowiada wyłącznie na proste pytania o ceny i zasady; nie analizuje wideo ani nie udziela porad trenerskich.",
         },
         {
           question: "Czy mogę zostawić opinię?",
           answer:
-            "Tak — przejdź na /review (link znajduje się też w stopce). Opinie są sprawdzane przez administratora, zanim pojawią się publicznie, więc nie zobaczysz jej na stronie głównej od razu.",
+            "Tak. Przejdź na /review (link znajduje się też w stopce). Opinie są sprawdzane przez administratora, zanim pojawią się publicznie, więc nie zobaczysz jej na stronie głównej od razu.",
         },
       ],
     },
@@ -303,7 +303,7 @@ const es: FaqDict = {
         {
           question: "¿Cómo funciona para una academia?",
           answer:
-            "Tu academia tiene su propia cuenta, que creamos cuando se acuerda la colaboración. El propietario invita a entrenadores y jugadores por correo electrónico. Los jugadores suben vídeos de entrenamientos o partidos desde sus propias cuentas, un entrenador real — un exjugador del ATP o un entrenador certificado ITF Level 2 — los analiza, y el feedback aparece en el panel de la academia para tus entrenadores y el jugador.",
+            "Tu academia tiene su propia cuenta, que creamos cuando se acuerda la colaboración. El propietario invita a entrenadores y jugadores por correo electrónico. Los jugadores suben vídeos de entrenamientos o partidos desde sus propias cuentas, un entrenador real, un exjugador del ATP o un entrenador certificado ITF Level 2, los analiza, y el feedback aparece en el panel de la academia para tus entrenadores y el jugador.",
         },
         {
           question: "¿Sustituís a nuestros entrenadores?",
@@ -313,7 +313,7 @@ const es: FaqDict = {
         {
           question: "¿Qué incluyen los paquetes para academias?",
           answer:
-            "Club Starter (550 USD/mes) incluye 5–8 análisis al mes, Academy Standard (1100 USD/mes) 10–15 más una persona de contacto dedicada, y High Performance Club (1950 USD/mes) más de 20 con soporte prioritario y planes de entrenamiento compartidos. Los paquetes de temporada cubren 40–50 análisis en 3 meses (5500 USD) u 80–90 en 6 meses (9500 USD). Consulta los detalles en /pricing.",
+            "Club Starter (550 USD/mes) incluye 5 a 8 análisis al mes, Academy Standard (1100 USD/mes) 10 a 15 más una persona de contacto dedicada, y High Performance Club (1950 USD/mes) más de 20 con soporte prioritario y planes de entrenamiento compartidos. Los paquetes de temporada cubren 40 a 50 análisis en 3 meses (5500 USD) u 80 a 90 en 6 meses (9500 USD). Consulta los detalles en /pricing.",
         },
         {
           question: "¿Quién puede ver los vídeos de nuestros jugadores?",
@@ -333,12 +333,12 @@ const es: FaqDict = {
         {
           question: "¿Cómo funciona para un jugador individual?",
           answer:
-            "Creas una cuenta, envías un vídeo de entrenamiento o partido junto con lo que quieres que se revise, y un entrenador real — un exjugador del ATP o un entrenador certificado ITF Level 2 — lo revisa personalmente fotograma a fotograma. Nada se genera automáticamente. Recibes tu análisis y un plan a través de tu cuenta y por email.",
+            "Creas una cuenta, envías un vídeo de entrenamiento o partido junto con lo que quieres que se revise, y un entrenador real, un exjugador del ATP o un entrenador certificado ITF Level 2, lo revisa personalmente fotograma a fotograma. Nada se genera automáticamente. Recibes tu análisis y un plan a través de tu cuenta y por email.",
         },
         {
           question: "¿Qué tipo de vídeo debería enviar?",
           answer:
-            "Graba desde el lateral para que tu entrenador pueda ver tu swing completo, tu juego de piernas y tu posición corporal. Capta varios puntos o un peloteo corto en lugar de un solo golpe, y mantén la cámara estable — apoya el móvil sobre algo firme o usa un trípode. Usa el campo de notas para decir exactamente qué feedback quieres.",
+            "Graba desde el lateral para que tu entrenador pueda ver tu swing completo, tu juego de piernas y tu posición corporal. Capta varios puntos o un peloteo corto en lugar de un solo golpe, y mantén la cámara estable, apoya el móvil sobre algo firme o usa un trípode. Usa el campo de notas para decir exactamente qué feedback quieres.",
         },
         {
           question: "¿Necesito una cuenta para enviar un vídeo?",
@@ -367,7 +367,7 @@ const es: FaqDict = {
         {
           question: "¿Puedo cancelar PRO Tour en cualquier momento?",
           answer:
-            "Sí. Cancela cuando quieras desde tu cuenta — tiene efecto al final de tu periodo de facturación actual, y mantienes el acceso hasta entonces. No ofrecemos reembolsos parciales por tiempo no utilizado dentro de un periodo de facturación.",
+            "Sí. Cancela cuando quieras desde tu cuenta, tiene efecto al final de tu periodo de facturación actual, y mantienes el acceso hasta entonces. No ofrecemos reembolsos parciales por tiempo no utilizado dentro de un periodo de facturación.",
         },
         {
           question: "¿Cuál es vuestra política de reembolsos?",
@@ -387,7 +387,7 @@ const es: FaqDict = {
         {
           question: "¿Puedo ver todo lo que mi hijo/a envía o recibe?",
           answer:
-            "Sí. Solo hay un inicio de sesión por cuenta, así que cada vídeo, nota del entrenador y mensaje pasa por esa única cuenta y es visible para quien la tenga — no hay un canal separado ni oculto entre un entrenador y un menor.",
+            "Sí. Solo hay un inicio de sesión por cuenta, así que cada vídeo, nota del entrenador y mensaje pasa por esa única cuenta y es visible para quien la tenga, no hay un canal separado ni oculto entre un entrenador y un menor.",
         },
         {
           question: "¿Están seguros los datos de mi hijo/a?",
@@ -412,12 +412,12 @@ const es: FaqDict = {
         {
           question: "¿Mi análisis está escrito por IA?",
           answer:
-            "No. Cada plan y cada feedback lo elabora personalmente uno de nuestros entrenadores — exjugadores del ATP y entrenadores certificados ITF Level 2 — según tu vídeo y tus objetivos. El widget de chat \"Preguntas rápidas\" de la web es un asistente de IA independiente que solo responde preguntas sencillas sobre precios y políticas; no revisa vídeo ni da consejos de coaching.",
+            "No. Cada plan y cada feedback lo elabora personalmente uno de nuestros entrenadores, exjugadores del ATP y entrenadores certificados ITF Level 2, según tu vídeo y tus objetivos. El widget de chat \"Preguntas rápidas\" de la web es un asistente de IA independiente que solo responde preguntas sencillas sobre precios y políticas; no revisa vídeo ni da consejos de coaching.",
         },
         {
           question: "¿Puedo dejar una opinión?",
           answer:
-            "Sí — ve a /review (también enlazado en el pie de página). Las opiniones son revisadas por un administrador antes de aparecer públicamente, así que no la verás en la página principal de inmediato.",
+            "Sí. Ve a /review (también enlazado en el pie de página). Las opiniones son revisadas por un administrador antes de aparecer públicamente, así que no la verás en la página principal de inmediato.",
         },
       ],
     },
@@ -438,7 +438,7 @@ const it: FaqDict = {
         {
           question: "Come funziona per un'accademia?",
           answer:
-            "La tua accademia ha un proprio account, che creiamo quando la collaborazione è concordata. Il titolare invita allenatori e giocatori via e-mail. I giocatori caricano video di allenamenti o partite dai propri account, un allenatore vero — un ex giocatore ATP o un allenatore certificato ITF Level 2 — li analizza, e il feedback compare nella dashboard dell'accademia per i tuoi allenatori e per il giocatore.",
+            "La tua accademia ha un proprio account, che creiamo quando la collaborazione è concordata. Il titolare invita allenatori e giocatori via email. I giocatori caricano video di allenamenti o partite dai propri account, un allenatore vero, un ex giocatore ATP o un allenatore certificato ITF Level 2, li analizza, e il feedback compare nella dashboard dell'accademia per i tuoi allenatori e per il giocatore.",
         },
         {
           question: "Sostituite i nostri allenatori?",
@@ -448,7 +448,7 @@ const it: FaqDict = {
         {
           question: "Cosa includono i pacchetti per accademie?",
           answer:
-            "Club Starter (550 USD/mese) include 5–8 analisi al mese, Academy Standard (1100 USD/mese) 10–15 più un referente dedicato, e High Performance Club (1950 USD/mese) oltre 20 con supporto prioritario e piani di allenamento condivisi. I pacchetti stagionali coprono 40–50 analisi in 3 mesi (5500 USD) o 80–90 in 6 mesi (9500 USD). Vedi i dettagli su /pricing.",
+            "Club Starter (550 USD/mese) include 5 a 8 analisi al mese, Academy Standard (1100 USD/mese) 10 a 15 più un referente dedicato, e High Performance Club (1950 USD/mese) oltre 20 con supporto prioritario e piani di allenamento condivisi. I pacchetti stagionali coprono 40 a 50 analisi in 3 mesi (5500 USD) o 80 a 90 in 6 mesi (9500 USD). Vedi i dettagli su /pricing.",
         },
         {
           question: "Chi può vedere i video dei nostri giocatori?",
@@ -458,7 +458,7 @@ const it: FaqDict = {
         {
           question: "Come iniziamo?",
           answer:
-            "Scegli un pacchetto su /pricing oppure scrivici su /contact. Una volta concordata la collaborazione, creiamo l'account della tua accademia e inviamo un invito via e-mail al titolare.",
+            "Scegli un pacchetto su /pricing oppure scrivici su /contact. Una volta concordata la collaborazione, creiamo l'account della tua accademia e inviamo un invito via email al titolare.",
         },
       ],
     },
@@ -468,12 +468,12 @@ const it: FaqDict = {
         {
           question: "Come funziona per un giocatore individuale?",
           answer:
-            "Crei un account, invii un video di allenamento o partita insieme a ciò su cui vuoi un feedback, e un allenatore vero — un ex giocatore ATP o un allenatore certificato ITF Level 2 — lo rivede personalmente fotogramma per fotogramma. Niente è generato automaticamente. Ricevi la tua analisi e un piano tramite il tuo account e via email.",
+            "Crei un account, invii un video di allenamento o partita insieme a ciò su cui vuoi un feedback, e un allenatore vero, un ex giocatore ATP o un allenatore certificato ITF Level 2, lo rivede personalmente fotogramma per fotogramma. Niente è generato automaticamente. Ricevi la tua analisi e un piano tramite il tuo account e via email.",
         },
         {
           question: "Che tipo di video dovrei inviare?",
           answer:
-            "Filma di lato così il tuo allenatore può vedere tutto lo swing, il gioco di gambe e la posizione del corpo. Cattura alcuni punti o uno scambio breve invece di un singolo colpo, e tieni la fotocamera stabile — appoggia il telefono a qualcosa di solido o usa un treppiede. Usa il campo note per dire esattamente su cosa vuoi un feedback.",
+            "Filma di lato così il tuo allenatore può vedere tutto lo swing, il gioco di gambe e la posizione del corpo. Cattura alcuni punti o uno scambio breve invece di un singolo colpo, e tieni la fotocamera stabile, appoggia il telefono a qualcosa di solido o usa un treppiede. Usa il campo note per dire esattamente su cosa vuoi un feedback.",
         },
         {
           question: "Ho bisogno di un account per inviare un video?",
@@ -502,7 +502,7 @@ const it: FaqDict = {
         {
           question: "Posso annullare PRO Tour in qualsiasi momento?",
           answer:
-            "Sì. Annulla quando vuoi dal tuo account — ha effetto alla fine del periodo di fatturazione corrente, e mantieni l'accesso fino ad allora. Non offriamo rimborsi parziali per il tempo non utilizzato in un periodo di fatturazione.",
+            "Sì. Annulla quando vuoi dal tuo account, ha effetto alla fine del periodo di fatturazione corrente, e mantieni l'accesso fino ad allora. Non offriamo rimborsi parziali per il tempo non utilizzato in un periodo di fatturazione.",
         },
         {
           question: "Qual è la vostra politica di rimborso?",
@@ -522,7 +522,7 @@ const it: FaqDict = {
         {
           question: "Posso vedere tutto ciò che mio figlio/a invia o riceve?",
           answer:
-            "Sì. C'è un solo accesso per account, quindi ogni video, nota dell'allenatore e messaggio passa attraverso quell'unico account ed è visibile a chi lo possiede — non c'è un canale separato o nascosto tra un allenatore e un minore.",
+            "Sì. C'è un solo accesso per account, quindi ogni video, nota dell'allenatore e messaggio passa attraverso quell'unico account ed è visibile a chi lo possiede, non c'è un canale separato o nascosto tra un allenatore e un minore.",
         },
         {
           question: "I dati di mio figlio/a sono al sicuro?",
@@ -547,12 +547,12 @@ const it: FaqDict = {
         {
           question: "La mia analisi è scritta dall'IA?",
           answer:
-            "No. Ogni piano e ogni feedback è costruito personalmente da uno dei nostri allenatori — ex giocatori ATP e allenatori certificati ITF Level 2 — in base al tuo video e ai tuoi obiettivi. Il widget di chat \"Domande rapide\" sul sito è un assistente IA separato che risponde solo a domande semplici su prezzi e policy; non rivede video né dà consigli di coaching.",
+            "No. Ogni piano e ogni feedback è costruito personalmente da uno dei nostri allenatori, ex giocatori ATP e allenatori certificati ITF Level 2, in base al tuo video e ai tuoi obiettivi. Il widget di chat \"Domande rapide\" sul sito è un assistente IA separato che risponde solo a domande semplici su prezzi e policy; non rivede video né dà consigli di coaching.",
         },
         {
           question: "Posso lasciare una recensione?",
           answer:
-            "Sì — vai su /review (linkato anche nel footer). Le recensioni sono controllate da un amministratore prima di apparire pubblicamente, quindi non la vedrai subito sulla homepage.",
+            "Sì. Vai su /review (linkato anche nel footer). Le recensioni sono controllate da un amministratore prima di apparire pubblicamente, quindi non la vedrai subito sulla homepage.",
         },
       ],
     },
@@ -573,22 +573,22 @@ const ru: FaqDict = {
         {
           question: "Как это работает для академии?",
           answer:
-            "У вашей академии есть собственный аккаунт, который мы создаём после согласования сотрудничества. Владелец приглашает тренеров и игроков по электронной почте. Игроки загружают записи тренировок или матчей из своих аккаунтов, настоящий тренер — бывший игрок ATP или сертифицированный тренер ITF Level 2 — разбирает их, а обратная связь появляется в панели академии для ваших тренеров и игрока.",
+            "У вашей академии есть собственный аккаунт, который мы создаём после согласования сотрудничества. Владелец приглашает тренеров и игроков по электронной почте. Игроки загружают записи тренировок или матчей из своих аккаунтов, настоящий тренер, бывший игрок ATP или сертифицированный тренер ITF Level 2, разбирает их, а обратная связь появляется в панели академии для ваших тренеров и игрока.",
         },
         {
           question: "Вы заменяете наших тренеров?",
           answer:
-            "Нет. Мы — система поддержки для ваших тренеров. Мы берём на себя трудоёмкий видео- и матч-анализ, чтобы они могли направить силы на корт, и работаем вместе с ними, а не вместо них.",
+            "Нет. Мы являемся системой поддержки для ваших тренеров. Мы берём на себя трудоёмкий видеоанализ и анализ матчей, чтобы они могли направить силы на корт, и работаем вместе с ними, а не вместо них.",
         },
         {
           question: "Что входит в пакеты для академий?",
           answer:
-            "Club Starter (550 USD/мес.) — 5–8 анализов в месяц, Academy Standard (1100 USD/мес.) — 10–15 анализов и выделенный контакт, High Performance Club (1950 USD/мес.) — более 20 анализов, приоритетная поддержка и общие планы тренировок. Сезонные пакеты — 40–50 анализов за 3 месяца (5500 USD) или 80–90 за 6 месяцев (9500 USD). Подробности на /pricing.",
+            "Club Starter (550 USD/мес.): от 5 до 8 анализов в месяц, Academy Standard (1100 USD/мес.), от 10 до 15 анализов и выделенный контакт, High Performance Club (1950 USD/мес.), более 20 анализов, приоритетная поддержка и общие планы тренировок. Сезонные пакеты, от 40 до 50 анализов за 3 месяца (5500 USD) или от 80 до 90 за 6 месяцев (9500 USD). Подробности на /pricing.",
         },
         {
           question: "Кто видит видео наших игроков?",
           answer:
-            "Собственный аккаунт игрока, тренеры вашей академии и наши тренеры. Игроки присоединяются к академии только приняв приглашение, что оставляет чёткую запись о согласии — это важно для несовершеннолетних. Ваши тренеры могут просматривать видео и оставлять отзывы, но удалить видео может только наша команда.",
+            "Собственный аккаунт игрока, тренеры вашей академии и наши тренеры. Игроки присоединяются к академии только приняв приглашение, что оставляет чёткую запись о согласии, это важно для несовершеннолетних. Ваши тренеры могут просматривать видео и оставлять отзывы, но удалить видео может только наша команда.",
         },
         {
           question: "Как начать?",
@@ -603,12 +603,12 @@ const ru: FaqDict = {
         {
           question: "Как это работает для индивидуального игрока?",
           answer:
-            "Вы создаёте аккаунт, отправляете видео с тренировки или матча вместе с тем, что хотите разобрать, и настоящий тренер — бывший игрок ATP или сертифицированный тренер ITF Level 2 — лично разбирает его покадрово. Ничего не генерируется автоматически. Вы получаете анализ и план через аккаунт и по email.",
+            "Вы создаёте аккаунт, отправляете видео с тренировки или матча вместе с тем, что хотите разобрать, и настоящий тренер, бывший игрок ATP или сертифицированный тренер ITF Level 2, лично разбирает его покадрово. Ничего не генерируется автоматически. Вы получаете анализ и план через аккаунт и по email.",
         },
         {
           question: "Какое видео мне отправить?",
           answer:
-            "Снимайте сбоку, чтобы тренер видел весь замах, работу ног и положение тела. Захватите несколько розыгрышей или короткий обмен ударами, а не один удар, и держите камеру стабильно — обоприте телефон о что-то устойчивое или используйте штатив. В поле заметок укажите точно, что хотите разобрать.",
+            "Снимайте сбоку, чтобы тренер видел весь замах, работу ног и положение тела. Захватите несколько розыгрышей или короткий обмен ударами, а не один удар, и держите камеру стабильно, обоприте телефон о устойчивую опору или используйте штатив. В поле заметок укажите точно, что хотите разобрать.",
         },
         {
           question: "Нужен ли аккаунт, чтобы отправить видео?",
@@ -618,7 +618,7 @@ const ru: FaqDict = {
         {
           question: "Это для академий или для индивидуальных игроков?",
           answer:
-            "Для обоих. Академии и клубы — наш главный фокус: мы поддерживаем их тренеров видео- и матч-анализом. Индивидуальные игроки тоже приветствуются: они могут отправить видео и выбрать разовый или ежемесячный план.",
+            "Для обоих. Академии и клубы: наш главный фокус: мы поддерживаем их тренеров видеоанализом и анализом матчей. Индивидуальные игроки тоже приветствуются: они могут отправить видео и выбрать разовый или ежемесячный план.",
         },
       ],
     },
@@ -628,7 +628,7 @@ const ru: FaqDict = {
         {
           question: "Какие планы вы предлагаете?",
           answer:
-            "Stroke Fix ($49, разово) — сфокусированный технический разбор одной проблемы. Smart System ($99) — 4-недельная программа развития одного удара. Match IQ доступен в версиях Short ($99, до 60 минут видео) и Full ($159, до полного матча). PRO Tour ($249/месяц) — постоянный коучинг с до 4 анализами в месяц и прямым доступом к тренеру.",
+            "Stroke Fix ($49, разово): сфокусированный технический разбор одной проблемы. Smart System ($99), четырёхнедельная программа развития одного удара. Match IQ доступен в версиях Short ($99, до 60 минут видео) и Full ($159, до полного матча). PRO Tour ($249/месяц), постоянный коучинг с до 4 анализами в месяц и прямым доступом к тренеру.",
         },
         {
           question: "Включён ли налог в цену?",
@@ -637,12 +637,12 @@ const ru: FaqDict = {
         {
           question: "Могу ли я отменить PRO Tour в любое время?",
           answer:
-            "Да. Отмените в любой момент из своего аккаунта — это вступит в силу в конце текущего расчётного периода, а доступ сохранится до этого момента. Мы не предоставляем частичный возврат за неиспользованное время в расчётном периоде.",
+            "Да. Отмените в любой момент из своего аккаунта, это вступит в силу в конце текущего расчётного периода, а доступ сохранится до этого момента. Мы не предоставляем частичный возврат за неиспользованное время в расчётном периоде.",
         },
         {
           question: "Какова ваша политика возврата средств?",
           answer:
-            "Для разовых планов вы можете получить полный возврат до того, как тренер начал ваш анализ; как только анализ начинается, 14-дневное право на отказ для потребителей из ЕС/ЕЭЗ/Великобритании прекращается, так как услуга начинает выполняться немедленно по вашему запросу. Для PRO Tour вы можете отказаться в течение 14 дней с момента первой подписки, за вычетом стоимости уже предоставленного анализа. Напишите на tacticaltennislab@gmail.com, чтобы запросить возврат, или посмотрите полные условия на /terms.",
+            "Для разовых планов вы можете получить полный возврат до того, как тренер начал ваш анализ; как только анализ начинается, 14 дневное право на отказ для потребителей из ЕС/ЕЭЗ/Великобритании прекращается, так как услуга начинает выполняться немедленно по вашему запросу. Для PRO Tour вы можете отказаться в течение 14 дней с момента первой подписки, за вычетом стоимости уже предоставленного анализа. Напишите на tacticaltennislab@gmail.com, чтобы запросить возврат, или посмотрите полные условия на /terms.",
         },
       ],
     },
@@ -657,7 +657,7 @@ const ru: FaqDict = {
         {
           question: "Вижу ли я всё, что отправляет и получает мой ребёнок?",
           answer:
-            "Да. У аккаунта только один логин, поэтому каждое видео, заметка тренера и сообщение проходят через этот единственный аккаунт и видны тому, кто им владеет — отдельного или скрытого канала между тренером и несовершеннолетним не существует.",
+            "Да. У аккаунта только один логин, поэтому каждое видео, заметка тренера и сообщение проходят через этот единственный аккаунт и видны тому, кто им владеет, отдельного или скрытого канала между тренером и несовершеннолетним не существует.",
         },
         {
           question: "Безопасны ли данные моего ребёнка?",
@@ -672,7 +672,7 @@ const ru: FaqDict = {
         {
           question: "Как работают реферальные скидки?",
           answer:
-            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2 — 40%, а 5 — большинство планов бесплатно (PRO Tour ограничен скидкой 40%, а Match IQ: Full — 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
+            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2, 40%, а 5, большинство планов бесплатно (PRO Tour ограничен скидкой 40%, а Match IQ: Full, 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
         },
       ],
     },
@@ -682,12 +682,12 @@ const ru: FaqDict = {
         {
           question: "Мой анализ написан ИИ?",
           answer:
-            "Нет. Каждый план и каждая обратная связь создаются лично одним из наших тренеров — бывшими игроками ATP и сертифицированными тренерами ITF Level 2 — на основе вашего видео и целей. Виджет чата «Быстрые вопросы» на сайте — это отдельный ИИ-ассистент, который отвечает только на простые вопросы о ценах и политиках; он не разбирает видео и не даёт тренерских советов.",
+            "Нет. Каждый план и каждая обратная связь создаются лично одним из наших тренеров, бывшими игроками ATP и сертифицированными тренерами ITF Level 2, на основе вашего видео и целей. Виджет чата «Быстрые вопросы» на сайте, это отдельный ассистент на основе ИИ, который отвечает только на простые вопросы о ценах и политиках; он не разбирает видео и не даёт тренерских советов.",
         },
         {
           question: "Могу ли я оставить отзыв?",
           answer:
-            "Да — перейдите на /review (ссылка есть также в подвале сайта). Отзывы проверяются администратором перед публикацией, поэтому вы не увидите его на главной странице сразу.",
+            "Да. Перейдите на /review (ссылка есть также в подвале сайта). Отзывы проверяются администратором перед публикацией, поэтому вы не увидите его на главной странице сразу.",
         },
       ],
     },

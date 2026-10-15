@@ -19,7 +19,7 @@ type PurchaseSummary = {
 function paymentStatus(purchases: PurchaseSummary[]): { label: string; tone: string } {
   if (purchases.some((p) => p.status === "active")) {
     const active = purchases.find((p) => p.status === "active")!;
-    return { label: `Active — ${active.planName}`, tone: "bg-green-50 text-green-700" };
+    return { label: `Active: ${active.planName}`, tone: "bg-green-50 text-green-700" };
   }
   if (purchases.some((p) => p.status === "past_due" || p.status === "unpaid")) {
     return { label: "Past due", tone: "bg-amber-50 text-amber-700" };
@@ -27,7 +27,7 @@ function paymentStatus(purchases: PurchaseSummary[]): { label: string; tone: str
   const paid = purchases.filter((p) => p.status === "paid");
   if (paid.length > 0) {
     return {
-      label: paid.length === 1 ? `Paid — ${paid[0].planName}` : `Paid — ${paid.length} plans`,
+      label: paid.length === 1 ? `Paid: ${paid[0].planName}` : `Paid: ${paid.length} plans`,
       tone: "bg-green-50 text-green-700",
     };
   }
@@ -71,7 +71,7 @@ export default async function CustomersPage() {
       <PageHeader
         eyebrow="Admin"
         title="Customers"
-        subtitle={`${customers.length} signed-up ${customers.length === 1 ? "customer" : "customers"}.`}
+        subtitle={`${customers.length} signed up ${customers.length === 1 ? "customer" : "customers"}.`}
       />
       <main className="flex-1 px-4 py-12">
         <div className="max-w-3xl mx-auto">
@@ -84,7 +84,7 @@ export default async function CustomersPage() {
                   <tr className="bg-surface-muted text-left text-muted">
                     <th className="px-4 py-3 font-medium">Name</th>
                     <th className="px-4 py-3 font-medium">Email</th>
-                    <th className="px-4 py-3 font-medium">Sign-in</th>
+                    <th className="px-4 py-3 font-medium">Sign in</th>
                     <th className="px-4 py-3 font-medium">Status</th>
                     <th className="px-4 py-3 font-medium">Videos</th>
                     <th className="px-4 py-3 font-medium">Joined</th>
@@ -96,7 +96,7 @@ export default async function CustomersPage() {
                     const status = paymentStatus(c.purchases);
                     return (
                     <tr key={c.id} className="border-t border-line">
-                      <td className="px-4 py-3 font-medium">{c.name || "—"}</td>
+                      <td className="px-4 py-3 font-medium">{c.name || "No name"}</td>
                       <td className="px-4 py-3">{c.email}</td>
                       <td className="px-4 py-3 text-body">
                         {c.accounts.some((a) => a.provider === "google")

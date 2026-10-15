@@ -52,7 +52,7 @@ export default function AiFaqWidget() {
                   Quick questions
                 </p>
                 <p className="text-xs text-white/60 mt-0.5">
-                  AI assistant — pricing &amp; plans only, not a coach.
+                  AI assistant: pricing &amp; plans only, not a coach.
                 </p>
               </div>
               <button

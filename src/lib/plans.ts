@@ -18,7 +18,7 @@ export const PLANS: Plan[] = [
     amountCents: 4900,
     name: "Stroke Fix",
     price: "$49",
-    period: "one-time",
+    period: "one time",
     description: "Professional biomechanical analysis of one specific technical issue.",
     features: [
       "Video breakdown",
@@ -27,7 +27,7 @@ export const PLANS: Plan[] = [
       "Correction recommendations",
     ],
     whatYouGet: [
-      "What's actually causing the issue — not just what looks wrong",
+      "What's actually causing the issue: not just what looks wrong",
       "Whether it's technique, timing, or a footwork problem underneath it",
       "The one change to prioritize first, not five conflicting opinions",
       "A drill you can start on today",
@@ -40,8 +40,8 @@ export const PLANS: Plan[] = [
     amountCents: 9900,
     name: "Smart System",
     price: "$99",
-    period: "4-week program",
-    description: "An individualized four-week development system focused on one stroke.",
+    period: "4 week program",
+    description: "An individualized four week development system focused on one stroke.",
     features: [
       "7 progressive training sessions",
       "Technical development pathway",
@@ -51,7 +51,7 @@ export const PLANS: Plan[] = [
     ],
     whatYouGet: [
       "Which single stroke is worth a full month of your court time",
-      "A week-by-week progression, not a scattered list of drills",
+      "A week by week progression, not a scattered list of drills",
       "What to check after each session so you're not repeating the same mistake",
       "When to move from feel, to speed, to match pace",
       "What \"done\" looks like before you move on to the next stroke",
@@ -63,7 +63,7 @@ export const PLANS: Plan[] = [
     amountCents: 9900,
     name: "Match IQ: Short",
     price: "$99",
-    period: "one-time",
+    period: "one time",
     description: "A focused tactical analysis of one set or up to 60 minutes of match play.",
     features: [
       "Up to 60 minutes of match footage",
@@ -85,7 +85,7 @@ export const PLANS: Plan[] = [
     amountCents: 15900,
     name: "Match IQ: Full",
     price: "$159",
-    period: "one-time",
+    period: "one time",
     description: "A complete tactical breakdown of your match, point by point.",
     features: [
       "Up to one full match (max 2 hours of footage)",
@@ -96,11 +96,11 @@ export const PLANS: Plan[] = [
       "Full match intelligence report",
     ],
     whatYouGet: [
-      "Which patterns are actually winning you points — and which ones you keep repeating for nothing",
+      "Which patterns are actually winning you points, and which ones you keep repeating for nothing",
       "What really happens after your first and second serve",
       "Where you're positioned for the return, and whether you're pressuring second serves",
       "Whether your first shot after the return goes the right direction",
-      "How your decision-making changes at 30-30, deuce, and break points",
+      "How your decision making changes at 30-30, deuce, and break points",
       "Whether you're trying to finish points too early",
       "Which side of the court you keep getting pushed off of",
       "Whether you recover to a neutral position after defending",

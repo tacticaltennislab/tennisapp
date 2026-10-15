@@ -18,7 +18,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       description: "Profesjonalna analiza biomechaniczna jednego konkretnego problemu technicznego.",
       features: ["Analiza wideo", "Diagnoza techniczna", "Informacja zwrotna wizualna", "Zalecenia korekcyjne"],
       whatYouGet: [
-        "Co naprawdę powoduje problem — nie tylko co wygląda źle",
+        "Co naprawdę powoduje problem: nie tylko co wygląda źle",
         "Czy to technika, timing, czy problem z pracą nóg pod spodem",
         "Jedną zmianę, od której warto zacząć, a nie pięć sprzecznych opinii",
         "Ćwiczenie, które możesz zacząć już dziś",
@@ -31,7 +31,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       description: "Análisis biomecánico profesional de un problema técnico concreto.",
       features: ["Análisis de vídeo", "Diagnóstico técnico", "Feedback visual", "Recomendaciones de corrección"],
       whatYouGet: [
-        "Qué está causando realmente el problema — no solo qué se ve mal",
+        "Qué está causando realmente el problema, no solo qué se ve mal",
         "Si es técnica, timing, o un problema de juego de piernas debajo",
         "El único cambio a priorizar primero, no cinco opiniones contradictorias",
         "Un ejercicio que puedes empezar hoy mismo",
@@ -44,7 +44,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       description: "Analisi biomeccanica professionale di un problema tecnico specifico.",
       features: ["Analisi video", "Diagnosi tecnica", "Feedback visivo", "Raccomandazioni correttive"],
       whatYouGet: [
-        "Cosa sta davvero causando il problema — non solo cosa sembra sbagliato",
+        "Cosa sta davvero causando il problema, non solo cosa sembra sbagliato",
         "Se è tecnica, tempismo, o un problema di gioco di gambe sottostante",
         "L'unico cambiamento da prioritizzare, non cinque opinioni contrastanti",
         "Un esercizio che puoi iniziare oggi stesso",
@@ -57,7 +57,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       description: "Профессиональный биомеханический анализ одной конкретной технической проблемы.",
       features: ["Разбор видео", "Техническая диагностика", "Визуальная обратная связь", "Рекомендации по исправлению"],
       whatYouGet: [
-        "Что на самом деле вызывает проблему — а не просто что выглядит неправильно",
+        "Что на самом деле вызывает проблему, а не просто что выглядит неправильно",
         "Техника это, тайминг или проблема с работой ног в основе",
         "Одно изменение, с которого стоит начать, а не пять противоречивых мнений",
         "Упражнение, которое можно начать уже сегодня",
@@ -68,7 +68,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
   "smart-system": {
     pl: {
       name: "Smart System",
-      period: "program 4-tygodniowy",
+      period: "program czterotygodniowy",
       description: "Indywidualny czterotygodniowy system rozwoju skupiony na jednym uderzeniu.",
       features: [
         "7 progresywnych sesji treningowych",
@@ -125,7 +125,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
     },
     ru: {
       name: "Smart System",
-      period: "4-недельная программа",
+      period: "четырёхнедельная программа",
       description: "Индивидуальная четырёхнедельная система развития одного удара.",
       features: [
         "7 прогрессивных тренировочных сессий",
@@ -231,7 +231,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
         "Pełny raport inteligencji meczowej",
       ],
       whatYouGet: [
-        "Które wzorce naprawdę dają Ci punkty — a które powtarzasz bez sensu",
+        "Które wzorce naprawdę dają Ci punkty, a które powtarzasz bez sensu",
         "Co naprawdę dzieje się po pierwszym i drugim serwisie",
         "Gdzie jesteś ustawiony przy returnie i czy naciskasz na drugi serwis",
         "Czy pierwsze uderzenie po returnie idzie w dobrym kierunku",
@@ -255,7 +255,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
         "Informe completo de inteligencia de partido",
       ],
       whatYouGet: [
-        "Qué patrones te están dando puntos de verdad — y cuáles repites sin sentido",
+        "Qué patrones te están dando puntos de verdad, y cuáles repites sin sentido",
         "Qué pasa realmente después de tu primer y segundo servicio",
         "Dónde estás posicionado en el resto, y si presionas los segundos servicios",
         "Si tu primer golpe tras el resto va en la dirección correcta",
@@ -279,7 +279,7 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
         "Report completo di match intelligence",
       ],
       whatYouGet: [
-        "Quali schemi ti stanno davvero facendo vincere punti — e quali ripeti inutilmente",
+        "Quali schemi ti stanno davvero facendo vincere punti, e quali ripeti inutilmente",
         "Cosa succede davvero dopo la tua prima e seconda di servizio",
         "Dove sei posizionato in risposta, e se metti pressione sulle seconde",
         "Se il tuo primo colpo dopo la risposta va nella direzione giusta",
@@ -303,11 +303,11 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
         "Полный отчёт о матчевом интеллекте",
       ],
       whatYouGet: [
-        "Какие паттерны реально приносят вам очки — а какие вы бессмысленно повторяете",
+        "Какие паттерны реально приносят вам очки, а какие вы бессмысленно повторяете",
         "Что на самом деле происходит после первой и второй подачи",
         "Где вы располагаетесь на приёме и давите ли на вторую подачу",
         "Идёт ли ваш первый удар после приёма в нужном направлении",
-        "Как меняется принятие решений при счёте 30-30, при равных и на брейк-пойнтах",
+        "Как меняется принятие решений при счёте 30-30, при равных и на брейк пойнтах",
         "Не пытаетесь ли вы завершить розыгрыш слишком рано",
         "С какой стороны корта вас постоянно вытесняют",
         "Возвращаетесь ли вы в нейтральную позицию после защиты",

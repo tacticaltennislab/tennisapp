@@ -23,7 +23,7 @@ export async function POST(request: Request) {
 
   if (body?.acknowledgedWithdrawal !== true) {
     return NextResponse.json(
-      { error: "You must acknowledge the withdrawal-rights notice before checkout." },
+      { error: "You must acknowledge the withdrawal rights notice before checkout." },
       { status: 400 }
     );
   }
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
       {
         price_data: {
           currency: "usd",
-          product_data: { name: `Tactical Tennis Lab — ${plan.name}` },
+          product_data: { name: `Tactical Tennis Lab: ${plan.name}` },
           unit_amount: discountedAmount,
           ...(plan.mode === "subscription"
             ? { recurring: { interval: plan.interval || "month" } }
