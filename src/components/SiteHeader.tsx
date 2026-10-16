@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { IconClose, IconMenu } from "@/components/icons";
 import PushToggle from "@/components/PushToggle";
+import AdminNavMenu from "@/components/AdminNavMenu";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher, { currentLocaleFromPathname } from "@/components/LanguageSwitcher";
 import { localizedHref } from "@/i18n/locales";
@@ -101,6 +102,9 @@ export default function SiteHeader() {
           <Link href={localizedHref(locale, "/coaches")} className={linkClass}>
             {t.coaches}
           </Link>
+          <Link href={`${localizedHref(locale, "/")}#reviews`} className={linkClass}>
+            {t.customerReviews}
+          </Link>
           <Link href={localizedHref(locale, "/contact")} className={linkClass}>
             {t.contact}
           </Link>
@@ -109,25 +113,25 @@ export default function SiteHeader() {
               <Link href={localizedHref(locale, "/submit-video")} className={linkClass}>
                 {t.sendVideo}
               </Link>
-              {session.user?.role === "admin" && (
-                <>
-                  <Link href="/submissions" className={linkClass}>
-                    {t.submissions}
+              {isAdmin ? (
+                <AdminNavMenu
+                  label={t.admin}
+                  linkClass={linkClass}
+                  items={[
+                    { href: "/submissions", label: t.submissions },
+                    { href: "/customers", label: t.customers },
+                    { href: "/reviews/admin", label: t.reviews },
+                    ...(academyLink ? [{ href: academyLink.href, label: academyLink.label }] : []),
+                  ]}
+                />
+              ) : (
+                academyLink && (
+                  <Link href={academyLink.href} className={linkClass}>
+                    {academyLink.label}
                   </Link>
-                  <Link href="/customers" className={linkClass}>
-                    {t.customers}
-                  </Link>
-                  <Link href="/reviews/admin" className={linkClass}>
-                    {t.reviews}
-                  </Link>
-                </>
+                )
               )}
-              {academyLink && (
-                <Link href={academyLink.href} className={linkClass}>
-                  {academyLink.label}
-                </Link>
-              )}
-              <Link href={localizedHref(locale, "/account")} className={linkClass}>
+              <Link href={localizedHref(locale, "/account")} className={`${linkClass} max-w-[10rem] truncate`}>
                 {session.user?.name || session.user?.email}
               </Link>
               <PushToggle />
@@ -173,6 +177,9 @@ export default function SiteHeader() {
           </Link>
           <Link href={localizedHref(locale, "/coaches")} className={linkClass} onClick={closeMenu}>
             {t.coaches}
+          </Link>
+          <Link href={`${localizedHref(locale, "/")}#reviews`} className={linkClass} onClick={closeMenu}>
+            {t.customerReviews}
           </Link>
           <Link href={localizedHref(locale, "/contact")} className={linkClass} onClick={closeMenu}>
             {t.contact}

@@ -44,7 +44,10 @@ export default function SiteFooter() {
           <Link href={localizedHref(locale, "/faq")} className="text-body hover:text-brand-600">
             {t.faq}
           </Link>
-          <Link href="/review" className="text-body hover:text-brand-600">
+          <Link href={`${localizedHref(locale, "/")}#reviews`} className="text-body hover:text-brand-600">
+            {t.reviews}
+          </Link>
+          <Link href={localizedHref(locale, "/review")} className="text-body hover:text-brand-600">
             {t.leaveReview}
           </Link>
           <Link href={localizedHref(locale, "/contact")} className="text-body hover:text-brand-600">

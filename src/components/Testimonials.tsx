@@ -37,7 +37,7 @@ export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }
   });
 
   return (
-    <section className="px-4 py-16">
+    <section id="reviews" className="scroll-mt-20 px-4 py-16">
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center">
           <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
@@ -73,6 +73,9 @@ export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }
                           <video
                             src={`/api/reviews/${r.id}/media`}
                             controls
+                            // Don't download the video until the visitor presses play --
+                            // every byte here is billed as Blob Data Transfer.
+                            preload="none"
                             className="mt-3 w-full rounded-lg bg-chip aspect-video"
                           />
                         ) : (
@@ -80,6 +83,7 @@ export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }
                           <img
                             src={`/api/reviews/${r.id}/media`}
                             alt=""
+                            loading="lazy"
                             className="mt-3 w-full rounded-lg object-cover aspect-video"
                           />
                         ))}

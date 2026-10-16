@@ -8,6 +8,8 @@ export interface NavDict {
   submissions: string;
   customers: string;
   reviews: string;
+  customerReviews: string;
+  admin: string;
   academy: string;
   academies: string;
   signIn: string;
@@ -22,7 +24,9 @@ const en: NavDict = {
   sendVideo: "Send Video",
   submissions: "Submissions",
   customers: "Customers",
-  reviews: "Reviews",
+  reviews: "Review queue",
+  customerReviews: "Reviews",
+  admin: "Admin",
   academy: "Academy",
   academies: "Academies",
   signIn: "Sign in",
@@ -37,7 +41,9 @@ const pl: NavDict = {
   sendVideo: "Wyślij wideo",
   submissions: "Zgłoszenia",
   customers: "Klienci",
-  reviews: "Opinie",
+  reviews: "Moderacja opinii",
+  customerReviews: "Opinie",
+  admin: "Admin",
   academy: "Akademia",
   academies: "Akademie",
   signIn: "Zaloguj się",
@@ -52,7 +58,9 @@ const es: NavDict = {
   sendVideo: "Enviar vídeo",
   submissions: "Envíos",
   customers: "Clientes",
-  reviews: "Opiniones",
+  reviews: "Moderar opiniones",
+  customerReviews: "Opiniones",
+  admin: "Admin",
   academy: "Academia",
   academies: "Academias",
   signIn: "Iniciar sesión",
@@ -67,7 +75,9 @@ const it: NavDict = {
   sendVideo: "Invia video",
   submissions: "Invii",
   customers: "Clienti",
-  reviews: "Recensioni",
+  reviews: "Modera recensioni",
+  customerReviews: "Recensioni",
+  admin: "Admin",
   academy: "Accademia",
   academies: "Accademie",
   signIn: "Accedi",
@@ -82,7 +92,9 @@ const ru: NavDict = {
   sendVideo: "Отправить видео",
   submissions: "Заявки",
   customers: "Клиенты",
-  reviews: "Отзывы",
+  reviews: "Модерация отзывов",
+  customerReviews: "Отзывы",
+  admin: "Админ",
   academy: "Академия",
   academies: "Академии",
   signIn: "Войти",
