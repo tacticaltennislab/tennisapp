@@ -31,8 +31,8 @@ export default function ForgotPasswordContent({ lang = "en" }: { lang?: AppLocal
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1">{t.email}</label>
-            <input
+            <label htmlFor="forgotpassword-1" className="block text-sm font-medium mb-1">{t.email}</label>
+            <input id="forgotpassword-1"
               type="email"
               required
               value={email}

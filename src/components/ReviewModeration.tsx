@@ -21,7 +21,7 @@ const STATUS_TONE: Record<string, string> = {
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="text-lime-500" aria-label={`${rating} out of 5 stars`}>
+    <span className="text-ink" aria-label={`${rating} out of 5 stars`}>
       {"★".repeat(rating)}
       <span className="text-line">{"★".repeat(5 - rating)}</span>
     </span>

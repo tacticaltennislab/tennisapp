@@ -109,7 +109,7 @@ export default function ReviewForm({
               onClick={() => setRating(n)}
               aria-label={`${n} ${t.ratingAria}`}
               className={`text-2xl leading-none transition-colors ${
-                n <= rating ? "text-lime-500" : "text-line hover:text-lime-300"
+                n <= rating ? "text-ink" : "text-line-strong hover:text-brand-500"
               }`}
             >
               ★
@@ -124,6 +124,7 @@ export default function ReviewForm({
           minLength={10}
           rows={4}
           placeholder={t.bodyPlaceholder}
+          aria-label={t.bodyPlaceholder}
           className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
         />
 

@@ -69,8 +69,8 @@ function ResetPasswordForm({ lang }: { lang: AppLocale }) {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1">{t.newPassword}</label>
-            <input
+            <label htmlFor="resetpassword-1" className="block text-sm font-medium mb-1">{t.newPassword}</label>
+            <input id="resetpassword-1"
               type="password"
               required
               minLength={8}

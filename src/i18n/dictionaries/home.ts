@@ -3,14 +3,20 @@ import type { AppLocale } from "@/i18n/locales";
 export interface HomeDict {
   badges: [string, string, string, string];
   hero: {
-    titlePre: string;
-    titleHighlight: string;
-    titleSuffix: string;
+    title: string;
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary: string;
     playersNote: string;
     playersLink: string;
+  };
+  services: {
+    eyebrow: string;
+    title: string;
+    included: string;
+    from: string;
+    names: [string, string, string];
+    cta: string;
   };
   offersPreview: {
     cta: string;
@@ -81,15 +87,21 @@ export interface HomeDict {
 const en: HomeDict = {
   badges: ["Former ATP Players", "ATP Certified Coaches", "ITF Level 2 Coaches", "Worldwide Coaching"],
   hero: {
-    titlePre: "Build a stronger academy with ",
-    titleHighlight: "better analysis",
-    titleSuffix: "of every player.",
+    title: "Every point, understood.",
     subtitle:
-      "We support your coaches with professional video and match analysis, tactical patterns, how points are won and lost, and clear next steps for every player, so your coaches can focus their energy on the court.",
+      "Premium video and match analysis for tennis academies. Reviewed frame by frame by former ATP players and ITF Level 2 coaches, then returned to your coaches as clear, usable feedback.",
     ctaPrimary: "Partner with us",
     ctaSecondary: "View academy packages",
     playersNote: "Training on your own?",
     playersLink: "See player plans",
+  },
+  services: {
+    eyebrow: "Our services",
+    title: "Three ways to understand the game.",
+    included: "Included in every academy package.",
+    from: "Individual players from",
+    names: ["Stroke Analysis", "Training Programs", "Match Analysis"],
+    cta: "See pricing",
   },
   offersPreview: {
     cta: "See full details & get started",
@@ -206,15 +218,21 @@ const en: HomeDict = {
 const pl: HomeDict = {
   badges: ["Byli zawodnicy ATP", "Trenerzy certyfikowani ATP", "Trenerzy ITF Level 2", "Trenerzy na całym świecie"],
   hero: {
-    titlePre: "Zbuduj silniejszą akademię dzięki ",
-    titleHighlight: "lepszej analizie",
-    titleSuffix: "każdego zawodnika.",
+    title: "Zrozum każdy punkt.",
     subtitle:
-      "Wspieramy Twoich trenerów profesjonalną analizą wideo i meczową, wzorce taktyczne, to jak punkty są wygrywane i tracone, oraz jasne kolejne kroki dla każdego zawodnika, aby trenerzy mogli skupić energię na korcie.",
+      "Premium analiza wideo i meczowa dla akademii tenisowych. Każde nagranie analizują klatka po klatce byli zawodnicy ATP i trenerzy ITF Level 2, a Twoi trenerzy dostają jasną, użyteczną informację zwrotną.",
     ctaPrimary: "Zostań naszym partnerem",
     ctaSecondary: "Zobacz pakiety dla akademii",
     playersNote: "Trenujesz indywidualnie?",
     playersLink: "Zobacz plany dla zawodników",
+  },
+  services: {
+    eyebrow: "Nasze usługi",
+    title: "Trzy sposoby, by zrozumieć grę.",
+    included: "W cenie każdego pakietu dla akademii.",
+    from: "Zawodnicy indywidualni od",
+    names: ["Analiza uderzeń", "Programy treningowe", "Analiza meczu"],
+    cta: "Zobacz cennik",
   },
   offersPreview: {
     cta: "Zobacz pełne szczegóły i zacznij",
@@ -331,15 +349,21 @@ const pl: HomeDict = {
 const es: HomeDict = {
   badges: ["Exjugadores del ATP", "Entrenadores certificados por la ATP", "Entrenadores ITF Level 2", "Entrenamiento en todo el mundo"],
   hero: {
-    titlePre: "Construye una academia más fuerte con ",
-    titleHighlight: "mejor análisis",
-    titleSuffix: "de cada jugador.",
+    title: "Entiende cada punto.",
     subtitle:
-      "Apoyamos a tus entrenadores con análisis profesional de vídeo y de partidos, patrones tácticos, cómo se ganan y se pierden los puntos y próximos pasos claros para cada jugador, para que tus entrenadores concentren su energía en la pista.",
+      "Análisis premium de vídeo y de partidos para academias de tenis. Revisado fotograma a fotograma por exjugadores del ATP y entrenadores ITF Level 2, y devuelto a tus entrenadores como feedback claro y útil.",
     ctaPrimary: "Colabora con nosotros",
     ctaSecondary: "Ver paquetes para academias",
     playersNote: "¿Entrenas por tu cuenta?",
     playersLink: "Ver planes para jugadores",
+  },
+  services: {
+    eyebrow: "Nuestros servicios",
+    title: "Tres formas de entender el juego.",
+    included: "Incluido en todos los paquetes para academias.",
+    from: "Jugadores individuales desde",
+    names: ["Análisis de golpes", "Programas de entrenamiento", "Análisis de partidos"],
+    cta: "Ver precios",
   },
   offersPreview: {
     cta: "Ver todos los detalles y empezar",
@@ -456,15 +480,21 @@ const es: HomeDict = {
 const it: HomeDict = {
   badges: ["Ex giocatori ATP", "Allenatori certificati ATP", "Allenatori ITF Level 2", "Coaching in tutto il mondo"],
   hero: {
-    titlePre: "Costruisci un'accademia più forte con ",
-    titleHighlight: "un'analisi migliore",
-    titleSuffix: "di ogni giocatore.",
+    title: "Capisci ogni punto.",
     subtitle:
-      "Supportiamo i tuoi allenatori con analisi professionale di video e partite, schemi tattici, come si vincono e si perdono i punti e prossimi passi chiari per ogni giocatore, così i tuoi allenatori possono concentrare le energie sul campo.",
+      "Analisi premium di video e partite per accademie di tennis. Esaminata fotogramma per fotogramma da ex giocatori ATP e allenatori ITF Level 2, e restituita ai tuoi allenatori come feedback chiaro e utilizzabile.",
     ctaPrimary: "Collabora con noi",
     ctaSecondary: "Vedi i pacchetti per accademie",
     playersNote: "Ti alleni da solo?",
     playersLink: "Vedi i piani per giocatori",
+  },
+  services: {
+    eyebrow: "I nostri servizi",
+    title: "Tre modi per capire il gioco.",
+    included: "Incluso in ogni pacchetto per accademie.",
+    from: "Giocatori individuali da",
+    names: ["Analisi dei colpi", "Programmi di allenamento", "Analisi delle partite"],
+    cta: "Vedi i prezzi",
   },
   offersPreview: {
     cta: "Vedi tutti i dettagli e inizia",
@@ -581,15 +611,21 @@ const it: HomeDict = {
 const ru: HomeDict = {
   badges: ["Бывшие игроки ATP", "Тренеры с сертификатом ATP", "Тренеры уровня ITF Level 2", "Тренировки по всему миру"],
   hero: {
-    titlePre: "Постройте более сильную академию с ",
-    titleHighlight: "лучшим анализом",
-    titleSuffix: "каждого игрока.",
+    title: "Понимайте каждое очко.",
     subtitle:
-      "Мы поддерживаем ваших тренеров профессиональным видеоанализом и разбором матчей, тактические паттерны, как выигрываются и проигрываются очки и понятные следующие шаги для каждого игрока,, чтобы тренеры могли направить энергию на корт.",
+      "Премиальный видеоанализ и анализ матчей для теннисных академий. Бывшие игроки ATP и тренеры ITF Level 2 разбирают каждое видео покадрово и возвращают вашим тренерам понятную, применимую обратную связь.",
     ctaPrimary: "Стать партнёром",
     ctaSecondary: "Пакеты для академий",
     playersNote: "Тренируетесь самостоятельно?",
     playersLink: "Планы для игроков",
+  },
+  services: {
+    eyebrow: "Наши услуги",
+    title: "Три способа понять игру.",
+    included: "Входит в каждый пакет для академий.",
+    from: "Индивидуальным игрокам от",
+    names: ["Анализ ударов", "Тренировочные программы", "Анализ матчей"],
+    cta: "Смотреть цены",
   },
   offersPreview: {
     cta: "Смотреть все детали и начать",

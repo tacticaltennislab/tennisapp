@@ -1,27 +1,28 @@
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import Reveal from "@/components/Reveal";
 import SampleAnalysisMock from "@/components/SampleAnalysisMock";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import type { AppLocale } from "@/i18n/locales";
 
+/** Shows what a delivered analysis looks like. Illustrative, and labelled
+ * as such inside the report itself. */
 export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale }) {
   const t = homeDictionaries[lang].productScroll;
 
   return (
-    <section id="sample-analysis" className="bg-forest section-pad scroll-mt-20">
-      <ContainerScroll
-        titleComponent={
-          <>
-            <p className="eyebrow !text-gold">{t.eyebrow}</p>
-            <h2 className="mt-4 text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.95] text-cream">
-              {t.titleLine1}
-              <br />
-              <span className="text-gold">{t.titleLine2}</span>
-            </h2>
-          </>
-        }
-      >
-        <SampleAnalysisMock lang={lang} />
-      </ContainerScroll>
+    <section id="sample-analysis" className="section-pad bg-surface-muted scroll-mt-16">
+      <div className="container-x">
+        <Reveal className="max-w-3xl">
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2 className="t-h2 mt-4">
+            {t.titleLine1} <span className="text-muted">{t.titleLine2}</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={80} className="mt-12 md:mt-16">
+          <div className="max-w-5xl overflow-hidden rounded-3xl border border-line bg-background shadow-md">
+            <SampleAnalysisMock lang={lang} />
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

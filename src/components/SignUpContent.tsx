@@ -67,8 +67,8 @@ function SignUpForm({ lang }: { lang: AppLocale }) {
     <AuthLayout title={t.signUp.title} subtitle={t.signUp.subtitle} lang={lang}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1">{t.signUp.name}</label>
-          <input
+          <label htmlFor="signup-1" className="block text-sm font-medium mb-1">{t.signUp.name}</label>
+          <input id="signup-1"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -76,8 +76,8 @@ function SignUpForm({ lang }: { lang: AppLocale }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">{t.signUp.email}</label>
-          <input
+          <label htmlFor="signup-2" className="block text-sm font-medium mb-1">{t.signUp.email}</label>
+          <input id="signup-2"
             type="email"
             required
             value={email}
@@ -86,8 +86,8 @@ function SignUpForm({ lang }: { lang: AppLocale }) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">{t.signUp.password}</label>
-          <input
+          <label htmlFor="signup-3" className="block text-sm font-medium mb-1">{t.signUp.password}</label>
+          <input id="signup-3"
             type="password"
             required
             minLength={8}

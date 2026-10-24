@@ -31,7 +31,7 @@ export default function AuthLayout({
           }}
         />
         <div className="relative p-10 text-white max-w-md">
-          <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
+          <p className="text-sm font-semibold text-gold uppercase tracking-wide">
             Tactical Tennis Lab
           </p>
           <h2 className="text-3xl font-bold mt-2 leading-tight text-white">{panel.title}</h2>

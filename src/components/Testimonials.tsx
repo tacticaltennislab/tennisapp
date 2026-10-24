@@ -6,25 +6,6 @@ import { IconArrowRight } from "@/components/icons";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((p) => p[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
-
-function Stars({ rating }: { rating: number }) {
-  return (
-    <span className="text-brand-500 text-sm tracking-wide" aria-label={`${rating} out of 5 stars`}>
-      {"★".repeat(rating)}
-      <span className="text-line">{"★".repeat(5 - rating)}</span>
-    </span>
-  );
-}
-
 export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }) {
   const t = homeDictionaries[lang].testimonials;
   const reviewHref = localizedHref(lang, "/review");
@@ -51,36 +32,32 @@ export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }
       : null;
 
   return (
-    <section id="reviews" className="scroll-mt-20 section-pad">
+    <section id="reviews" className="section-pad scroll-mt-16">
       <div className="container-x">
-        <Reveal className="text-center">
+        <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>
-          <h2 className="t-h2 mt-3">{t.title}</h2>
-          {summary && <p className="t-mono mt-3 text-sm text-muted">{summary}</p>}
+          <h2 className="t-h2 mt-4">{t.title}</h2>
+          {summary && <p className="t-mono mt-5 text-sm text-muted">{summary}</p>}
         </Reveal>
 
         {reviews.length === 0 ? (
-          <Reveal variant="zoom" delay={100} className="mt-10">
-            <div className="max-w-md mx-auto text-center rounded-2xl border border-dashed border-line p-8">
-              <p className="text-body">{t.emptyText}</p>
-              <Link href={reviewHref} className="btn btn-primary mt-4">
-                {t.emptyCta}
-                <IconArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+          <Reveal delay={100} className="mt-14">
+            <p className="t-lead max-w-xl">{t.emptyText}</p>
+            <Link href={reviewHref} className="btn btn-primary mt-6">
+              {t.emptyCta}
+            </Link>
           </Reveal>
         ) : (
           <>
-            {/* Columns pack cards of different lengths without ragged gaps. */}
-            <div className="mt-10 columns-1 gap-6 md:columns-2 lg:columns-3">
+            {/* Real customer words, set as quotations. Columns pack unequal lengths. */}
+            <div className="mt-14 columns-1 gap-x-14 md:mt-20 md:columns-2 lg:columns-3">
               {reviews.map((r, i) => {
                 const name = r.user.name || r.user.email.split("@")[0];
                 const mediaSrc = `/api/reviews/${r.id}/media`;
                 return (
-                  <Reveal key={r.id} variant="zoom" delay={i * 80} className="mb-6 break-inside-avoid">
-                    <figure className="card p-6">
-                      <Stars rating={r.rating} />
-                      <blockquote className="mt-3 text-[0.9375rem] leading-relaxed text-body">
+                  <Reveal key={r.id} delay={i * 60} className="mb-12 break-inside-avoid">
+                    <figure className="border-t border-ink pt-6">
+                      <blockquote className="text-[1.1875rem] leading-relaxed tracking-tight text-ink">
                         &ldquo;{r.body}&rdquo;
                       </blockquote>
                       {r.mediaUrl &&
@@ -92,24 +69,25 @@ export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }
                             src={mediaSrc}
                             alt=""
                             loading="lazy"
-                            className="mt-4 w-full rounded-lg object-cover aspect-video"
+                            className="mt-5 w-full rounded-2xl object-cover aspect-video"
                           />
                         ))}
-                      <figcaption className="mt-5 flex items-center gap-3 border-t border-line pt-4">
-                        <span className="w-9 h-9 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold flex items-center justify-center shrink-0">
-                          {initials(name)}
+                      <figcaption className="mt-5 text-sm text-muted">
+                        <span className="font-medium text-ink">{name}</span>
+                        <span className="ml-2" aria-label={`${r.rating} out of 5 stars`}>
+                          {"★".repeat(r.rating)}
                         </span>
-                        <span className="text-sm font-medium text-ink">{name}</span>
                       </figcaption>
                     </figure>
                   </Reveal>
                 );
               })}
             </div>
-            <p className="mt-6 text-center text-sm text-muted">
+            <p className="text-sm text-muted">
               {t.filledPrefix}{" "}
-              <Link href={reviewHref} className="text-brand-600 font-semibold hover:underline">
+              <Link href={reviewHref} className="link-arrow !font-semibold">
                 {t.filledCta}
+                <IconArrowRight className="h-3.5 w-3.5" />
               </Link>
             </p>
           </>

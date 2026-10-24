@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { currentLocaleFromPathname } from "@/components/LanguageSwitcher";
 import { localizedHref } from "@/i18n/locales";
+import BrandLogo from "@/components/BrandLogo";
 import { footerDictionaries } from "@/i18n/dictionaries/footer";
 import { navDictionaries } from "@/i18n/dictionaries/nav";
 
@@ -17,21 +17,13 @@ export default function SiteFooter() {
   const pathname = usePathname();
   const locale = currentLocaleFromPathname(pathname);
   const t = footerDictionaries[locale];
-  const link = "text-body hover:text-brand-600 transition-colors";
+  const link = "text-body hover:text-ink hover:underline underline-offset-4 transition-colors";
 
   return (
-    // "dark" scopes the colour tokens to their dark values inside this
-    // permanently dark footer.
-    <footer className="dark print:hidden bg-brand-900 border-t border-white/10 text-body">
+    <footer className="print:hidden bg-surface-muted border-t border-line text-body">
       <div className="container-x py-12 grid gap-10 md:grid-cols-[1.1fr_1.4fr] md:gap-16">
         <div>
-          <Image
-            src="/brand/logo-dark.png"
-            alt="Tactical Tennis Lab"
-            width={1203}
-            height={369}
-            className="h-11 w-auto"
-          />
+          <BrandLogo className="h-10" />
           <p className="mt-4 max-w-sm text-sm text-muted">{t.tagline}</p>
           <a
             href="mailto:tacticaltennislab@gmail.com"
@@ -68,14 +60,14 @@ export default function SiteFooter() {
         </nav>
       </div>
 
-      <div className="border-t border-white/10">
+      <div className="border-t border-line">
         <div className="container-x py-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs text-muted">
           <p>&copy; {new Date().getFullYear()} Tactical Tennis Lab</p>
           <div className="flex gap-5">
-            <Link href={localizedHref(locale, "/terms")} className="hover:text-brand-600 transition-colors">
+            <Link href={localizedHref(locale, "/terms")} className="hover:text-ink hover:underline underline-offset-4 transition-colors">
               {t.terms}
             </Link>
-            <Link href={localizedHref(locale, "/privacy")} className="hover:text-brand-600 transition-colors">
+            <Link href={localizedHref(locale, "/privacy")} className="hover:text-ink hover:underline underline-offset-4 transition-colors">
               {t.privacy}
             </Link>
           </div>

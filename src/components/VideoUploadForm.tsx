@@ -88,8 +88,8 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
       className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
-        <label className="block text-sm font-medium mb-1">{t.titleLabel}</label>
-        <input
+        <label htmlFor="videouploadform-1" className="block text-sm font-medium mb-1">{t.titleLabel}</label>
+        <input id="videouploadform-1"
           type="text"
           placeholder={t.titlePlaceholder}
           value={title}
@@ -98,8 +98,8 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium mb-1">{t.feedbackLabel}</label>
-        <textarea
+        <label htmlFor="videouploadform-2" className="block text-sm font-medium mb-1">{t.feedbackLabel}</label>
+        <textarea id="videouploadform-2"
           placeholder={t.feedbackPlaceholder}
           value={note}
           onChange={(e) => setNote(e.target.value)}
@@ -135,8 +135,8 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">{t.primaryGoal}</label>
-          <select
+          <label htmlFor="videouploadform-3" className="block text-sm font-medium mb-1">{t.primaryGoal}</label>
+          <select id="videouploadform-3"
             value={goal}
             onChange={(e) => setGoal(e.target.value as Goal)}
             className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"

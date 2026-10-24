@@ -53,8 +53,8 @@ export default function ContactForm({ lang = "en" }: { lang?: AppLocale }) {
       className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
       <div>
-        <label className="block text-sm font-medium mb-1">{t.name}</label>
-        <input
+        <label htmlFor="contactform-1" className="block text-sm font-medium mb-1">{t.name}</label>
+        <input id="contactform-1"
           type="text"
           required
           value={name}
@@ -63,8 +63,8 @@ export default function ContactForm({ lang = "en" }: { lang?: AppLocale }) {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium mb-1">{t.email}</label>
-        <input
+        <label htmlFor="contactform-2" className="block text-sm font-medium mb-1">{t.email}</label>
+        <input id="contactform-2"
           type="email"
           required
           value={email}
@@ -73,8 +73,8 @@ export default function ContactForm({ lang = "en" }: { lang?: AppLocale }) {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium mb-1">{t.message}</label>
-        <textarea
+        <label htmlFor="contactform-3" className="block text-sm font-medium mb-1">{t.message}</label>
+        <textarea id="contactform-3"
           required
           rows={5}
           value={message}

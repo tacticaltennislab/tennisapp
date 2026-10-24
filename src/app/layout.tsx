@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#192f22",
+  themeColor: "#ffffff",
 };
 
 const organizationJsonLd = {
@@ -113,7 +113,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <HtmlLangSync />
           <ReferralCapture />
           <SiteHeader />
-          {children}
+          <div id="main-content" tabIndex={-1} className="flex-1 flex flex-col outline-none">
+            {children}
+          </div>
           <SiteFooter />
           <ChatWidget />
           <AiFaqWidget />

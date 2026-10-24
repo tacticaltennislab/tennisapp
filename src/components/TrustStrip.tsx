@@ -2,19 +2,15 @@ import { homeDictionaries } from "@/i18n/dictionaries/home";
 import { backedByTitle } from "@/components/BackedBy";
 import type { AppLocale } from "@/i18n/locales";
 
-/** Slim credentials bar directly under the hero: who reviews the video and
- * who backs the project. Moved out of the hero so the headline stays clean. */
+/** One quiet line of credentials under the hero. */
 export default function TrustStrip({ lang = "en" }: { lang?: AppLocale }) {
-  const items = [...homeDictionaries[lang].badges, backedByTitle(lang)];
+  const items = [...homeDictionaries[lang].badges.slice(0, 3), backedByTitle(lang)];
 
   return (
-    <div className="bg-surface border-b border-line">
-      <ul className="container-x py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.8125rem] font-medium text-body">
+    <div className="border-y border-line">
+      <ul className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-2 py-5 text-[0.875rem] text-muted">
         {items.map((item) => (
-          <li key={item} className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-500" aria-hidden="true" />
-            {item}
-          </li>
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </div>

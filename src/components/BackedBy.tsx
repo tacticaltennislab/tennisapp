@@ -42,17 +42,13 @@ export default function BackedBy({ lang = "en" }: { lang?: AppLocale }) {
   const t = COPY[lang];
 
   return (
-    <section id="backing" className="section-pad bg-surface-muted scroll-mt-20">
+    <section id="backing" className="section-pad scroll-mt-16">
       <Reveal className="container-x">
-        <div className="grid gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12 md:items-start border-l-2 border-brand-500 pl-6 md:pl-8">
-          <div>
-            <p className="eyebrow">{t.eyebrow}</p>
-            <h2 className="t-h2 mt-3">{t.title}</h2>
-          </div>
-          <div>
-            <p className="text-body text-base leading-relaxed">{t.body}</p>
-            <p className="mt-4 text-[0.8125rem] text-muted">{t.note}</p>
-          </div>
+        <div className="max-w-3xl">
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2 className="t-h2 mt-4">{t.title}</h2>
+          <p className="t-lead mt-5 max-w-xl">{t.body}</p>
+          <p className="mt-6 max-w-xl text-sm text-muted">{t.note}</p>
         </div>
       </Reveal>
     </section>

@@ -53,8 +53,8 @@ function SignInForm({ lang }: { lang: AppLocale }) {
     <AuthLayout title={t.signIn.title} subtitle={t.signIn.subtitle} lang={lang}>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1">{t.signIn.email}</label>
-          <input
+          <label htmlFor="signin-1" className="block text-sm font-medium mb-1">{t.signIn.email}</label>
+          <input id="signin-1"
             type="email"
             required
             value={email}
@@ -64,12 +64,12 @@ function SignInForm({ lang }: { lang: AppLocale }) {
         </div>
         <div>
           <div className="flex items-center justify-between mb-1">
-            <label className="block text-sm font-medium">{t.signIn.password}</label>
+            <label htmlFor="signin-2" className="block text-sm font-medium">{t.signIn.password}</label>
             <Link href={localizedHref(lang, "/forgot-password")} className="text-xs text-brand-600 font-medium">
               {t.signIn.forgotPassword}
             </Link>
           </div>
-          <input
+          <input id="signin-2"
             type="password"
             required
             value={password}

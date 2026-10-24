@@ -10,6 +10,7 @@ export interface NavDict {
   reviews: string;
   customerReviews: string;
   admin: string;
+  skip: string;
   academy: string;
   academies: string;
   signIn: string;
@@ -27,6 +28,7 @@ const en: NavDict = {
   reviews: "Review queue",
   customerReviews: "Reviews",
   admin: "Admin",
+  skip: "Skip to content",
   academy: "Academy",
   academies: "Academies",
   signIn: "Sign in",
@@ -44,6 +46,7 @@ const pl: NavDict = {
   reviews: "Moderacja opinii",
   customerReviews: "Opinie",
   admin: "Admin",
+  skip: "Przejdź do treści",
   academy: "Akademia",
   academies: "Akademie",
   signIn: "Zaloguj się",
@@ -61,6 +64,7 @@ const es: NavDict = {
   reviews: "Moderar opiniones",
   customerReviews: "Opiniones",
   admin: "Admin",
+  skip: "Saltar al contenido",
   academy: "Academia",
   academies: "Academias",
   signIn: "Iniciar sesión",
@@ -78,6 +82,7 @@ const it: NavDict = {
   reviews: "Modera recensioni",
   customerReviews: "Recensioni",
   admin: "Admin",
+  skip: "Vai al contenuto",
   academy: "Accademia",
   academies: "Accademie",
   signIn: "Accedi",
@@ -95,6 +100,7 @@ const ru: NavDict = {
   reviews: "Модерация отзывов",
   customerReviews: "Отзывы",
   admin: "Админ",
+  skip: "Перейти к содержанию",
   academy: "Академия",
   academies: "Академии",
   signIn: "Войти",

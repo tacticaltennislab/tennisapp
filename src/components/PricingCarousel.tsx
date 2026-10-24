@@ -132,9 +132,9 @@ export default function PricingCarousel({
                       : "border-line bg-surface"
                   }`}
                 >
-                  <h3 className={`font-bold text-xl ${plan.featured ? "text-white" : "text-ink"}`}>
+                  <h2 className={`font-bold text-xl ${plan.featured ? "text-white" : "text-ink"}`}>
                     {text.name}
-                  </h3>
+                  </h2>
                   {discountPercent > 0 ? (
                     <p className="mt-3 flex items-baseline gap-2 flex-wrap">
                       <span className={`text-sm line-through ${plan.featured ? "text-white/60" : "text-muted"}`}>
@@ -146,7 +146,7 @@ export default function PricingCarousel({
                       </span>
                       <span
                         className={`text-xs font-semibold rounded-full px-2 py-0.5 ${
-                          plan.featured ? "bg-white/20 text-white" : "bg-lime-100 text-lime-700"
+                          plan.featured ? "bg-white/20 text-white" : "bg-brand-100 text-ink"
                         }`}
                       >
                         {discountPercent}
