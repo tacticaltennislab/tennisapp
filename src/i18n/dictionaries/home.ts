@@ -52,17 +52,6 @@ export interface HomeDict {
     summary: string; // {rating} {count}
     playVideo: string;
   };
-  beforeAfter: {
-    eyebrow: string;
-    title: string;
-    lead: string;
-    before: string;
-    after: string;
-    beforeText: string;
-    afterText: string;
-    caption: string;
-    legend: string;
-  };
   ctaBand: {
     title: string;
     subtitle: string;
@@ -89,8 +78,14 @@ export interface HomeDict {
     priority: string;
     recommendedTitle: string;
     recommended: string[];
-    courtTitle: string;
+    frameLabel: string;
+    frameNote: string;
     courtNote: string;
+    tabObserved: string;
+    tabRecommended: string;
+    zoneLabel: string;
+    stepsInLabel: string;
+    mixLabel: string;
     footer: string;
   };
 }
@@ -176,17 +171,6 @@ const en: HomeDict = {
     summary: "Average rating {rating} / 5 · Reviews: {count}",
     playVideo: "Play video review",
   },
-  beforeAfter: {
-    eyebrow: "Tactical analysis",
-    title: "Spot the pattern. Then change it.",
-    lead: "One second serve pattern, before and after the coach's recommendation.",
-    before: "Before",
-    after: "After",
-    beforeText: "Every second serve lands in the same zone. The returner knows where to stand and attacks early.",
-    afterText: "Placement is mixed between the T, the body and wide. The returner can no longer prepare for a single target.",
-    caption: "Illustration of one pattern. A real analysis shows patterns from your own match footage.",
-    legend: "Dots show where each second serve landed. Filled circle: server. Open circle: returner.",
-  },
   ctaBand: {
     title: "Give your coaches their time on court back.",
     subtitle: "Tell us about your academy, or compare the packages first.",
@@ -209,13 +193,19 @@ const en: HomeDict = {
     meta: "Singles match · hard court · illustrative",
     player: "Player A · U16 · right handed baseline player",
     observedTitle: "Observed",
-    observed: ["Second serves land in the same zone, so the returner steps in early.", "Direction changes come late in cross court rallies.", "The first strike to the open court after a serve is a clear strength."],
+    observed: ["Second serves land in the same zone, so the returner knows where to stand.", "The returner steps inside the baseline and takes the ball early."],
     priorityTitle: "Priority",
     priority: "Make the second serve harder to read.",
     recommendedTitle: "Recommended next step",
     recommended: ["Add second serve variations to the body and wide.", "Drill: change direction down the line on the first neutral ball."],
-    courtTitle: "Second serve placement",
+    frameLabel: "Illustrative court view with tactical annotations",
+    frameNote: "Illustrative court view. Positions and paths are examples, not match data.",
     courtNote: "Each dot is one second serve in this example. Filled circle: server. Open circle: returner.",
+    tabObserved: "Observed",
+    tabRecommended: "Recommended",
+    zoneLabel: "Same zone every time",
+    stepsInLabel: "Returner steps in",
+    mixLabel: "Mix the targets",
     footer: "Illustrative example, not a real client report. Real reports are written by Tactical Tennis Lab coaches from your own footage.",
   },
 };
@@ -301,17 +291,6 @@ const pl: HomeDict = {
     summary: "Średnia ocena {rating} / 5 · Opinie: {count}",
     playVideo: "Odtwórz opinię wideo",
   },
-  beforeAfter: {
-    eyebrow: "Analiza taktyczna",
-    title: "Dostrzeż wzorzec. Potem go zmień.",
-    lead: "Jeden wzorzec drugiego serwisu przed rekomendacją trenera i po niej.",
-    before: "Przed",
-    after: "Po",
-    beforeText: "Każdy drugi serwis ląduje w tej samej strefie. Odbierający wie, gdzie stanąć, i atakuje wcześnie.",
-    afterText: "Miejsce lądowania jest zróżnicowane: T, ciało i szeroko. Odbierający nie może już przygotować się na jeden cel.",
-    caption: "Ilustracja jednego wzorca. Prawdziwa analiza pokazuje wzorce z Twojego własnego nagrania meczu.",
-    legend: "Kropki pokazują, gdzie wylądował każdy drugi serwis. Pełne koło: serwujący. Puste koło: odbierający.",
-  },
   ctaBand: {
     title: "Oddaj swoim trenerom czas na korcie.",
     subtitle: "Opowiedz nam o swojej akademii albo najpierw porównaj pakiety.",
@@ -334,13 +313,19 @@ const pl: HomeDict = {
     meta: "Mecz singlowy · twarda nawierzchnia · poglądowo",
     player: "Zawodnik A · U16 · praworęczny, gra z głębi kortu",
     observedTitle: "Zaobserwowano",
-    observed: ["Drugie serwisy lądują w tej samej strefie, więc odbierający wchodzi w kort od razu.", "Zmiany kierunku w wymianach po przekątnej następują zbyt późno.", "Pierwsze uderzenie w otwarty kort po serwisie jest wyraźnym atutem."],
+    observed: ["Drugie serwisy lądują w tej samej strefie, więc odbierający wie, gdzie stanąć.", "Odbierający wchodzi w kort przed linię końcową i przyjmuje piłkę wcześnie."],
     priorityTitle: "Priorytet",
     priority: "Utrudnić odczytanie drugiego serwisu.",
     recommendedTitle: "Zalecany następny krok",
     recommended: ["Dodać warianty drugiego serwisu w ciało i szeroko.", "Ćwiczenie: zmiana kierunku po linii przy pierwszej neutralnej piłce."],
-    courtTitle: "Rozmieszczenie drugiego serwisu",
+    frameLabel: "Poglądowy widok kortu z adnotacjami taktycznymi",
+    frameNote: "Poglądowy widok kortu. Pozycje i tory lotu to przykłady, nie dane z meczu.",
     courtNote: "Każda kropka to jeden drugi serwis w tym przykładzie. Pełne koło: serwujący. Puste koło: odbierający.",
+    tabObserved: "Zaobserwowano",
+    tabRecommended: "Zalecenie",
+    zoneLabel: "Za każdym razem ta sama strefa",
+    stepsInLabel: "Odbierający wchodzi w kort",
+    mixLabel: "Różnicuj cele",
     footer: "Przykład poglądowy, nie raport prawdziwego klienta. Prawdziwe raporty piszą trenerzy Tactical Tennis Lab na podstawie Twoich nagrań.",
   },
 };
@@ -426,17 +411,6 @@ const es: HomeDict = {
     summary: "Valoración media {rating} / 5 · Opiniones: {count}",
     playVideo: "Reproducir opinión en vídeo",
   },
-  beforeAfter: {
-    eyebrow: "Análisis táctico",
-    title: "Detecta el patrón. Luego cámbialo.",
-    lead: "Un patrón de segundo saque, antes y después de la recomendación del entrenador.",
-    before: "Antes",
-    after: "Después",
-    beforeText: "Cada segundo saque cae en la misma zona. El restador sabe dónde colocarse y ataca pronto.",
-    afterText: "La colocación se reparte entre la T, el cuerpo y abierto. El restador ya no puede prepararse para un único objetivo.",
-    caption: "Ilustración de un patrón. Un análisis real muestra patrones de las imágenes de tu propio partido.",
-    legend: "Los puntos muestran dónde cayó cada segundo saque. Círculo lleno: sacador. Círculo vacío: restador.",
-  },
   ctaBand: {
     title: "Devuelve a tus entrenadores su tiempo en la pista.",
     subtitle: "Cuéntanos sobre tu academia o compara primero los paquetes.",
@@ -459,13 +433,19 @@ const es: HomeDict = {
     meta: "Partido individual · pista dura · ilustrativo",
     player: "Jugador A · U16 · diestro, juega desde el fondo",
     observedTitle: "Observado",
-    observed: ["Los segundos saques caen en la misma zona, así que el restador entra pronto.", "Los cambios de dirección en los intercambios cruzados llegan tarde.", "El primer golpe a la pista abierta tras el saque es una clara fortaleza."],
+    observed: ["Los segundos saques caen en la misma zona, así que el restador sabe dónde colocarse.", "El restador entra por delante de la línea de fondo y toma la bola pronto."],
     priorityTitle: "Prioridad",
     priority: "Hacer el segundo saque más difícil de leer.",
     recommendedTitle: "Siguiente paso recomendado",
     recommended: ["Añadir variaciones de segundo saque al cuerpo y abiertas.", "Ejercicio: cambio de dirección paralelo en la primera bola neutra."],
-    courtTitle: "Colocación del segundo saque",
+    frameLabel: "Vista ilustrativa de la pista con anotaciones tácticas",
+    frameNote: "Vista ilustrativa de la pista. Las posiciones y trayectorias son ejemplos, no datos de un partido.",
     courtNote: "Cada punto es un segundo saque en este ejemplo. Círculo lleno: sacador. Círculo vacío: restador.",
+    tabObserved: "Observado",
+    tabRecommended: "Recomendado",
+    zoneLabel: "Siempre la misma zona",
+    stepsInLabel: "El restador entra",
+    mixLabel: "Variar los objetivos",
     footer: "Ejemplo ilustrativo, no es el informe de un cliente real. Los informes reales los redactan los entrenadores de Tactical Tennis Lab a partir de tus propias imágenes.",
   },
 };
@@ -551,17 +531,6 @@ const it: HomeDict = {
     summary: "Valutazione media {rating} / 5 · Recensioni: {count}",
     playVideo: "Riproduci recensione video",
   },
-  beforeAfter: {
-    eyebrow: "Analisi tattica",
-    title: "Individua lo schema. Poi cambialo.",
-    lead: "Uno schema di seconda di servizio, prima e dopo la raccomandazione dell'allenatore.",
-    before: "Prima",
-    after: "Dopo",
-    beforeText: "Ogni seconda di servizio cade nella stessa zona. Chi risponde sa dove posizionarsi e attacca presto.",
-    afterText: "La posizione è variata tra la T, il corpo e il largo. Chi risponde non può più prepararsi a un solo bersaglio.",
-    caption: "Illustrazione di uno schema. Un'analisi reale mostra schemi dai filmati della tua partita.",
-    legend: "I punti mostrano dove è caduta ogni seconda di servizio. Cerchio pieno: chi serve. Cerchio vuoto: chi risponde.",
-  },
   ctaBand: {
     title: "Restituisci ai tuoi allenatori il loro tempo in campo.",
     subtitle: "Raccontaci della tua accademia oppure confronta prima i pacchetti.",
@@ -584,13 +553,19 @@ const it: HomeDict = {
     meta: "Singolare · cemento · illustrativo",
     player: "Giocatore A · U16 · destrimane, gioca da fondo campo",
     observedTitle: "Osservato",
-    observed: ["Le seconde di servizio cadono nella stessa zona, quindi chi risponde entra subito in campo.", "I cambi di direzione negli scambi incrociati arrivano tardi.", "Il primo colpo nel campo aperto dopo il servizio è un chiaro punto di forza."],
+    observed: ["Le seconde di servizio cadono nella stessa zona, quindi chi risponde sa dove posizionarsi.", "Chi risponde entra davanti alla linea di fondo e prende la palla in anticipo."],
     priorityTitle: "Priorità",
     priority: "Rendere la seconda di servizio più difficile da leggere.",
     recommendedTitle: "Prossimo passo consigliato",
     recommended: ["Aggiungere varianti di seconda al corpo e sul largo.", "Esercizio: cambio di direzione lungolinea sulla prima palla neutra."],
-    courtTitle: "Posizione della seconda di servizio",
+    frameLabel: "Vista illustrativa del campo con annotazioni tattiche",
+    frameNote: "Vista illustrativa del campo. Posizioni e traiettorie sono esempi, non dati di una partita.",
     courtNote: "Ogni punto è una seconda di servizio in questo esempio. Cerchio pieno: chi serve. Cerchio vuoto: chi risponde.",
+    tabObserved: "Osservato",
+    tabRecommended: "Consigliato",
+    zoneLabel: "Sempre la stessa zona",
+    stepsInLabel: "Chi risponde entra",
+    mixLabel: "Varia i bersagli",
     footer: "Esempio illustrativo, non il report di un cliente reale. I report reali sono scritti dagli allenatori di Tactical Tennis Lab a partire dai tuoi filmati.",
   },
 };
@@ -676,17 +651,6 @@ const ru: HomeDict = {
     summary: "Средняя оценка {rating} / 5 · Отзывы: {count}",
     playVideo: "Смотреть видеоотзыв",
   },
-  beforeAfter: {
-    eyebrow: "Тактический анализ",
-    title: "Заметьте закономерность. Затем измените её.",
-    lead: "Одна схема второй подачи до и после рекомендации тренера.",
-    before: "До",
-    after: "После",
-    beforeText: "Каждая вторая подача падает в одну и ту же зону. Принимающий знает, где встать, и атакует рано.",
-    afterText: "Места падения чередуются: в T, в корпус и широко. Принимающий больше не может готовиться к одной цели.",
-    caption: "Иллюстрация одной схемы. Настоящий анализ показывает закономерности на видео ваших собственных матчей.",
-    legend: "Точки показывают, куда упала каждая вторая подача. Закрашенный круг: подающий. Пустой круг: принимающий.",
-  },
   ctaBand: {
     title: "Верните своим тренерам время на корте.",
     subtitle: "Расскажите нам о своей академии или сначала сравните пакеты.",
@@ -709,13 +673,19 @@ const ru: HomeDict = {
     meta: "Одиночный матч · хард · иллюстрация",
     player: "Игрок A · U16 · правша, играет с задней линии",
     observedTitle: "Наблюдение",
-    observed: ["Вторые подачи падают в одну зону, поэтому принимающий сразу заходит в корт.", "Смена направления в розыгрышах по диагонали происходит поздно.", "Первый удар в открытый корт после подачи является явной сильной стороной."],
+    observed: ["Вторые подачи падают в одну зону, поэтому принимающий знает, где встать.", "Принимающий выходит вперёд от задней линии и берёт мяч рано."],
     priorityTitle: "Приоритет",
     priority: "Сделать вторую подачу менее предсказуемой.",
     recommendedTitle: "Рекомендуемый следующий шаг",
     recommended: ["Добавить варианты второй подачи в корпус и широко.", "Упражнение: смена направления по линии на первом нейтральном мяче."],
-    courtTitle: "Расположение второй подачи",
+    frameLabel: "Иллюстративный вид корта с тактическими пометками",
+    frameNote: "Иллюстративный вид корта. Позиции и траектории показаны для примера, это не данные матча.",
     courtNote: "Каждая точка: одна вторая подача в этом примере. Закрашенный круг: подающий. Пустой круг: принимающий.",
+    tabObserved: "Наблюдение",
+    tabRecommended: "Рекомендация",
+    zoneLabel: "Каждый раз одна зона",
+    stepsInLabel: "Принимающий выходит вперёд",
+    mixLabel: "Чередуйте цели",
     footer: "Иллюстративный пример, а не отчёт реального клиента. Настоящие отчёты пишут тренеры Tactical Tennis Lab по вашим собственным видео.",
   },
 };

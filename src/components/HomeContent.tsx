@@ -8,15 +8,10 @@ import FinalCta from "@/components/FinalCta";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import HeroSection from "@/components/HeroSection";
-import BeforeAfter from "@/components/motion/BeforeAfter";
-import CourtDiagram, { AFTER_LANDINGS, BEFORE_LANDINGS, BEFORE_ZONE } from "@/components/motion/CourtDiagram";
 import { prisma } from "@/lib/prisma";
-import { homeDictionaries } from "@/i18n/dictionaries/home";
 import type { AppLocale } from "@/i18n/locales";
 
 export default async function HomeContent({ lang = "en" }: { lang?: AppLocale }) {
-  const dict = homeDictionaries[lang];
-
   const reviewStats = await prisma.review.aggregate({
     where: { status: "approved" },
     _avg: { rating: true },
@@ -57,19 +52,13 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
         }}
       />
 
-      <HeroSection lang={lang} />
+      {/* One dark chapter: the headline, then the court view that proves it. */}
+      <div className="theme-charcoal bg-background text-body">
+        <HeroSection lang={lang} />
+        <ProductScrollSection lang={lang} />
+      </div>
 
       <TrustStrip lang={lang} />
-
-      {/* One dark chapter: the report is the proof, the comparison explains it. */}
-      <div className="theme-charcoal bg-background text-body [&>section+section]:!pt-0">
-        <ProductScrollSection lang={lang} />
-        <BeforeAfter
-          copy={dict.beforeAfter}
-          beforeVisual={<CourtDiagram className="h-full w-full p-3 text-ink sm:p-6" landings={BEFORE_LANDINGS} zone={BEFORE_ZONE} />}
-          afterVisual={<CourtDiagram className="h-full w-full p-3 text-ink sm:p-6" landings={AFTER_LANDINGS} />}
-        />
-      </div>
 
       <ServicesSection lang={lang} />
 

@@ -96,13 +96,21 @@ There is no parallax, no pinned or scroll-driven section, no looping media and n
 
 ## Page structure (homepage)
 
-1. **Hero**: typography only. One headline, one sentence, one primary action.
+1. **Hero and tactical report** (one charcoal chapter): one headline, one sentence, one primary action, and directly below it the court view with the written report. The report is the visual.
 2. **Credentials**: one quiet line of text.
-3. **Analysis report** (charcoal chapter): the main proof. A court diagram with a numbered callout, **Observed** (numbered), **Priority**, **Recommended next step** (set off by a lime rule). No statistics. Labelled illustrative.
-4. **Tactical comparison** (same charcoal chapter): one second serve pattern, before and after, as two court diagrams.
-5. **Services**, **How it works** (the only photograph, with the brand statement), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
+3. **Services**, **How it works** (the only photograph, with the brand statement), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
 
-Dark is used for one continuous chapter only; everything else is warm off white. Lime appears on the dark chapter (landing dots, the recommendation rule, the illustrative badge) and nowhere else on the page.
+Dark is used for the first chapter only; everything else is warm off white. Lime appears on that chapter (primary action, markers, zones, the illustrative badge) and nowhere else on the page.
+
+## Tactical court view (`SampleAnalysisMock`, `src/lib/court.ts`)
+
+A perspective view of a doubles court drawn to scale (23.77 m by 10.97 m). `makeCamera` maps court metres onto the frame from four corner points, so every line, zone, marker and ball flight follows the same perspective and stays aligned at any size. Annotations (zone, returner position, flights) are defined in metres in `SampleAnalysisMock.tsx` and are **illustrative, not match data**: the frame carries a visible note saying so, and the report is badged as an illustrative example.
+
+- Two views of one example, switched by a keyboard accessible tab control: **Observed** (second serves land in one zone, the returner steps in) and **Recommended** (mix the targets).
+- Three numbered annotations tie the drawing to the text: 1 and 2 to the observations, 3 to the recommended step.
+- The report panel is the only glass surface (low opacity white, 24px blur, fine border, soft shadow). It overlays the dark side of the frame from 1280px and stacks below it on smaller screens.
+- On narrow screens the 16:10 stage is drawn wider than the window and cropped, so the court stays large. No video, nothing loops, nothing moves unless the visitor switches the view.
+- **To use a real match frame:** put the image behind the SVG, measure the four court corners as fractions of the frame, and replace `CORNERS`; the marks then land on the real court. Only do this with footage whose licence has been verified (see `ASSETS.md`) or your own.
 
 ## Client dashboard (prototype, `/dashboard`)
 
