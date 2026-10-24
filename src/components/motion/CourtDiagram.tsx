@@ -20,10 +20,13 @@ export const SERVER: Pt = [14, MID + 52];
 export default function CourtDiagram({
   landings,
   zone,
+  marker,
   className = "",
   label,
 }: {
   landings: Pt[];
+  /** A numbered callout that points at the zone, matching a written observation. */
+  marker?: string;
   /** Optional soft highlight behind a cluster of landings. */
   zone?: { cx: number; cy: number; rx: number; ry: number };
   className?: string;
@@ -58,6 +61,15 @@ export default function CourtDiagram({
           return <path key={i} d={`M${SERVER[0]} ${SERVER[1]}Q${mx} ${my} ${x} ${y}`} strokeDasharray="1 7" />;
         })}
       </g>
+      {marker && zone && (
+        <g>
+          <path d={`M${zone.cx + zone.rx * 0.7} ${zone.cy - zone.ry * 0.7}L${zone.cx + 70} ${zone.cy - 58}`} stroke="currentColor" strokeWidth="1.4" opacity="0.6" fill="none" />
+          <circle cx={zone.cx + 78} cy={zone.cy - 66} r="15" fill="var(--background)" stroke="currentColor" strokeWidth="1.6" />
+          <text x={zone.cx + 78} y={zone.cy - 66} textAnchor="middle" dominantBaseline="central" fontSize="17" fontWeight="600" fill="currentColor">
+            {marker}
+          </text>
+        </g>
+      )}
       <g fill="var(--color-accent)">
         {landings.map(([x, y], i) => (
           <circle key={i} cx={x} cy={y} r="7" />

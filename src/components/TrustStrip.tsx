@@ -1,10 +1,9 @@
 import { homeDictionaries } from "@/i18n/dictionaries/home";
-import { backedByTitle } from "@/components/BackedBy";
 import type { AppLocale } from "@/i18n/locales";
 
-/** One quiet line of credentials under the hero. */
+/** One quiet line of credentials after the hero. */
 export default function TrustStrip({ lang = "en" }: { lang?: AppLocale }) {
-  const items = [...homeDictionaries[lang].badges.slice(0, 3), backedByTitle(lang)];
+  const items = homeDictionaries[lang].badges.slice(0, 3);
 
   return (
     <div className="border-y border-line">

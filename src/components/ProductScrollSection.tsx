@@ -3,13 +3,13 @@ import SampleAnalysisMock from "@/components/SampleAnalysisMock";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import type { AppLocale } from "@/i18n/locales";
 
-/** Shows what a delivered analysis looks like. Illustrative, and labelled
- * as such inside the report itself. */
+/** The main proof of the product: what a delivered analysis looks like.
+ * Illustrative, and labelled as such inside the report itself. */
 export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale }) {
   const t = homeDictionaries[lang].productScroll;
 
   return (
-    <section id="sample-analysis" className="theme-charcoal section-pad mx-3 rounded-[2rem] bg-background text-body scroll-mt-16 sm:mx-5">
+    <section id="sample-analysis" className="section-pad scroll-mt-16">
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>
@@ -18,7 +18,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
           </h2>
         </Reveal>
         <Reveal delay={80} className="mt-12 md:mt-16">
-          <div className="overflow-hidden rounded-3xl border border-line bg-surface">
+          <div className="overflow-hidden rounded-3xl border border-line">
             <SampleAnalysisMock lang={lang} />
           </div>
         </Reveal>

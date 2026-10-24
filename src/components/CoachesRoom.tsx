@@ -17,7 +17,7 @@ export default async function CoachesRoom({ lang = "en" }: { lang?: AppLocale })
   });
 
   return (
-    <section id="coaches" className="defer-render section-pad mx-3 rounded-[2rem] bg-surface-muted scroll-mt-16 sm:mx-5">
+    <section id="coaches" className="defer-render section-pad bg-surface-muted scroll-mt-16">
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>

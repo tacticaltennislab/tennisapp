@@ -449,41 +449,6 @@
     animation-delay: calc(var(--i, 0) * 40ms);
   }
 
-  /* Hero photograph: drifts a little slower than the page. Pure CSS, driven
-     by scroll position where the browser supports it, static elsewhere. */
-  .parallax-media {
-    transform: scale(1.12);
-    will-change: transform;
-  }
-
-  @supports (animation-timeline: scroll()) {
-    .parallax-media {
-      animation: parallax-drift linear both;
-      animation-timeline: scroll(root block);
-      animation-range: 0 90vh;
-    }
-  }
-
-  /* A rule that draws itself as its step enters. */
-  .draw-line {
-    position: relative;
-  }
-
-  .draw-line::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 1px;
-    background: var(--color-ink);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .draw-line.is-visible::before {
-    transform: scaleX(1);
-  }
-
   /* Skip rendering work for sections far below the fold. */
   .defer-render {
     content-visibility: auto;
@@ -602,15 +567,6 @@
   }
 }
 
-@keyframes parallax-drift {
-  from {
-    transform: translate3d(0, 0, 0) scale(1.12);
-  }
-  to {
-    transform: translate3d(0, 9%, 0) scale(1.12);
-  }
-}
-
 @keyframes drift {
   0%, 100% {
     transform: translate(0, 0);
@@ -668,62 +624,6 @@
   .reveal-words .w > span {
     transform: none;
     animation: none;
-  }
-
-  /* The pinned stroke analysis becomes a plain list, one illustration per step. */
-  .pin-wrap {
-    height: auto !important;
-  }
-
-  .pin-stage {
-    position: static !important;
-    height: auto !important;
-    overflow: visible !important;
-    padding-block: 4.5rem;
-  }
-
-  .pin-figure,
-  .pin-rail {
-    display: none !important;
-  }
-
-  .pin-stage > .container-x {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .pin-steps {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 3rem 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .pin-steps {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  .pin-steps > li {
-    grid-area: auto !important;
-    opacity: 1 !important;
-    transform: none !important;
-    translate: none !important;
-    pointer-events: auto !important;
-  }
-
-  .pin-static-fig {
-    display: block !important;
-  }
-
-  .parallax-media {
-    animation: none;
-    transform: none;
-    will-change: auto;
-  }
-
-  .draw-line::before {
-    transform: scaleX(1);
-    transition: none;
   }
 
   .btn:active {

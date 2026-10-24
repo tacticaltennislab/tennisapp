@@ -1,20 +1,24 @@
 /**
- * Video used on the homepage. Every entry records where it came from so the
- * credit on the page and ASSETS.md always match the file that ships.
- * Stock footage is illustrative: it is never presented as a client session.
+ * Photographs used on the homepage beyond the photo slots in sitePhotos.ts.
+ * Every entry records where it came from so the credit on the page and
+ * ASSETS.md always match the file that ships. Stock imagery is illustrative:
+ * it is never presented as a client session.
  */
-export interface SiteVideo {
-  mp4: string;
-  poster: { src: string; width: number; height: number };
-  alt: string;
+export interface SiteStill {
+  src: string;
+  width: number;
+  height: number;
+  /** Where the athlete sits in the frame, for portrait crops. */
+  position: string;
   credit: { creator: string; creatorUrl: string; sourceUrl: string; licenseUrl: string };
 }
 
-export const SITE_VIDEOS: { hero: SiteVideo | null } = {
-  hero: {
-    mp4: "/media/hero-serve.mp4",
-    poster: { src: "/media/hero-serve-poster.jpg", width: 1280, height: 720 },
-    alt: "A tennis player preparing to serve on a clay court",
+export const SITE_STILLS: { process: SiteStill | null } = {
+  process: {
+    src: "/media/hero-serve-poster.jpg",
+    width: 1280,
+    height: 720,
+    position: "56% 50%",
     credit: {
       creator: "Antoni Shkraba",
       creatorUrl: "https://www.pexels.com/@shkrabaanthony/",

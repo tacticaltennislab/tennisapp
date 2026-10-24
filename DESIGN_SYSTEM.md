@@ -7,7 +7,7 @@ Source of truth: `src/app/globals.css` (tokens, radii, shadows, type scale, comp
 ## Principles
 1. **Premium, not promotional.** Few words, large type, a lot of white space.
 2. **Every element earns its place.** No decorative icons, no gradients, no repetitive card grids. Structure comes from hairlines and spacing.
-3. **Honest imagery.** No stock or invented photography; no invented testimonials. Anything illustrative is labelled.
+3. **Honest imagery.** Few images. The one stock photograph is labelled and credited (see `ASSETS.md`); no invented testimonials or statistics. Anything illustrative is labelled.
 4. **One primary action per section.**
 5. **Accessible by default.** WCAG 2.1 AA: contrast, visible focus, labelled controls, reduced motion respected.
 
@@ -87,20 +87,22 @@ Motion explains or confirms; it never decorates. Short, one easing curve (`cubic
 
 | Where | What | How |
 |---|---|---|
-| Hero headline | Words slide up through a mask, 40ms apart, 0.6s each | CSS only (`RevealWords`), no JavaScript, text is in the HTML from the first byte |
-| Hero photograph | Drifts slower than the page (up to 9% over the first screen) | CSS scroll-driven animation (`animation-timeline: scroll()`), static where unsupported. Active only when a hero photo is set |
+| Hero headline | Words slide up through a mask, 40ms apart, 0.6s each | CSS only (`RevealWords`), text is in the HTML from the first byte |
 | Section entrances | 16px rise and fade, 0.55s | `Reveal` (IntersectionObserver) |
-| Process steps | The rule above each step draws itself | CSS transition on entry |
-| Service rows | Soft row highlight, a small preview reacts (timeline playhead, weeks filling, bars settling) | CSS `group-hover` / `focus-within`, 0.5s |
+| Service rows | Soft row highlight on hover or focus | CSS, 0.3s |
 | Buttons | Colour or opacity on hover, 2% press | CSS |
-| Stroke analysis | The visual stays pinned while four phases cross-fade with the scroll | One passive scroll listener, attached only while the section is on screen, changes state at most three times; progress rail and step buttons are keyboard operable |
-| Before and after | Two court diagrams side by side (stacked on phones): one second serve pattern before and after the recommendation | Static SVG (`CourtDiagram`), nothing moves |
 
-**Reduced motion.** Hero words and reveals appear instantly, parallax stops, rules are already drawn, and the pinned section is released: the four steps become a plain two-column list, each with its own illustration.
+There is no parallax, no pinned or scroll-driven section, no looping media and no animation library. Below-the-fold sections use `content-visibility: auto`.
 
-**Performance budget** (measured on an emulated iPhone 13 with a 4x slower CPU and slow 4G): LCP about 1.1s (0.86s with reduced motion), CLS 0, a scripted scroll through the whole page keeps 60 fps with no dropped frames. Below-the-fold sections use `content-visibility: auto`. No animation library is used.
+## Page structure (homepage)
 
-**Illustrations.** The stroke figures are vector drawings, not measurements, and are captioned as illustrations. They use the logo olive for the coach's marks and `currentColor` for the figure, so they follow light and dark themes.
+1. **Hero**: typography only. One headline, one sentence, one primary action.
+2. **Credentials**: one quiet line of text.
+3. **Analysis report** (charcoal chapter): the main proof. A court diagram with a numbered callout, **Observed** (numbered), **Priority**, **Recommended next step** (set off by a lime rule). No statistics. Labelled illustrative.
+4. **Tactical comparison** (same charcoal chapter): one second serve pattern, before and after, as two court diagrams.
+5. **Services**, **How it works** (the only photograph, with the brand statement), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
+
+Dark is used for one continuous chapter only; everything else is warm off white. Lime appears on the dark chapter (landing dots, the recommendation rule, the illustrative badge) and nowhere else on the page.
 
 ## Client dashboard (prototype, `/dashboard`)
 

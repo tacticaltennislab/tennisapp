@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SitePhoto from "@/components/SitePhoto";
-import ServicePreview from "@/components/motion/ServicePreview";
 import { IconArrowRight } from "@/components/icons";
 import { PLANS, type Plan } from "@/lib/plans";
 import { planTranslations } from "@/i18n/dictionaries/plans";
@@ -43,13 +42,12 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
             return (
               <Reveal key={svc.planId} as="li" delay={i * 70} className="service-row group border-b border-line">
                 <div className="grid gap-8 py-12 md:grid-cols-12 md:gap-12 md:py-20">
-                  <div className={photo ? "md:col-span-5" : "md:col-span-5"}>
+                  <div className="md:col-span-5">
                     <span className="t-mono text-sm text-muted" aria-hidden="true">
                       0{i + 1}
                     </span>
                     <h3 className="t-h3 mt-4">{t.names[i]}</h3>
                     <p className="t-lead mt-5 max-w-md">{text.description}</p>
-                    {!photo && <ServicePreview kind={i as 0 | 1 | 2} />}
                   </div>
 
                   <div className="md:col-span-7">

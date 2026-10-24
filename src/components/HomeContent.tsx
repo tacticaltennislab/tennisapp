@@ -8,7 +8,6 @@ import FinalCta from "@/components/FinalCta";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import HeroSection from "@/components/HeroSection";
-import PinnedStrokeAnalysis from "@/components/motion/PinnedStrokeAnalysis";
 import BeforeAfter from "@/components/motion/BeforeAfter";
 import CourtDiagram, { AFTER_LANDINGS, BEFORE_LANDINGS, BEFORE_ZONE } from "@/components/motion/CourtDiagram";
 import { prisma } from "@/lib/prisma";
@@ -62,11 +61,9 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
 
       <TrustStrip lang={lang} />
 
-      <ServicesSection lang={lang} />
-
-      <PinnedStrokeAnalysis copy={dict.strokeAnalysis} />
-
-      <div className="theme-charcoal bg-background text-body">
+      {/* One dark chapter: the report is the proof, the comparison explains it. */}
+      <div className="theme-charcoal bg-background text-body [&>section+section]:!pt-0">
+        <ProductScrollSection lang={lang} />
         <BeforeAfter
           copy={dict.beforeAfter}
           beforeVisual={<CourtDiagram className="h-full w-full p-3 text-ink sm:p-6" landings={BEFORE_LANDINGS} zone={BEFORE_ZONE} />}
@@ -74,9 +71,9 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
         />
       </div>
 
-      <ProcessSection lang={lang} />
+      <ServicesSection lang={lang} />
 
-      <ProductScrollSection lang={lang} />
+      <ProcessSection lang={lang} />
 
       <OffersPreview lang={lang} />
 

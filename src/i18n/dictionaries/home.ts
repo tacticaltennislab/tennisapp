@@ -52,13 +52,6 @@ export interface HomeDict {
     summary: string; // {rating} {count}
     playVideo: string;
   };
-  strokeAnalysis: {
-    eyebrow: string;
-    title: string;
-    caption: string;
-    goTo: string;
-    steps: { label: string; title: string; text: string }[];
-  };
   beforeAfter: {
     eyebrow: string;
     title: string;
@@ -107,13 +100,13 @@ const en: HomeDict = {
   hero: {
     title: "Every point, understood.",
     subtitle:
-      "Premium video and match analysis for tennis academies. Reviewed frame by frame by former ATP players and ITF Level 2 coaches, then returned to your coaches as clear, usable feedback.",
+      "Video and match analysis for tennis academies, reviewed frame by frame by former ATP players and ITF Level 2 coaches.",
     ctaPrimary: "Partner with us",
     ctaSecondary: "View academy packages",
     playersNote: "Training on your own?",
     playersLink: "See player plans",
     tagline: "Real tennis. Expert analysis. Better decisions on court.",
-    footageCaption: "Stock footage for illustration, not a client session.",
+    footageCaption: "Stock photograph for illustration, not a client session.",
   },
   services: {
     eyebrow: "Our services",
@@ -183,18 +176,6 @@ const en: HomeDict = {
     summary: "Average rating {rating} / 5 · Reviews: {count}",
     playVideo: "Play video review",
   },
-  strokeAnalysis: {
-    eyebrow: "Stroke analysis",
-    title: "See what your coach sees.",
-    caption: "Illustration of a serve. In a real analysis, the marks are placed on your own video.",
-    goTo: "Show step",
-    steps: [
-      { label: "Stance", title: "Start with the setup.", text: "Balance, feet and rhythm before the motion begins. A stable base is what every later phase depends on." },
-      { label: "Toss", title: "The toss decides the contact point.", text: "Here it drifts behind the head, which pulls the whole serve back. The dashed ring shows where it should go." },
-      { label: "Trophy", title: "Elbow height sets the speed.", text: "When the elbow stays below the shoulder line, the racquet cannot drop far enough to build speed." },
-      { label: "Contact", title: "Contact up and in front.", text: "Legs finished, arm extended, ball met early. Every mark is explained in writing, with a drill to fix it." },
-    ],
-  },
   beforeAfter: {
     eyebrow: "Tactical analysis",
     title: "Spot the pattern. Then change it.",
@@ -234,7 +215,7 @@ const en: HomeDict = {
     recommendedTitle: "Recommended next step",
     recommended: ["Add second serve variations to the body and wide.", "Drill: change direction down the line on the first neutral ball."],
     courtTitle: "Second serve placement",
-    courtNote: "Each dot is one second serve in this example.",
+    courtNote: "Each dot is one second serve in this example. Filled circle: server. Open circle: returner.",
     footer: "Illustrative example, not a real client report. Real reports are written by Tactical Tennis Lab coaches from your own footage.",
   },
 };
@@ -244,13 +225,13 @@ const pl: HomeDict = {
   hero: {
     title: "Zrozum każdy punkt.",
     subtitle:
-      "Premium analiza wideo i meczowa dla akademii tenisowych. Każde nagranie analizują klatka po klatce byli zawodnicy ATP i trenerzy ITF Level 2, a Twoi trenerzy dostają jasną, użyteczną informację zwrotną.",
+      "Analiza wideo i meczów dla akademii tenisowych, przeglądana klatka po klatce przez byłych zawodników ATP i trenerów ITF Level 2.",
     ctaPrimary: "Zostań naszym partnerem",
     ctaSecondary: "Zobacz pakiety dla akademii",
     playersNote: "Trenujesz indywidualnie?",
     playersLink: "Zobacz plany dla zawodników",
     tagline: "Prawdziwy tenis. Ekspercka analiza. Lepsze decyzje na korcie.",
-    footageCaption: "Materiał stockowy dla ilustracji, nie sesja klienta.",
+    footageCaption: "Zdjęcie stockowe dla ilustracji, nie sesja klienta.",
   },
   services: {
     eyebrow: "Nasze usługi",
@@ -320,18 +301,6 @@ const pl: HomeDict = {
     summary: "Średnia ocena {rating} / 5 · Opinie: {count}",
     playVideo: "Odtwórz opinię wideo",
   },
-  strokeAnalysis: {
-    eyebrow: "Analiza uderzenia",
-    title: "Zobacz to, co widzi Twój trener.",
-    caption: "Ilustracja serwisu. W prawdziwej analizie oznaczenia są na Twoim własnym nagraniu.",
-    goTo: "Pokaż krok",
-    steps: [
-      { label: "Postawa", title: "Zacznij od ustawienia.", text: "Równowaga, stopy i rytm przed rozpoczęciem ruchu. Stabilna baza decyduje o każdej kolejnej fazie." },
-      { label: "Podrzut", title: "Podrzut decyduje o punkcie kontaktu.", text: "Tutaj ucieka za głowę, co cofa cały serwis. Przerywane koło pokazuje, gdzie powinien trafić." },
-      { label: "Trofeum", title: "Wysokość łokcia decyduje o prędkości.", text: "Gdy łokieć zostaje poniżej linii barków, rakieta nie może opaść wystarczająco, by nabrać prędkości." },
-      { label: "Kontakt", title: "Kontakt wysoko i przed sobą.", text: "Nogi wyprostowane, ręka wyciągnięta, piłka uderzona wcześnie. Każde oznaczenie jest opisane, z ćwiczeniem do poprawy." },
-    ],
-  },
   beforeAfter: {
     eyebrow: "Analiza taktyczna",
     title: "Dostrzeż wzorzec. Potem go zmień.",
@@ -371,7 +340,7 @@ const pl: HomeDict = {
     recommendedTitle: "Zalecany następny krok",
     recommended: ["Dodać warianty drugiego serwisu w ciało i szeroko.", "Ćwiczenie: zmiana kierunku po linii przy pierwszej neutralnej piłce."],
     courtTitle: "Rozmieszczenie drugiego serwisu",
-    courtNote: "Każda kropka to jeden drugi serwis w tym przykładzie.",
+    courtNote: "Każda kropka to jeden drugi serwis w tym przykładzie. Pełne koło: serwujący. Puste koło: odbierający.",
     footer: "Przykład poglądowy, nie raport prawdziwego klienta. Prawdziwe raporty piszą trenerzy Tactical Tennis Lab na podstawie Twoich nagrań.",
   },
 };
@@ -381,13 +350,13 @@ const es: HomeDict = {
   hero: {
     title: "Entiende cada punto.",
     subtitle:
-      "Análisis premium de vídeo y de partidos para academias de tenis. Revisado fotograma a fotograma por exjugadores del ATP y entrenadores ITF Level 2, y devuelto a tus entrenadores como feedback claro y útil.",
+      "Análisis de vídeo y de partidos para academias de tenis, revisado fotograma a fotograma por exjugadores ATP y entrenadores ITF Level 2.",
     ctaPrimary: "Colabora con nosotros",
     ctaSecondary: "Ver paquetes para academias",
     playersNote: "¿Entrenas por tu cuenta?",
     playersLink: "Ver planes para jugadores",
     tagline: "Tenis real. Análisis experto. Mejores decisiones en la pista.",
-    footageCaption: "Imágenes de archivo a modo de ilustración, no una sesión de un cliente.",
+    footageCaption: "Fotografía de archivo a modo de ilustración, no una sesión de un cliente.",
   },
   services: {
     eyebrow: "Nuestros servicios",
@@ -457,18 +426,6 @@ const es: HomeDict = {
     summary: "Valoración media {rating} / 5 · Opiniones: {count}",
     playVideo: "Reproducir opinión en vídeo",
   },
-  strokeAnalysis: {
-    eyebrow: "Análisis del golpe",
-    title: "Mira lo que ve tu entrenador.",
-    caption: "Ilustración de un saque. En un análisis real, las marcas se colocan sobre tu propio vídeo.",
-    goTo: "Mostrar paso",
-    steps: [
-      { label: "Postura", title: "Empieza por la preparación.", text: "Equilibrio, pies y ritmo antes de que empiece el movimiento. Una base estable condiciona todas las fases siguientes." },
-      { label: "Lanzamiento", title: "El lanzamiento decide el punto de contacto.", text: "Aquí se desvía por detrás de la cabeza, lo que retrasa todo el saque. El círculo discontinuo muestra dónde debería ir." },
-      { label: "Trofeo", title: "La altura del codo marca la velocidad.", text: "Si el codo queda por debajo de la línea de los hombros, la raqueta no puede caer lo suficiente para generar velocidad." },
-      { label: "Contacto", title: "Contacto arriba y por delante.", text: "Piernas extendidas, brazo estirado, pelota golpeada pronto. Cada marca se explica por escrito, con un ejercicio para corregirla." },
-    ],
-  },
   beforeAfter: {
     eyebrow: "Análisis táctico",
     title: "Detecta el patrón. Luego cámbialo.",
@@ -508,7 +465,7 @@ const es: HomeDict = {
     recommendedTitle: "Siguiente paso recomendado",
     recommended: ["Añadir variaciones de segundo saque al cuerpo y abiertas.", "Ejercicio: cambio de dirección paralelo en la primera bola neutra."],
     courtTitle: "Colocación del segundo saque",
-    courtNote: "Cada punto es un segundo saque en este ejemplo.",
+    courtNote: "Cada punto es un segundo saque en este ejemplo. Círculo lleno: sacador. Círculo vacío: restador.",
     footer: "Ejemplo ilustrativo, no es el informe de un cliente real. Los informes reales los redactan los entrenadores de Tactical Tennis Lab a partir de tus propias imágenes.",
   },
 };
@@ -518,13 +475,13 @@ const it: HomeDict = {
   hero: {
     title: "Capisci ogni punto.",
     subtitle:
-      "Analisi premium di video e partite per accademie di tennis. Esaminata fotogramma per fotogramma da ex giocatori ATP e allenatori ITF Level 2, e restituita ai tuoi allenatori come feedback chiaro e utilizzabile.",
+      "Analisi video e delle partite per accademie di tennis, rivista fotogramma per fotogramma da ex giocatori ATP e allenatori ITF Level 2.",
     ctaPrimary: "Collabora con noi",
     ctaSecondary: "Vedi i pacchetti per accademie",
     playersNote: "Ti alleni da solo?",
     playersLink: "Vedi i piani per giocatori",
     tagline: "Tennis vero. Analisi esperta. Decisioni migliori in campo.",
-    footageCaption: "Filmato di repertorio a scopo illustrativo, non una sessione di un cliente.",
+    footageCaption: "Fotografia di repertorio a scopo illustrativo, non una sessione di un cliente.",
   },
   services: {
     eyebrow: "I nostri servizi",
@@ -594,18 +551,6 @@ const it: HomeDict = {
     summary: "Valutazione media {rating} / 5 · Recensioni: {count}",
     playVideo: "Riproduci recensione video",
   },
-  strokeAnalysis: {
-    eyebrow: "Analisi del colpo",
-    title: "Guarda ciò che vede il tuo allenatore.",
-    caption: "Illustrazione di un servizio. In un'analisi reale, i segni sono posti sul tuo video.",
-    goTo: "Mostra il passo",
-    steps: [
-      { label: "Posizione", title: "Parti dall'impostazione.", text: "Equilibrio, piedi e ritmo prima che inizi il movimento. Una base stabile condiziona ogni fase successiva." },
-      { label: "Lancio", title: "Il lancio decide il punto di impatto.", text: "Qui scivola dietro la testa e tira indietro tutto il servizio. Il cerchio tratteggiato mostra dove dovrebbe andare." },
-      { label: "Trofeo", title: "L'altezza del gomito determina la velocità.", text: "Se il gomito resta sotto la linea delle spalle, la racchetta non scende abbastanza per generare velocità." },
-      { label: "Impatto", title: "Impatto in alto e davanti.", text: "Gambe distese, braccio esteso, palla colpita presto. Ogni segno è spiegato per iscritto, con un esercizio per correggerlo." },
-    ],
-  },
   beforeAfter: {
     eyebrow: "Analisi tattica",
     title: "Individua lo schema. Poi cambialo.",
@@ -645,7 +590,7 @@ const it: HomeDict = {
     recommendedTitle: "Prossimo passo consigliato",
     recommended: ["Aggiungere varianti di seconda al corpo e sul largo.", "Esercizio: cambio di direzione lungolinea sulla prima palla neutra."],
     courtTitle: "Posizione della seconda di servizio",
-    courtNote: "Ogni punto è una seconda di servizio in questo esempio.",
+    courtNote: "Ogni punto è una seconda di servizio in questo esempio. Cerchio pieno: chi serve. Cerchio vuoto: chi risponde.",
     footer: "Esempio illustrativo, non il report di un cliente reale. I report reali sono scritti dagli allenatori di Tactical Tennis Lab a partire dai tuoi filmati.",
   },
 };
@@ -655,13 +600,13 @@ const ru: HomeDict = {
   hero: {
     title: "Понимайте каждое очко.",
     subtitle:
-      "Премиальный видеоанализ и анализ матчей для теннисных академий. Бывшие игроки ATP и тренеры ITF Level 2 разбирают каждое видео покадрово и возвращают вашим тренерам понятную, применимую обратную связь.",
+      "Видеоанализ и разбор матчей для теннисных академий: кадр за кадром, силами бывших игроков ATP и тренеров ITF Level 2.",
     ctaPrimary: "Стать партнёром",
     ctaSecondary: "Пакеты для академий",
     playersNote: "Тренируетесь самостоятельно?",
     playersLink: "Планы для игроков",
     tagline: "Настоящий теннис. Экспертный анализ. Лучшие решения на корте.",
-    footageCaption: "Стоковое видео для иллюстрации, а не занятие клиента.",
+    footageCaption: "Стоковое фото для иллюстрации, а не занятие клиента.",
   },
   services: {
     eyebrow: "Наши услуги",
@@ -731,18 +676,6 @@ const ru: HomeDict = {
     summary: "Средняя оценка {rating} / 5 · Отзывы: {count}",
     playVideo: "Смотреть видеоотзыв",
   },
-  strokeAnalysis: {
-    eyebrow: "Анализ удара",
-    title: "Увидьте то, что видит ваш тренер.",
-    caption: "Иллюстрация подачи. В настоящем анализе отметки ставятся на вашем собственном видео.",
-    goTo: "Показать шаг",
-    steps: [
-      { label: "Стойка", title: "Начните с подготовки.", text: "Равновесие, положение ног и ритм до начала движения. От устойчивой базы зависит каждая следующая фаза." },
-      { label: "Подбрасывание", title: "Подбрасывание определяет точку контакта.", text: "Здесь мяч уходит за голову и тянет назад всю подачу. Пунктирный круг показывает, куда он должен попасть." },
-      { label: "Поза «трофей»", title: "Высота локтя задаёт скорость.", text: "Если локоть остаётся ниже линии плеч, ракетка не может опуститься достаточно, чтобы набрать скорость." },
-      { label: "Контакт", title: "Контакт вверху и впереди.", text: "Ноги выпрямлены, рука вытянута, мяч сыгран рано. Каждая отметка объяснена письменно, с упражнением для исправления." },
-    ],
-  },
   beforeAfter: {
     eyebrow: "Тактический анализ",
     title: "Заметьте закономерность. Затем измените её.",
@@ -782,7 +715,7 @@ const ru: HomeDict = {
     recommendedTitle: "Рекомендуемый следующий шаг",
     recommended: ["Добавить варианты второй подачи в корпус и широко.", "Упражнение: смена направления по линии на первом нейтральном мяче."],
     courtTitle: "Расположение второй подачи",
-    courtNote: "Каждая точка: одна вторая подача в этом примере.",
+    courtNote: "Каждая точка: одна вторая подача в этом примере. Закрашенный круг: подающий. Пустой круг: принимающий.",
     footer: "Иллюстративный пример, а не отчёт реального клиента. Настоящие отчёты пишут тренеры Tactical Tennis Lab по вашим собственным видео.",
   },
 };
