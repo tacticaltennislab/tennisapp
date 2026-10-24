@@ -21,7 +21,8 @@ export interface ReportCopy {
   tabRecommended: string;
   zoneLabel: string;
   stepsInLabel: string;
-  mixLabel: string;
+  wideLabel: string;
+  openLabel: string;
   footer: string;
 }
 
@@ -44,11 +45,14 @@ const CLUSTER: Pt[] = [[16.8, 3.0], [17.4, 3.6], [16.3, 3.5], [17.0, 2.7], [17.5
 const ZONE: Pt[] = [[15.6, 2.1], [18.2, 2.1], [18.2, 4.4], [15.6, 4.4]];
 const RETURNER_BACK: Pt = [24.7, 3.1];
 const RETURNER_IN: Pt = [22.5, 3.1];
-const MIX: { to: Pt; zone: Pt[] }[] = [
-  { to: [16.7, 5.0], zone: [[15.7, 4.5], [18.1, 4.5], [18.1, 5.4], [15.7, 5.4]] },
-  { to: [16.9, 3.4], zone: [] },
-  { to: [16.3, 1.9], zone: [[15.7, 1.45], [18.1, 1.45], [18.1, 2.35], [15.7, 2.35]] },
-];
+// Recommended: a wide serve pulls the returner off the court, and the next ball
+// goes to the open side, safely inside the lines.
+const WIDE: Pt = [17.1, 1.75];
+const WIDE_ZONE: Pt[] = [[15.6, 1.4], [18.2, 1.4], [18.2, 2.5], [15.6, 2.5]];
+const RETURNER_WIDE: Pt = [24.4, 0.5];
+const SERVER_AFTER: Pt = [1.2, 5.9];
+const OPEN: Pt = [21.2, 8.6];
+const OPEN_ZONE: Pt[] = [[17.2, 6.1], [22.6, 6.1], [22.6, 9.5], [17.2, 9.5]];
 
 export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
   const [tab, setTab] = useState<"observed" | "recommended">("observed");
@@ -98,9 +102,9 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
   const glass =
     "border border-white/15 bg-white/[0.07] backdrop-blur-xl shadow-[0_24px_64px_rgba(0,0,0,0.45)]";
 
-  const chip = (n: string, label: string, pos: { left: string; top: string }, on: boolean) => (
+  const chip = (n: string, label: string, pos: { left: string; top: string }, on: boolean, below = false) => (
     <div
-      className={`pointer-events-none absolute -translate-x-1/2 -translate-y-full ${fade} ${on ? "opacity-100" : "opacity-0"}`}
+      className={`pointer-events-none absolute -translate-x-1/2 ${below ? "translate-y-0" : "-translate-y-full"} ${fade} ${on ? "opacity-100" : "opacity-0"}`}
       style={pos}
       aria-hidden={!on}
     >
@@ -129,9 +133,8 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
             <polygon points={poly(ZONE)} fill="var(--color-accent)" fillOpacity="0.22" stroke="var(--color-accent)" strokeWidth="1.5" />
           </g>
           <g className={`${fade} ${observed ? "opacity-0" : "opacity-100"}`}>
-            {MIX.filter((m) => m.zone.length).map((m, i) => (
-              <polygon key={i} points={poly(m.zone)} fill="var(--color-accent)" fillOpacity="0.2" stroke="var(--color-accent)" strokeWidth="1.5" />
-            ))}
+            <polygon points={poly(WIDE_ZONE)} fill="var(--color-accent)" fillOpacity="0.22" stroke="var(--color-accent)" strokeWidth="1.5" />
+            <polygon points={poly(OPEN_ZONE)} fill="var(--color-accent)" fillOpacity="0.12" stroke="var(--color-accent)" strokeOpacity="0.7" strokeWidth="1.5" strokeDasharray="6 6" />
           </g>
 
           {/* Court lines */}
@@ -162,20 +165,16 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
             <circle cx={at(RETURNER_IN)[0]} cy={at(RETURNER_IN)[1]} r="9" fill="none" stroke="#fff" strokeWidth="3" />
           </g>
 
-          {/* Recommended: mix the targets */}
+          {/* Recommended: wide serve, then the open court */}
           <g className={`${fade} ${observed ? "opacity-0" : "opacity-100"}`}>
-            <g fill="none" stroke="var(--color-accent)" strokeOpacity="0.75" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 8">
-              {MIX.map((m, i) => (
-                <path key={i} d={flight(SERVER, m.to, 2.6)} />
-              ))}
-            </g>
-            <g fill="var(--color-accent)">
-              {MIX.map((m, i) => {
-                const [x, y] = at(m.to);
-                return <circle key={i} cx={x} cy={y} r="8" />;
-              })}
-            </g>
-            <circle cx={at(RETURNER_BACK)[0]} cy={at(RETURNER_BACK)[1]} r="9" fill="none" stroke="#fff" strokeWidth="3" />
+            <path d={flight(SERVER, WIDE, 2.6)} fill="none" stroke="var(--color-accent)" strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" />
+            <circle cx={at(WIDE)[0]} cy={at(WIDE)[1]} r="8" fill="var(--color-accent)" />
+            <path d={line([RETURNER_BACK, RETURNER_WIDE])} stroke="#fff" strokeOpacity="0.85" strokeWidth="2" strokeDasharray="2 7" strokeLinecap="round" fill="none" />
+            <circle cx={at(RETURNER_WIDE)[0]} cy={at(RETURNER_WIDE)[1]} r="9" fill="none" stroke="#fff" strokeWidth="3" />
+            <path d={line([SERVER, SERVER_AFTER])} stroke="#fff" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="2 7" strokeLinecap="round" fill="none" />
+            <circle cx={at(SERVER_AFTER)[0]} cy={at(SERVER_AFTER)[1]} r="7" fill="#fff" fillOpacity="0.9" />
+            <path d={flight(SERVER_AFTER, OPEN, 2)} fill="none" stroke="var(--color-accent)" strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="2 8" />
+            <circle cx={at(OPEN)[0]} cy={at(OPEN)[1]} r="8" fill="var(--color-accent)" />
           </g>
 
           {/* Server, always */}
@@ -184,7 +183,8 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
 
         {chip("1", t.zoneLabel, pct([16.9, 3.2], 5.5, -3.5), observed)}
         {chip("2", t.stepsInLabel, pct(RETURNER_IN, 2.5, -3), observed)}
-        {chip("3", t.mixLabel, pct([16.9, 3.4], 5, -5), !observed)}
+        {chip("3", t.wideLabel, pct(WIDE, 6, -3.5), !observed)}
+        {chip("4", t.openLabel, pct(OPEN, 0, 3), !observed, true)}
         </div>
 
         {/* View switch */}
@@ -251,15 +251,17 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
         </section>
 
         <section aria-labelledby={`${id}-rec`} className="mt-6 border-l-2 border-accent pl-4">
-          <h4 id={`${id}-rec`} className="eyebrow flex items-center gap-2 !text-white">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.6875rem] font-bold text-[#11140a]" aria-hidden="true">3</span>
-            {t.recommendedTitle}
-          </h4>
-          <ul className="mt-3 space-y-2.5">
-            {t.recommended.map((item) => (
-              <li key={item} className="text-[0.9375rem] leading-snug text-white/90">{item}</li>
+          <h4 id={`${id}-rec`} className="eyebrow !text-white">{t.recommendedTitle}</h4>
+          <ol className="mt-3 space-y-3">
+            {t.recommended.map((item, i) => (
+              <li key={item} className="grid grid-cols-[1.25rem_1fr] gap-2 text-[0.9375rem] leading-snug text-white/90">
+                <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.6875rem] font-bold text-[#11140a]" aria-hidden="true">
+                  {t.observed.length + i + 1}
+                </span>
+                {item}
+              </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
         <p className="mt-6 text-[0.6875rem] leading-relaxed text-white/50 xl:mt-auto xl:pt-5">
