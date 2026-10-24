@@ -76,7 +76,7 @@ function Scene() {
       <color attach="background" args={[INK]} />
       <fog attach="fog" args={[INK, 14, 30]} />
       <ambientLight intensity={0.65} />
-      <directionalLight position={[6, 9, 4]} intensity={1.1} color="#eafff0" />
+      <directionalLight position={[6, 9, 4]} intensity={1.1} color="#fff6df" />
       <directionalLight position={[-6, 4, -6]} intensity={0.25} color={BRAND_600} />
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>

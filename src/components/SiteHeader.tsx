@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -11,20 +12,6 @@ import ThemeToggle from "@/components/ThemeToggle";
 import LanguageSwitcher, { currentLocaleFromPathname } from "@/components/LanguageSwitcher";
 import { localizedHref } from "@/i18n/locales";
 import { navDictionaries } from "@/i18n/dictionaries/nav";
-
-function LogoMark() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0" aria-hidden="true">
-      <circle cx="12" cy="12" r="11" fill="var(--color-brand-600)" />
-      <path
-        d="M1.5 12c3.2-2.5 6.8-2.5 10.5 0s7.3 2.5 10.5 0M1.5 12c3.2 2.5 6.8 2.5 10.5 0s7.3-2.5 10.5 0"
-        stroke="var(--color-brand-100)"
-        strokeWidth="1.2"
-        fill="none"
-      />
-    </svg>
-  );
-}
 
 export default function SiteHeader() {
   const { data: session, status } = useSession();
@@ -82,17 +69,24 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={`print:hidden sticky top-0 z-20 bg-background/95 backdrop-blur border-b transition-shadow ${
-        scrolled ? "border-line shadow-sm" : "border-transparent"
+      className={`dark print:hidden sticky top-0 z-30 bg-forest/95 backdrop-blur border-b transition-shadow ${
+        scrolled ? "border-white/15 shadow-md" : "border-white/10"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <div className="container-x py-3 flex items-center justify-between gap-4">
         <Link
           href={localizedHref(locale, "/")}
-          className="flex items-center gap-2 font-bold text-lg text-ink shrink-0 whitespace-nowrap"
+          className="shrink-0 flex items-center"
+          aria-label="Tactical Tennis Lab"
         >
-          <LogoMark />
-          Tactical Tennis Lab
+          <Image
+            src="/brand/logo-dark.png"
+            alt="Tactical Tennis Lab"
+            width={1203}
+            height={369}
+            priority
+            className="h-9 sm:h-10 w-auto"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-4 text-sm">
@@ -149,7 +143,7 @@ export default function SiteHeader() {
               </Link>
               <Link
                 href={localizedHref(locale, "/sign-up")}
-                className="rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all whitespace-nowrap shrink-0"
+                className="rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand px-3 py-1.5 font-medium shadow-sm hover:shadow-md transition-all whitespace-nowrap shrink-0"
               >
                 {t.signUp}
               </Link>
@@ -228,7 +222,7 @@ export default function SiteHeader() {
               </Link>
               <Link
                 href={localizedHref(locale, "/sign-up")}
-                className="mt-2 rounded-xl bg-brand-600 text-white px-3 py-2 font-medium text-center"
+                className="mt-2 rounded-xl bg-brand-600 text-on-brand px-3 py-2 font-medium text-center"
                 onClick={closeMenu}
               >
                 {t.signUp}

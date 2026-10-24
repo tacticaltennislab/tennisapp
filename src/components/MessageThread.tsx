@@ -65,7 +65,7 @@ export default function MessageThread({
               <div key={m.id} className={`flex ${isSelf ? "justify-end" : "justify-start"}`}>
                 <div
                   className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
-                    isSelf ? "bg-brand-600 text-white" : "bg-chip text-ink"
+                    isSelf ? "bg-brand-600 text-on-brand" : "bg-chip text-ink"
                   }`}
                 >
                   <p className="whitespace-pre-wrap">{m.body}</p>
@@ -95,7 +95,7 @@ export default function MessageThread({
         <button
           type="submit"
           disabled={sending || !text.trim()}
-          className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 transition-colors"
+          className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand text-sm font-semibold px-4 transition-colors"
         >
           {t.send}
         </button>

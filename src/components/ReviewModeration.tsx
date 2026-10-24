@@ -88,7 +88,7 @@ export default function ReviewModeration({ initialReviews }: { initialReviews: R
                 type="button"
                 disabled={busyId === r.id}
                 onClick={() => updateStatus(r.id, "approved")}
-                className="text-xs rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold px-3 py-1.5 transition-colors"
+                className="text-xs rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand font-semibold px-3 py-1.5 transition-colors"
               >
                 Approve
               </button>

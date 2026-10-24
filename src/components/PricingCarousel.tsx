@@ -128,7 +128,7 @@ export default function PricingCarousel({
                   maxTilt={5}
                   className={`h-full flex flex-col rounded-2xl border p-6 sm:p-8 shadow-sm cursor-grab active:cursor-grabbing ${
                     plan.featured
-                      ? "border-brand-600 bg-brand-600 text-white"
+                      ? "border-brand-600 bg-brand-600 text-on-brand"
                       : "border-line bg-surface"
                   }`}
                 >
@@ -194,7 +194,7 @@ export default function PricingCarousel({
                     className={`mt-3 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:translate-y-0 disabled:cursor-not-allowed ${
                       plan.featured
                         ? "bg-white text-brand-700 hover:bg-white/90"
-                        : "bg-brand-600 text-white hover:bg-brand-700 shadow-sm hover:shadow-md"
+                        : "bg-brand-600 text-on-brand hover:bg-brand-700 shadow-sm hover:shadow-md"
                     }`}
                   >
                     {checkingOut === plan.planId ? t.redirecting : t.getStarted}

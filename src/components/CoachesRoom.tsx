@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
-import BallMark from "@/components/BallMark";
-import TiltCard from "@/components/TiltCard";
 import { IconArrowRight } from "@/components/icons";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
@@ -27,44 +25,41 @@ export default async function CoachesRoom({ lang = "en" }: { lang?: AppLocale })
   });
 
   return (
-    <section className="spotlight-room relative overflow-hidden">
-      <BallMark className="hidden md:block absolute top-10 -right-10 w-48 h-48 text-white/[0.05] pointer-events-none" />
-      <div className="relative max-w-3xl mx-auto px-4 py-16 sm:py-20">
+    <section className="spotlight-room relative overflow-hidden section-pad">
+      <div className="container-x">
         <Reveal className="text-center">
-          <p className="text-sm font-semibold text-lime-400 uppercase tracking-wide">
-            {t.eyebrow}
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold mt-2 text-white">{t.title}</h2>
-          <p className="mt-4 text-white/70 max-w-xl mx-auto">{t.subtitle}</p>
+          <p className="eyebrow !text-gold">{t.eyebrow}</p>
+          <h2 className="t-h2 mt-3 text-cream">{t.title}</h2>
+          <p className="t-lead mt-4 text-cream/70 max-w-2xl mx-auto">{t.subtitle}</p>
         </Reveal>
 
         {coaches.length > 0 ? (
           <div
-            className={`mt-10 grid gap-5 max-w-2xl mx-auto sm:grid-cols-2 ${
+            className={`mt-12 grid gap-5 max-w-3xl mx-auto sm:grid-cols-2 ${
               coaches.length >= 3 ? "lg:max-w-none lg:grid-cols-3" : ""
             }`}
           >
             {coaches.map((coach, i) => (
               <Reveal key={coach.id} delay={i * 80}>
-                <TiltCard className="h-full rounded-2xl bg-white/5 border border-white/10 backdrop-blur px-5 py-6 transition-colors hover:bg-white/10 hover:border-white/20 shadow-xl shadow-black/20">
-                  <div className="w-12 h-12 rounded-full bg-brand-500/20 text-lime-300 font-semibold flex items-center justify-center">
+                <div className="h-full rounded-2xl border border-cream/15 bg-cream/[0.04] p-6 transition-colors hover:border-gold/60">
+                  <div className="w-12 h-12 rounded-full border border-gold/60 text-gold font-semibold flex items-center justify-center">
                     {initials(coach.name)}
                   </div>
-                  <p className="mt-4 font-semibold text-white">{coach.name}</p>
+                  <p className="mt-4 text-lg font-semibold text-cream">{coach.name}</p>
                   {coach.specialty && (
-                    <p className="text-sm text-lime-300">{coach.specialty}</p>
+                    <p className="mt-1 text-sm font-medium text-lime-300">{coach.specialty}</p>
                   )}
                   {coach.bio && (
-                    <p className="mt-2 text-sm text-white/60">{coach.bio}</p>
+                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-cream/70">{coach.bio}</p>
                   )}
                   <Link
                     href={localizedHref(lang, `/coaches/${coach.id}`)}
-                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-lime-300 hover:underline"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-cream transition-colors"
                   >
                     {t.viewProfile}
                     <IconArrowRight className="w-3.5 h-3.5" />
                   </Link>
-                </TiltCard>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -73,7 +68,7 @@ export default async function CoachesRoom({ lang = "en" }: { lang?: AppLocale })
             {dict.badges.map((b) => (
               <span
                 key={b}
-                className="rounded-full bg-white/5 border border-white/10 backdrop-blur text-white/90 text-sm px-4 py-2"
+                className="rounded-sm border border-cream/15 bg-cream/[0.04] text-cream/90 text-sm px-4 py-2"
               >
                 {b}
               </span>

@@ -42,7 +42,7 @@ export default function ReferralLinkCard({
         <button
           type="button"
           onClick={handleCopy}
-          className="shrink-0 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-4 transition-colors"
+          className="shrink-0 rounded-lg bg-brand-600 hover:bg-brand-700 text-on-brand text-sm font-semibold px-4 transition-colors"
         >
           {copied ? t.copied : t.copy}
         </button>

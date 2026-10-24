@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
-export const BRAND_600 = "#1b7a45";
-export const BRAND_700 = "#145c34";
-export const BRAND_900 = "#0c3820";
-export const LIME = "#d3f234";
+export const BRAND_600 = "#24432f";
+export const BRAND_700 = "#192f22";
+export const BRAND_900 = "#14261c";
+export const LIME = "#b9b96a";
 
 /** Procedural acrylic hard-court surface: base color + paint grain, roller
  * bands, and a soft vignette so it reads as a real painted surface instead
@@ -128,7 +128,7 @@ export function ResponsiveFov({
   return null;
 }
 
-export function CourtLines({ color = "#eef7f0" }: { color?: string }) {
+export function CourtLines({ color = "#f1f0df" }: { color?: string }) {
   const lineMat = <meshStandardMaterial color={color} roughness={0.8} />;
   // Cross-lines (baselines, service lines) and longitudinal lines
   // (sidelines, center line) physically overlap where they cross. Giving

@@ -49,7 +49,7 @@ export default function AcademyInviteAccept({
         type="button"
         onClick={handleAccept}
         disabled={submitting}
-        className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all"
+        className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all"
       >
         {submitting ? t.submitting : t.button}
         <IconArrowRight className="w-4 h-4" />

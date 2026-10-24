@@ -7,23 +7,21 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
   const t = homeDictionaries[lang].productScroll;
 
   return (
-    <div className="flex flex-col overflow-hidden bg-surface">
+    <section id="sample-analysis" className="bg-forest section-pad scroll-mt-20">
       <ContainerScroll
         titleComponent={
-          <div className="pb-14 md:pb-24">
-            <p className="text-sm font-semibold text-brand-600 uppercase tracking-wide">
-              {t.eyebrow}
-            </p>
-            <h2 className="mt-3 text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.95] text-ink">
+          <>
+            <p className="eyebrow !text-gold">{t.eyebrow}</p>
+            <h2 className="mt-4 text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.95] text-cream">
               {t.titleLine1}
               <br />
-              <span className="text-brand-600">{t.titleLine2}</span>
+              <span className="text-gold">{t.titleLine2}</span>
             </h2>
-          </div>
+          </>
         }
       >
         <SampleAnalysisMock lang={lang} />
       </ContainerScroll>
-    </div>
+    </section>
   );
 }

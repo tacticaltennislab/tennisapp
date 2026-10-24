@@ -57,7 +57,7 @@ export default function ChatWidget() {
       {open && (
         <div className="mb-3 w-[calc(100vw-2.5rem)] max-w-sm animate-fade-up">
           <div className="rounded-2xl border border-line bg-surface shadow-xl overflow-hidden">
-            <div className="flex items-center justify-between bg-brand-600 text-white px-4 py-3">
+            <div className="flex items-center justify-between bg-brand-600 text-on-brand px-4 py-3">
               <p className="font-semibold text-sm">Chat with your coach</p>
               <button
                 type="button"
@@ -77,7 +77,7 @@ export default function ChatWidget() {
         type="button"
         onClick={() => (open ? setOpen(false) : handleOpen())}
         aria-label={open ? "Close chat" : "Open chat with your coach"}
-        className="relative w-14 h-14 rounded-full bg-brand-600 hover:bg-brand-700 text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center"
+        className="relative w-14 h-14 rounded-full bg-brand-600 hover:bg-brand-700 text-on-brand shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center"
       >
         {open ? <IconClose className="w-6 h-6" /> : <IconChat className="w-6 h-6" />}
         {!open && unread > 0 && (

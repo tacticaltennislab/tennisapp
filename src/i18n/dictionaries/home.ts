@@ -41,15 +41,12 @@ export interface HomeDict {
     emptyCta: string;
     filledPrefix: string;
     filledCta: string;
+    summary: string; // {rating} {count}
+    playVideo: string;
   };
-  journey: {
-    eyebrow: string;
+  ctaBand: {
     title: string;
-    steps: {
-      title: string;
-      detail: string;
-      cta: string;
-    }[];
+    subtitle: string;
   };
   coachesRoom: {
     eyebrow: string;
@@ -75,6 +72,8 @@ export interface HomeDict {
     focus: string[];
     patternsTitle: string;
     patterns: { label: string; value: number }[];
+    courtTitle: string;
+    courtNote: string;
     footer: string;
   };
 }
@@ -149,32 +148,12 @@ const en: HomeDict = {
     emptyCta: "Leave a review",
     filledPrefix: "Worked with a coach?",
     filledCta: "Leave your own review",
+    summary: "Average rating {rating} / 5 · Reviews: {count}",
+    playVideo: "Play video review",
   },
-  journey: {
-    eyebrow: "Your path with us",
-    title: "From first video to your next win",
-    steps: [
-      {
-        title: "See how it works",
-        detail: "Players send video, we analyse it, and your coaches get clear feedback.",
-        cta: "How it works",
-      },
-      {
-        title: "Meet the coaches",
-        detail: "Former ATP players and ITF Level 2 certified coaches review every submission.",
-        cta: "Meet the coaches",
-      },
-      {
-        title: "Choose your academy package",
-        detail: "Packages from $550/month for clubs and academies, or season packages for a full training block.",
-        cta: "See academy packages",
-      },
-      {
-        title: "Read our story",
-        detail: "Why we built a coaching platform that doesn't stop when the session ends.",
-        cta: "Our story",
-      },
-    ],
+  ctaBand: {
+    title: "Give your coaches their time on court back.",
+    subtitle: "Tell us about your academy, or compare the packages first.",
   },
   coachesRoom: {
     eyebrow: "Real coaches, not an algorithm",
@@ -218,6 +197,8 @@ const en: HomeDict = {
       { label: "Second serve points", value: 41 },
       { label: "Rallies of 9+ shots", value: 38 },
     ],
+    courtTitle: "Second serve placement",
+    courtNote: "74% to the backhand side",
     footer: "Reviewed by Tactical Tennis Lab coaches · shared with the academy's coaching team",
   },
 };
@@ -292,32 +273,12 @@ const pl: HomeDict = {
     emptyCta: "Zostaw opinię",
     filledPrefix: "Pracowałeś z trenerem?",
     filledCta: "Zostaw własną opinię",
+    summary: "Średnia ocena {rating} / 5 · Opinie: {count}",
+    playVideo: "Odtwórz opinię wideo",
   },
-  journey: {
-    eyebrow: "Twoja droga z nami",
-    title: "Od pierwszego wideo do kolejnego zwycięstwa",
-    steps: [
-      {
-        title: "Zobacz, jak to działa",
-        detail: "Zawodnicy wysyłają wideo, my je analizujemy, a Twoi trenerzy dostają jasną informację zwrotną.",
-        cta: "Jak to działa",
-      },
-      {
-        title: "Poznaj trenerów",
-        detail: "Byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2 analizują każde zgłoszenie.",
-        cta: "Poznaj trenerów",
-      },
-      {
-        title: "Wybierz pakiet dla akademii",
-        detail: "Pakiety od 550 USD miesięcznie dla klubów i akademii oraz pakiety sezonowe na cały blok treningowy.",
-        cta: "Zobacz pakiety dla akademii",
-      },
-      {
-        title: "Przeczytaj naszą historię",
-        detail: "Dlaczego stworzyliśmy platformę coachingową, która nie kończy się wraz z sesją.",
-        cta: "Nasza historia",
-      },
-    ],
+  ctaBand: {
+    title: "Oddaj swoim trenerom czas na korcie.",
+    subtitle: "Opowiedz nam o swojej akademii albo najpierw porównaj pakiety.",
   },
   coachesRoom: {
     eyebrow: "Prawdziwi trenerzy, nie algorytm",
@@ -361,6 +322,8 @@ const pl: HomeDict = {
       { label: "Punkty przy drugim serwisie", value: 41 },
       { label: "Wymiany 9+ uderzeń", value: 38 },
     ],
+    courtTitle: "Rozmieszczenie drugiego serwisu",
+    courtNote: "74% na stronę bekhendu",
     footer: "Przeanalizowane przez trenerów Tactical Tennis Lab · udostępnione zespołowi trenerskiemu akademii",
   },
 };
@@ -435,32 +398,12 @@ const es: HomeDict = {
     emptyCta: "Deja una opinión",
     filledPrefix: "¿Trabajaste con un entrenador?",
     filledCta: "Deja tu propia opinión",
+    summary: "Valoración media {rating} / 5 · Opiniones: {count}",
+    playVideo: "Reproducir opinión en vídeo",
   },
-  journey: {
-    eyebrow: "Tu camino con nosotros",
-    title: "Del primer vídeo a tu próxima victoria",
-    steps: [
-      {
-        title: "Mira cómo funciona",
-        detail: "Los jugadores envían vídeo, nosotros lo analizamos y tus entrenadores reciben comentarios claros.",
-        cta: "Cómo funciona",
-      },
-      {
-        title: "Conoce a los entrenadores",
-        detail: "Exjugadores del ATP y entrenadores certificados ITF Level 2 revisan cada envío.",
-        cta: "Conocer entrenadores",
-      },
-      {
-        title: "Elige tu paquete para academias",
-        detail: "Paquetes desde 550 USD al mes para clubes y academias, o paquetes de temporada para un bloque completo de entrenamiento.",
-        cta: "Ver paquetes para academias",
-      },
-      {
-        title: "Lee nuestra historia",
-        detail: "Por qué creamos una plataforma de coaching que no termina cuando acaba la sesión.",
-        cta: "Nuestra historia",
-      },
-    ],
+  ctaBand: {
+    title: "Devuelve a tus entrenadores su tiempo en la pista.",
+    subtitle: "Cuéntanos sobre tu academia o compara primero los paquetes.",
   },
   coachesRoom: {
     eyebrow: "Entrenadores reales, no un algoritmo",
@@ -504,6 +447,8 @@ const es: HomeDict = {
       { label: "Puntos con segundo saque", value: 41 },
       { label: "Intercambios de 9+ golpes", value: 38 },
     ],
+    courtTitle: "Colocación del segundo saque",
+    courtNote: "74% al lado del revés",
     footer: "Revisado por los entrenadores de Tactical Tennis Lab · compartido con el equipo técnico de la academia",
   },
 };
@@ -578,32 +523,12 @@ const it: HomeDict = {
     emptyCta: "Lascia una recensione",
     filledPrefix: "Hai lavorato con un allenatore?",
     filledCta: "Lascia la tua recensione",
+    summary: "Valutazione media {rating} / 5 · Recensioni: {count}",
+    playVideo: "Riproduci recensione video",
   },
-  journey: {
-    eyebrow: "Il tuo percorso con noi",
-    title: "Dal primo video alla tua prossima vittoria",
-    steps: [
-      {
-        title: "Scopri come funziona",
-        detail: "I giocatori inviano i video, noi li analizziamo e i tuoi allenatori ricevono un feedback chiaro.",
-        cta: "Come funziona",
-      },
-      {
-        title: "Conosci gli allenatori",
-        detail: "Ex giocatori ATP e allenatori certificati ITF Level 2 rivedono ogni invio.",
-        cta: "Conosci gli allenatori",
-      },
-      {
-        title: "Scegli il pacchetto per la tua accademia",
-        detail: "Pacchetti da 550 USD al mese per club e accademie, oppure pacchetti stagionali per un intero blocco di allenamento.",
-        cta: "Vedi i pacchetti per accademie",
-      },
-      {
-        title: "Leggi la nostra storia",
-        detail: "Perché abbiamo creato una piattaforma di coaching che non si ferma quando finisce la sessione.",
-        cta: "La nostra storia",
-      },
-    ],
+  ctaBand: {
+    title: "Restituisci ai tuoi allenatori il loro tempo in campo.",
+    subtitle: "Raccontaci della tua accademia oppure confronta prima i pacchetti.",
   },
   coachesRoom: {
     eyebrow: "Allenatori veri, non un algoritmo",
@@ -647,6 +572,8 @@ const it: HomeDict = {
       { label: "Punti con la seconda di servizio", value: 41 },
       { label: "Scambi di 9+ colpi", value: 38 },
     ],
+    courtTitle: "Direzione della seconda di servizio",
+    courtNote: "74% sul lato del rovescio",
     footer: "Esaminato dagli allenatori di Tactical Tennis Lab · condiviso con lo staff tecnico dell'accademia",
   },
 };
@@ -721,32 +648,12 @@ const ru: HomeDict = {
     emptyCta: "Оставить отзыв",
     filledPrefix: "Работали с тренером?",
     filledCta: "Оставить свой отзыв",
+    summary: "Средняя оценка {rating} / 5 · Отзывы: {count}",
+    playVideo: "Смотреть видеоотзыв",
   },
-  journey: {
-    eyebrow: "Ваш путь с нами",
-    title: "От первого видео до следующей победы",
-    steps: [
-      {
-        title: "Посмотрите, как это работает",
-        detail: "Игроки присылают видео, мы анализируем его, а ваши тренеры получают понятную обратную связь.",
-        cta: "Как это работает",
-      },
-      {
-        title: "Познакомьтесь с тренерами",
-        detail: "Бывшие игроки ATP и сертифицированные тренеры ITF Level 2 разбирают каждую заявку.",
-        cta: "Познакомиться с тренерами",
-      },
-      {
-        title: "Выберите пакет для академии",
-        detail: "Пакеты от 550 USD в месяц для клубов и академий или сезонные пакеты на весь тренировочный блок.",
-        cta: "Пакеты для академий",
-      },
-      {
-        title: "Прочитайте нашу историю",
-        detail: "Почему мы создали платформу коучинга, которая не заканчивается вместе с сессией.",
-        cta: "Наша история",
-      },
-    ],
+  ctaBand: {
+    title: "Верните своим тренерам время на корте.",
+    subtitle: "Расскажите нам о своей академии или сначала сравните пакеты.",
   },
   coachesRoom: {
     eyebrow: "Настоящие тренеры, а не алгоритм",
@@ -790,6 +697,8 @@ const ru: HomeDict = {
       { label: "Очки на второй подаче", value: 41 },
       { label: "Розыгрыши от 9 ударов", value: 38 },
     ],
+    courtTitle: "Направление второй подачи",
+    courtNote: "74% на сторону бэкхенда",
     footer: "Проверено тренерами Tactical Tennis Lab · доступно тренерской команде академии",
   },
 };

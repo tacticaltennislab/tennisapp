@@ -1,9 +1,14 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  const logo = await readFile(join(process.cwd(), "public/brand/logo-dark.png"));
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -14,51 +19,28 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #0f2e1e 0%, #173f2a 55%, #0c3820 100%)",
-          color: "#ffffff",
+          background: "#192f22",
+          color: "#f1f0df",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: "50%",
-              background: "#1b7a45",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M1.5 12c3.2-2.5 6.8-2.5 10.5 0s7.3 2.5 10.5 0M1.5 12c3.2 2.5 6.8 2.5 10.5 0s7.3-2.5 10.5 0"
-                stroke="#cfeddc"
-                strokeWidth="1.4"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <div style={{ fontSize: 32, fontWeight: 700, display: "flex" }}>
-            Tactical Tennis Lab
-          </div>
-        </div>
+        <img src={logoSrc} width={330} height={101} alt="" />
         <div
           style={{
-            marginTop: 40,
-            fontSize: 56,
+            marginTop: 56,
+            fontSize: 64,
             fontWeight: 700,
-            lineHeight: 1.1,
-            maxWidth: 900,
+            lineHeight: 1.08,
+            letterSpacing: -2,
+            maxWidth: 980,
             display: "flex",
           }}
         >
-          Train like it&apos;s match point every session.
+          Build a stronger academy with better analysis of every player.
         </div>
-        <div style={{ marginTop: 24, fontSize: 26, color: "#cfeddc", display: "flex", maxWidth: 800 }}>
-          Personalized training plans and video coaching from former ATP
-          players and ITF Level 2 coaches.
+        <div style={{ marginTop: 28, fontSize: 28, color: "#a8a85c", display: "flex", maxWidth: 900 }}>
+          Video and match analysis for tennis academies and clubs, from former
+          ATP players and ITF Level 2 coaches.
         </div>
       </div>
     ),

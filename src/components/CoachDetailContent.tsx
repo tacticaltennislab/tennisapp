@@ -78,7 +78,7 @@ export default async function CoachDetailContent({ id, lang = "en" }: { id: stri
             </p>
             <Link
               href={localizedHref(lang, "/submit-video")}
-              className="mt-3 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+              className="mt-3 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
             >
               {t.sendVideo}
               <IconArrowRight className="w-4 h-4" />

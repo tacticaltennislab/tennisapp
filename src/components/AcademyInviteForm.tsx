@@ -85,7 +85,7 @@ export default function AcademyInviteForm({
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 shadow-sm"
+          className="rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand text-sm font-semibold px-4 py-2 shadow-sm"
         >
           {submitting ? t.invite.sending : t.invite.send}
         </button>

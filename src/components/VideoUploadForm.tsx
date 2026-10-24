@@ -124,7 +124,7 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
                 onClick={() => setSkillLevel(l.value)}
                 className={`btn-3d rounded-lg px-3 py-2 text-sm font-medium border ${
                   skillLevel === l.value
-                    ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
+                    ? "btn-3d-selected bg-brand-600 text-on-brand border-brand-600"
                     : "border-line bg-surface hover:border-brand-600"
                 }`}
               >
@@ -159,7 +159,7 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
                 onClick={() => toggleFocus(area)}
                 className={`btn-3d rounded-full px-3 py-1.5 text-sm border ${
                   focusAreas.includes(area)
-                    ? "btn-3d-selected bg-brand-600 text-white border-brand-600"
+                    ? "btn-3d-selected bg-brand-600 text-on-brand border-brand-600"
                     : "border-line bg-surface hover:border-brand-600"
                 }`}
               >
@@ -207,7 +207,7 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+        className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-on-brand font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
       >
         {submitting ? t.uploading.replace("{pct}", String(progress)) : t.submit}
       </button>

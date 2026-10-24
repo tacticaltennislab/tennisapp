@@ -64,7 +64,7 @@ export default function ClubOffers({
               }`}
             >
               {i === CLUB_POPULAR_INDEX && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 text-white text-xs font-semibold px-3 py-1 shadow-sm whitespace-nowrap">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 text-on-brand text-xs font-semibold px-3 py-1 shadow-sm whitespace-nowrap">
                   {popularLabel}
                 </span>
               )}
@@ -84,7 +84,7 @@ export default function ClubOffers({
               </ul>
               <a
                 href={CLUB_CHECKOUT_LINKS[i]}
-                className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2.5 text-sm shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand font-semibold px-4 py-2.5 text-sm shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
               >
                 {cta}
                 <IconArrowRight className="w-4 h-4" />

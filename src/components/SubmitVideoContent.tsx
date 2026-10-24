@@ -29,7 +29,7 @@ export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLo
                     key={step.title}
                     className="flex items-start gap-4 rounded-2xl border border-line p-5 shadow-sm"
                   >
-                    <span className="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-white text-sm font-bold flex items-center justify-center">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-brand-600 text-on-brand text-sm font-bold flex items-center justify-center">
                       {i + 1}
                     </span>
                     <div>
@@ -62,7 +62,7 @@ export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLo
               <div className="mt-4 flex flex-wrap justify-center gap-3">
                 <Link
                   href={`${localizedHref(lang, "/sign-up")}?callbackUrl=${localizedHref(lang, "/submit-video")}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
                 >
                   {t.createAccountCta}
                   <IconArrowRight className="w-4 h-4" />

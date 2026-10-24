@@ -43,8 +43,8 @@ export async function sendEmail({
 
 function layout(title: string, bodyHtml: string) {
   return `
-    <div style="font-family: -apple-system, Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px 24px; color: #12181f;">
-      <p style="font-size: 13px; font-weight: 700; color: #1b7a45; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 8px;">Tactical Tennis Lab</p>
+    <div style="font-family: -apple-system, Arial, sans-serif; max-width: 480px; margin: 0 auto; padding: 32px 24px; color: #14231a;">
+      <p style="font-size: 13px; font-weight: 700; color: #24432f; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 8px;">Tactical Tennis Lab</p>
       <h1 style="font-size: 22px; margin: 0 0 16px;">${title}</h1>
       ${bodyHtml}
       <p style="margin-top: 32px; font-size: 12px; color: #6b7280;">Tactical Tennis Lab: video and match analysis for tennis academies and clubs.</p>
@@ -70,7 +70,7 @@ export function passwordResetEmail(resetUrl: string) {
       We got a request to reset your password. This link expires in 1 hour.
     </p>
     <p style="margin: 24px 0;">
-      <a href="${resetUrl}" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">Reset password</a>
+      <a href="${resetUrl}" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">Reset password</a>
     </p>
     <p style="font-size: 13px; color: #6b7280;">If you didn't request this, you can ignore this email.</p>`
   );
@@ -181,7 +181,7 @@ export function academyInviteEmail(
     copy.title(name),
     `<p style="font-size: 15px; line-height: 1.6;">${copy.intro(role, name)}</p>
     <p style="margin: 24px 0;">
-      <a href="${inviteUrl}" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">${copy.button}</a>
+      <a href="${inviteUrl}" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">${copy.button}</a>
     </p>
     <p style="font-size: 13px; color: #6b7280;">${copy.footer}</p>`
   );
@@ -193,9 +193,9 @@ export function coachFeedbackEmail(title: string, coachNotes: string) {
     `<p style="font-size: 15px; line-height: 1.6;">
       A coach reviewed <strong>${escapeHtml(title)}</strong> and left feedback:
     </p>
-    <blockquote style="margin: 16px 0; padding: 12px 16px; background: #eaf7ef; border-radius: 10px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(coachNotes)}</blockquote>
+    <blockquote style="margin: 16px 0; padding: 12px 16px; background: #eceedd; border-radius: 4px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(coachNotes)}</blockquote>
     <p style="margin: 24px 0;">
-      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/account" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">View in your account</a>
+      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/account" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">View in your account</a>
     </p>`
   );
 }
@@ -204,9 +204,9 @@ export function newMessageFromCustomerEmail(customerName: string, customerEmail:
   return layout(
     "New message from a customer",
     `<p style="font-size: 14px; color: #6b7280;">From: <strong style="color:#12181f;">${escapeHtml(customerName)}</strong> (${escapeHtml(customerEmail)})</p>
-    <blockquote style="margin: 16px 0; padding: 12px 16px; background: #f4f4f4; border-radius: 10px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(body)}</blockquote>
+    <blockquote style="margin: 16px 0; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(body)}</blockquote>
     <p style="margin: 24px 0;">
-      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/customers" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">Reply in dashboard</a>
+      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/customers" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">Reply in dashboard</a>
     </p>`
   );
 }
@@ -214,9 +214,9 @@ export function newMessageFromCustomerEmail(customerName: string, customerEmail:
 export function newMessageFromCoachEmail(body: string) {
   return layout(
     "New message from your coach",
-    `<blockquote style="margin: 16px 0; padding: 12px 16px; background: #eaf7ef; border-radius: 10px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(body)}</blockquote>
+    `<blockquote style="margin: 16px 0; padding: 12px 16px; background: #eceedd; border-radius: 4px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(body)}</blockquote>
     <p style="margin: 24px 0;">
-      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/account" style="background: #1b7a45; color: #fff; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 14px;">Reply in your account</a>
+      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/account" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">Reply in your account</a>
     </p>`
   );
 }
@@ -225,6 +225,6 @@ export function contactFormEmail(name: string, email: string, message: string) {
   return layout(
     "New contact form message",
     `<p style="font-size: 14px; color: #6b7280;">From: <strong style="color:#12181f;">${escapeHtml(name)}</strong> (${escapeHtml(email)})</p>
-    <blockquote style="margin: 16px 0; padding: 12px 16px; background: #f4f4f4; border-radius: 10px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(message)}</blockquote>`
+    <blockquote style="margin: 16px 0; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(message)}</blockquote>`
   );
 }

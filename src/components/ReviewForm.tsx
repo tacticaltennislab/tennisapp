@@ -189,7 +189,7 @@ export default function ReviewForm({
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 transition-colors"
+          className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand text-sm font-semibold px-4 py-2 transition-colors"
         >
           {submitting ? t.submitting : existing ? t.update : t.submit}
         </button>

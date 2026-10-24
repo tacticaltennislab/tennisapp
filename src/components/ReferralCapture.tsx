@@ -60,7 +60,7 @@ function Capture() {
         <button
           type="button"
           onClick={accept}
-          className="rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-3 py-1.5 transition-colors"
+          className="rounded-lg bg-brand-600 hover:bg-brand-700 text-on-brand text-sm font-semibold px-3 py-1.5 transition-colors"
         >
           Allow
         </button>

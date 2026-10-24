@@ -86,7 +86,7 @@ function ResetPasswordForm({ lang }: { lang: AppLocale }) {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+            className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
           >
             {submitting ? t.submitting : t.submit}
           </button>

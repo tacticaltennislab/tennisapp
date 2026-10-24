@@ -88,7 +88,7 @@ export default function AiFaqWidget() {
                   <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                     <div
                       className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm ${
-                        m.role === "user" ? "bg-brand-600 text-white" : "bg-chip text-ink"
+                        m.role === "user" ? "bg-brand-600 text-on-brand" : "bg-chip text-ink"
                       }`}
                     >
                       <p className="whitespace-pre-wrap">{m.content}</p>
@@ -118,7 +118,7 @@ export default function AiFaqWidget() {
               <button
                 type="submit"
                 disabled={sending || !text.trim()}
-                className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white text-sm font-semibold px-4 transition-colors"
+                className="rounded-lg bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-on-brand text-sm font-semibold px-4 transition-colors"
               >
                 Send
               </button>

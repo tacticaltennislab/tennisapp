@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Video and match analysis for tennis academies, clubs and players.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
-    theme_color: "#1b7a45",
+    background_color: "#192f22",
+    theme_color: "#192f22",
     icons: [
       {
         src: "/icon-192.png",

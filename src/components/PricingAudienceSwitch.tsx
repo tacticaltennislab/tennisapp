@@ -47,7 +47,7 @@ export default function PricingAudienceSwitch({
               aria-pressed={audience === o.value}
               onClick={() => select(o.value)}
               className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-                audience === o.value ? "bg-brand-600 text-white shadow-sm" : "text-body hover:text-brand-600"
+                audience === o.value ? "bg-brand-600 text-on-brand shadow-sm" : "text-body hover:text-brand-600"
               }`}
             >
               {o.label}

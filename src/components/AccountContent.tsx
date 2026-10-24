@@ -59,7 +59,7 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
             <h2 className="text-lg font-semibold">{t.yourVideos}</h2>
             <Link
               href="/submit-video"
-              className="text-sm rounded-xl bg-brand-600 hover:bg-brand-700 text-white px-3 py-1.5 shadow-sm hover:shadow-md transition-all"
+              className="text-sm rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand px-3 py-1.5 shadow-sm hover:shadow-md transition-all"
             >
               {t.sendVideo}
             </Link>

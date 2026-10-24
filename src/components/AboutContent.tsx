@@ -53,7 +53,7 @@ export default function AboutContent({ lang = "en" }: { lang?: AppLocale }) {
                       maxTilt={5}
                       className="group h-full rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                      <div className="w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-on-brand transition-colors">
                         <Icon className="w-6 h-6" />
                       </div>
                       <h3 className="mt-4 font-semibold text-lg">{p.title}</h3>
@@ -76,7 +76,7 @@ export default function AboutContent({ lang = "en" }: { lang?: AppLocale }) {
                   <Reveal key={item.title} delay={i * 80}>
                     <TiltCard maxTilt={4} className="group h-full rounded-2xl border border-line bg-surface p-6 shadow-sm hover:shadow-lg">
                       <div className="flex items-start gap-4">
-                        <div className="shrink-0 w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                        <div className="shrink-0 w-11 h-11 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-on-brand transition-colors">
                           <Icon className="w-6 h-6" />
                         </div>
                         <div>
@@ -95,7 +95,7 @@ export default function AboutContent({ lang = "en" }: { lang?: AppLocale }) {
             <p className="text-body">{t.ctaText}</p>
             <Link
               href={localizedHref(lang, "/coaches")}
-              className="mt-3 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+              className="mt-3 inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
             >
               {t.ctaButton}
               <IconArrowRight className="w-4 h-4" />
