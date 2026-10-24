@@ -44,10 +44,9 @@ export default function HeroSection({ lang = "en" }: { lang?: AppLocale }) {
           text={dict.hero.title}
           className={`t-display ${cinematic ? "max-w-4xl !text-white" : "mx-auto max-w-5xl"}`}
         />
-        <p
-          className={`animate-fade-up t-lead mt-7 max-w-2xl ${cinematic ? "!text-white/85" : "mx-auto"}`}
-          style={{ animationDelay: "60ms" }}
-        >
+        {/* Static on purpose: this paragraph is the largest text on screen, so it is
+            what the browser measures for Largest Contentful Paint. */}
+        <p className={`t-lead mt-7 max-w-2xl ${cinematic ? "!text-white/85" : "mx-auto"}`}>
           {dict.hero.subtitle}
         </p>
         <div
