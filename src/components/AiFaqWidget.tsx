@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { IconChat, IconClose, IconSpark } from "@/components/icons";
 
@@ -11,6 +12,7 @@ interface ChatMessage {
 const SUGGESTIONS = ["What do the academy packages include?", "How do academy accounts work?", "What's included in Match IQ?"];
 
 export default function AiFaqWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [text, setText] = useState("");
@@ -39,6 +41,9 @@ export default function AiFaqWidget() {
     }
     setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
   }
+
+  // The client dashboard is a full-screen app with its own chrome.
+  if (pathname.startsWith("/dashboard")) return null;
 
   return (
     <div className="print:hidden fixed bottom-5 left-5 z-30">

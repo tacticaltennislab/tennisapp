@@ -78,3 +78,28 @@ Headlines never exceed about 20 characters per line (`text-wrap: balance`). Para
 - Visible 2px focus outline with offset on every interactive element.
 - Links inside running text are underlined.
 - All form controls labelled; decorative images hidden from assistive technology.
+
+## Client dashboard (prototype, `/dashboard`)
+
+An app, not a brochure: a working tool with its own dark theme, applied by wrapping the dashboard in `.theme-dashboard` (it re-points the same tokens, so `.btn`, `.card`, `.field`, `.progress` all work inside it).
+
+**Status: prototype.** Admin-only, English only, sample data (`src/lib/dashboardSample.ts`), nothing is stored, uploaded or sent. Every screen carries a "Prototype. Sample data only" bar. It is not linked from the public site.
+
+| Token | Value |
+|---|---|
+| Page | `#121417` |
+| Surface | `#1a1d21` (panels), `#15181b` (rail), `#22262b` (chips) |
+| Hairline | `#2a2f35`; control borders `#707b85` (3.9:1 on panels) |
+| Text | `#f4f6f7` headings, `#d0d5d9` body, `#98a2ab` secondary (6.5:1 on surface) |
+| Accent | lime `#c8f135`: primary action, active nav, progress, current item, "reviewed" |
+| Semantic | amber `#f5a524` for technical issues, periwinkle `#9fb6ff` for tactical notes, used only as small dots and labels |
+
+**Information hierarchy.** Video analysis is the centre: the viewer takes the main column on desktop (the feedback sits in a sticky right column) and comes first on phones. The coach's **priorities** are always visible above the **Strengths / Technical issues / Tactical** tabs, because they answer "what do I do next". Observations are linked to timestamps and highlight the matching marker and on-frame pin.
+
+**Viewer.** Play and pause, back and forward 5 seconds, frame by frame (steps of 1/fps; the frame rate is selectable because browsers do not expose it), speed 0.25x to 2x, loop, a seek bar with the coach's markers, mm:ss.cc readout with frame number, and keyboard shortcuts (Space, comma, period, arrows). The prototype plays a video chosen on the device only.
+
+**Navigation.** A compact icon rail on tablets (icons plus labels from 1280px), a bottom bar with five destinations and a More menu on phones.
+
+**Honesty rules.** No scores or "AI" claims anywhere: all feedback is written by a coach. Statuses are limited to the two the platform has (awaiting review, reviewed). Notifications and settings only describe what exists today (email when feedback is ready, new-message email, browser push).
+
+**What a production version still needs** (not in the prototype): tables for timestamped observations, the four-part structured feedback and training plans with completion state; coach-side tools to write them; linking purchases to analyses; and storing messages and settings.

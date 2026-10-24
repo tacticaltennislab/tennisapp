@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com";
 
   const authGatedPaths = ["/account", "/submit-video", "/review", "/academy"];
-  const adminOnlyPaths = ["/submissions", "/customers", "/reviews/admin", "/club-agreement", "/academies"];
+  const adminOnlyPaths = ["/submissions", "/customers", "/reviews/admin", "/club-agreement", "/academies", "/dashboard"];
 
   const disallow = [
     ...adminOnlyPaths,

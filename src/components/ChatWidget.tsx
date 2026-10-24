@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import MessageThread from "@/components/MessageThread";
@@ -14,6 +15,7 @@ interface Message {
 }
 
 export default function ChatWidget() {
+  const pathname = usePathname();
   const { data: session, status } = useSession();
   const [open, setOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +53,9 @@ export default function ChatWidget() {
       fetch("/api/messages/mark-read", { method: "POST" }).catch(() => {});
     }
   }
+
+  // The client dashboard is a full-screen app with its own chrome.
+  if (pathname.startsWith("/dashboard")) return null;
 
   return (
     <div className="print:hidden fixed bottom-5 right-5 z-30">

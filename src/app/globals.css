@@ -68,6 +68,41 @@
   --color-gold-ink: #a1a1a6;
 }
 
+/* Client dashboard theme: charcoal surfaces, white type, restrained lime.
+   Applied by wrapping the dashboard in .theme-dashboard, which re-points the
+   same tokens every component already uses. */
+.theme-dashboard {
+  --background: #121417;
+  --foreground: #f4f6f7;
+
+  --color-brand-50: #1d2125;
+  --color-brand-100: #292e34;
+  --color-brand-500: #9bc92c;
+  --color-brand-600: #c8f135;
+  --color-brand-700: #b7e12a;
+  --color-brand-900: #0b0d0f;
+
+  --color-lime-300: #dcf67a;
+  --color-lime-400: #c8f135;
+
+  --color-ink: #f4f6f7;
+  --color-body: #d0d5d9;
+  --color-muted: #98a2ab;
+  --color-line: #2a2f35;
+  --color-line-strong: #707b85;
+
+  --color-surface: #1a1d21;
+  --color-surface-muted: #15181b;
+  --color-chip: #22262b;
+
+  --color-on-brand: #11140a;
+  --color-gold-ink: #98a2ab;
+
+  background: var(--background);
+  color: var(--color-body);
+  color-scheme: dark;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

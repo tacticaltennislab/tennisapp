@@ -67,6 +67,9 @@ export default function SiteHeader() {
   const linkClass = "text-body hover:text-ink transition-colors py-2 lg:py-0 whitespace-nowrap";
   const closeMenu = () => setMenuOpen(false);
 
+  // The client dashboard is a full-screen app with its own chrome.
+  if (pathname.startsWith("/dashboard")) return null;
+
   return (
     <header
       className={`print:hidden sticky top-0 z-30 bg-background/80 backdrop-blur-xl border-b transition-colors ${
@@ -114,6 +117,7 @@ export default function SiteHeader() {
                     { href: "/submissions", label: t.submissions },
                     { href: "/customers", label: t.customers },
                     { href: "/reviews/admin", label: t.reviews },
+                    { href: "/dashboard", label: "Dashboard (prototype)" },
                     ...(academyLink ? [{ href: academyLink.href, label: academyLink.label }] : []),
                   ]}
                 />

@@ -19,6 +19,9 @@ export default function SiteFooter() {
   const t = footerDictionaries[locale];
   const link = "text-body hover:text-ink hover:underline underline-offset-4 transition-colors";
 
+  // The client dashboard is a full-screen app with its own chrome.
+  if (pathname.startsWith("/dashboard")) return null;
+
   return (
     <footer className="print:hidden bg-surface-muted border-t border-line text-body">
       <div className="container-x py-12 grid gap-10 md:grid-cols-[1.1fr_1.4fr] md:gap-16">
