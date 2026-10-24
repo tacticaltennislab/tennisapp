@@ -52,6 +52,7 @@ const WIDE_ZONE: Pt[] = [[15.6, 1.4], [18.2, 1.4], [18.2, 2.5], [15.6, 2.5]];
 const RETURNER_WIDE: Pt = [24.4, 0.5];
 const SERVER_AFTER: Pt = [1.2, 5.9];
 const OPEN: Pt = [21.2, 8.6];
+const VARIETY: Pt[] = [[16.7, 5.0], [17.0, 3.4]];
 const OPEN_ZONE: Pt[] = [[17.2, 6.1], [22.6, 6.1], [22.6, 9.5], [17.2, 9.5]];
 
 export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
@@ -168,6 +169,16 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
           {/* Recommended: wide serve, then the open court */}
           <g className={`${fade} ${observed ? "opacity-0" : "opacity-100"}`}>
             <path d={flight(SERVER, WIDE, 2.6)} fill="none" stroke="var(--color-accent)" strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" />
+            <g fill="none" stroke="var(--color-accent)" strokeOpacity="0.4" strokeWidth="1.8" strokeLinecap="round" strokeDasharray="2 8">
+              {VARIETY.map((v, i) => (
+                <path key={i} d={flight(SERVER, v, 2.6)} />
+              ))}
+            </g>
+            <g fill="var(--color-accent)" fillOpacity="0.55">
+              {VARIETY.map((v, i) => (
+                <circle key={i} cx={at(v)[0]} cy={at(v)[1]} r="6.5" />
+              ))}
+            </g>
             <circle cx={at(WIDE)[0]} cy={at(WIDE)[1]} r="8" fill="var(--color-accent)" />
             <path d={line([RETURNER_BACK, RETURNER_WIDE])} stroke="#fff" strokeOpacity="0.85" strokeWidth="2" strokeDasharray="2 7" strokeLinecap="round" fill="none" />
             <circle cx={at(RETURNER_WIDE)[0]} cy={at(RETURNER_WIDE)[1]} r="9" fill="none" stroke="#fff" strokeWidth="3" />
