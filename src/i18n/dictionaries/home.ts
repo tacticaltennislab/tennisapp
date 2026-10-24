@@ -10,7 +10,6 @@ export interface HomeDict {
     playersNote: string;
     playersLink: string;
     tagline: string;
-    footageCaption: string;
   };
   services: {
     eyebrow: string;
@@ -101,7 +100,6 @@ const en: HomeDict = {
     playersNote: "Training on your own?",
     playersLink: "See player plans",
     tagline: "Real tennis. Expert analysis. Better decisions on court.",
-    footageCaption: "Stock photograph for illustration, not a client session.",
   },
   services: {
     eyebrow: "Our services",
@@ -221,7 +219,6 @@ const pl: HomeDict = {
     playersNote: "Trenujesz indywidualnie?",
     playersLink: "Zobacz plany dla zawodników",
     tagline: "Prawdziwy tenis. Ekspercka analiza. Lepsze decyzje na korcie.",
-    footageCaption: "Zdjęcie stockowe dla ilustracji, nie sesja klienta.",
   },
   services: {
     eyebrow: "Nasze usługi",
@@ -341,7 +338,6 @@ const es: HomeDict = {
     playersNote: "¿Entrenas por tu cuenta?",
     playersLink: "Ver planes para jugadores",
     tagline: "Tenis real. Análisis experto. Mejores decisiones en la pista.",
-    footageCaption: "Fotografía de archivo a modo de ilustración, no una sesión de un cliente.",
   },
   services: {
     eyebrow: "Nuestros servicios",
@@ -461,7 +457,6 @@ const it: HomeDict = {
     playersNote: "Ti alleni da solo?",
     playersLink: "Vedi i piani per giocatori",
     tagline: "Tennis vero. Analisi esperta. Decisioni migliori in campo.",
-    footageCaption: "Fotografia di repertorio a scopo illustrativo, non una sessione di un cliente.",
   },
   services: {
     eyebrow: "I nostri servizi",
@@ -581,7 +576,6 @@ const ru: HomeDict = {
     playersNote: "Тренируетесь самостоятельно?",
     playersLink: "Планы для игроков",
     tagline: "Настоящий теннис. Экспертный анализ. Лучшие решения на корте.",
-    footageCaption: "Стоковое фото для иллюстрации, а не занятие клиента.",
   },
   services: {
     eyebrow: "Наши услуги",

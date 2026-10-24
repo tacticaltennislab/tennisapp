@@ -1,13 +1,13 @@
 # Tactical Tennis Lab design system
 
-Calm, premium, editorial. Bright white, near-black type, quiet greys, and the photography doing the talking. The single accent is the olive of the logo, which lives in the logo itself.
+Calm, premium, editorial. Bright white, near-black type, quiet greys, with the tactical court view doing the talking. The single accent is the olive of the logo, which lives in the logo itself.
 
 Source of truth: `src/app/globals.css` (tokens, radii, shadows, type scale, component classes). Colour token names (`brand-600`, `ink`, `body`, `line` ...) are stable, so every utility follows the palette.
 
 ## Principles
 1. **Premium, not promotional.** Few words, large type, a lot of white space.
 2. **Every element earns its place.** No decorative icons, no gradients, no repetitive card grids. Structure comes from hairlines and spacing.
-3. **Honest imagery.** Few images. The one stock photograph is labelled and credited (see `ASSETS.md`); no invented testimonials or statistics. Anything illustrative is labelled.
+3. **Honest imagery.** No stock people; the visuals are the court view and the report. No invented testimonials or statistics. Anything illustrative is labelled.
 4. **One primary action per section.**
 5. **Accessible by default.** WCAG 2.1 AA: contrast, visible focus, labelled controls, reduced motion respected.
 
@@ -64,7 +64,6 @@ Headlines never exceed about 20 characters per line (`text-wrap: balance`). Para
 ## Imagery
 - **Photography:** large and editorial, from real sessions only, with consent (and a parent's for minors). Slots are configured in `src/lib/sitePhotos.ts` (hero, one per service, one portrait per coach). A slot left `null` renders nothing and the page stays balanced. Sizes and subjects are in `public/photos/README.md`. Use one consistent treatment (natural light, neutral grade).
 - **Analysis visuals:** `CourtDiagram` (top-down court drawn to scale, fine lines, lime landing dots, dotted flight paths) is used in the tactical before and after and in the report preview. The report separates **Observed** (what the coach saw) from **Priority** and **Recommended next step** (what to do), and shows no statistics. Everything is labelled illustrative; replace it with a real, consented report when one exists.
-- **Footage:** `src/lib/siteMedia.ts` holds the hero clip (Pexels, credit shown under it). Sources, licence checks and open questions are recorded in `ASSETS.md`. The poster is always rendered; the video loads only on screens 1024px and wider, without reduced motion or data saving, after the page has loaded.
 - **Charcoal sections:** the hero, tactical comparison and report sit in `.theme-charcoal` (same tokens as the dashboard: near black, lime accent via `.btn-lime`). The rest stays warm off white.
 
 ## Responsive behaviour
@@ -98,7 +97,7 @@ There is no parallax, no pinned or scroll-driven section, no looping media and n
 
 1. **Hero and tactical report** (one charcoal chapter): one headline, one sentence, one primary action, and directly below it the court view with the written report. The report is the visual.
 2. **Credentials**: one quiet line of text.
-3. **Services**, **How it works** (the only photograph, with the brand statement), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
+3. **Services**, **How it works** (the brand statement and three steps), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
 
 Dark is used for the first chapter only; everything else is warm off white. Lime appears on that chapter (primary action, markers, zones, the illustrative badge) and nowhere else on the page.
 
