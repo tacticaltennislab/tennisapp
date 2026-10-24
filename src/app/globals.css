@@ -32,6 +32,8 @@
 
   --color-on-brand: #ffffff;
   --color-gold-ink: #6e6e73;
+  /* The logo's olive, used for annotations on analysis visuals. */
+  --color-accent: #6f6f3b;
 
   /* Fixed dark brand colours (auth panel, OG image, app icons). */
   --color-forest: #192f22;
@@ -66,6 +68,7 @@
 
   --color-on-brand: #000000;
   --color-gold-ink: #a1a1a6;
+  --color-accent: #b9b96a;
 }
 
 /* Client dashboard theme: charcoal surfaces, white type, restrained lime.
@@ -97,6 +100,7 @@
 
   --color-on-brand: #11140a;
   --color-gold-ink: #98a2ab;
+  --color-accent: #c8f135;
 
   background: var(--background);
   color: var(--color-body);
@@ -124,6 +128,7 @@
   --color-chip: var(--color-chip);
   --color-on-brand: var(--color-on-brand);
   --color-gold-ink: var(--color-gold-ink);
+  --color-accent: var(--color-accent);
   --color-forest: var(--color-forest);
   --color-onyx: var(--color-onyx);
   --color-cream: var(--color-cream);
@@ -413,6 +418,82 @@
     background: var(--color-ink);
   }
 
+  /* ---- Motion -------------------------------------------------------
+     Short and purposeful: 200ms for feedback, 500 to 600ms for entrances,
+     one easing curve. Only transform and opacity animate, so everything
+     stays on the compositor. All of it is disabled under reduced motion. */
+  .reveal-words .w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    /* Room for descenders so the mask never clips them. */
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+  }
+
+  .reveal-words .w > span {
+    display: inline-block;
+    transform: translate3d(0, 105%, 0);
+    animation: word-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--i, 0) * 40ms);
+  }
+
+  /* Hero photograph: drifts a little slower than the page. Pure CSS, driven
+     by scroll position where the browser supports it, static elsewhere. */
+  .parallax-media {
+    transform: scale(1.12);
+    will-change: transform;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .parallax-media {
+      animation: parallax-drift linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 90vh;
+    }
+  }
+
+  /* A rule that draws itself as its step enters. */
+  .draw-line {
+    position: relative;
+  }
+
+  .draw-line::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: var(--color-ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .draw-line.is-visible::before {
+    transform: scaleX(1);
+  }
+
+  /* Skip rendering work for sections far below the fold. */
+  .defer-render {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+
+  /* Pressed feedback for buttons, kept tiny. */
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Service rows: a calm lift of the whole row on hover or focus. */
+  .service-row {
+    transition: background-color 0.3s ease;
+  }
+
+  .service-row:hover,
+  .service-row:focus-within {
+    background-color: color-mix(in srgb, var(--color-brand-50) 70%, transparent);
+  }
+
   .animate-fade-up {
     animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -420,7 +501,7 @@
   .reveal {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.is-visible {
@@ -433,8 +514,8 @@
     opacity: 0;
     transform: translateY(20px) scale(0.98);
     transition:
-      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal-zoom.is-visible {
@@ -504,6 +585,21 @@
   }
 }
 
+@keyframes word-in {
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes parallax-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.12);
+  }
+  to {
+    transform: translate3d(0, 9%, 0) scale(1.12);
+  }
+}
+
 @keyframes drift {
   0%, 100% {
     transform: translate(0, 0);
@@ -556,5 +652,70 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .reveal-words .w > span {
+    transform: none;
+    animation: none;
+  }
+
+  /* The pinned stroke analysis becomes a plain list, one illustration per step. */
+  .pin-wrap {
+    height: auto !important;
+  }
+
+  .pin-stage {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding-block: 4.5rem;
+  }
+
+  .pin-figure,
+  .pin-rail {
+    display: none !important;
+  }
+
+  .pin-stage > .container-x {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .pin-steps {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .pin-steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .pin-steps > li {
+    grid-area: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    pointer-events: auto !important;
+  }
+
+  .pin-static-fig {
+    display: block !important;
+  }
+
+  .parallax-media {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .draw-line::before {
+    transform: scaleX(1);
+    transition: none;
+  }
+
+  .btn:active {
+    transform: none;
   }
 }

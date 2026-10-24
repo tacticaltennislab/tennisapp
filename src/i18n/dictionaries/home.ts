@@ -50,6 +50,24 @@ export interface HomeDict {
     summary: string; // {rating} {count}
     playVideo: string;
   };
+  strokeAnalysis: {
+    eyebrow: string;
+    title: string;
+    caption: string;
+    goTo: string;
+    steps: { label: string; title: string; text: string }[];
+  };
+  beforeAfter: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    before: string;
+    after: string;
+    beforeText: string;
+    afterText: string;
+    slider: string;
+    caption: string;
+  };
   ctaBand: {
     title: string;
     subtitle: string;
@@ -162,6 +180,29 @@ const en: HomeDict = {
     filledCta: "Leave your own review",
     summary: "Average rating {rating} / 5 · Reviews: {count}",
     playVideo: "Play video review",
+  },
+  strokeAnalysis: {
+    eyebrow: "Stroke analysis",
+    title: "See what your coach sees.",
+    caption: "Illustration of a serve. In a real analysis, the marks are placed on your own video.",
+    goTo: "Show step",
+    steps: [
+      { label: "Stance", title: "Start with the setup.", text: "Balance, feet and rhythm before the motion begins. A stable base is what every later phase depends on." },
+      { label: "Toss", title: "The toss decides the contact point.", text: "Here it drifts behind the head, which pulls the whole serve back. The dashed ring shows where it should go." },
+      { label: "Trophy", title: "Elbow height sets the speed.", text: "When the elbow stays below the shoulder line, the racquet cannot drop far enough to build speed." },
+      { label: "Contact", title: "Contact up and in front.", text: "Legs finished, arm extended, ball met early. Every mark is explained in writing, with a drill to fix it." },
+    ],
+  },
+  beforeAfter: {
+    eyebrow: "Before and after",
+    title: "Understand the fix, not just the flaw.",
+    lead: "Move the slider to compare one toss before and after the coach's correction.",
+    before: "Before",
+    after: "After",
+    beforeText: "The toss lands behind the head. Contact is late, and the body leans back to reach the ball.",
+    afterText: "The toss lands in front and slightly into the court. Contact is up and forward, and the legs finish the motion.",
+    slider: "Compare before and after",
+    caption: "Illustration of one correction. Your coach writes notes for your own video.",
   },
   ctaBand: {
     title: "Give your coaches their time on court back.",
@@ -294,6 +335,29 @@ const pl: HomeDict = {
     summary: "Średnia ocena {rating} / 5 · Opinie: {count}",
     playVideo: "Odtwórz opinię wideo",
   },
+  strokeAnalysis: {
+    eyebrow: "Analiza uderzenia",
+    title: "Zobacz to, co widzi Twój trener.",
+    caption: "Ilustracja serwisu. W prawdziwej analizie oznaczenia są na Twoim własnym nagraniu.",
+    goTo: "Pokaż krok",
+    steps: [
+      { label: "Postawa", title: "Zacznij od ustawienia.", text: "Równowaga, stopy i rytm przed rozpoczęciem ruchu. Stabilna baza decyduje o każdej kolejnej fazie." },
+      { label: "Podrzut", title: "Podrzut decyduje o punkcie kontaktu.", text: "Tutaj ucieka za głowę, co cofa cały serwis. Przerywane koło pokazuje, gdzie powinien trafić." },
+      { label: "Trofeum", title: "Wysokość łokcia decyduje o prędkości.", text: "Gdy łokieć zostaje poniżej linii barków, rakieta nie może opaść wystarczająco, by nabrać prędkości." },
+      { label: "Kontakt", title: "Kontakt wysoko i przed sobą.", text: "Nogi wyprostowane, ręka wyciągnięta, piłka uderzona wcześnie. Każde oznaczenie jest opisane, z ćwiczeniem do poprawy." },
+    ],
+  },
+  beforeAfter: {
+    eyebrow: "Przed i po",
+    title: "Zrozum poprawkę, nie tylko błąd.",
+    lead: "Przesuń suwak, aby porównać jeden podrzut przed i po korekcie trenera.",
+    before: "Przed",
+    after: "Po",
+    beforeText: "Podrzut ląduje za głową. Kontakt jest spóźniony, a ciało odchyla się do tyłu, żeby sięgnąć piłki.",
+    afterText: "Podrzut ląduje przed sobą i lekko w kort. Kontakt jest wysoko i z przodu, a nogi kończą ruch.",
+    slider: "Porównaj przed i po",
+    caption: "Ilustracja jednej korekty. Trener pisze uwagi do Twojego własnego nagrania.",
+  },
   ctaBand: {
     title: "Oddaj swoim trenerom czas na korcie.",
     subtitle: "Opowiedz nam o swojej akademii albo najpierw porównaj pakiety.",
@@ -424,6 +488,29 @@ const es: HomeDict = {
     filledCta: "Deja tu propia opinión",
     summary: "Valoración media {rating} / 5 · Opiniones: {count}",
     playVideo: "Reproducir opinión en vídeo",
+  },
+  strokeAnalysis: {
+    eyebrow: "Análisis del golpe",
+    title: "Mira lo que ve tu entrenador.",
+    caption: "Ilustración de un saque. En un análisis real, las marcas se colocan sobre tu propio vídeo.",
+    goTo: "Mostrar paso",
+    steps: [
+      { label: "Postura", title: "Empieza por la preparación.", text: "Equilibrio, pies y ritmo antes de que empiece el movimiento. Una base estable condiciona todas las fases siguientes." },
+      { label: "Lanzamiento", title: "El lanzamiento decide el punto de contacto.", text: "Aquí se desvía por detrás de la cabeza, lo que retrasa todo el saque. El círculo discontinuo muestra dónde debería ir." },
+      { label: "Trofeo", title: "La altura del codo marca la velocidad.", text: "Si el codo queda por debajo de la línea de los hombros, la raqueta no puede caer lo suficiente para generar velocidad." },
+      { label: "Contacto", title: "Contacto arriba y por delante.", text: "Piernas extendidas, brazo estirado, pelota golpeada pronto. Cada marca se explica por escrito, con un ejercicio para corregirla." },
+    ],
+  },
+  beforeAfter: {
+    eyebrow: "Antes y después",
+    title: "Entiende la corrección, no solo el fallo.",
+    lead: "Mueve el control para comparar un lanzamiento antes y después de la corrección del entrenador.",
+    before: "Antes",
+    after: "Después",
+    beforeText: "El lanzamiento cae detrás de la cabeza. El contacto llega tarde y el cuerpo se inclina hacia atrás para alcanzar la pelota.",
+    afterText: "El lanzamiento cae delante y un poco hacia la pista. El contacto es arriba y adelante, y las piernas terminan el movimiento.",
+    slider: "Comparar antes y después",
+    caption: "Ilustración de una corrección. Tu entrenador escribe notas para tu propio vídeo.",
   },
   ctaBand: {
     title: "Devuelve a tus entrenadores su tiempo en la pista.",
@@ -556,6 +643,29 @@ const it: HomeDict = {
     summary: "Valutazione media {rating} / 5 · Recensioni: {count}",
     playVideo: "Riproduci recensione video",
   },
+  strokeAnalysis: {
+    eyebrow: "Analisi del colpo",
+    title: "Guarda ciò che vede il tuo allenatore.",
+    caption: "Illustrazione di un servizio. In un'analisi reale, i segni sono posti sul tuo video.",
+    goTo: "Mostra il passo",
+    steps: [
+      { label: "Posizione", title: "Parti dall'impostazione.", text: "Equilibrio, piedi e ritmo prima che inizi il movimento. Una base stabile condiziona ogni fase successiva." },
+      { label: "Lancio", title: "Il lancio decide il punto di impatto.", text: "Qui scivola dietro la testa e tira indietro tutto il servizio. Il cerchio tratteggiato mostra dove dovrebbe andare." },
+      { label: "Trofeo", title: "L'altezza del gomito determina la velocità.", text: "Se il gomito resta sotto la linea delle spalle, la racchetta non scende abbastanza per generare velocità." },
+      { label: "Impatto", title: "Impatto in alto e davanti.", text: "Gambe distese, braccio esteso, palla colpita presto. Ogni segno è spiegato per iscritto, con un esercizio per correggerlo." },
+    ],
+  },
+  beforeAfter: {
+    eyebrow: "Prima e dopo",
+    title: "Capisci la correzione, non solo l'errore.",
+    lead: "Sposta il cursore per confrontare un lancio prima e dopo la correzione dell'allenatore.",
+    before: "Prima",
+    after: "Dopo",
+    beforeText: "Il lancio cade dietro la testa. L'impatto è in ritardo e il corpo si inclina all'indietro per raggiungere la palla.",
+    afterText: "Il lancio cade davanti e leggermente dentro il campo. L'impatto è alto e in avanti, e le gambe completano il movimento.",
+    slider: "Confronta prima e dopo",
+    caption: "Illustrazione di una correzione. Il tuo allenatore scrive note per il tuo video.",
+  },
   ctaBand: {
     title: "Restituisci ai tuoi allenatori il loro tempo in campo.",
     subtitle: "Raccontaci della tua accademia oppure confronta prima i pacchetti.",
@@ -686,6 +796,29 @@ const ru: HomeDict = {
     filledCta: "Оставить свой отзыв",
     summary: "Средняя оценка {rating} / 5 · Отзывы: {count}",
     playVideo: "Смотреть видеоотзыв",
+  },
+  strokeAnalysis: {
+    eyebrow: "Анализ удара",
+    title: "Увидьте то, что видит ваш тренер.",
+    caption: "Иллюстрация подачи. В настоящем анализе отметки ставятся на вашем собственном видео.",
+    goTo: "Показать шаг",
+    steps: [
+      { label: "Стойка", title: "Начните с подготовки.", text: "Равновесие, положение ног и ритм до начала движения. От устойчивой базы зависит каждая следующая фаза." },
+      { label: "Подбрасывание", title: "Подбрасывание определяет точку контакта.", text: "Здесь мяч уходит за голову и тянет назад всю подачу. Пунктирный круг показывает, куда он должен попасть." },
+      { label: "Поза «трофей»", title: "Высота локтя задаёт скорость.", text: "Если локоть остаётся ниже линии плеч, ракетка не может опуститься достаточно, чтобы набрать скорость." },
+      { label: "Контакт", title: "Контакт вверху и впереди.", text: "Ноги выпрямлены, рука вытянута, мяч сыгран рано. Каждая отметка объяснена письменно, с упражнением для исправления." },
+    ],
+  },
+  beforeAfter: {
+    eyebrow: "До и после",
+    title: "Поймите исправление, а не только ошибку.",
+    lead: "Двигайте ползунок, чтобы сравнить одно подбрасывание до и после коррекции тренера.",
+    before: "До",
+    after: "После",
+    beforeText: "Мяч падает за голову. Контакт запаздывает, а корпус откидывается назад, чтобы достать мяч.",
+    afterText: "Мяч падает впереди и чуть в корт. Контакт происходит вверху и впереди, а ноги завершают движение.",
+    slider: "Сравнить до и после",
+    caption: "Иллюстрация одной коррекции. Тренер пишет заметки к вашему собственному видео.",
   },
   ctaBand: {
     title: "Верните своим тренерам время на корте.",

@@ -79,6 +79,27 @@ Headlines never exceed about 20 characters per line (`text-wrap: balance`). Para
 - Links inside running text are underlined.
 - All form controls labelled; decorative images hidden from assistive technology.
 
+## Motion
+
+Motion explains or confirms; it never decorates. Short, one easing curve (`cubic-bezier(0.16, 1, 0.3, 1)`), only `transform` and `opacity`, nothing loops, and every effect is switched off under `prefers-reduced-motion`.
+
+| Where | What | How |
+|---|---|---|
+| Hero headline | Words slide up through a mask, 40ms apart, 0.6s each | CSS only (`RevealWords`), no JavaScript, text is in the HTML from the first byte |
+| Hero photograph | Drifts slower than the page (up to 9% over the first screen) | CSS scroll-driven animation (`animation-timeline: scroll()`), static where unsupported. Active only when a hero photo is set |
+| Section entrances | 16px rise and fade, 0.55s | `Reveal` (IntersectionObserver) |
+| Process steps | The rule above each step draws itself | CSS transition on entry |
+| Service rows | Soft row highlight, a small preview reacts (timeline playhead, weeks filling, bars settling) | CSS `group-hover` / `focus-within`, 0.5s |
+| Buttons | Colour or opacity on hover, 2% press | CSS |
+| Stroke analysis | The visual stays pinned while four phases cross-fade with the scroll | One passive scroll listener, attached only while the section is on screen, changes state at most three times; progress rail and step buttons are keyboard operable |
+| Before and after | Visitor-driven comparison slider | Native range input over the panel: touch, mouse, arrow keys, announced to screen readers; nothing moves by itself |
+
+**Reduced motion.** Hero words and reveals appear instantly, parallax stops, rules are already drawn, and the pinned section is released: the four steps become a plain two-column list, each with its own illustration.
+
+**Performance budget** (measured on an emulated iPhone 13 with a 4x slower CPU and slow 4G): LCP about 1.1s (0.86s with reduced motion), CLS 0, a scripted scroll through the whole page keeps 60 fps with no dropped frames. Below-the-fold sections use `content-visibility: auto`. No animation library is used.
+
+**Illustrations.** The stroke figures are vector drawings, not measurements, and are captioned as illustrations. They use the logo olive for the coach's marks and `currentColor` for the figure, so they follow light and dark themes.
+
 ## Client dashboard (prototype, `/dashboard`)
 
 An app, not a brochure: a working tool with its own dark theme, applied by wrapping the dashboard in `.theme-dashboard` (it re-points the same tokens, so `.btn`, `.card`, `.field`, `.progress` all work inside it).

@@ -5,8 +5,10 @@
  * photo, put the file in /public/photos and replace `null` with an entry such
  * as:
  *
- *   hero: { src: "/photos/hero.jpg", alt: "A coach and player reviewing a serve", width: 2400, height: 1030 },
+ *   hero: { src: "/photos/hero.jpg", alt: "A coach and player reviewing a serve", width: 2400, height: 1350 },
  *
+ * With a hero photo the hero becomes a full-bleed cinematic section whose
+ * image drifts slowly behind the text; without one it is typographic.
  * Empty slots render nothing and the layout stays balanced without them.
  * See public/photos/README.md for sizes and subjects.
  */

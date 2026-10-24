@@ -32,7 +32,7 @@ export default async function Testimonials({ lang = "en" }: { lang?: AppLocale }
       : null;
 
   return (
-    <section id="reviews" className="section-pad scroll-mt-16">
+    <section id="reviews" className="defer-render section-pad scroll-mt-16">
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>

@@ -8,7 +8,7 @@ Recommended files (JPEG or WebP, sRGB, under 400 KB each after export):
 
 | Slot | Shape | Min. size | Subject |
 |---|---|---|---|
-| `hero` | 21:9 wide | 2400 x 1030 | A real moment on court: serve, rally, coach and player |
+| `hero` | 16:9 landscape, full bleed | 2400 x 1350 | A cinematic moment on court: serve, rally, coach and player. Keep the left half calm, the headline sits there. The photo drifts slowly behind the text as you scroll |
 | `services[0]` | 4:3 | 1600 x 1200 | Stroke Analysis: a close stroke, or a coach with a tablet |
 | `services[1]` | 4:3 | 1600 x 1200 | Training Programs: a session in progress |
 | `services[2]` | 4:3 | 1600 x 1200 | Match Analysis: match play from behind the baseline |

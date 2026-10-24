@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SitePhoto from "@/components/SitePhoto";
+import ServicePreview from "@/components/motion/ServicePreview";
 import { IconArrowRight } from "@/components/icons";
 import { PLANS, type Plan } from "@/lib/plans";
 import { planTranslations } from "@/i18n/dictionaries/plans";
@@ -40,7 +41,7 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
             const fromPrice = plan(svc.priceId).price;
             const photo = SITE_PHOTOS.services[i];
             return (
-              <Reveal key={svc.planId} as="li" className="border-b border-line">
+              <Reveal key={svc.planId} as="li" delay={i * 70} className="service-row group border-b border-line">
                 <div className="grid gap-8 py-12 md:grid-cols-12 md:gap-12 md:py-20">
                   <div className={photo ? "md:col-span-5" : "md:col-span-5"}>
                     <span className="t-mono text-sm text-muted" aria-hidden="true">
@@ -48,10 +49,19 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
                     </span>
                     <h3 className="t-h3 mt-4">{t.names[i]}</h3>
                     <p className="t-lead mt-5 max-w-md">{text.description}</p>
+                    {!photo && <ServicePreview kind={i as 0 | 1 | 2} />}
                   </div>
 
                   <div className="md:col-span-7">
-                    <SitePhoto photo={photo} className="mb-8 aspect-[4/3]" sizes="(min-width: 768px) 55vw, 100vw" />
+                    {photo && (
+                      <div className="mb-8 overflow-hidden rounded-3xl">
+                        <SitePhoto
+                          photo={photo}
+                          className="aspect-[4/3] !rounded-none transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                          sizes="(min-width: 768px) 55vw, 100vw"
+                        />
+                      </div>
+                    )}
                     <ul className="border-t border-line">
                       {text.features.slice(0, 4).map((f) => (
                         <li key={f} className="border-b border-line py-3.5 text-[1.0625rem] text-body">

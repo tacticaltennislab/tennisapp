@@ -9,7 +9,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
   const t = homeDictionaries[lang].productScroll;
 
   return (
-    <section id="sample-analysis" className="section-pad bg-surface-muted scroll-mt-16">
+    <section id="sample-analysis" className="section-pad mx-3 rounded-[2rem] bg-surface-muted scroll-mt-16 sm:mx-5">
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>

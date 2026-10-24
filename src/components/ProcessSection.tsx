@@ -6,7 +6,7 @@ export default function ProcessSection({ lang = "en" }: { lang?: AppLocale }) {
   const dict = homeDictionaries[lang];
 
   return (
-    <section id="how-it-works" className="section-pad bg-surface-muted scroll-mt-16">
+    <section id="how-it-works" className="section-pad mx-3 rounded-[2rem] bg-surface-muted scroll-mt-16 sm:mx-5">
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <h2 className="t-h2">{dict.howItWorks.title}</h2>
@@ -15,7 +15,7 @@ export default function ProcessSection({ lang = "en" }: { lang?: AppLocale }) {
 
         <ol className="mt-14 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-10">
           {dict.steps.map((step, i) => (
-            <Reveal key={step.title} as="li" delay={i * 90} className="border-t border-ink pt-6">
+            <Reveal key={step.title} as="li" delay={i * 90} className="draw-line border-t border-line pt-6">
               <span className="t-mono text-sm text-muted" aria-hidden="true">
                 0{i + 1}
               </span>
