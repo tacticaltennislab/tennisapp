@@ -9,7 +9,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
   const t = homeDictionaries[lang].productScroll;
 
   return (
-    <section id="sample-analysis" className="section-pad mx-3 rounded-[2rem] bg-surface-muted scroll-mt-16 sm:mx-5">
+    <section id="sample-analysis" className="theme-charcoal section-pad mx-3 rounded-[2rem] bg-background text-body scroll-mt-16 sm:mx-5">
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>
@@ -18,7 +18,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
           </h2>
         </Reveal>
         <Reveal delay={80} className="mt-12 md:mt-16">
-          <div className="max-w-5xl overflow-hidden rounded-3xl border border-line bg-background shadow-md">
+          <div className="overflow-hidden rounded-3xl border border-line bg-surface">
             <SampleAnalysisMock lang={lang} />
           </div>
         </Reveal>

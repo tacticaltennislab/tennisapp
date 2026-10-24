@@ -63,7 +63,9 @@ Headlines never exceed about 20 characters per line (`text-wrap: balance`). Para
 
 ## Imagery
 - **Photography:** large and editorial, from real sessions only, with consent (and a parent's for minors). Slots are configured in `src/lib/sitePhotos.ts` (hero, one per service, one portrait per coach). A slot left `null` renders nothing and the page stays balanced. Sizes and subjects are in `public/photos/README.md`. Use one consistent treatment (natural light, neutral grade).
-- **Analysis visuals:** a structured report (findings left, instruments right), a top-down court diagram, and percentage bars set in mono. The current example is illustrative and says so in its badge; replace it with a real, consented report when one exists.
+- **Analysis visuals:** `CourtDiagram` (top-down court drawn to scale, fine lines, lime landing dots, dotted flight paths) is used in the tactical before and after and in the report preview. The report separates **Observed** (what the coach saw) from **Priority** and **Recommended next step** (what to do), and shows no statistics. Everything is labelled illustrative; replace it with a real, consented report when one exists.
+- **Footage:** `src/lib/siteMedia.ts` holds the hero clip (Pexels, credit shown under it). Sources, licence checks and open questions are recorded in `ASSETS.md`. The poster is always rendered; the video loads only on screens 1024px and wider, without reduced motion or data saving, after the page has loaded.
+- **Charcoal sections:** the hero, tactical comparison and report sit in `.theme-charcoal` (same tokens as the dashboard: near black, lime accent via `.btn-lime`). The rest stays warm off white.
 
 ## Responsive behaviour
 | Width | Behaviour |
@@ -92,7 +94,7 @@ Motion explains or confirms; it never decorates. Short, one easing curve (`cubic
 | Service rows | Soft row highlight, a small preview reacts (timeline playhead, weeks filling, bars settling) | CSS `group-hover` / `focus-within`, 0.5s |
 | Buttons | Colour or opacity on hover, 2% press | CSS |
 | Stroke analysis | The visual stays pinned while four phases cross-fade with the scroll | One passive scroll listener, attached only while the section is on screen, changes state at most three times; progress rail and step buttons are keyboard operable |
-| Before and after | Visitor-driven comparison slider | Native range input over the panel: touch, mouse, arrow keys, announced to screen readers; nothing moves by itself |
+| Before and after | Two court diagrams side by side (stacked on phones): one second serve pattern before and after the recommendation | Static SVG (`CourtDiagram`), nothing moves |
 
 **Reduced motion.** Hero words and reveals appear instantly, parallax stops, rules are already drawn, and the pinned section is released: the four steps become a plain two-column list, each with its own illustration.
 

@@ -10,6 +10,7 @@ import ProcessSection from "@/components/ProcessSection";
 import HeroSection from "@/components/HeroSection";
 import PinnedStrokeAnalysis from "@/components/motion/PinnedStrokeAnalysis";
 import BeforeAfter from "@/components/motion/BeforeAfter";
+import CourtDiagram, { AFTER_LANDINGS, BEFORE_LANDINGS, BEFORE_ZONE } from "@/components/motion/CourtDiagram";
 import { prisma } from "@/lib/prisma";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import type { AppLocale } from "@/i18n/locales";
@@ -65,7 +66,13 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
 
       <PinnedStrokeAnalysis copy={dict.strokeAnalysis} />
 
-      <BeforeAfter copy={dict.beforeAfter} />
+      <div className="theme-charcoal bg-background text-body">
+        <BeforeAfter
+          copy={dict.beforeAfter}
+          beforeVisual={<CourtDiagram className="h-full w-full p-3 text-ink sm:p-6" landings={BEFORE_LANDINGS} zone={BEFORE_ZONE} />}
+          afterVisual={<CourtDiagram className="h-full w-full p-3 text-ink sm:p-6" landings={AFTER_LANDINGS} />}
+        />
+      </div>
 
       <ProcessSection lang={lang} />
 

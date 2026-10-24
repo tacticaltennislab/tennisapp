@@ -9,6 +9,8 @@ export interface HomeDict {
     ctaSecondary: string;
     playersNote: string;
     playersLink: string;
+    tagline: string;
+    footageCaption: string;
   };
   services: {
     eyebrow: string;
@@ -65,8 +67,8 @@ export interface HomeDict {
     after: string;
     beforeText: string;
     afterText: string;
-    slider: string;
     caption: string;
+    legend: string;
   };
   ctaBand: {
     title: string;
@@ -88,14 +90,12 @@ export interface HomeDict {
     reportTitle: string;
     meta: string;
     player: string;
-    mistakesTitle: string;
-    mistakes: string[];
-    winningTitle: string;
-    winning: string[];
-    focusTitle: string;
-    focus: string[];
-    patternsTitle: string;
-    patterns: { label: string; value: number }[];
+    observedTitle: string;
+    observed: string[];
+    priorityTitle: string;
+    priority: string;
+    recommendedTitle: string;
+    recommended: string[];
     courtTitle: string;
     courtNote: string;
     footer: string;
@@ -112,6 +112,8 @@ const en: HomeDict = {
     ctaSecondary: "View academy packages",
     playersNote: "Training on your own?",
     playersLink: "See player plans",
+    tagline: "Real tennis. Expert analysis. Better decisions on court.",
+    footageCaption: "Stock footage for illustration, not a client session.",
   },
   services: {
     eyebrow: "Our services",
@@ -194,15 +196,15 @@ const en: HomeDict = {
     ],
   },
   beforeAfter: {
-    eyebrow: "Before and after",
-    title: "Understand the fix, not just the flaw.",
-    lead: "Move the slider to compare one toss before and after the coach's correction.",
+    eyebrow: "Tactical analysis",
+    title: "Spot the pattern. Then change it.",
+    lead: "One second serve pattern, before and after the coach's recommendation.",
     before: "Before",
     after: "After",
-    beforeText: "The toss lands behind the head. Contact is late, and the body leans back to reach the ball.",
-    afterText: "The toss lands in front and slightly into the court. Contact is up and forward, and the legs finish the motion.",
-    slider: "Compare before and after",
-    caption: "Illustration of one correction. Your coach writes notes for your own video.",
+    beforeText: "Every second serve lands in the same zone. The returner knows where to stand and attacks early.",
+    afterText: "Placement is mixed between the T, the body and wide. The returner can no longer prepare for a single target.",
+    caption: "Illustration of one pattern. A real analysis shows patterns from your own match footage.",
+    legend: "Dots show where each second serve landed. Filled circle: server. Open circle: returner.",
   },
   ctaBand: {
     title: "Give your coaches their time on court back.",
@@ -216,43 +218,24 @@ const en: HomeDict = {
     viewProfile: "View full profile",
   },
   productScroll: {
-    eyebrow: "See it in action",
-    titleLine1: "Real analysis.",
-    titleLine2: "Real wins.",
+    eyebrow: "What you receive",
+    titleLine1: "A report your coaches can use.",
+    titleLine2: "Observation first. Recommendation second.",
   },
   sampleAnalysis: {
     badge: "Illustrative example",
     reportTitle: "Match analysis report",
-    meta: "Singles match · hard court · 3 sets",
+    meta: "Singles match · hard court · illustrative",
     player: "Player A · U16 · right handed baseline player",
-    mistakesTitle: "Tactical mistakes",
-    mistakes: [
-      "Second serve is predictable: mostly to the backhand, so opponents step in and attack it.",
-      "Changes direction too late in cross court rallies and loses patience around shot 7.",
-      "Hesitates to approach after a short ball, giving the opponent time to reset.",
-    ],
-    winningTitle: "How the player wins points",
-    winning: [
-      "Serve + forehand: the first strike to the open court wins most of the points.",
-      "Strong forehand down the line when the opponent is pulled wide.",
-      "Wins most short rallies of four shots or fewer.",
-    ],
-    focusTitle: "Focus for the next sessions",
-    focus: [
-      "Add second serve variations to the body and wide.",
-      "Drill: down the line change of direction on the first neutral ball.",
-      "Drill: approach and finish after a short ball, then play out the point.",
-    ],
-    patternsTitle: "Points won by pattern",
-    patterns: [
-      { label: "Serve + forehand", value: 68 },
-      { label: "Rallies of 1 to 4 shots", value: 62 },
-      { label: "Second serve points", value: 41 },
-      { label: "Rallies of 9+ shots", value: 38 },
-    ],
+    observedTitle: "Observed",
+    observed: ["Second serves land in the same zone, so the returner steps in early.", "Direction changes come late in cross court rallies.", "The first strike to the open court after a serve is a clear strength."],
+    priorityTitle: "Priority",
+    priority: "Make the second serve harder to read.",
+    recommendedTitle: "Recommended next step",
+    recommended: ["Add second serve variations to the body and wide.", "Drill: change direction down the line on the first neutral ball."],
     courtTitle: "Second serve placement",
-    courtNote: "74% to the backhand side",
-    footer: "Reviewed by Tactical Tennis Lab coaches · shared with the academy's coaching team",
+    courtNote: "Each dot is one second serve in this example.",
+    footer: "Illustrative example, not a real client report. Real reports are written by Tactical Tennis Lab coaches from your own footage.",
   },
 };
 
@@ -266,6 +249,8 @@ const pl: HomeDict = {
     ctaSecondary: "Zobacz pakiety dla akademii",
     playersNote: "Trenujesz indywidualnie?",
     playersLink: "Zobacz plany dla zawodników",
+    tagline: "Prawdziwy tenis. Ekspercka analiza. Lepsze decyzje na korcie.",
+    footageCaption: "Materiał stockowy dla ilustracji, nie sesja klienta.",
   },
   services: {
     eyebrow: "Nasze usługi",
@@ -348,15 +333,15 @@ const pl: HomeDict = {
     ],
   },
   beforeAfter: {
-    eyebrow: "Przed i po",
-    title: "Zrozum poprawkę, nie tylko błąd.",
-    lead: "Przesuń suwak, aby porównać jeden podrzut przed i po korekcie trenera.",
+    eyebrow: "Analiza taktyczna",
+    title: "Dostrzeż wzorzec. Potem go zmień.",
+    lead: "Jeden wzorzec drugiego serwisu przed rekomendacją trenera i po niej.",
     before: "Przed",
     after: "Po",
-    beforeText: "Podrzut ląduje za głową. Kontakt jest spóźniony, a ciało odchyla się do tyłu, żeby sięgnąć piłki.",
-    afterText: "Podrzut ląduje przed sobą i lekko w kort. Kontakt jest wysoko i z przodu, a nogi kończą ruch.",
-    slider: "Porównaj przed i po",
-    caption: "Ilustracja jednej korekty. Trener pisze uwagi do Twojego własnego nagrania.",
+    beforeText: "Każdy drugi serwis ląduje w tej samej strefie. Odbierający wie, gdzie stanąć, i atakuje wcześnie.",
+    afterText: "Miejsce lądowania jest zróżnicowane: T, ciało i szeroko. Odbierający nie może już przygotować się na jeden cel.",
+    caption: "Ilustracja jednego wzorca. Prawdziwa analiza pokazuje wzorce z Twojego własnego nagrania meczu.",
+    legend: "Kropki pokazują, gdzie wylądował każdy drugi serwis. Pełne koło: serwujący. Puste koło: odbierający.",
   },
   ctaBand: {
     title: "Oddaj swoim trenerom czas na korcie.",
@@ -370,43 +355,24 @@ const pl: HomeDict = {
     viewProfile: "Zobacz pełny profil",
   },
   productScroll: {
-    eyebrow: "Zobacz to w akcji",
-    titleLine1: "Prawdziwa analiza.",
-    titleLine2: "Prawdziwe wygrane.",
+    eyebrow: "Co otrzymujesz",
+    titleLine1: "Raport, z którego trenerzy mogą korzystać.",
+    titleLine2: "Najpierw obserwacja. Potem rekomendacja.",
   },
   sampleAnalysis: {
     badge: "Przykład poglądowy",
     reportTitle: "Raport z analizy meczu",
-    meta: "Mecz singlowy · twarda nawierzchnia · 3 sety",
+    meta: "Mecz singlowy · twarda nawierzchnia · poglądowo",
     player: "Zawodnik A · U16 · praworęczny, gra z głębi kortu",
-    mistakesTitle: "Błędy taktyczne",
-    mistakes: [
-      "Drugi serwis jest przewidywalny: głównie na bekhend, więc rywale wchodzą w kort i atakują.",
-      "Zbyt późno zmienia kierunek w wymianach po przekątnej i traci cierpliwość około 7. uderzenia.",
-      "Waha się przed podejściem do siatki po krótkiej piłce, dając rywalowi czas na odbudowanie gry.",
-    ],
-    winningTitle: "Jak zawodnik wygrywa punkty",
-    winning: [
-      "Serwis + forehand: pierwsze uderzenie w otwarty kort wygrywa większość punktów.",
-      "Mocny forehand po linii, gdy rywal jest wyciągnięty na bok.",
-      "Wygrywa większość krótkich wymian do czterech uderzeń.",
-    ],
-    focusTitle: "Fokus na kolejne treningi",
-    focus: [
-      "Dodać warianty drugiego serwisu w ciało i szeroko.",
-      "Ćwiczenie: zmiana kierunku po linii przy pierwszej neutralnej piłce.",
-      "Ćwiczenie: podejście i wykończenie po krótkiej piłce, a potem rozegranie punktu.",
-    ],
-    patternsTitle: "Wygrane punkty według schematu",
-    patterns: [
-      { label: "Serwis + forehand", value: 68 },
-      { label: "Wymiany 1 do 4 uderzeń", value: 62 },
-      { label: "Punkty przy drugim serwisie", value: 41 },
-      { label: "Wymiany 9+ uderzeń", value: 38 },
-    ],
+    observedTitle: "Zaobserwowano",
+    observed: ["Drugie serwisy lądują w tej samej strefie, więc odbierający wchodzi w kort od razu.", "Zmiany kierunku w wymianach po przekątnej następują zbyt późno.", "Pierwsze uderzenie w otwarty kort po serwisie jest wyraźnym atutem."],
+    priorityTitle: "Priorytet",
+    priority: "Utrudnić odczytanie drugiego serwisu.",
+    recommendedTitle: "Zalecany następny krok",
+    recommended: ["Dodać warianty drugiego serwisu w ciało i szeroko.", "Ćwiczenie: zmiana kierunku po linii przy pierwszej neutralnej piłce."],
     courtTitle: "Rozmieszczenie drugiego serwisu",
-    courtNote: "74% na stronę bekhendu",
-    footer: "Przeanalizowane przez trenerów Tactical Tennis Lab · udostępnione zespołowi trenerskiemu akademii",
+    courtNote: "Każda kropka to jeden drugi serwis w tym przykładzie.",
+    footer: "Przykład poglądowy, nie raport prawdziwego klienta. Prawdziwe raporty piszą trenerzy Tactical Tennis Lab na podstawie Twoich nagrań.",
   },
 };
 
@@ -420,6 +386,8 @@ const es: HomeDict = {
     ctaSecondary: "Ver paquetes para academias",
     playersNote: "¿Entrenas por tu cuenta?",
     playersLink: "Ver planes para jugadores",
+    tagline: "Tenis real. Análisis experto. Mejores decisiones en la pista.",
+    footageCaption: "Imágenes de archivo a modo de ilustración, no una sesión de un cliente.",
   },
   services: {
     eyebrow: "Nuestros servicios",
@@ -502,15 +470,15 @@ const es: HomeDict = {
     ],
   },
   beforeAfter: {
-    eyebrow: "Antes y después",
-    title: "Entiende la corrección, no solo el fallo.",
-    lead: "Mueve el control para comparar un lanzamiento antes y después de la corrección del entrenador.",
+    eyebrow: "Análisis táctico",
+    title: "Detecta el patrón. Luego cámbialo.",
+    lead: "Un patrón de segundo saque, antes y después de la recomendación del entrenador.",
     before: "Antes",
     after: "Después",
-    beforeText: "El lanzamiento cae detrás de la cabeza. El contacto llega tarde y el cuerpo se inclina hacia atrás para alcanzar la pelota.",
-    afterText: "El lanzamiento cae delante y un poco hacia la pista. El contacto es arriba y adelante, y las piernas terminan el movimiento.",
-    slider: "Comparar antes y después",
-    caption: "Ilustración de una corrección. Tu entrenador escribe notas para tu propio vídeo.",
+    beforeText: "Cada segundo saque cae en la misma zona. El restador sabe dónde colocarse y ataca pronto.",
+    afterText: "La colocación se reparte entre la T, el cuerpo y abierto. El restador ya no puede prepararse para un único objetivo.",
+    caption: "Ilustración de un patrón. Un análisis real muestra patrones de las imágenes de tu propio partido.",
+    legend: "Los puntos muestran dónde cayó cada segundo saque. Círculo lleno: sacador. Círculo vacío: restador.",
   },
   ctaBand: {
     title: "Devuelve a tus entrenadores su tiempo en la pista.",
@@ -524,43 +492,24 @@ const es: HomeDict = {
     viewProfile: "Ver perfil completo",
   },
   productScroll: {
-    eyebrow: "Míralo en acción",
-    titleLine1: "Análisis real.",
-    titleLine2: "Victorias reales.",
+    eyebrow: "Lo que recibes",
+    titleLine1: "Un informe que tus entrenadores pueden usar.",
+    titleLine2: "Primero la observación. Después la recomendación.",
   },
   sampleAnalysis: {
     badge: "Ejemplo ilustrativo",
     reportTitle: "Informe de análisis de partido",
-    meta: "Partido individual · pista dura · 3 sets",
+    meta: "Partido individual · pista dura · ilustrativo",
     player: "Jugador A · U16 · diestro, juega desde el fondo",
-    mistakesTitle: "Errores tácticos",
-    mistakes: [
-      "El segundo saque es predecible: casi siempre al revés, así que los rivales entran y lo atacan.",
-      "Cambia de dirección demasiado tarde en los intercambios cruzados y pierde la paciencia hacia el golpe 7.",
-      "Duda en subir a la red tras una bola corta y da tiempo al rival para reorganizarse.",
-    ],
-    winningTitle: "Cómo gana puntos el jugador",
-    winning: [
-      "Saque + derecha: el primer golpe a la pista abierta gana la mayoría de los puntos.",
-      "Derecha paralela potente cuando el rival está abierto.",
-      "Gana la mayoría de los puntos cortos, de cuatro golpes o menos.",
-    ],
-    focusTitle: "Enfoque para las próximas sesiones",
-    focus: [
-      "Añadir variantes de segundo saque al cuerpo y abierto.",
-      "Ejercicio: cambio de dirección paralelo en la primera bola neutra.",
-      "Ejercicio: subida y definición tras una bola corta y jugar el punto hasta el final.",
-    ],
-    patternsTitle: "Puntos ganados por patrón",
-    patterns: [
-      { label: "Saque + derecha", value: 68 },
-      { label: "Intercambios de 1 a 4 golpes", value: 62 },
-      { label: "Puntos con segundo saque", value: 41 },
-      { label: "Intercambios de 9+ golpes", value: 38 },
-    ],
+    observedTitle: "Observado",
+    observed: ["Los segundos saques caen en la misma zona, así que el restador entra pronto.", "Los cambios de dirección en los intercambios cruzados llegan tarde.", "El primer golpe a la pista abierta tras el saque es una clara fortaleza."],
+    priorityTitle: "Prioridad",
+    priority: "Hacer el segundo saque más difícil de leer.",
+    recommendedTitle: "Siguiente paso recomendado",
+    recommended: ["Añadir variaciones de segundo saque al cuerpo y abiertas.", "Ejercicio: cambio de dirección paralelo en la primera bola neutra."],
     courtTitle: "Colocación del segundo saque",
-    courtNote: "74% al lado del revés",
-    footer: "Revisado por los entrenadores de Tactical Tennis Lab · compartido con el equipo técnico de la academia",
+    courtNote: "Cada punto es un segundo saque en este ejemplo.",
+    footer: "Ejemplo ilustrativo, no es el informe de un cliente real. Los informes reales los redactan los entrenadores de Tactical Tennis Lab a partir de tus propias imágenes.",
   },
 };
 
@@ -574,6 +523,8 @@ const it: HomeDict = {
     ctaSecondary: "Vedi i pacchetti per accademie",
     playersNote: "Ti alleni da solo?",
     playersLink: "Vedi i piani per giocatori",
+    tagline: "Tennis vero. Analisi esperta. Decisioni migliori in campo.",
+    footageCaption: "Filmato di repertorio a scopo illustrativo, non una sessione di un cliente.",
   },
   services: {
     eyebrow: "I nostri servizi",
@@ -656,15 +607,15 @@ const it: HomeDict = {
     ],
   },
   beforeAfter: {
-    eyebrow: "Prima e dopo",
-    title: "Capisci la correzione, non solo l'errore.",
-    lead: "Sposta il cursore per confrontare un lancio prima e dopo la correzione dell'allenatore.",
+    eyebrow: "Analisi tattica",
+    title: "Individua lo schema. Poi cambialo.",
+    lead: "Uno schema di seconda di servizio, prima e dopo la raccomandazione dell'allenatore.",
     before: "Prima",
     after: "Dopo",
-    beforeText: "Il lancio cade dietro la testa. L'impatto è in ritardo e il corpo si inclina all'indietro per raggiungere la palla.",
-    afterText: "Il lancio cade davanti e leggermente dentro il campo. L'impatto è alto e in avanti, e le gambe completano il movimento.",
-    slider: "Confronta prima e dopo",
-    caption: "Illustrazione di una correzione. Il tuo allenatore scrive note per il tuo video.",
+    beforeText: "Ogni seconda di servizio cade nella stessa zona. Chi risponde sa dove posizionarsi e attacca presto.",
+    afterText: "La posizione è variata tra la T, il corpo e il largo. Chi risponde non può più prepararsi a un solo bersaglio.",
+    caption: "Illustrazione di uno schema. Un'analisi reale mostra schemi dai filmati della tua partita.",
+    legend: "I punti mostrano dove è caduta ogni seconda di servizio. Cerchio pieno: chi serve. Cerchio vuoto: chi risponde.",
   },
   ctaBand: {
     title: "Restituisci ai tuoi allenatori il loro tempo in campo.",
@@ -678,43 +629,24 @@ const it: HomeDict = {
     viewProfile: "Vedi il profilo completo",
   },
   productScroll: {
-    eyebrow: "Guardalo in azione",
-    titleLine1: "Analisi vera.",
-    titleLine2: "Vittorie vere.",
+    eyebrow: "Cosa ricevi",
+    titleLine1: "Un report che i tuoi allenatori possono usare.",
+    titleLine2: "Prima l'osservazione. Poi la raccomandazione.",
   },
   sampleAnalysis: {
     badge: "Esempio illustrativo",
     reportTitle: "Report di analisi della partita",
-    meta: "Singolare · cemento · 3 set",
-    player: "Giocatore A · U16 · destrorso, gioca da fondo campo",
-    mistakesTitle: "Errori tattici",
-    mistakes: [
-      "La seconda di servizio è prevedibile: quasi sempre sul rovescio, così gli avversari entrano in campo e attaccano.",
-      "Cambia direzione troppo tardi negli scambi incrociati e perde la pazienza intorno al settimo colpo.",
-      "Esita a scendere a rete dopo una palla corta e concede all'avversario il tempo di riorganizzarsi.",
-    ],
-    winningTitle: "Come il giocatore vince i punti",
-    winning: [
-      "Servizio + dritto: il primo colpo verso il campo aperto vince la maggior parte dei punti.",
-      "Dritto lungolinea potente quando l'avversario è tirato fuori campo.",
-      "Vince la maggior parte degli scambi brevi, di quattro colpi o meno.",
-    ],
-    focusTitle: "Focus per le prossime sedute",
-    focus: [
-      "Aggiungere varianti di seconda di servizio sul corpo e largo.",
-      "Esercizio: cambio di direzione lungolinea sulla prima palla neutra.",
-      "Esercizio: discesa a rete e chiusura dopo una palla corta, poi giocare il punto fino in fondo.",
-    ],
-    patternsTitle: "Punti vinti per schema",
-    patterns: [
-      { label: "Servizio + dritto", value: 68 },
-      { label: "Scambi di 1 a 4 colpi", value: 62 },
-      { label: "Punti con la seconda di servizio", value: 41 },
-      { label: "Scambi di 9+ colpi", value: 38 },
-    ],
-    courtTitle: "Direzione della seconda di servizio",
-    courtNote: "74% sul lato del rovescio",
-    footer: "Esaminato dagli allenatori di Tactical Tennis Lab · condiviso con lo staff tecnico dell'accademia",
+    meta: "Singolare · cemento · illustrativo",
+    player: "Giocatore A · U16 · destrimane, gioca da fondo campo",
+    observedTitle: "Osservato",
+    observed: ["Le seconde di servizio cadono nella stessa zona, quindi chi risponde entra subito in campo.", "I cambi di direzione negli scambi incrociati arrivano tardi.", "Il primo colpo nel campo aperto dopo il servizio è un chiaro punto di forza."],
+    priorityTitle: "Priorità",
+    priority: "Rendere la seconda di servizio più difficile da leggere.",
+    recommendedTitle: "Prossimo passo consigliato",
+    recommended: ["Aggiungere varianti di seconda al corpo e sul largo.", "Esercizio: cambio di direzione lungolinea sulla prima palla neutra."],
+    courtTitle: "Posizione della seconda di servizio",
+    courtNote: "Ogni punto è una seconda di servizio in questo esempio.",
+    footer: "Esempio illustrativo, non il report di un cliente reale. I report reali sono scritti dagli allenatori di Tactical Tennis Lab a partire dai tuoi filmati.",
   },
 };
 
@@ -728,6 +660,8 @@ const ru: HomeDict = {
     ctaSecondary: "Пакеты для академий",
     playersNote: "Тренируетесь самостоятельно?",
     playersLink: "Планы для игроков",
+    tagline: "Настоящий теннис. Экспертный анализ. Лучшие решения на корте.",
+    footageCaption: "Стоковое видео для иллюстрации, а не занятие клиента.",
   },
   services: {
     eyebrow: "Наши услуги",
@@ -810,15 +744,15 @@ const ru: HomeDict = {
     ],
   },
   beforeAfter: {
-    eyebrow: "До и после",
-    title: "Поймите исправление, а не только ошибку.",
-    lead: "Двигайте ползунок, чтобы сравнить одно подбрасывание до и после коррекции тренера.",
+    eyebrow: "Тактический анализ",
+    title: "Заметьте закономерность. Затем измените её.",
+    lead: "Одна схема второй подачи до и после рекомендации тренера.",
     before: "До",
     after: "После",
-    beforeText: "Мяч падает за голову. Контакт запаздывает, а корпус откидывается назад, чтобы достать мяч.",
-    afterText: "Мяч падает впереди и чуть в корт. Контакт происходит вверху и впереди, а ноги завершают движение.",
-    slider: "Сравнить до и после",
-    caption: "Иллюстрация одной коррекции. Тренер пишет заметки к вашему собственному видео.",
+    beforeText: "Каждая вторая подача падает в одну и ту же зону. Принимающий знает, где встать, и атакует рано.",
+    afterText: "Места падения чередуются: в T, в корпус и широко. Принимающий больше не может готовиться к одной цели.",
+    caption: "Иллюстрация одной схемы. Настоящий анализ показывает закономерности на видео ваших собственных матчей.",
+    legend: "Точки показывают, куда упала каждая вторая подача. Закрашенный круг: подающий. Пустой круг: принимающий.",
   },
   ctaBand: {
     title: "Верните своим тренерам время на корте.",
@@ -832,43 +766,24 @@ const ru: HomeDict = {
     viewProfile: "Смотреть полный профиль",
   },
   productScroll: {
-    eyebrow: "Посмотрите это в деле",
-    titleLine1: "Настоящий анализ.",
-    titleLine2: "Настоящие победы.",
+    eyebrow: "Что вы получаете",
+    titleLine1: "Отчёт, с которым могут работать ваши тренеры.",
+    titleLine2: "Сначала наблюдение. Затем рекомендация.",
   },
   sampleAnalysis: {
     badge: "Иллюстративный пример",
-    reportTitle: "Отчёт по анализу матча",
-    meta: "Одиночный матч · хард · 3 сета",
+    reportTitle: "Отчёт об анализе матча",
+    meta: "Одиночный матч · хард · иллюстрация",
     player: "Игрок A · U16 · правша, играет с задней линии",
-    mistakesTitle: "Тактические ошибки",
-    mistakes: [
-      "Вторая подача предсказуема: в основном на бэкхенд, поэтому соперники заходят в корт и атакуют.",
-      "Слишком поздно меняет направление в розыгрышах по диагонали и теряет терпение около седьмого удара.",
-      "Колеблется перед выходом к сетке после короткого мяча и даёт сопернику время перестроиться.",
-    ],
-    winningTitle: "Как игрок выигрывает очки",
-    winning: [
-      "Подача + форхенд: первый удар в открытый корт выигрывает большинство очков.",
-      "Мощный форхенд вдоль линии, когда соперник выведен в сторону.",
-      "Выигрывает большинство коротких розыгрышей: до четырёх ударов.",
-    ],
-    focusTitle: "Фокус на ближайшие тренировки",
-    focus: [
-      "Добавить варианты второй подачи в корпус и в сторону.",
-      "Упражнение: смена направления вдоль линии на первом нейтральном мяче.",
-      "Упражнение: выход к сетке и завершение после короткого мяча, затем доигрывание очка.",
-    ],
-    patternsTitle: "Выигранные очки по схемам",
-    patterns: [
-      { label: "Подача + форхенд", value: 68 },
-      { label: "Розыгрыши в от 1 до 4 удара", value: 62 },
-      { label: "Очки на второй подаче", value: 41 },
-      { label: "Розыгрыши от 9 ударов", value: 38 },
-    ],
-    courtTitle: "Направление второй подачи",
-    courtNote: "74% на сторону бэкхенда",
-    footer: "Проверено тренерами Tactical Tennis Lab · доступно тренерской команде академии",
+    observedTitle: "Наблюдение",
+    observed: ["Вторые подачи падают в одну зону, поэтому принимающий сразу заходит в корт.", "Смена направления в розыгрышах по диагонали происходит поздно.", "Первый удар в открытый корт после подачи является явной сильной стороной."],
+    priorityTitle: "Приоритет",
+    priority: "Сделать вторую подачу менее предсказуемой.",
+    recommendedTitle: "Рекомендуемый следующий шаг",
+    recommended: ["Добавить варианты второй подачи в корпус и широко.", "Упражнение: смена направления по линии на первом нейтральном мяче."],
+    courtTitle: "Расположение второй подачи",
+    courtNote: "Каждая точка: одна вторая подача в этом примере.",
+    footer: "Иллюстративный пример, а не отчёт реального клиента. Настоящие отчёты пишут тренеры Tactical Tennis Lab по вашим собственным видео.",
   },
 };
 

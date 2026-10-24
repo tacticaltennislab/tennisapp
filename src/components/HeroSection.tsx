@@ -3,7 +3,9 @@ import Link from "next/link";
 import RevealWords from "@/components/motion/RevealWords";
 import { IconArrowRight } from "@/components/icons";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
+import HeroMedia from "@/components/HeroMedia";
 import { SITE_PHOTOS } from "@/lib/sitePhotos";
+import { SITE_VIDEOS } from "@/lib/siteMedia";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 /**
@@ -15,7 +17,43 @@ import { localizedHref, type AppLocale } from "@/i18n/locales";
 export default function HeroSection({ lang = "en" }: { lang?: AppLocale }) {
   const dict = homeDictionaries[lang];
   const photo = SITE_PHOTOS.hero;
-  const cinematic = Boolean(photo);
+  const video = SITE_VIDEOS.hero;
+  const cinematic = Boolean(photo) && !video;
+
+  // Real footage available: a charcoal hero with the copy on solid colour and
+  // the footage beside it, so the headline never sits on a busy image.
+  if (video) {
+    return (
+      <section className="theme-charcoal bg-background">
+        <div className="container-x grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-14 lg:py-24">
+          <div>
+            <p className="eyebrow !leading-relaxed !text-brand-600">{dict.hero.tagline}</p>
+            <RevealWords text={dict.hero.title} className="t-display mt-5 !text-[clamp(2.75rem,5.6vw,5rem)]" />
+            <p className="t-lead mt-6 max-w-xl">{dict.hero.subtitle}</p>
+            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <Link href={localizedHref(lang, "/contact")} className="btn btn-lime">
+                {dict.hero.ctaPrimary}
+              </Link>
+              <Link href={`${localizedHref(lang, "/pricing")}?audience=clubs`} className="link-arrow">
+                {dict.hero.ctaSecondary}
+                <IconArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+            <p className="mt-7 text-sm text-muted">
+              {dict.hero.playersNote}{" "}
+              <Link
+                href={`${localizedHref(lang, "/pricing")}?audience=players`}
+                className="font-medium text-ink underline underline-offset-4 decoration-line-strong hover:decoration-ink transition-colors"
+              >
+                {dict.hero.playersLink}
+              </Link>
+            </p>
+          </div>
+          <HeroMedia video={video} caption={dict.hero.footageCaption} />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
