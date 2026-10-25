@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import ClayBackdrop from "@/components/motion/ClayBackdrop";
 import { IconArrowRight } from "@/components/icons";
 import { CLUB_POPULAR_INDEX } from "@/lib/clubCheckoutLinks";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
@@ -12,7 +13,8 @@ export default function OffersPreview({ lang = "en" }: { lang?: AppLocale }) {
   const clubs = pricingDictionaries[lang].clubs;
 
   return (
-    <section id="pricing" className="section-pad scroll-mt-16">
+    <section id="pricing" className="section-pad relative isolate scroll-mt-16">
+      <ClayBackdrop />
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{clubs.eyebrow}</p>
@@ -21,14 +23,14 @@ export default function OffersPreview({ lang = "en" }: { lang?: AppLocale }) {
         </Reveal>
 
         <Reveal delay={60} className="mt-14 md:mt-20">
-          <ul className="border-t border-ink">
+          <ul className="space-y-4">
             {clubs.tiers.map((tier, i) => {
               const popular = i === CLUB_POPULAR_INDEX;
               return (
                 <li
                   key={tier.name}
-                  className={`grid gap-x-10 gap-y-3 border-b border-line py-7 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_10rem] md:items-baseline md:py-8 ${
-                    popular ? "bg-surface-muted -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-8 md:px-8" : ""
+                  className={`glass-panel grid gap-x-10 gap-y-3 rounded-3xl p-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_10rem] md:items-baseline md:p-8 ${
+                    popular ? "!border-ink" : ""
                   }`}
                 >
                   <div>

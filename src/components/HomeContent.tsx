@@ -52,11 +52,21 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
         }}
       />
 
-      {/* One dark chapter: the headline, then the court view that proves it. */}
+      {/* One dark chapter. The report overlaps the end of the pinned hero (its track is 40svh taller
+          than the screen on wide screens, 20svh on phones), so it slides up over the clay texture. */}
       <div className="theme-charcoal bg-background text-body">
         <HeroSection lang={lang} />
-        <ProductScrollSection lang={lang} />
+        <div className="relative z-20 -mt-[20svh] md:-mt-[40svh] motion-reduce:mt-0 md:motion-reduce:mt-0">
+          <ProductScrollSection lang={lang} />
+        </div>
       </div>
+
+      {/* Charcoal melts into the page background (light or dark): no hard edge in either theme. */}
+      <div
+        aria-hidden="true"
+        className="-mt-px h-[200px]"
+        style={{ background: "linear-gradient(to bottom, #121417 0%, color-mix(in srgb, #121417 55%, var(--background)) 45%, var(--background) 100%)" }}
+      />
 
       <TrustStrip lang={lang} />
 

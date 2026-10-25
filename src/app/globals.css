@@ -449,6 +449,22 @@
     animation-delay: calc(var(--i, 0) * 40ms);
   }
 
+  /* Frosted panel for content that sits over the clay texture: a translucent surface, a fine
+     border, a soft shadow and a restrained blur. */
+  .glass-panel {
+    background: color-mix(in srgb, var(--color-surface) 66%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-line) 85%, transparent);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 14px 40px rgb(30 20 10 / 0.07);
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  }
+
+  .dark .glass-panel {
+    background: rgb(255 255 255 / 0.05);
+    border-color: rgb(255 255 255 / 0.1);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 16px 48px rgb(0 0 0 / 0.35);
+  }
+
   /* Skip rendering work for sections far below the fold. */
   .defer-render {
     content-visibility: auto;

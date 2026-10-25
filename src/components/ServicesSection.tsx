@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import ClayBackdrop from "@/components/motion/ClayBackdrop";
 import SitePhoto from "@/components/SitePhoto";
 import { IconArrowRight } from "@/components/icons";
 import { PLANS, type Plan } from "@/lib/plans";
@@ -25,7 +26,8 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
   const t = homeDictionaries[lang].services;
 
   return (
-    <section id="services" className="section-pad scroll-mt-16">
+    <section id="services" className="section-pad relative isolate scroll-mt-16">
+      <ClayBackdrop />
       <div className="container-x">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>
@@ -33,15 +35,15 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
           <p className="t-lead mt-5 max-w-xl">{t.included}</p>
         </Reveal>
 
-        <ol className="mt-14 border-t border-line md:mt-20">
+        <ol className="mt-14 space-y-5 md:mt-20 md:space-y-6">
           {SERVICES.map((svc, i) => {
             const base = plan(svc.planId);
             const text = lang === "en" ? base : planTranslations[svc.planId]?.[lang] ?? base;
             const fromPrice = plan(svc.priceId).price;
             const photo = SITE_PHOTOS.services[i];
             return (
-              <Reveal key={svc.planId} as="li" delay={i * 70} className="service-row group border-b border-line">
-                <div className="grid gap-8 py-12 md:grid-cols-12 md:gap-12 md:py-20">
+              <Reveal key={svc.planId} as="li" delay={i * 70} className="group glass-panel overflow-hidden rounded-3xl transition-colors duration-300 hover:border-line-strong">
+                <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-12 md:gap-12 md:p-12">
                   <div className="md:col-span-5">
                     <span className="t-mono text-sm text-muted" aria-hidden="true">
                       0{i + 1}

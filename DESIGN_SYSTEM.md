@@ -87,7 +87,7 @@ Motion explains or confirms; it never decorates. Short, one easing curve (`cubic
 | Where | What | How |
 |---|---|---|
 | Hero headline | Words slide up through a mask, 40ms apart, 0.6s each | CSS only (`RevealWords`), text is in the HTML from the first byte |
-| Hero scene | The drone photograph breathes (scale 1 to 1.08 over 20s, ease in out, back and forth). While scrolling, the hero stays pinned, the drone view scales to 1.4 and fades and the clay texture fades in underneath, then dims into the charcoal chapter (about 230vh of scroll on wide screens, 155vh on phones) | Framer Motion `useScroll` into a clamped motion value, then `useTransform`; transform and opacity only. Phones get a plain crossfade (no scaling). Reduced motion: static drone photograph, single screen |
+| Hero scene | The drone photograph breathes (scale 1 to 1.08 over 20s, ease in out, back and forth). While scrolling, the hero stays pinned, the drone view scales to 1.4 and fades and the clay texture fades in underneath, then dims into the charcoal chapter (a short 140svh track on wide screens, 120svh on phones; the report section overlaps the end of the track by 40svh / 20svh and slides up over the texture, so the screen is never empty; the dark overlay is capped at 35%) | Framer Motion `useScroll` into a clamped motion value, then `useTransform`; transform and opacity only. Phones get a plain crossfade (no scaling). Reduced motion: static drone photograph, single screen |
 | Glass surfaces | Report panel, view switch and note rise once on entering the viewport: opacity 0 to 1, 24px up, 8px blur clearing, staggered 80ms | `GlassReveal` (Framer Motion `whileInView`, once). Reduced motion: opacity fade only |
 | Section entrances | 16px rise and fade, 0.55s | `Reveal` (IntersectionObserver) |
 | Service rows | Soft row highlight on hover or focus | CSS, 0.3s |
@@ -101,7 +101,7 @@ Apart from the hero scene above there is no parallax and no pinned section. Noth
 2. **Credentials**: one quiet line of text.
 3. **Services**, **How it works** (the brand statement and three steps), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
 
-Dark is used for the first chapter only; everything else is warm off white. Lime appears on that chapter (primary action, markers, zones, the illustrative badge) and nowhere else on the page.
+Dark is used for the first chapter only. It melts into the page background (light or dark) through a 200px gradient, so there is no hard edge in either theme. Services and pricing sit on the clay texture as a quiet backdrop (about 18% visible in dark mode, 10% under a light veil in light mode, top and bottom edges masked out, slow parallax on wide screens only) with the service rows and package rows as glass panels (`.glass-panel`). Lime appears on that chapter (primary action, markers, zones, the illustrative badge) and nowhere else on the page.
 
 ## Tactical court view (`SampleAnalysisMock`, `src/lib/court.ts`)
 
