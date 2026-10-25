@@ -91,11 +91,11 @@ export interface HomeDict {
 }
 
 const en: HomeDict = {
-  badges: ["Former ATP Players", "ATP Certified Coaches", "ITF Level 2 Coaches", "Worldwide Coaching"],
+  badges: ["ATP Players", "Certified ATP Coaches", "Certified ITF Coaches", "Worldwide Coaching"],
   hero: {
     title: "Every point, understood.",
     subtitle:
-      "Video and match analysis for tennis academies, reviewed frame by frame by former ATP players and ITF Level 2 coaches.",
+      "Video and match analysis for tennis academies, reviewed frame by frame by ATP players, certified ATP and ITF coaches.",
     ctaPrimary: "Book a demo",
     ctaSecondary: "View academy packages",
     playersNote: "Training on your own?",
@@ -153,7 +153,7 @@ const en: HomeDict = {
     },
     {
       title: "Professional analysis",
-      detail: "Former ATP players and ITF level coaches break down technique, tactical mistakes and how points are won.",
+      detail: "ATP players, certified ATP and ITF coaches break down technique, tactical mistakes and how points are won.",
     },
     {
       title: "Shared feedback for your team",
@@ -178,7 +178,7 @@ const en: HomeDict = {
     eyebrow: "Real coaches, not an algorithm",
     title: "The coaches behind your academy's analysis",
     subtitle:
-      "Every submission is reviewed by former ATP players and ITF Level 2 certified coaches, frame by frame technical and tactical breakdowns, then clear feedback your coaches can use straight away.",
+      "Every submission is reviewed by ATP players, certified ATP and ITF coaches, frame by frame technical and tactical breakdowns, then clear feedback your coaches can use straight away.",
     viewProfile: "View full profile",
   },
   productScroll: {
@@ -211,11 +211,11 @@ const en: HomeDict = {
 };
 
 const pl: HomeDict = {
-  badges: ["Byli zawodnicy ATP", "Trenerzy certyfikowani ATP", "Trenerzy ITF Level 2", "Trenerzy na całym świecie"],
+  badges: ["Zawodnicy ATP", "Certyfikowani trenerzy ATP", "Certyfikowani trenerzy ITF", "Trenerzy na całym świecie"],
   hero: {
     title: "Zrozum każdy punkt.",
     subtitle:
-      "Analiza wideo i meczów dla akademii tenisowych, przeglądana klatka po klatce przez byłych zawodników ATP i trenerów ITF Level 2.",
+      "Analiza wideo i meczów dla akademii tenisowych, przeglądana klatka po klatce przez zawodników ATP, certyfikowanych trenerów ATP i ITF.",
     ctaPrimary: "Umów demo",
     ctaSecondary: "Zobacz pakiety dla akademii",
     playersNote: "Trenujesz indywidualnie?",
@@ -273,7 +273,7 @@ const pl: HomeDict = {
     },
     {
       title: "Profesjonalna analiza",
-      detail: "Byli zawodnicy ATP i trenerzy na poziomie ITF analizują technikę, błędy taktyczne i to, jak wygrywane są punkty.",
+      detail: "Zawodnicy ATP, certyfikowani trenerzy ATP i ITF analizują technikę, błędy taktyczne i to, jak wygrywane są punkty.",
     },
     {
       title: "Wspólna informacja zwrotna dla zespołu",
@@ -298,7 +298,7 @@ const pl: HomeDict = {
     eyebrow: "Prawdziwi trenerzy, nie algorytm",
     title: "Trenerzy stojący za analizą Twojej akademii",
     subtitle:
-      "Każde zgłoszenie analizują byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2, techniczna i taktyczna analiza klatka po klatce, a potem jasna informacja zwrotna, z której trenerzy mogą od razu korzystać.",
+      "Każde zgłoszenie analizują zawodnicy ATP, certyfikowani trenerzy ATP i ITF, techniczna i taktyczna analiza klatka po klatce, a potem jasna informacja zwrotna, z której trenerzy mogą od razu korzystać.",
     viewProfile: "Zobacz pełny profil",
   },
   productScroll: {
@@ -331,11 +331,11 @@ const pl: HomeDict = {
 };
 
 const es: HomeDict = {
-  badges: ["Exjugadores del ATP", "Entrenadores certificados por la ATP", "Entrenadores ITF Level 2", "Entrenamiento en todo el mundo"],
+  badges: ["Jugadores del ATP", "Entrenadores certificados ATP", "Entrenadores certificados ITF", "Entrenamiento en todo el mundo"],
   hero: {
     title: "Entiende cada punto.",
     subtitle:
-      "Análisis de vídeo y de partidos para academias de tenis, revisado fotograma a fotograma por exjugadores ATP y entrenadores ITF Level 2.",
+      "Análisis de vídeo y de partidos para academias de tenis, revisado fotograma a fotograma por jugadores ATP, entrenadores certificados ATP e ITF.",
     ctaPrimary: "Reserva una demo",
     ctaSecondary: "Ver paquetes para academias",
     playersNote: "¿Entrenas por tu cuenta?",
@@ -393,7 +393,7 @@ const es: HomeDict = {
     },
     {
       title: "Análisis profesional",
-      detail: "Exjugadores del ATP y entrenadores de nivel ITF analizan la técnica, los errores tácticos y cómo se ganan los puntos.",
+      detail: "Jugadores del ATP y entrenadores certificados ATP e ITF analizan la técnica, los errores tácticos y cómo se ganan los puntos.",
     },
     {
       title: "Comentarios compartidos para tu equipo",
@@ -418,7 +418,7 @@ const es: HomeDict = {
     eyebrow: "Entrenadores reales, no un algoritmo",
     title: "Los entrenadores detrás del análisis de tu academia",
     subtitle:
-      "Cada envío lo revisan exjugadores del ATP y entrenadores certificados ITF Level 2: análisis técnico y táctico fotograma a fotograma y, después, comentarios claros que tus entrenadores pueden usar de inmediato.",
+      "Cada envío lo revisan jugadores del ATP, entrenadores certificados ATP e ITF: análisis técnico y táctico fotograma a fotograma y, después, comentarios claros que tus entrenadores pueden usar de inmediato.",
     viewProfile: "Ver perfil completo",
   },
   productScroll: {
@@ -451,11 +451,11 @@ const es: HomeDict = {
 };
 
 const it: HomeDict = {
-  badges: ["Ex giocatori ATP", "Allenatori certificati ATP", "Allenatori ITF Level 2", "Coaching in tutto il mondo"],
+  badges: ["Giocatori ATP", "Allenatori certificati ATP", "Allenatori certificati ITF", "Coaching in tutto il mondo"],
   hero: {
     title: "Capisci ogni punto.",
     subtitle:
-      "Analisi video e delle partite per accademie di tennis, rivista fotogramma per fotogramma da ex giocatori ATP e allenatori ITF Level 2.",
+      "Analisi video e delle partite per accademie di tennis, rivista fotogramma per fotogramma da giocatori ATP, allenatori certificati ATP e ITF.",
     ctaPrimary: "Prenota una demo",
     ctaSecondary: "Vedi i pacchetti per accademie",
     playersNote: "Ti alleni da solo?",
@@ -513,7 +513,7 @@ const it: HomeDict = {
     },
     {
       title: "Analisi professionale",
-      detail: "Ex giocatori ATP e allenatori di livello ITF analizzano tecnica, errori tattici e come si vincono i punti.",
+      detail: "Giocatori ATP, allenatori certificati ATP e ITF analizzano tecnica, errori tattici e come si vincono i punti.",
     },
     {
       title: "Feedback condiviso per il tuo staff",
@@ -538,7 +538,7 @@ const it: HomeDict = {
     eyebrow: "Allenatori veri, non un algoritmo",
     title: "Gli allenatori dietro l'analisi della tua accademia",
     subtitle:
-      "Ogni invio è esaminato da ex giocatori ATP e allenatori certificati ITF Level 2: analisi tecnica e tattica fotogramma per fotogramma, poi un feedback chiaro che i tuoi allenatori possono usare subito.",
+      "Ogni invio è esaminato da giocatori ATP, allenatori certificati ATP e ITF: analisi tecnica e tattica fotogramma per fotogramma, poi un feedback chiaro che i tuoi allenatori possono usare subito.",
     viewProfile: "Vedi il profilo completo",
   },
   productScroll: {
@@ -571,11 +571,11 @@ const it: HomeDict = {
 };
 
 const ru: HomeDict = {
-  badges: ["Бывшие игроки ATP", "Тренеры с сертификатом ATP", "Тренеры уровня ITF Level 2", "Тренировки по всему миру"],
+  badges: ["Игроки ATP", "Сертифицированные тренеры ATP", "Сертифицированные тренеры ITF", "Тренировки по всему миру"],
   hero: {
     title: "Понимайте каждое очко.",
     subtitle:
-      "Видеоанализ и разбор матчей для теннисных академий: кадр за кадром, силами бывших игроков ATP и тренеров ITF Level 2.",
+      "Видеоанализ и разбор матчей для теннисных академий: кадр за кадром, силами игроков ATP, сертифицированных тренеров ATP и ITF.",
     ctaPrimary: "Записаться на демо",
     ctaSecondary: "Пакеты для академий",
     playersNote: "Тренируетесь самостоятельно?",
@@ -633,7 +633,7 @@ const ru: HomeDict = {
     },
     {
       title: "Профессиональный анализ",
-      detail: "Бывшие игроки ATP и тренеры уровня ITF разбирают технику, тактические ошибки и то, как выигрываются очки.",
+      detail: "Игроки ATP, сертифицированные тренеры ATP и ITF разбирают технику, тактические ошибки и то, как выигрываются очки.",
     },
     {
       title: "Общая обратная связь для команды",
@@ -658,7 +658,7 @@ const ru: HomeDict = {
     eyebrow: "Настоящие тренеры, а не алгоритм",
     title: "Тренеры, стоящие за анализом вашей академии",
     subtitle:
-      "Каждую заявку разбирают бывшие игроки ATP и сертифицированные тренеры ITF Level 2, покадровый технический и тактический разбор, а затем понятная обратная связь, которую тренеры могут использовать сразу.",
+      "Каждую заявку разбирают игроки ATP, сертифицированные тренеры ATP и ITF, покадровый технический и тактический разбор, а затем понятная обратная связь, которую тренеры могут использовать сразу.",
     viewProfile: "Смотреть полный профиль",
   },
   productScroll: {

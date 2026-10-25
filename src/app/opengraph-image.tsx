@@ -40,7 +40,7 @@ export default async function OpengraphImage() {
         </div>
         <div style={{ marginTop: 28, fontSize: 28, color: "#a8a85c", display: "flex", maxWidth: 900 }}>
           Video and match analysis for tennis academies and clubs, from former
-          ATP players and ITF Level 2 coaches.
+          ATP players, certified ATP and ITF coaches.
         </div>
       </div>
     ),

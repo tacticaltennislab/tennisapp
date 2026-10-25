@@ -10,22 +10,22 @@ export const seoTranslations: Record<string, Record<Locale, SeoText>> = {
     pl: {
       title: "Poznaj Trenerów Stojących za Analizą Twojej Akademii",
       description:
-        "Byli zawodnicy ATP i certyfikowani trenerzy ITF Level 2, którzy osobiście analizują każde wideo i każdy mecz przesłany przez Twoją akademię.",
+        "Zawodnicy ATP, certyfikowani trenerzy ATP i ITF, którzy osobiście analizują każde wideo i każdy mecz przesłany przez Twoją akademię.",
     },
     es: {
       title: "Conoce a los Entrenadores Detrás del Análisis de Tu Academia",
       description:
-        "Exjugadores del ATP y entrenadores certificados ITF Level 2 que revisan personalmente cada vídeo y partido enviado a través de tu academia.",
+        "Jugadores del ATP, entrenadores certificados ATP e ITF que revisan personalmente cada vídeo y partido enviado a través de tu academia.",
     },
     it: {
       title: "Conosci gli Allenatori Dietro l'Analisi della Tua Accademia",
       description:
-        "Ex giocatori ATP e allenatori certificati ITF Level 2 che esaminano personalmente ogni video e partita inviati tramite la tua accademia.",
+        "Giocatori ATP, allenatori certificati ATP e ITF che esaminano personalmente ogni video e partita inviati tramite la tua accademia.",
     },
     ru: {
       title: "Познакомьтесь с Тренерами, Стоящими за Анализом Вашей Академии",
       description:
-        "Бывшие игроки ATP и сертифицированные тренеры ITF Level 2, которые лично разбирают каждое видео и каждый матч, присланные через вашу академию.",
+        "Игроки ATP, сертифицированные тренеры ATP и ITF, которые лично разбирают каждое видео и каждый матч, присланные через вашу академию.",
     },
   },
   contact: {
@@ -120,22 +120,22 @@ export const seoTranslations: Record<string, Record<Locale, SeoText>> = {
     pl: {
       title: "Tactical Tennis Lab: Analiza Wideo i Meczowa dla Akademii i Klubów Tenisowych",
       description:
-        "Profesjonalna analiza wideo i meczowa wspierająca akademie tenisowe, kluby i ich trenerów. Taktyczna i techniczna informacja zwrotna od byłych zawodników ATP i trenerów ITF Level 2, zawodnicy rozwijają się szybciej, a trenerzy mają więcej czasu na korcie.",
+        "Profesjonalna analiza wideo i meczowa wspierająca akademie tenisowe, kluby i ich trenerów. Taktyczna i techniczna informacja zwrotna od zawodników ATP, certyfikowanych trenerów ATP i ITF, zawodnicy rozwijają się szybciej, a trenerzy mają więcej czasu na korcie.",
     },
     es: {
       title: "Tactical Tennis Lab: Análisis de Vídeo y de Partidos para Academias y Clubes de Tenis",
       description:
-        "Análisis profesional de vídeo y de partidos que apoya a academias de tenis, clubes y sus entrenadores. Feedback táctico y técnico de exjugadores del ATP y entrenadores ITF Level 2, para que los jugadores mejoren más rápido y los entrenadores dediquen más tiempo a la pista.",
+        "Análisis profesional de vídeo y de partidos que apoya a academias de tenis, clubes y sus entrenadores. Feedback táctico y técnico de jugadores del ATP, entrenadores certificados ATP e ITF, para que los jugadores mejoren más rápido y los entrenadores dediquen más tiempo a la pista.",
     },
     it: {
       title: "Tactical Tennis Lab: Analisi Video e di Partita per Accademie e Club di Tennis",
       description:
-        "Analisi professionale di video e partite a supporto di accademie di tennis, club e dei loro allenatori. Feedback tattico e tecnico da ex giocatori ATP e allenatori ITF Level 2, così i giocatori migliorano più in fretta e gli allenatori dedicano più tempo al campo.",
+        "Analisi professionale di video e partite a supporto di accademie di tennis, club e dei loro allenatori. Feedback tattico e tecnico da giocatori ATP, allenatori certificati ATP e ITF, così i giocatori migliorano più in fretta e gli allenatori dedicano più tempo al campo.",
     },
     ru: {
       title: "Tactical Tennis Lab: Видеоанализ и анализ матчей для теннисных академий и клубов",
       description:
-        "Профессиональный видеоанализ и анализ матчей в поддержку теннисных академий, клубов и их тренеров. Тактическая и техническая обратная связь от бывших игроков ATP и тренеров уровня ITF Level 2, игроки прогрессируют быстрее, а тренеры больше времени проводят на корте.",
+        "Профессиональный видеоанализ и анализ матчей в поддержку теннисных академий, клубов и их тренеров. Тактическая и техническая обратная связь от игроков ATP, сертифицированных тренеров ATP и ITF, игроки прогрессируют быстрее, а тренеры больше времени проводят на корте.",
     },
   },
 };

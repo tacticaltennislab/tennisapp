@@ -33,7 +33,7 @@ const en: FaqDict = {
         {
           question: "How does it work for an academy?",
           answer:
-            "Your academy gets its own account, which we set up once the partnership is agreed. The owner invites coaches and players by email. Players upload practice or match videos from their own accounts, a real coach, a former ATP ranked player or ITF Level 2 certified coach, analyses them, and the feedback appears in your academy dashboard for your coaches and the player.",
+            "Your academy gets its own account, which we set up once the partnership is agreed. The owner invites coaches and players by email. Players upload practice or match videos from their own accounts, a real coach, an ATP player or a certified ATP or ITF coach, analyses them, and the feedback appears in your academy dashboard for your coaches and the player.",
         },
         {
           question: "Do you replace our coaches?",
@@ -63,7 +63,7 @@ const en: FaqDict = {
         {
           question: "How does it work for an individual player?",
           answer:
-            "You create an account, send a practice or match video along with what you want feedback on, and a real coach, a former ATP ranked player or ITF Level 2 certified coach, personally reviews it frame by frame. Nothing is automatically generated. You get your analysis and a plan back through your account and by email.",
+            "You create an account, send a practice or match video along with what you want feedback on, and a real coach, an ATP player or a certified ATP or ITF coach, personally reviews it frame by frame. Nothing is automatically generated. You get your analysis and a plan back through your account and by email.",
         },
         {
           question: "What kind of video should I send?",
@@ -142,7 +142,7 @@ const en: FaqDict = {
         {
           question: "Is my analysis written by AI?",
           answer:
-            "No. Every plan and piece of feedback is built personally by one of our coaches, former ATP ranked players and ITF Level 2 certified coaches, based on your video and goals. The \"Quick questions\" chat widget on the site is a separate AI assistant that only answers simple questions about pricing and policies; it doesn't review video or give coaching advice.",
+            "No. Every plan and piece of feedback is built personally by one of our coaches, ATP players, certified ATP and ITF coaches, based on your video and goals. The \"Quick questions\" chat widget on the site is a separate AI assistant that only answers simple questions about pricing and policies; it doesn't review video or give coaching advice.",
         },
         {
           question: "Can I leave a review?",
@@ -168,7 +168,7 @@ const pl: FaqDict = {
         {
           question: "Jak to działa w przypadku akademii?",
           answer:
-            "Twoja akademia dostaje własne konto, które zakładamy po uzgodnieniu współpracy. Właściciel zaprasza trenerów i zawodników mailem. Zawodnicy przesyłają nagrania treningów lub meczów ze swoich kont, prawdziwy trener, były zawodnik ATP lub certyfikowany trener ITF Level 2, je analizuje, a informacja zwrotna pojawia się w panelu akademii dla Twoich trenerów i zawodnika.",
+            "Twoja akademia dostaje własne konto, które zakładamy po uzgodnieniu współpracy. Właściciel zaprasza trenerów i zawodników mailem. Zawodnicy przesyłają nagrania treningów lub meczów ze swoich kont, prawdziwy trener, zawodnik ATP lub certyfikowany trener ATP albo ITF, je analizuje, a informacja zwrotna pojawia się w panelu akademii dla Twoich trenerów i zawodnika.",
         },
         {
           question: "Czy zastępujecie naszych trenerów?",
@@ -198,7 +198,7 @@ const pl: FaqDict = {
         {
           question: "Jak to działa dla zawodnika indywidualnego?",
           answer:
-            "Zakładasz konto, wysyłasz wideo z treningu lub meczu wraz z informacją, na czym Ci zależy, a prawdziwy trener, były zawodnik ATP lub certyfikowany trener ITF Level 2, osobiście analizuje je klatka po klatce. Nic nie jest generowane automatycznie. Analizę i plan otrzymujesz przez konto i mailem.",
+            "Zakładasz konto, wysyłasz wideo z treningu lub meczu wraz z informacją, na czym Ci zależy, a prawdziwy trener, zawodnik ATP lub certyfikowany trener ATP albo ITF, osobiście analizuje je klatka po klatce. Nic nie jest generowane automatycznie. Analizę i plan otrzymujesz przez konto i mailem.",
         },
         {
           question: "Jakie wideo powinienem wysłać?",
@@ -277,7 +277,7 @@ const pl: FaqDict = {
         {
           question: "Czy moja analiza jest pisana przez AI?",
           answer:
-            "Nie. Każdy plan i każda informacja zwrotna są tworzone osobiście przez jednego z naszych trenerów, byłych zawodników ATP i certyfikowanych trenerów ITF Level 2, na podstawie Twojego wideo i celów. Widżet czatu \"Szybkie pytania\" na stronie to osobny asystent AI, który odpowiada wyłącznie na proste pytania o ceny i zasady; nie analizuje wideo ani nie udziela porad trenerskich.",
+            "Nie. Każdy plan i każda informacja zwrotna są tworzone osobiście przez jednego z naszych trenerów, zawodników ATP, certyfikowanych trenerów ATP i ITF, na podstawie Twojego wideo i celów. Widżet czatu \"Szybkie pytania\" na stronie to osobny asystent AI, który odpowiada wyłącznie na proste pytania o ceny i zasady; nie analizuje wideo ani nie udziela porad trenerskich.",
         },
         {
           question: "Czy mogę zostawić opinię?",
@@ -303,7 +303,7 @@ const es: FaqDict = {
         {
           question: "¿Cómo funciona para una academia?",
           answer:
-            "Tu academia tiene su propia cuenta, que creamos cuando se acuerda la colaboración. El propietario invita a entrenadores y jugadores por correo electrónico. Los jugadores suben vídeos de entrenamientos o partidos desde sus propias cuentas, un entrenador real, un exjugador del ATP o un entrenador certificado ITF Level 2, los analiza, y el feedback aparece en el panel de la academia para tus entrenadores y el jugador.",
+            "Tu academia tiene su propia cuenta, que creamos cuando se acuerda la colaboración. El propietario invita a entrenadores y jugadores por correo electrónico. Los jugadores suben vídeos de entrenamientos o partidos desde sus propias cuentas, un entrenador real, un jugador del ATP o un entrenador certificado ATP o ITF, los analiza, y el feedback aparece en el panel de la academia para tus entrenadores y el jugador.",
         },
         {
           question: "¿Sustituís a nuestros entrenadores?",
@@ -333,7 +333,7 @@ const es: FaqDict = {
         {
           question: "¿Cómo funciona para un jugador individual?",
           answer:
-            "Creas una cuenta, envías un vídeo de entrenamiento o partido junto con lo que quieres que se revise, y un entrenador real, un exjugador del ATP o un entrenador certificado ITF Level 2, lo revisa personalmente fotograma a fotograma. Nada se genera automáticamente. Recibes tu análisis y un plan a través de tu cuenta y por email.",
+            "Creas una cuenta, envías un vídeo de entrenamiento o partido junto con lo que quieres que se revise, y un entrenador real, un jugador del ATP o un entrenador certificado ATP o ITF, lo revisa personalmente fotograma a fotograma. Nada se genera automáticamente. Recibes tu análisis y un plan a través de tu cuenta y por email.",
         },
         {
           question: "¿Qué tipo de vídeo debería enviar?",
@@ -412,7 +412,7 @@ const es: FaqDict = {
         {
           question: "¿Mi análisis está escrito por IA?",
           answer:
-            "No. Cada plan y cada feedback lo elabora personalmente uno de nuestros entrenadores, exjugadores del ATP y entrenadores certificados ITF Level 2, según tu vídeo y tus objetivos. El widget de chat \"Preguntas rápidas\" de la web es un asistente de IA independiente que solo responde preguntas sencillas sobre precios y políticas; no revisa vídeo ni da consejos de coaching.",
+            "No. Cada plan y cada feedback lo elabora personalmente uno de nuestros entrenadores, jugadores del ATP, entrenadores certificados ATP e ITF, según tu vídeo y tus objetivos. El widget de chat \"Preguntas rápidas\" de la web es un asistente de IA independiente que solo responde preguntas sencillas sobre precios y políticas; no revisa vídeo ni da consejos de coaching.",
         },
         {
           question: "¿Puedo dejar una opinión?",
@@ -438,7 +438,7 @@ const it: FaqDict = {
         {
           question: "Come funziona per un'accademia?",
           answer:
-            "La tua accademia ha un proprio account, che creiamo quando la collaborazione è concordata. Il titolare invita allenatori e giocatori via email. I giocatori caricano video di allenamenti o partite dai propri account, un allenatore vero, un ex giocatore ATP o un allenatore certificato ITF Level 2, li analizza, e il feedback compare nella dashboard dell'accademia per i tuoi allenatori e per il giocatore.",
+            "La tua accademia ha un proprio account, che creiamo quando la collaborazione è concordata. Il titolare invita allenatori e giocatori via email. I giocatori caricano video di allenamenti o partite dai propri account, un allenatore vero, un giocatore ATP o un allenatore certificato ATP o ITF, li analizza, e il feedback compare nella dashboard dell'accademia per i tuoi allenatori e per il giocatore.",
         },
         {
           question: "Sostituite i nostri allenatori?",
@@ -468,7 +468,7 @@ const it: FaqDict = {
         {
           question: "Come funziona per un giocatore individuale?",
           answer:
-            "Crei un account, invii un video di allenamento o partita insieme a ciò su cui vuoi un feedback, e un allenatore vero, un ex giocatore ATP o un allenatore certificato ITF Level 2, lo rivede personalmente fotogramma per fotogramma. Niente è generato automaticamente. Ricevi la tua analisi e un piano tramite il tuo account e via email.",
+            "Crei un account, invii un video di allenamento o partita insieme a ciò su cui vuoi un feedback, e un allenatore vero, un giocatore ATP o un allenatore certificato ATP o ITF, lo rivede personalmente fotogramma per fotogramma. Niente è generato automaticamente. Ricevi la tua analisi e un piano tramite il tuo account e via email.",
         },
         {
           question: "Che tipo di video dovrei inviare?",
@@ -547,7 +547,7 @@ const it: FaqDict = {
         {
           question: "La mia analisi è scritta dall'IA?",
           answer:
-            "No. Ogni piano e ogni feedback è costruito personalmente da uno dei nostri allenatori, ex giocatori ATP e allenatori certificati ITF Level 2, in base al tuo video e ai tuoi obiettivi. Il widget di chat \"Domande rapide\" sul sito è un assistente IA separato che risponde solo a domande semplici su prezzi e policy; non rivede video né dà consigli di coaching.",
+            "No. Ogni piano e ogni feedback è costruito personalmente da uno dei nostri allenatori, giocatori ATP, allenatori certificati ATP e ITF, in base al tuo video e ai tuoi obiettivi. Il widget di chat \"Domande rapide\" sul sito è un assistente IA separato che risponde solo a domande semplici su prezzi e policy; non rivede video né dà consigli di coaching.",
         },
         {
           question: "Posso lasciare una recensione?",
@@ -573,7 +573,7 @@ const ru: FaqDict = {
         {
           question: "Как это работает для академии?",
           answer:
-            "У вашей академии есть собственный аккаунт, который мы создаём после согласования сотрудничества. Владелец приглашает тренеров и игроков по электронной почте. Игроки загружают записи тренировок или матчей из своих аккаунтов, настоящий тренер, бывший игрок ATP или сертифицированный тренер ITF Level 2, разбирает их, а обратная связь появляется в панели академии для ваших тренеров и игрока.",
+            "У вашей академии есть собственный аккаунт, который мы создаём после согласования сотрудничества. Владелец приглашает тренеров и игроков по электронной почте. Игроки загружают записи тренировок или матчей из своих аккаунтов, настоящий тренер, игрок ATP или сертифицированный тренер ATP или ITF, разбирает их, а обратная связь появляется в панели академии для ваших тренеров и игрока.",
         },
         {
           question: "Вы заменяете наших тренеров?",
@@ -603,7 +603,7 @@ const ru: FaqDict = {
         {
           question: "Как это работает для индивидуального игрока?",
           answer:
-            "Вы создаёте аккаунт, отправляете видео с тренировки или матча вместе с тем, что хотите разобрать, и настоящий тренер, бывший игрок ATP или сертифицированный тренер ITF Level 2, лично разбирает его покадрово. Ничего не генерируется автоматически. Вы получаете анализ и план через аккаунт и по email.",
+            "Вы создаёте аккаунт, отправляете видео с тренировки или матча вместе с тем, что хотите разобрать, и настоящий тренер, игрок ATP или сертифицированный тренер ATP или ITF, лично разбирает его покадрово. Ничего не генерируется автоматически. Вы получаете анализ и план через аккаунт и по email.",
         },
         {
           question: "Какое видео мне отправить?",
@@ -682,7 +682,7 @@ const ru: FaqDict = {
         {
           question: "Мой анализ написан ИИ?",
           answer:
-            "Нет. Каждый план и каждая обратная связь создаются лично одним из наших тренеров, бывшими игроками ATP и сертифицированными тренерами ITF Level 2, на основе вашего видео и целей. Виджет чата «Быстрые вопросы» на сайте, это отдельный ассистент на основе ИИ, который отвечает только на простые вопросы о ценах и политиках; он не разбирает видео и не даёт тренерских советов.",
+            "Нет. Каждый план и каждая обратная связь создаются лично одним из наших тренеров, игроками ATP, сертифицированными тренерами ATP и ITF, на основе вашего видео и целей. Виджет чата «Быстрые вопросы» на сайте, это отдельный ассистент на основе ИИ, который отвечает только на простые вопросы о ценах и политиках; он не разбирает видео и не даёт тренерских советов.",
         },
         {
           question: "Могу ли я оставить отзыв?",

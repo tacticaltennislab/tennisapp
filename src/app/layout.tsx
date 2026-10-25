@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const DEFAULT_TITLE = "Tactical Tennis Lab: Video & Match Analysis for Tennis Academies and Clubs";
 const DEFAULT_DESCRIPTION =
-  "Professional video and match analysis that supports tennis academies, clubs and their coaches. Tactical and technical feedback from former ATP ranked players and ITF Level 2 coaches, so players improve faster and coaches spend more time on court.";
+  "Professional video and match analysis that supports tennis academies, clubs and their coaches. Tactical and technical feedback from ATP players, certified ATP and ITF coaches, so players improve faster and coaches spend more time on court.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

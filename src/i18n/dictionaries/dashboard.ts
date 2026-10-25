@@ -168,7 +168,7 @@ const en: DashboardDict = {
       },
       {
         title: "Your coach reviews it personally",
-        detail: "Frame by frame, by a former ATP ranked player or ITF Level 2 coach, not a template, not an algorithm.",
+        detail: "Frame by frame, by an ATP player or a certified ATP or ITF coach, not a template, not an algorithm.",
       },
       {
         title: "Get your analysis back",
@@ -284,7 +284,7 @@ const pl: DashboardDict = {
       },
       {
         title: "Twój trener osobiście je analizuje",
-        detail: "Klatka po klatce, przez byłego zawodnika ATP lub trenera ITF Level 2, nie szablon, nie algorytm.",
+        detail: "Klatka po klatce, przez zawodnika ATP lub certyfikowanego trenera ATP albo ITF, nie szablon, nie algorytm.",
       },
       {
         title: "Otrzymaj swoją analizę",
@@ -400,7 +400,7 @@ const es: DashboardDict = {
       },
       {
         title: "Tu entrenador lo revisa personalmente",
-        detail: "Fotograma a fotograma, por un exjugador del ATP o un entrenador ITF Level 2, no una plantilla, no un algoritmo.",
+        detail: "Fotograma a fotograma, por un jugador del ATP o un entrenador certificado ATP o ITF, no una plantilla, no un algoritmo.",
       },
       {
         title: "Recibe tu análisis",
@@ -516,7 +516,7 @@ const it: DashboardDict = {
       },
       {
         title: "Il tuo allenatore lo rivede personalmente",
-        detail: "Fotogramma per fotogramma, da un ex giocatore ATP o un allenatore ITF Level 2, non un modello, non un algoritmo.",
+        detail: "Fotogramma per fotogramma, da un giocatore ATP o un allenatore certificato ATP o ITF, non un modello, non un algoritmo.",
       },
       {
         title: "Ricevi la tua analisi",
@@ -632,7 +632,7 @@ const ru: DashboardDict = {
       },
       {
         title: "Тренер лично разбирает его",
-        detail: "Покадрово, бывшим игроком ATP или тренером ITF Level 2, не по шаблону, не алгоритмом.",
+        detail: "Покадрово, игроком ATP или сертифицированным тренером ATP или ITF, не по шаблону, не алгоритмом.",
       },
       {
         title: "Получите свой анализ",
