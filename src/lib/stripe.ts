@@ -1,6 +1,21 @@
 import Stripe from "stripe";
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "");
+let stripeClient: Stripe | null = null;
+
+/**
+ * Lazily create the Stripe client so builds (e.g. Preview deployments without
+ * STRIPE_SECRET_KEY) don't fail at module load. Throws only when called at
+ * request time without a key.
+ */
+export function getStripe(): Stripe {
+  if (stripeClient) return stripeClient;
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) {
+    throw new Error("STRIPE_SECRET_KEY is not set");
+  }
+  stripeClient = new Stripe(key);
+  return stripeClient;
+}
 
 export interface CheckoutPlan {
   name: string;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { IconArrowRight } from "@/components/icons";
 import { checkoutSuccessDictionaries } from "@/i18n/dictionaries/checkout";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
@@ -19,7 +19,9 @@ export default async function CheckoutSuccessContent({
   }
 
   const session = session_id
-    ? await stripe.checkout.sessions.retrieve(session_id).catch(() => null)
+    ? await Promise.resolve()
+        .then(() => getStripe().checkout.sessions.retrieve(session_id))
+        .catch(() => null)
     : null;
 
   return (
