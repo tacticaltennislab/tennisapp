@@ -31,6 +31,8 @@ export interface ReportCopy {
 // the near baseline, slightly above the court. Change these four points and
 // every mark follows the new perspective (also when a real frame replaces the
 // drawn court).
+// Lime belongs to the court drawing only; everything else on the page uses the normal palette.
+const COURT_LIME = "#c8f135";
 const W = 1600;
 const H = 1000;
 const CORNERS: Corners = {
@@ -111,7 +113,7 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
       aria-hidden={!on}
     >
       <span className={`${glass} !shadow-none flex items-center gap-2 rounded-full p-1 pr-1 text-xs font-medium text-white sm:pr-3`}>
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.6875rem] font-bold text-[#11140a] sm:h-6 sm:w-6">
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[0.6875rem] font-bold text-[#0d0f11] sm:h-6 sm:w-6">
           {n}
         </span>
         <span className="hidden whitespace-nowrap sm:inline">{label}</span>
@@ -132,11 +134,11 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
 
           {/* Highlighted areas */}
           <g className={`${fade} ${observed ? "opacity-100" : "opacity-0"}`}>
-            <polygon points={poly(ZONE)} fill="var(--color-accent)" fillOpacity="0.22" stroke="var(--color-accent)" strokeWidth="1.5" />
+            <polygon points={poly(ZONE)} fill={COURT_LIME} fillOpacity="0.22" stroke={COURT_LIME} strokeWidth="1.5" />
           </g>
           <g className={`${fade} ${observed ? "opacity-0" : "opacity-100"}`}>
-            <polygon points={poly(WIDE_ZONE)} fill="var(--color-accent)" fillOpacity="0.22" stroke="var(--color-accent)" strokeWidth="1.5" />
-            <polygon points={poly(OPEN_ZONE)} fill="var(--color-accent)" fillOpacity="0.12" stroke="var(--color-accent)" strokeOpacity="0.7" strokeWidth="1.5" strokeDasharray="6 6" />
+            <polygon points={poly(WIDE_ZONE)} fill={COURT_LIME} fillOpacity="0.22" stroke={COURT_LIME} strokeWidth="1.5" />
+            <polygon points={poly(OPEN_ZONE)} fill={COURT_LIME} fillOpacity="0.12" stroke={COURT_LIME} strokeOpacity="0.7" strokeWidth="1.5" strokeDasharray="6 6" />
           </g>
 
           {/* Court lines */}
@@ -152,12 +154,12 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
 
           {/* Observed: second serves into one zone, the returner steps in */}
           <g className={`${fade} ${observed ? "opacity-100" : "opacity-0"}`}>
-            <g fill="none" stroke="var(--color-accent)" strokeOpacity="0.75" strokeWidth="2" strokeLinecap="round">
+            <g fill="none" stroke={COURT_LIME} strokeOpacity="0.75" strokeWidth="2" strokeLinecap="round">
               {CLUSTER.map((c, i) => (
                 <path key={i} d={flight(SERVER, c, 2.6)} />
               ))}
             </g>
-            <g fill="var(--color-accent)">
+            <g fill={COURT_LIME}>
               {CLUSTER.map((c, i) => {
                 const [x, y] = at(c);
                 return <circle key={i} cx={x} cy={y} r="7" />;
@@ -169,24 +171,24 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
 
           {/* Recommended: wide serve, then the open court */}
           <g className={`${fade} ${observed ? "opacity-0" : "opacity-100"}`}>
-            <path d={flight(SERVER, WIDE, 2.6)} fill="none" stroke="var(--color-accent)" strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" />
-            <g fill="none" stroke="var(--color-accent)" strokeOpacity="0.4" strokeWidth="1.8" strokeLinecap="round" strokeDasharray="2 8">
+            <path d={flight(SERVER, WIDE, 2.6)} fill="none" stroke={COURT_LIME} strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" />
+            <g fill="none" stroke={COURT_LIME} strokeOpacity="0.4" strokeWidth="1.8" strokeLinecap="round" strokeDasharray="2 8">
               {VARIETY.map((v, i) => (
                 <path key={i} d={flight(SERVER, v, 2.6)} />
               ))}
             </g>
-            <g fill="var(--color-accent)" fillOpacity="0.55">
+            <g fill={COURT_LIME} fillOpacity="0.55">
               {VARIETY.map((v, i) => (
                 <circle key={i} cx={at(v)[0]} cy={at(v)[1]} r="6.5" />
               ))}
             </g>
-            <circle cx={at(WIDE)[0]} cy={at(WIDE)[1]} r="8" fill="var(--color-accent)" />
+            <circle cx={at(WIDE)[0]} cy={at(WIDE)[1]} r="8" fill={COURT_LIME} />
             <path d={line([RETURNER_BACK, RETURNER_WIDE])} stroke="#fff" strokeOpacity="0.85" strokeWidth="2" strokeDasharray="2 7" strokeLinecap="round" fill="none" />
             <circle cx={at(RETURNER_WIDE)[0]} cy={at(RETURNER_WIDE)[1]} r="9" fill="none" stroke="#fff" strokeWidth="3" />
             <path d={line([SERVER, SERVER_AFTER])} stroke="#fff" strokeOpacity="0.7" strokeWidth="2" strokeDasharray="2 7" strokeLinecap="round" fill="none" />
             <circle cx={at(SERVER_AFTER)[0]} cy={at(SERVER_AFTER)[1]} r="7" fill="#fff" fillOpacity="0.9" />
-            <path d={flight(SERVER_AFTER, OPEN, 2)} fill="none" stroke="var(--color-accent)" strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="2 8" />
-            <circle cx={at(OPEN)[0]} cy={at(OPEN)[1]} r="8" fill="var(--color-accent)" />
+            <path d={flight(SERVER_AFTER, OPEN, 2)} fill="none" stroke={COURT_LIME} strokeOpacity="0.85" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="2 8" />
+            <circle cx={at(OPEN)[0]} cy={at(OPEN)[1]} r="8" fill={COURT_LIME} />
           </g>
 
           {/* Server, always */}
@@ -238,7 +240,7 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
               {t.meta} · {t.player}
             </p>
           </div>
-          <span className="rounded-full border border-accent/60 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-wider text-accent">
+          <span className="rounded-full border border-white/30 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-wider text-white/80">
             {t.badge}
           </span>
         </div>
@@ -248,7 +250,7 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
           <ol className="mt-3 space-y-3">
             {t.observed.map((item, i) => (
               <li key={item} className="grid grid-cols-[1.25rem_1fr] gap-2 text-[0.9375rem] leading-snug text-white/90">
-                <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.6875rem] font-bold text-[#11140a]" aria-hidden="true">
+                <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[0.6875rem] font-bold text-[#0d0f11]" aria-hidden="true">
                   {i + 1}
                 </span>
                 {item}
@@ -262,12 +264,12 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
           <p className="mt-2 text-lg font-semibold leading-snug tracking-tight">{t.priority}</p>
         </section>
 
-        <section aria-labelledby={`${id}-rec`} className="mt-6 border-l-2 border-accent pl-4">
+        <section aria-labelledby={`${id}-rec`} className="mt-6 border-l-2 border-white/50 pl-4">
           <h4 id={`${id}-rec`} className="eyebrow !text-white">{t.recommendedTitle}</h4>
           <ol className="mt-3 space-y-3">
             {t.recommended.map((item, i) => (
               <li key={item} className="grid grid-cols-[1.25rem_1fr] gap-2 text-[0.9375rem] leading-snug text-white/90">
-                <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[0.6875rem] font-bold text-[#11140a]" aria-hidden="true">
+                <span className="mt-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[0.6875rem] font-bold text-[#0d0f11]" aria-hidden="true">
                   {t.observed.length + i + 1}
                 </span>
                 {item}

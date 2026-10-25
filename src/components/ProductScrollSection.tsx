@@ -23,7 +23,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
           <p className="text-2xl font-semibold tracking-tight text-ink">{freeAnalysisDictionaries[lang].home.text}</p>
           <p className="mt-2 text-[1.0625rem] leading-relaxed text-body">{freeAnalysisDictionaries[lang].home.sub}</p>
         </div>
-        <Link href={localizedHref(lang, "/free-analysis")} className="btn btn-lime shrink-0">
+        <Link href={localizedHref(lang, "/free-analysis")} className="btn btn-primary shrink-0">
           {freeAnalysisDictionaries[lang].home.cta}
         </Link>
       </div>

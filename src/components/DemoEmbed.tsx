@@ -8,8 +8,6 @@ import { trackEvent } from "@/lib/analytics";
 const Cal = dynamic(() => import("@calcom/embed-react"), { ssr: false });
 
 const NAMESPACE = "demo";
-const LIME = "#c8f135";
-const ON_LIME = "#11140a";
 
 function currentTheme(): "light" | "dark" {
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
@@ -72,18 +70,19 @@ export default function DemoEmbed({
         theme,
         hideEventTypeDetails: false,
         layout: "month_view",
+        // The site's own button colours: black on light, off white on dark.
         cssVarsPerTheme: {
           light: {
-            "cal-brand": LIME,
-            "cal-brand-emphasis": "#b5d92c",
-            "cal-brand-text": ON_LIME,
-            "cal-brand-subtle": "#eef7c4",
+            "cal-brand": "#1d1d1f",
+            "cal-brand-emphasis": "#000000",
+            "cal-brand-text": "#ffffff",
+            "cal-brand-subtle": "#e8e8ed",
           },
           dark: {
-            "cal-brand": LIME,
-            "cal-brand-emphasis": "#d6f65c",
-            "cal-brand-text": ON_LIME,
-            "cal-brand-subtle": "#2b3510",
+            "cal-brand": "#f5f5f7",
+            "cal-brand-emphasis": "#ffffff",
+            "cal-brand-text": "#000000",
+            "cal-brand-subtle": "#2c2c2e",
           },
         },
       });
