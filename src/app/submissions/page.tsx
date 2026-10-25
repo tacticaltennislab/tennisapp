@@ -40,6 +40,7 @@ export default async function SubmissionsPage() {
                 <Reveal key={s.id} as="li" delay={Math.min(i, 6) * 60}>
                   <SubmissionReview
                     canDelete
+                    canPublish
                     submission={{
                       id: s.id,
                       title: s.title,
@@ -51,6 +52,12 @@ export default async function SubmissionsPage() {
                       skillLevel: s.skillLevel,
                       goal: s.goal,
                       focusAreas: s.focusAreas,
+                      isFree: s.isFree,
+                      footageType: s.footageType,
+                      tacticalNotes: s.tacticalNotes,
+                      technicalNotes: s.technicalNotes,
+                      publishConsent: s.publishConsent,
+                      publishedAt: s.publishedAt ? s.publishedAt.toISOString() : null,
                     }}
                   />
                 </Reveal>

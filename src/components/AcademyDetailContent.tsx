@@ -135,6 +135,7 @@ export default async function AcademyDetailContent({
                     <SubmissionReview
                       lang={lang}
                       canDelete={isAdmin}
+                      canPublish={isAdmin}
                       submission={{
                         id: s.id,
                         title: s.title,
@@ -146,6 +147,12 @@ export default async function AcademyDetailContent({
                         skillLevel: s.skillLevel,
                         goal: s.goal,
                         focusAreas: s.focusAreas,
+                        isFree: s.isFree,
+                        footageType: s.footageType,
+                        tacticalNotes: s.tacticalNotes,
+                        technicalNotes: s.technicalNotes,
+                        publishConsent: s.publishConsent,
+                        publishedAt: s.publishedAt ? s.publishedAt.toISOString() : null,
                       }}
                     />
                   </Reveal>

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 import { focusLabel, goalLabel, levelLabel } from "@/i18n/dictionaries/trainingOptions";
 import { academyDictionaries } from "@/i18n/dictionaries/academy";
+import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
 import type { AppLocale } from "@/i18n/locales";
 
 interface Submission {
@@ -18,18 +19,33 @@ interface Submission {
   skillLevel: string | null;
   goal: string | null;
   focusAreas: string[];
+  // Free analysis (all optional, so other callers are unaffected)
+  isFree?: boolean;
+  footageType?: string | null;
+  tacticalNotes?: string | null;
+  technicalNotes?: string | null;
+  publishConsent?: boolean;
+  publishedAt?: string | null;
 }
 
 export default function SubmissionReview({
   submission,
   canDelete = false,
+  canPublish = false,
   lang = "en",
 }: {
   submission: Submission;
   canDelete?: boolean;
+  canPublish?: boolean;
   lang?: AppLocale;
 }) {
   const t = academyDictionaries[lang].review;
+  const f = freeAnalysisDictionaries[lang].review;
+  const isFree = Boolean(submission.isFree);
+  const [tactical, setTactical] = useState(submission.tacticalNotes || "");
+  const [technical, setTechnical] = useState(submission.technicalNotes || "");
+  const [published, setPublished] = useState(Boolean(submission.publishedAt));
+  const [publishing, setPublishing] = useState(false);
   const [coachNotes, setCoachNotes] = useState(submission.coachNotes || "");
   const [status, setStatus] = useState(submission.status);
   const [submitting, setSubmitting] = useState(false);
@@ -54,6 +70,23 @@ export default function SubmissionReview({
     router.refresh();
   }
 
+  async function togglePublish() {
+    setError(null);
+    setPublishing(true);
+    const res = await fetch(`/api/videos/${submission.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ published: !published }),
+    });
+    setPublishing(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setError(data.error || t.error);
+      return;
+    }
+    setPublished(!published);
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
@@ -62,7 +95,7 @@ export default function SubmissionReview({
     const res = await fetch(`/api/videos/${submission.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ coachNotes }),
+      body: JSON.stringify(isFree ? { tacticalNotes: tactical, technicalNotes: technical } : { coachNotes }),
     });
 
     setSubmitting(false);
@@ -95,6 +128,16 @@ export default function SubmissionReview({
           {status === "reviewed" ? t.status.reviewed : t.status.pending}
         </span>
       </div>
+
+      {isFree && (
+        <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
+          <span className="rounded-full bg-brand-600 px-2 py-0.5 font-semibold text-on-brand">{f.free}</span>
+          {submission.footageType === "match" && <span className="rounded-full bg-chip px-2 py-0.5 text-body">{f.match}</span>}
+          {submission.footageType === "training" && <span className="rounded-full bg-chip px-2 py-0.5 text-body">{f.training}</span>}
+          <span className="text-muted">{submission.publishConsent ? f.consented : f.noConsent}</span>
+          {published && <span className="rounded-full bg-brand-50 px-2 py-0.5 text-brand-700">{f.published}</span>}
+        </div>
+      )}
 
       {submission.note && (
         <p className="mt-2 text-sm text-body">
@@ -145,13 +188,38 @@ export default function SubmissionReview({
       {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
       <form onSubmit={handleSubmit} className="mt-3 space-y-2">
-        <textarea
-          placeholder={t.placeholder}
-          value={coachNotes}
-          onChange={(e) => setCoachNotes(e.target.value)}
-          rows={3}
-          className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
-        />
+        {isFree ? (
+          <>
+            <label className="block text-xs font-semibold text-body">
+              {f.tactical}
+              <textarea
+                placeholder={f.tacticalPlaceholder}
+                value={tactical}
+                onChange={(e) => setTactical(e.target.value)}
+                rows={5}
+                className="mt-1 w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm font-normal focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+              />
+            </label>
+            <label className="block text-xs font-semibold text-body">
+              {f.technical}
+              <textarea
+                placeholder={f.technicalPlaceholder}
+                value={technical}
+                onChange={(e) => setTechnical(e.target.value)}
+                rows={5}
+                className="mt-1 w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm font-normal focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+              />
+            </label>
+          </>
+        ) : (
+          <textarea
+            placeholder={t.placeholder}
+            value={coachNotes}
+            onChange={(e) => setCoachNotes(e.target.value)}
+            rows={3}
+            className="w-full rounded-lg border border-line bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-600 transition-shadow"
+          />
+        )}
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="submit"
@@ -161,6 +229,20 @@ export default function SubmissionReview({
           {submitting ? t.saving : t.save}
         </button>
       </form>
+
+      {isFree && canPublish && submission.publishConsent && (
+        <div className="mt-4 border-t border-line pt-3">
+          <p className="text-xs text-muted">{f.publishHint}</p>
+          <button
+            type="button"
+            onClick={togglePublish}
+            disabled={publishing}
+            className="mt-2 rounded-xl border border-line px-4 py-2 text-sm font-semibold hover:border-brand-600 disabled:opacity-60 transition-colors"
+          >
+            {published ? f.unpublish : f.publish}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

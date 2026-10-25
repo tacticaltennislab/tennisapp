@@ -13,10 +13,12 @@ import { countSuccessfulReferrals } from "@/lib/referral";
 import ReferralLinkCard from "@/components/ReferralLinkCard";
 import ReviewForm from "@/components/ReviewForm";
 import { dashboardDictionaries } from "@/i18n/dictionaries/dashboard";
+import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 export default async function AccountContent({ lang = "en" }: { lang?: AppLocale }) {
   const t = dashboardDictionaries[lang].account;
+  const fa = freeAnalysisDictionaries[lang].account;
   const session = await auth();
 
   if (!session?.user) {
@@ -73,7 +75,12 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
                 <Reveal key={s.id} as="li" delay={Math.min(i, 6) * 60}>
                   <div className="rounded-2xl border border-line p-5 shadow-sm hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between">
-                      <p className="font-semibold">{s.title || s.fileName}</p>
+                      <p className="font-semibold">
+                        {s.isFree && (
+                          <span className="mr-2 rounded-full bg-brand-600 px-2 py-0.5 text-xs font-semibold text-on-brand">{fa.free}</span>
+                        )}
+                        {s.title || s.fileName}
+                      </p>
                       <span
                         className={`text-xs rounded-full px-2 py-0.5 ${
                           s.status === "reviewed"
@@ -110,7 +117,22 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
                     >
                       {t.viewVideo}
                     </a>
-                    {s.coachNotes && (
+                    {s.isFree && (s.tacticalNotes || s.technicalNotes) ? (
+                      <div className="mt-3 space-y-3">
+                        {s.tacticalNotes && (
+                          <div className="rounded-lg bg-surface-muted p-3 text-sm">
+                            <p className="font-medium mb-1">{fa.tactical}</p>
+                            <p className="text-body whitespace-pre-wrap">{s.tacticalNotes}</p>
+                          </div>
+                        )}
+                        {s.technicalNotes && (
+                          <div className="rounded-lg bg-surface-muted p-3 text-sm">
+                            <p className="font-medium mb-1">{fa.technical}</p>
+                            <p className="text-body whitespace-pre-wrap">{s.technicalNotes}</p>
+                          </div>
+                        )}
+                      </div>
+                    ) : s.coachNotes && (
                       <div className="mt-3 rounded-lg bg-surface-muted p-3 text-sm">
                         <p className="font-medium mb-1">{t.coachFeedback}</p>
                         <p className="text-body">{s.coachNotes}</p>

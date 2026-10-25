@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
+import { FREE_ANALYSES_PER_ACCOUNT, isFootageType } from "@/lib/freeAnalysis";
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -25,6 +26,10 @@ export async function POST(request: Request) {
     ? body.focusAreas.filter((a: unknown): a is string => typeof a === "string" && isFocusArea(a))
     : [];
 
+  const wantsFree = body?.free === true;
+  const footageType = isFootageType(body?.footageType) ? body.footageType : null;
+  const publishConsent = wantsFree && body?.publishConsent === true;
+
   if (!storagePath || !fileName || !fileType || !fileSize) {
     return NextResponse.json({ error: "Missing video upload details." }, { status: 400 });
   }
@@ -32,9 +37,22 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "File must be a video." }, { status: 400 });
   }
 
+  if (wantsFree) {
+    if (!footageType) {
+      return NextResponse.json({ error: "Say whether the video is a match or a training session." }, { status: 400 });
+    }
+    const used = await prisma.videoSubmission.count({ where: { userId: session.user.id, isFree: true } });
+    if (used >= FREE_ANALYSES_PER_ACCOUNT) {
+      return NextResponse.json({ error: "You have already used your free analysis.", code: "free-used" }, { status: 409 });
+    }
+  }
+
   const submission = await prisma.videoSubmission.create({
     data: {
       userId: session.user.id,
+      isFree: wantsFree,
+      footageType: wantsFree ? footageType : null,
+      publishConsent,
       title,
       note,
       skillLevel,

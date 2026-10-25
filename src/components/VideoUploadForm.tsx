@@ -11,10 +11,15 @@ import {
 } from "@/lib/trainingOptions";
 import { focusLabel, localizedGoals, localizedLevels } from "@/i18n/dictionaries/trainingOptions";
 import { dashboardDictionaries } from "@/i18n/dictionaries/dashboard";
+import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
+import type { FootageType } from "@/lib/freeAnalysis";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
-export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
+export default function VideoUploadForm({ lang = "en", free = false }: { lang?: AppLocale; free?: boolean }) {
   const t = dashboardDictionaries[lang].submitVideo.form;
+  const fa = freeAnalysisDictionaries[lang].form;
+  const [footageType, setFootageType] = useState<FootageType>("match");
+  const [publishConsent, setPublishConsent] = useState(false);
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
@@ -60,6 +65,7 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
           skillLevel,
           goal,
           focusAreas,
+          ...(free ? { free: true, footageType, publishConsent } : {}),
           storagePath: blob.pathname,
           fileName: file.name,
           fileType: file.type,
@@ -69,7 +75,7 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        setError(data.error || t.uploadFailedError);
+        setError(data.code === "free-used" ? fa.alreadyUsed : data.error || t.uploadFailedError);
         setSubmitting(false);
         return;
       }
@@ -87,6 +93,45 @@ export default function VideoUploadForm({ lang = "en" }: { lang?: AppLocale }) {
       onSubmit={handleSubmit}
       className="space-y-4 bg-surface border border-line shadow-sm rounded-2xl p-6 sm:p-8"
     >
+      {free && (
+        <div className="rounded-xl border border-accent/40 bg-brand-50/60 p-4 space-y-4">
+          <div>
+            <p className="inline-block rounded-full bg-brand-600 px-2.5 py-0.5 text-xs font-semibold text-on-brand">{fa.badge}</p>
+            <p className="mt-2 text-sm text-body">{fa.note}</p>
+          </div>
+          <fieldset>
+            <legend className="block text-sm font-medium mb-2">{fa.footageLabel}</legend>
+            <div className="grid grid-cols-2 gap-2">
+              {(["match", "training"] as const).map((k) => (
+                <button
+                  type="button"
+                  key={k}
+                  aria-pressed={footageType === k}
+                  onClick={() => setFootageType(k)}
+                  className={`rounded-lg px-3 py-2 text-sm font-medium border ${
+                    footageType === k ? "bg-brand-600 text-on-brand border-brand-600" : "border-line bg-surface hover:border-brand-600"
+                  }`}
+                >
+                  {k === "match" ? fa.match : fa.training}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          <label className="flex items-start gap-3 text-sm">
+            <input
+              type="checkbox"
+              checked={publishConsent}
+              onChange={(e) => setPublishConsent(e.target.checked)}
+              className="mt-0.5 h-4 w-4 shrink-0"
+            />
+            <span>
+              {fa.consentLabel}
+              <span className="block text-xs text-muted">{fa.consentHint}</span>
+            </span>
+          </label>
+        </div>
+      )}
+
       <div>
         <label htmlFor="videouploadform-1" className="block text-sm font-medium mb-1">{t.titleLabel}</label>
         <input id="videouploadform-1"

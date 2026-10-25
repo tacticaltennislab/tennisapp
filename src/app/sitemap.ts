@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
     { path: "/", changeFrequency: "weekly", priority: 1 },
     { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/free-analysis", changeFrequency: "monthly", priority: 0.8 },
     { path: "/about", changeFrequency: "monthly", priority: 0.6 },
     { path: "/coaches", changeFrequency: "monthly", priority: 0.6 },
     { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
@@ -17,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...LOCALES.flatMap((lang) => [
       { path: `/${lang}`, changeFrequency: "weekly" as const, priority: 0.9 },
       { path: `/${lang}/pricing`, changeFrequency: "weekly" as const, priority: 0.85 },
+      { path: `/${lang}/free-analysis`, changeFrequency: "monthly" as const, priority: 0.75 },
       { path: `/${lang}/about`, changeFrequency: "monthly" as const, priority: 0.55 },
       { path: `/${lang}/coaches`, changeFrequency: "monthly" as const, priority: 0.55 },
       { path: `/${lang}/faq`, changeFrequency: "monthly" as const, priority: 0.65 },

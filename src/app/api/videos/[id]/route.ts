@@ -45,12 +45,51 @@ export async function PATCH(
   }
 
   const body = await request.json().catch(() => null);
-  const coachNotes = typeof body?.coachNotes === "string" ? body.coachNotes.trim() : undefined;
+
+  // Publishing a free analysis on the public page is an admin decision, and only
+  // possible when the player agreed to it and the analysis has been written.
+  if (typeof body?.published === "boolean") {
+    if (session.user.role !== "admin") {
+      return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+    }
+    const target = await prisma.videoSubmission.findUnique({ where: { id } });
+    if (!target || !target.isFree) {
+      return NextResponse.json({ error: "Only free analyses can be published." }, { status: 400 });
+    }
+    if (body.published && !(target.publishConsent && (target.tacticalNotes || target.technicalNotes))) {
+      return NextResponse.json(
+        { error: "The player has not agreed to publication, or the analysis is empty." },
+        { status: 400 }
+      );
+    }
+    const updated = await prisma.videoSubmission.update({
+      where: { id },
+      data: { publishedAt: body.published ? new Date() : null },
+    });
+    return NextResponse.json({ submission: updated });
+  }
+
+  const clean = (v: unknown) => (typeof v === "string" ? v.trim() : undefined);
+  const tacticalNotes = clean(body?.tacticalNotes);
+  const technicalNotes = clean(body?.technicalNotes);
+  let coachNotes = clean(body?.coachNotes);
+  // A free analysis has two parts; coachNotes keeps a combined copy so older views and the
+  // email still show everything.
+  if (tacticalNotes !== undefined || technicalNotes !== undefined) {
+    coachNotes = [
+      tacticalNotes ? `Tactical analysis\n${tacticalNotes}` : "",
+      technicalNotes ? `Technical analysis\n${technicalNotes}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+  }
 
   const submission = await prisma.videoSubmission.update({
     where: { id },
     data: {
       coachNotes: coachNotes ?? undefined,
+      tacticalNotes: tacticalNotes ?? undefined,
+      technicalNotes: technicalNotes ?? undefined,
       status: "reviewed",
       reviewedAt: new Date(),
     },
@@ -60,7 +99,7 @@ export async function PATCH(
   if (coachNotes) {
     await sendEmail({
       to: submission.user.email,
-      subject: "Your video has been reviewed",
+      subject: submission.isFree ? "Your free analysis is ready" : "Your video has been reviewed",
       html: coachFeedbackEmail(submission.title || submission.fileName, coachNotes),
     });
   }

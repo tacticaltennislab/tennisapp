@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { currentLocaleFromPathname } from "@/components/LanguageSwitcher";
+import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
 import { localizedHref } from "@/i18n/locales";
 import BrandLogo from "@/components/BrandLogo";
 import { footerDictionaries } from "@/i18n/dictionaries/footer";
@@ -51,6 +52,9 @@ export default function SiteFooter() {
           </Link>
           <Link href={localizedHref(locale, "/review")} className={link}>
             {t.leaveReview}
+          </Link>
+          <Link href={localizedHref(locale, "/free-analysis")} className={link}>
+            {freeAnalysisDictionaries[locale].page.eyebrow}
           </Link>
           <Link href={localizedHref(locale, "/contact")} className={link}>
             {t.contact}

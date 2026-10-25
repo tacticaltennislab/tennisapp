@@ -5,13 +5,21 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { IconVideo, IconTarget, IconUpload, IconSpark, IconArrowRight } from "@/components/icons";
 import { dashboardDictionaries } from "@/i18n/dictionaries/dashboard";
+import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
+import { prisma } from "@/lib/prisma";
+import { FREE_ANALYSES_PER_ACCOUNT } from "@/lib/freeAnalysis";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 const TIP_ICONS = [IconVideo, IconUpload, IconTarget, IconSpark];
 
-export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLocale }) {
+export default async function SubmitVideoContent({ lang = "en", free = false }: { lang?: AppLocale; free?: boolean }) {
   const t = dashboardDictionaries[lang].submitVideo;
   const session = await auth();
+  const fa = freeAnalysisDictionaries[lang];
+  const freeUsed =
+    free && session?.user
+      ? (await prisma.videoSubmission.count({ where: { userId: session.user.id, isFree: true } })) >= FREE_ANALYSES_PER_ACCOUNT
+      : false;
 
   const tips = t.tips.map((text, i) => ({ icon: TIP_ICONS[i], text }));
 
@@ -61,7 +69,7 @@ export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLo
               <p className="text-body">{t.readyText}</p>
               <div className="mt-4 flex flex-wrap justify-center gap-3">
                 <Link
-                  href={`${localizedHref(lang, "/sign-up")}?callbackUrl=${localizedHref(lang, "/submit-video")}`}
+                  href={`${localizedHref(lang, "/sign-up")}?callbackUrl=${encodeURIComponent(localizedHref(lang, "/submit-video") + (free ? "?free=1" : ""))}`}
                   className="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand font-semibold px-5 py-3 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
                 >
                   {t.createAccountCta}
@@ -77,7 +85,7 @@ export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLo
               <p className="mt-4 text-sm text-muted">
                 {t.haveAccount}{" "}
                 <Link
-                  href={`${localizedHref(lang, "/sign-in")}?callbackUrl=${localizedHref(lang, "/submit-video")}`}
+                  href={`${localizedHref(lang, "/sign-in")}?callbackUrl=${encodeURIComponent(localizedHref(lang, "/submit-video") + (free ? "?free=1" : ""))}`}
                   className="text-brand-600 font-medium"
                 >
                   {t.signInLink}
@@ -111,7 +119,21 @@ export default async function SubmitVideoContent({ lang = "en" }: { lang?: AppLo
             </div>
           </Reveal>
           <Reveal variant="zoom" delay={100}>
-            <VideoUploadForm lang={lang} />
+            {freeUsed ? (
+              <div className="rounded-2xl border border-line bg-surface p-6 sm:p-8">
+                <h2 className="font-semibold text-lg">{fa.page.used.title}</h2>
+                <p className="mt-2 text-sm text-body">{fa.page.used.text}</p>
+                <Link
+                  href={`${localizedHref(lang, "/pricing")}?audience=players`}
+                  className="mt-5 inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 font-semibold text-on-brand"
+                >
+                  {fa.page.used.cta}
+                  <IconArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ) : (
+              <VideoUploadForm lang={lang} free={free} />
+            )}
           </Reveal>
         </div>
       </main>

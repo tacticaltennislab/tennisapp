@@ -199,5 +199,16 @@ model VideoSubmission {
   createdAt   DateTime @default(now())
   reviewedAt  DateTime?
 
+  // Free match or training analysis (one per account): written by a coach as
+  // separate tactical and technical notes. publishConsent is the player's
+  // opt-in to show the text, without their name, on the public page;
+  // publishedAt is set by an admin when it is actually published.
+  isFree         Boolean   @default(false)
+  footageType    String?
+  tacticalNotes  String?
+  technicalNotes String?
+  publishConsent Boolean   @default(false)
+  publishedAt    DateTime?
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
