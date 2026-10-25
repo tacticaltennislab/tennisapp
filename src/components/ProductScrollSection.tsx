@@ -1,4 +1,3 @@
-import Reveal from "@/components/Reveal";
 import SampleAnalysisMock from "@/components/SampleAnalysisMock";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import type { AppLocale } from "@/i18n/locales";
@@ -13,9 +12,7 @@ export default function ProductScrollSection({ lang = "en" }: { lang?: AppLocale
       <h2 id="sample-analysis-title" className="sr-only">
         {dict.productScroll.titleLine1} {dict.productScroll.titleLine2}
       </h2>
-      <Reveal>
-        <SampleAnalysisMock t={dict.sampleAnalysis} />
-      </Reveal>
+      <SampleAnalysisMock t={dict.sampleAnalysis} />
     </section>
   );
 }

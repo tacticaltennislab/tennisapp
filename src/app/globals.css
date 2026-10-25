@@ -607,6 +607,10 @@
     scroll-behavior: auto;
   }
 
+  .glass-reveal {
+    filter: none !important;
+  }
+
   .animate-court-zoom,
   .animate-float-3d,
   .animate-drift,

@@ -87,15 +87,17 @@ Motion explains or confirms; it never decorates. Short, one easing curve (`cubic
 | Where | What | How |
 |---|---|---|
 | Hero headline | Words slide up through a mask, 40ms apart, 0.6s each | CSS only (`RevealWords`), text is in the HTML from the first byte |
+| Hero scene | The drone photograph breathes (scale 1 to 1.08 over 20s, ease in out, back and forth). While scrolling, the hero stays pinned, the drone view scales to 1.4 and fades and the clay texture fades in underneath, then dims into the charcoal chapter (about 230vh of scroll on wide screens, 155vh on phones) | Framer Motion `useScroll` into a clamped motion value, then `useTransform`; transform and opacity only. Phones get a plain crossfade (no scaling). Reduced motion: static drone photograph, single screen |
+| Glass surfaces | Report panel, view switch and note rise once on entering the viewport: opacity 0 to 1, 24px up, 8px blur clearing, staggered 80ms | `GlassReveal` (Framer Motion `whileInView`, once). Reduced motion: opacity fade only |
 | Section entrances | 16px rise and fade, 0.55s | `Reveal` (IntersectionObserver) |
 | Service rows | Soft row highlight on hover or focus | CSS, 0.3s |
 | Buttons | Colour or opacity on hover, 2% press | CSS |
 
-There is no parallax, no pinned or scroll-driven section, no looping media and no animation library. Below-the-fold sections use `content-visibility: auto`.
+Apart from the hero scene above there is no parallax and no pinned section. Nothing else loops or moves on its own. Below-the-fold sections use `content-visibility: auto`.
 
 ## Page structure (homepage)
 
-1. **Hero and tactical report** (one charcoal chapter): one headline, one sentence, one primary action, and directly below it the court view with the written report. The report is the visual.
+1. **Hero and tactical report** (one charcoal chapter): one headline, one sentence and one primary action over two clay court photographs, then the court view with the written report. The photographs are the hero background and the descent into the report; the report is the product proof.
 2. **Credentials**: one quiet line of text.
 3. **Services**, **How it works** (the brand statement and three steps), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
 

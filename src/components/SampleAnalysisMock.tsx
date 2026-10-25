@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import GlassReveal from "@/components/motion/GlassReveal";
 import { COURT, courtLines, makeCamera, type Corners, type Pt } from "@/lib/court";
 
 export interface ReportCopy {
@@ -199,7 +200,7 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
         </div>
 
         {/* View switch */}
-        <div role="tablist" aria-label={t.frameLabel} className={`${glass} absolute left-3 top-3 flex rounded-full p-1 text-sm sm:left-5 sm:top-5`}>
+        <GlassReveal delay={80} role="tablist" aria-label={t.frameLabel} className={`${glass} absolute left-3 top-3 flex rounded-full p-1 text-sm sm:left-5 sm:top-5`}>
           {(["observed", "recommended"] as const).map((k, i) => (
             <button
               key={k}
@@ -219,15 +220,15 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
               {k === "observed" ? t.tabObserved : t.tabRecommended}
             </button>
           ))}
-        </div>
+        </GlassReveal>
 
-        <p className="absolute bottom-3 left-3 max-w-[70%] rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[0.6875rem] leading-snug text-white/80 backdrop-blur-md sm:bottom-5 sm:left-5 sm:text-xs">
+        <GlassReveal delay={160} className="absolute bottom-3 left-3 max-w-[70%] rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[0.6875rem] leading-snug text-white/80 backdrop-blur-md sm:bottom-5 sm:left-5 sm:text-xs">
           {t.frameNote}
-        </p>
+        </GlassReveal>
       </div>
 
       {/* Report panel: glass over the dark side of the frame on large screens, stacked below on phones. */}
-      <div
+      <GlassReveal
         className={`${glass} relative m-3 rounded-2xl p-5 text-left sm:m-5 sm:p-7 xl:absolute xl:inset-y-5 xl:right-5 xl:m-0 xl:flex xl:w-[33%] xl:flex-col xl:overflow-hidden`}
       >
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -278,8 +279,7 @@ export default function SampleAnalysisMock({ t }: { t: ReportCopy }) {
         <p className="mt-6 text-[0.6875rem] leading-relaxed text-white/50 xl:mt-auto xl:pt-5">
           {t.courtNote} {t.footer}
         </p>
-      </div>
-
+      </GlassReveal>
     </figure>
   );
 }

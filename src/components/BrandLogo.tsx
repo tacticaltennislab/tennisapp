@@ -10,6 +10,7 @@ export default function BrandLogo({ className = "", priority = false }: { classN
         alt="Tactical Tennis Lab"
         width={1203}
         height={369}
+        sizes="240px"
         priority={priority}
         className={`w-auto dark:hidden ${className}`}
       />
@@ -19,7 +20,8 @@ export default function BrandLogo({ className = "", priority = false }: { classN
         aria-hidden="true"
         width={1203}
         height={369}
-        priority={priority}
+        sizes="240px"
+        priority={false}
         className={`hidden w-auto dark:block ${className}`}
       />
     </>
