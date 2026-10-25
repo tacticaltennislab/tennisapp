@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/auth";
 import VideoUploadForm from "@/components/VideoUploadForm";
+import EmailVideoOption from "@/components/EmailVideoOption";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { IconVideo, IconTarget, IconUpload, IconSpark, IconArrowRight } from "@/components/icons";
@@ -132,7 +133,10 @@ export default async function SubmitVideoContent({ lang = "en", free = false }: 
                 </Link>
               </div>
             ) : (
-              <VideoUploadForm lang={lang} free={free} />
+              <>
+                <EmailVideoOption lang={lang} className="mb-5" />
+                <VideoUploadForm lang={lang} free={free} />
+              </>
             )}
           </Reveal>
         </div>

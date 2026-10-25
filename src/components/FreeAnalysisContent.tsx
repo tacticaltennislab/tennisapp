@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import Reveal from "@/components/Reveal";
+import EmailVideoOption from "@/components/EmailVideoOption";
 import { IconArrowRight } from "@/components/icons";
 import { FREE_ANALYSES_PER_ACCOUNT } from "@/lib/freeAnalysis";
 import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
@@ -99,6 +100,9 @@ export default async function FreeAnalysisContent({ lang = "en" }: { lang?: AppL
               </Reveal>
             ))}
           </ol>
+          <Reveal className="lg:col-start-2">
+            <EmailVideoOption lang={lang} />
+          </Reveal>
         </div>
       </section>
 
