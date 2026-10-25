@@ -31,14 +31,17 @@ export default function ReviewMedia({ src, playLabel }: { src: string; playLabel
       type="button"
       onClick={() => setPlaying(true)}
       aria-label={playLabel}
-      className="group mt-4 relative w-full aspect-video rounded-2xl bg-brand-900 overflow-hidden flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+      className="group mt-4 relative w-full aspect-video rounded-2xl bg-neutral-200 dark:bg-brand-900 overflow-hidden flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
     >
-      <span className="flex h-14 w-14 items-center justify-center rounded-full border border-white/60 text-white transition-colors group-hover:bg-white group-hover:text-black">
+      {/* No poster frame is stored for uploaded videos, so the tile is a theme-aware placeholder:
+          light grey with a dark play icon in light mode, the dark tile in dark mode. */}
+      <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/15 to-transparent dark:from-black/40" />
+      <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-ink/60 text-ink transition-colors group-hover:bg-ink group-hover:text-background dark:border-white/60 dark:text-white dark:group-hover:bg-white dark:group-hover:text-black">
         <svg viewBox="0 0 24 24" className="h-6 w-6 translate-x-0.5" fill="currentColor" aria-hidden="true">
           <path d="M8 5v14l11-7z" />
         </svg>
       </span>
-      <span className="absolute bottom-3 left-4 text-xs font-medium text-white/80">{playLabel}</span>
+      <span className="absolute bottom-3 left-4 text-xs font-medium text-ink/80 dark:text-white/80">{playLabel}</span>
     </button>
   );
 }

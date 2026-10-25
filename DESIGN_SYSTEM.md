@@ -93,7 +93,7 @@ Motion explains or confirms; it never decorates. Short, one easing curve (`cubic
 | Service rows | Soft row highlight on hover or focus | CSS, 0.3s |
 | Buttons | Colour or opacity on hover, 2% press | CSS |
 
-Apart from the hero scene above there is no parallax and no pinned section. Nothing else loops or moves on its own. Below-the-fold sections use `content-visibility: auto`.
+Apart from the hero scene above there is no parallax and no pinned section. Nothing else loops or moves on its own.
 
 ## Page structure (homepage)
 

@@ -39,8 +39,8 @@ export default function ClayBackdrop() {
         WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%)",
       }}
     >
-      {/* The texture is a charcoal duotone: about 12% in light mode under a light veil, 30% in dark mode */}
-      <motion.div className="absolute -inset-y-[8%] inset-x-0 opacity-[0.12] dark:opacity-30" style={{ y }}>
+      {/* The texture is a charcoal duotone: about 7% in light mode under a light veil, 30% in dark mode */}
+      <motion.div className="absolute -inset-y-[8%] inset-x-0 opacity-[0.07] dark:opacity-30" style={{ y }}>
         <ClayPhoto {...CLAY.texture} />
       </motion.div>
       <div className="absolute inset-0 bg-background/40 dark:bg-transparent" />

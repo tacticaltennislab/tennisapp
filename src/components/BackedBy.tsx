@@ -42,7 +42,7 @@ export default function BackedBy({ lang = "en" }: { lang?: AppLocale }) {
   const t = COPY[lang];
 
   return (
-    <section id="backing" className="defer-render section-pad scroll-mt-16">
+    <section id="backing" className="section-pad scroll-mt-16">
       <Reveal className="container-x">
         <div className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>

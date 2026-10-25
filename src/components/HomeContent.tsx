@@ -61,13 +61,9 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
         </div>
       </div>
 
-      {/* Charcoal melts into the page background (light or dark): no hard edge in either theme. */}
-      <div
-        aria-hidden="true"
-        className="-mt-px h-[200px]"
-        style={{ background: "linear-gradient(to bottom, #121417 0%, color-mix(in srgb, #121417 55%, var(--background)) 45%, var(--background) 100%)" }}
-      />
-
+      {/* The rest of the page is a "sheet" with rounded top corners that overlaps the bottom of the dark
+          chapter: a deliberate edge in both themes (the sheet takes the theme background), no gradient. */}
+      <div className="relative z-30 -mt-12 rounded-t-[32px] bg-background shadow-[0_-24px_60px_rgba(0,0,0,0.25)] md:rounded-t-[48px]">
       <TrustStrip lang={lang} />
 
       <ServicesSection lang={lang} />
@@ -83,6 +79,7 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
       <BackedBy lang={lang} />
 
       <FinalCta lang={lang} />
+      </div>
     </main>
   );
 }
