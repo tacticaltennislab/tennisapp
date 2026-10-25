@@ -1,0 +1,693 @@
+import type { AppLocale } from "@/i18n/locales";
+
+export interface HomeDict {
+  badges: [string, string, string, string];
+  hero: {
+    title: string;
+    subtitle: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    playersNote: string;
+    playersLink: string;
+    tagline: string;
+  };
+  services: {
+    eyebrow: string;
+    title: string;
+    included: string;
+    from: string;
+    names: [string, string, string];
+    cta: string;
+  };
+  offersPreview: {
+    cta: string;
+  };
+  whoThisFor: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+  };
+  audiences: {
+    title: string;
+    hook: string;
+    detail: string;
+    cta: string;
+  }[];
+  howItWorks: {
+    title: string;
+    subtitle: string;
+  };
+  steps: {
+    title: string;
+    detail: string;
+  }[];
+  testimonials: {
+    eyebrow: string;
+    title: string;
+    emptyText: string;
+    emptyCta: string;
+    filledPrefix: string;
+    filledCta: string;
+    summary: string; // {rating} {count}
+    playVideo: string;
+  };
+  ctaBand: {
+    title: string;
+    subtitle: string;
+  };
+  coachesRoom: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    viewProfile: string;
+  };
+  productScroll: {
+    eyebrow: string;
+    titleLine1: string;
+    titleLine2: string;
+  };
+  sampleAnalysis: {
+    badge: string;
+    reportTitle: string;
+    meta: string;
+    player: string;
+    observedTitle: string;
+    observed: string[];
+    priorityTitle: string;
+    priority: string;
+    recommendedTitle: string;
+    recommended: string[];
+    frameLabel: string;
+    frameNote: string;
+    courtNote: string;
+    tabObserved: string;
+    tabRecommended: string;
+    zoneLabel: string;
+    stepsInLabel: string;
+    wideLabel: string;
+    openLabel: string;
+    footer: string;
+  };
+}
+
+const en: HomeDict = {
+  badges: ["ATP Players", "Certified ATP Coaches", "Certified ITF Coaches", "Worldwide Coaching"],
+  hero: {
+    title: "Every point, understood.",
+    subtitle:
+      "Video and match analysis for tennis academies, reviewed frame by frame by ATP players, certified ATP and ITF coaches.",
+    ctaPrimary: "Book a demo",
+    ctaSecondary: "View academy packages",
+    playersNote: "Training on your own?",
+    playersLink: "See player plans",
+    tagline: "Real tennis. Expert analysis. Better decisions on court.",
+  },
+  services: {
+    eyebrow: "Our services",
+    title: "Three ways to understand the game.",
+    included: "Included in every academy package.",
+    from: "Individual players from",
+    names: ["Stroke Analysis", "Training Programs", "Match Analysis"],
+    cta: "See pricing",
+  },
+  offersPreview: {
+    cta: "See full details & get started",
+  },
+  whoThisFor: {
+    eyebrow: "Who this is for",
+    title: "Built for academies and clubs",
+    subtitle:
+      "A support system for the people who develop players, directors, head coaches, and the players and families who trust them.",
+  },
+  audiences: [
+    {
+      title: "Academy owners & directors",
+      hook: "Become the academy families choose.",
+      detail:
+        "Better analysis means better results, and results attract new players. Offer modern, data informed development that sets your academy apart.",
+      cta: "See academy packages",
+    },
+    {
+      title: "Head coaches & coaching teams",
+      hook: "Spend your energy on court, not on video.",
+      detail:
+        "We take on the frame by frame video and match analysis and return clear, shared feedback in one academy dashboard, so your coaches can build sessions around it.",
+      cta: "How it works",
+    },
+    {
+      title: "Players & parents",
+      hook: "Feedback that shows the way to the next win.",
+      detail:
+        "Players see what they do well, which tactical mistakes cost them points, and what to work on next, backed by their own coaches.",
+      cta: "Talk to us",
+    },
+  ],
+  howItWorks: {
+    title: "How it works",
+    subtitle: "From your players' footage to feedback your coaches can use on court.",
+  },
+  steps: [
+    {
+      title: "Players send video",
+      detail: "Players in your academy upload practice or match clips from their own accounts.",
+    },
+    {
+      title: "Professional analysis",
+      detail: "ATP players, certified ATP and ITF coaches break down technique, tactical mistakes and how points are won.",
+    },
+    {
+      title: "Shared feedback for your team",
+      detail: "Coaches and players see the feedback in your academy dashboard, ready to turn into sessions.",
+    },
+  ],
+  testimonials: {
+    eyebrow: "What players are saying",
+    title: "Real feedback, from real customers",
+    emptyText: "No reviews yet: be the first to tell other players what working with your coach has been like.",
+    emptyCta: "Leave a review",
+    filledPrefix: "Worked with a coach?",
+    filledCta: "Leave your own review",
+    summary: "Average rating {rating} / 5 · Reviews: {count}",
+    playVideo: "Play video review",
+  },
+  ctaBand: {
+    title: "Give your coaches their time on court back.",
+    subtitle: "Tell us about your academy, or compare the packages first.",
+  },
+  coachesRoom: {
+    eyebrow: "Real coaches, not an algorithm",
+    title: "The coaches behind your academy's analysis",
+    subtitle:
+      "Every submission is reviewed by ATP players, certified ATP and ITF coaches, frame by frame technical and tactical breakdowns, then clear feedback your coaches can use straight away.",
+    viewProfile: "View full profile",
+  },
+  productScroll: {
+    eyebrow: "What you receive",
+    titleLine1: "A report your coaches can use.",
+    titleLine2: "Observation first. Recommendation second.",
+  },
+  sampleAnalysis: {
+    badge: "Illustrative example",
+    reportTitle: "Match analysis report",
+    meta: "Singles match · hard court · illustrative",
+    player: "Player A · U16 · right handed baseline player",
+    observedTitle: "Observed",
+    observed: ["First serves land in the same spot every time, so the returner gets used to them.", "The serve neither opens the court nor makes an impression, so the server gets no advantage from it."],
+    priorityTitle: "Priority",
+    priority: "Turn the first serve into a weapon.",
+    recommendedTitle: "Recommended next step",
+    recommended: ["Open the court with a wide serve and vary the direction: wide, body and T.", "Play the next ball into the empty side to gain the advantage and surprise the opponent."],
+    frameLabel: "Illustrative court view with tactical annotations",
+    frameNote: "Illustrative court view. Positions and paths are examples, not match data.",
+    courtNote: "Dots mark where the ball lands in this example. Filled circle: server. Open circle: returner.",
+    tabObserved: "Observed",
+    tabRecommended: "Recommended",
+    zoneLabel: "Same spot every time",
+    stepsInLabel: "Returner gets used to it",
+    wideLabel: "Open the court wide",
+    openLabel: "Play into the empty side",
+    footer: "Illustrative example, not a real client report. Real reports are written by Tactical Tennis Lab coaches from your own footage.",
+  },
+};
+
+const pl: HomeDict = {
+  badges: ["Zawodnicy ATP", "Certyfikowani trenerzy ATP", "Certyfikowani trenerzy ITF", "Trenerzy na całym świecie"],
+  hero: {
+    title: "Zrozum każdy punkt.",
+    subtitle:
+      "Analiza wideo i meczów dla akademii tenisowych, przeglądana klatka po klatce przez zawodników ATP, certyfikowanych trenerów ATP i ITF.",
+    ctaPrimary: "Umów demo",
+    ctaSecondary: "Zobacz pakiety dla akademii",
+    playersNote: "Trenujesz indywidualnie?",
+    playersLink: "Zobacz plany dla zawodników",
+    tagline: "Prawdziwy tenis. Ekspercka analiza. Lepsze decyzje na korcie.",
+  },
+  services: {
+    eyebrow: "Nasze usługi",
+    title: "Trzy sposoby, by zrozumieć grę.",
+    included: "W cenie każdego pakietu dla akademii.",
+    from: "Zawodnicy indywidualni od",
+    names: ["Analiza uderzeń", "Programy treningowe", "Analiza meczu"],
+    cta: "Zobacz cennik",
+  },
+  offersPreview: {
+    cta: "Zobacz pełne szczegóły i zacznij",
+  },
+  whoThisFor: {
+    eyebrow: "Dla kogo to jest",
+    title: "Stworzone dla akademii i klubów",
+    subtitle:
+      "System wsparcia dla ludzi, którzy rozwijają zawodników, dyrektorów, głównych trenerów oraz zawodników i rodzin, które im ufają.",
+  },
+  audiences: [
+    {
+      title: "Właściciele i dyrektorzy akademii",
+      hook: "Zostań akademią, którą wybierają rodziny.",
+      detail:
+        "Lepsza analiza to lepsze wyniki, a wyniki przyciągają nowych zawodników. Zaoferuj nowoczesny, oparty na danych rozwój, który wyróżni Twoją akademię.",
+      cta: "Zobacz pakiety dla akademii",
+    },
+    {
+      title: "Główni trenerzy i zespoły trenerskie",
+      hook: "Energię zostaw na korcie, nie na wideo.",
+      detail:
+        "Bierzemy na siebie analizę wideo i meczową klatka po klatce i zwracamy jasną, wspólną informację zwrotną w jednym panelu akademii, aby trenerzy mogli budować wokół niej treningi.",
+      cta: "Jak to działa",
+    },
+    {
+      title: "Zawodnicy i rodzice",
+      hook: "Informacja zwrotna, która wskazuje drogę do kolejnego zwycięstwa.",
+      detail:
+        "Zawodnicy widzą, co robią dobrze, jakie błędy taktyczne kosztują ich punkty i nad czym pracować dalej, wspierani przez własnych trenerów.",
+      cta: "Porozmawiajmy",
+    },
+  ],
+  howItWorks: {
+    title: "Jak to działa",
+    subtitle: "Od nagrań Twoich zawodników do informacji zwrotnej, z której trenerzy skorzystają na korcie.",
+  },
+  steps: [
+    {
+      title: "Zawodnicy wysyłają wideo",
+      detail: "Zawodnicy Twojej akademii przesyłają nagrania treningów lub meczów ze swoich kont.",
+    },
+    {
+      title: "Profesjonalna analiza",
+      detail: "Zawodnicy ATP, certyfikowani trenerzy ATP i ITF analizują technikę, błędy taktyczne i to, jak wygrywane są punkty.",
+    },
+    {
+      title: "Wspólna informacja zwrotna dla zespołu",
+      detail: "Trenerzy i zawodnicy widzą opinie w panelu akademii, gotowe do przełożenia na treningi.",
+    },
+  ],
+  testimonials: {
+    eyebrow: "Co mówią zawodnicy",
+    title: "Prawdziwe opinie prawdziwych klientów",
+    emptyText: "Brak opinii. Bądź pierwszą osobą, która opowie innym, jak wygląda współpraca z Twoim trenerem.",
+    emptyCta: "Zostaw opinię",
+    filledPrefix: "Pracowałeś z trenerem?",
+    filledCta: "Zostaw własną opinię",
+    summary: "Średnia ocena {rating} / 5 · Opinie: {count}",
+    playVideo: "Odtwórz opinię wideo",
+  },
+  ctaBand: {
+    title: "Oddaj swoim trenerom czas na korcie.",
+    subtitle: "Opowiedz nam o swojej akademii albo najpierw porównaj pakiety.",
+  },
+  coachesRoom: {
+    eyebrow: "Prawdziwi trenerzy, nie algorytm",
+    title: "Trenerzy stojący za analizą Twojej akademii",
+    subtitle:
+      "Każde zgłoszenie analizują zawodnicy ATP, certyfikowani trenerzy ATP i ITF, techniczna i taktyczna analiza klatka po klatce, a potem jasna informacja zwrotna, z której trenerzy mogą od razu korzystać.",
+    viewProfile: "Zobacz pełny profil",
+  },
+  productScroll: {
+    eyebrow: "Co otrzymujesz",
+    titleLine1: "Raport, z którego trenerzy mogą korzystać.",
+    titleLine2: "Najpierw obserwacja. Potem rekomendacja.",
+  },
+  sampleAnalysis: {
+    badge: "Przykład poglądowy",
+    reportTitle: "Raport z analizy meczu",
+    meta: "Mecz singlowy · twarda nawierzchnia · poglądowo",
+    player: "Zawodnik A · U16 · praworęczny, gra z głębi kortu",
+    observedTitle: "Zaobserwowano",
+    observed: ["Pierwszy serwis ląduje za każdym razem w to samo miejsce, więc przeciwnik się do niego przyzwyczaja.", "Taki serwis nie otwiera kortu i nie robi wrażenia, więc serwujący nie ma z niego żadnej korzyści."],
+    priorityTitle: "Priorytet",
+    priority: "Zrobić z pierwszego serwisu broń.",
+    recommendedTitle: "Zalecany następny krok",
+    recommended: ["Otwórz kort serwisem na zewnątrz i różnicuj kierunki: na zewnątrz, w ciało i na T.", "Następną piłkę zagraj w puste pole, aby zyskać przewagę i zaskoczyć przeciwnika."],
+    frameLabel: "Poglądowy widok kortu z adnotacjami taktycznymi",
+    frameNote: "Poglądowy widok kortu. Pozycje i tory lotu to przykłady, nie dane z meczu.",
+    courtNote: "Kropki pokazują, gdzie ląduje piłka w tym przykładzie. Pełne koło: serwujący. Puste koło: odbierający.",
+    tabObserved: "Zaobserwowano",
+    tabRecommended: "Zalecenie",
+    zoneLabel: "Za każdym razem to samo miejsce",
+    stepsInLabel: "Odbierający się przyzwyczaja",
+    wideLabel: "Otwarcie kortu na zewnątrz",
+    openLabel: "Gra w puste pole",
+    footer: "Przykład poglądowy, nie raport prawdziwego klienta. Prawdziwe raporty piszą trenerzy Tactical Tennis Lab na podstawie Twoich nagrań.",
+  },
+};
+
+const es: HomeDict = {
+  badges: ["Jugadores del ATP", "Entrenadores certificados ATP", "Entrenadores certificados ITF", "Entrenamiento en todo el mundo"],
+  hero: {
+    title: "Entiende cada punto.",
+    subtitle:
+      "Análisis de vídeo y de partidos para academias de tenis, revisado fotograma a fotograma por jugadores ATP, entrenadores certificados ATP e ITF.",
+    ctaPrimary: "Reserva una demo",
+    ctaSecondary: "Ver paquetes para academias",
+    playersNote: "¿Entrenas por tu cuenta?",
+    playersLink: "Ver planes para jugadores",
+    tagline: "Tenis real. Análisis experto. Mejores decisiones en la pista.",
+  },
+  services: {
+    eyebrow: "Nuestros servicios",
+    title: "Tres formas de entender el juego.",
+    included: "Incluido en todos los paquetes para academias.",
+    from: "Jugadores individuales desde",
+    names: ["Análisis de golpes", "Programas de entrenamiento", "Análisis de partidos"],
+    cta: "Ver precios",
+  },
+  offersPreview: {
+    cta: "Ver todos los detalles y empezar",
+  },
+  whoThisFor: {
+    eyebrow: "Para quién es esto",
+    title: "Pensado para academias y clubes",
+    subtitle:
+      "Un sistema de apoyo para quienes desarrollan jugadores: directores, entrenadores principales y los jugadores y familias que confían en ellos.",
+  },
+  audiences: [
+    {
+      title: "Propietarios y directores de academia",
+      hook: "Conviértete en la academia que eligen las familias.",
+      detail:
+        "Mejor análisis significa mejores resultados, y los resultados atraen a nuevos jugadores. Ofrece un desarrollo moderno basado en datos que distinga a tu academia.",
+      cta: "Ver paquetes para academias",
+    },
+    {
+      title: "Entrenadores principales y equipos técnicos",
+      hook: "Dedica tu energía a la pista, no al vídeo.",
+      detail:
+        "Nos encargamos del análisis de vídeo y de partidos fotograma a fotograma y devolvemos comentarios claros y compartidos en un único panel de la academia, para que tus entrenadores construyan las sesiones a partir de ellos.",
+      cta: "Cómo funciona",
+    },
+    {
+      title: "Jugadores y padres",
+      hook: "Comentarios que marcan el camino hacia la próxima victoria.",
+      detail:
+        "Los jugadores ven qué hacen bien, qué errores tácticos les cuestan puntos y en qué trabajar a continuación, con el respaldo de sus propios entrenadores.",
+      cta: "Hablemos",
+    },
+  ],
+  howItWorks: {
+    title: "Cómo funciona",
+    subtitle: "De las grabaciones de tus jugadores a comentarios que tus entrenadores pueden usar en la pista.",
+  },
+  steps: [
+    {
+      title: "Los jugadores envían vídeo",
+      detail: "Los jugadores de tu academia suben clips de entrenamientos o partidos desde sus propias cuentas.",
+    },
+    {
+      title: "Análisis profesional",
+      detail: "Jugadores del ATP y entrenadores certificados ATP e ITF analizan la técnica, los errores tácticos y cómo se ganan los puntos.",
+    },
+    {
+      title: "Comentarios compartidos para tu equipo",
+      detail: "Entrenadores y jugadores ven los comentarios en el panel de la academia, listos para convertirlos en sesiones.",
+    },
+  ],
+  testimonials: {
+    eyebrow: "Lo que dicen los jugadores",
+    title: "Opiniones reales de clientes reales",
+    emptyText: "Aún no hay opiniones: sé el primero en contar a otros jugadores cómo ha sido trabajar con tu entrenador.",
+    emptyCta: "Deja una opinión",
+    filledPrefix: "¿Trabajaste con un entrenador?",
+    filledCta: "Deja tu propia opinión",
+    summary: "Valoración media {rating} / 5 · Opiniones: {count}",
+    playVideo: "Reproducir opinión en vídeo",
+  },
+  ctaBand: {
+    title: "Devuelve a tus entrenadores su tiempo en la pista.",
+    subtitle: "Cuéntanos sobre tu academia o compara primero los paquetes.",
+  },
+  coachesRoom: {
+    eyebrow: "Entrenadores reales, no un algoritmo",
+    title: "Los entrenadores detrás del análisis de tu academia",
+    subtitle:
+      "Cada envío lo revisan jugadores del ATP, entrenadores certificados ATP e ITF: análisis técnico y táctico fotograma a fotograma y, después, comentarios claros que tus entrenadores pueden usar de inmediato.",
+    viewProfile: "Ver perfil completo",
+  },
+  productScroll: {
+    eyebrow: "Lo que recibes",
+    titleLine1: "Un informe que tus entrenadores pueden usar.",
+    titleLine2: "Primero la observación. Después la recomendación.",
+  },
+  sampleAnalysis: {
+    badge: "Ejemplo ilustrativo",
+    reportTitle: "Informe de análisis de partido",
+    meta: "Partido individual · pista dura · ilustrativo",
+    player: "Jugador A · U16 · diestro, juega desde el fondo",
+    observedTitle: "Observado",
+    observed: ["El primer saque cae siempre en el mismo sitio, así que el rival se acostumbra.", "Ese saque ni abre la pista ni impresiona, así que el sacador no obtiene ninguna ventaja."],
+    priorityTitle: "Prioridad",
+    priority: "Convertir el primer saque en un arma.",
+    recommendedTitle: "Siguiente paso recomendado",
+    recommended: ["Abre la pista con un saque abierto y varía la dirección: abierto, al cuerpo y a la T.", "Juega la siguiente bola al lado vacío para ganar ventaja y sorprender al rival."],
+    frameLabel: "Vista ilustrativa de la pista con anotaciones tácticas",
+    frameNote: "Vista ilustrativa de la pista. Las posiciones y trayectorias son ejemplos, no datos de un partido.",
+    courtNote: "Los puntos muestran dónde cae la bola en este ejemplo. Círculo lleno: sacador. Círculo vacío: restador.",
+    tabObserved: "Observado",
+    tabRecommended: "Recomendado",
+    zoneLabel: "Siempre el mismo sitio",
+    stepsInLabel: "El restador se acostumbra",
+    wideLabel: "Abrir la pista",
+    openLabel: "Jugar al lado vacío",
+    footer: "Ejemplo ilustrativo, no es el informe de un cliente real. Los informes reales los redactan los entrenadores de Tactical Tennis Lab a partir de tus propias imágenes.",
+  },
+};
+
+const it: HomeDict = {
+  badges: ["Giocatori ATP", "Allenatori certificati ATP", "Allenatori certificati ITF", "Coaching in tutto il mondo"],
+  hero: {
+    title: "Capisci ogni punto.",
+    subtitle:
+      "Analisi video e delle partite per accademie di tennis, rivista fotogramma per fotogramma da giocatori ATP, allenatori certificati ATP e ITF.",
+    ctaPrimary: "Prenota una demo",
+    ctaSecondary: "Vedi i pacchetti per accademie",
+    playersNote: "Ti alleni da solo?",
+    playersLink: "Vedi i piani per giocatori",
+    tagline: "Tennis vero. Analisi esperta. Decisioni migliori in campo.",
+  },
+  services: {
+    eyebrow: "I nostri servizi",
+    title: "Tre modi per capire il gioco.",
+    included: "Incluso in ogni pacchetto per accademie.",
+    from: "Giocatori individuali da",
+    names: ["Analisi dei colpi", "Programmi di allenamento", "Analisi delle partite"],
+    cta: "Vedi i prezzi",
+  },
+  offersPreview: {
+    cta: "Vedi tutti i dettagli e inizia",
+  },
+  whoThisFor: {
+    eyebrow: "Per chi è pensato",
+    title: "Pensato per accademie e club",
+    subtitle:
+      "Un sistema di supporto per chi sviluppa i giocatori: direttori, capo allenatori e i giocatori e le famiglie che si affidano a loro.",
+  },
+  audiences: [
+    {
+      title: "Titolari e direttori di accademia",
+      hook: "Diventa l'accademia che le famiglie scelgono.",
+      detail:
+        "Un'analisi migliore significa risultati migliori, e i risultati attirano nuovi giocatori. Offri uno sviluppo moderno e basato sui dati che distingua la tua accademia.",
+      cta: "Vedi i pacchetti per accademie",
+    },
+    {
+      title: "Capo allenatori e staff tecnici",
+      hook: "Dedica le energie al campo, non ai video.",
+      detail:
+        "Ci occupiamo dell'analisi di video e partite fotogramma per fotogramma e restituiamo feedback chiari e condivisi in un'unica dashboard dell'accademia, così i tuoi allenatori possono costruire le sedute a partire da essi.",
+      cta: "Come funziona",
+    },
+    {
+      title: "Giocatori e genitori",
+      hook: "Un feedback che indica la strada verso la prossima vittoria.",
+      detail:
+        "I giocatori vedono cosa fanno bene, quali errori tattici costano loro punti e su cosa lavorare dopo, con il supporto dei propri allenatori.",
+      cta: "Parliamone",
+    },
+  ],
+  howItWorks: {
+    title: "Come funziona",
+    subtitle: "Dai filmati dei tuoi giocatori a un feedback che i tuoi allenatori possono usare in campo.",
+  },
+  steps: [
+    {
+      title: "I giocatori inviano i video",
+      detail: "I giocatori della tua accademia caricano clip di allenamenti o partite dai propri account.",
+    },
+    {
+      title: "Analisi professionale",
+      detail: "Giocatori ATP, allenatori certificati ATP e ITF analizzano tecnica, errori tattici e come si vincono i punti.",
+    },
+    {
+      title: "Feedback condiviso per il tuo staff",
+      detail: "Allenatori e giocatori vedono il feedback nella dashboard dell'accademia, pronto per trasformarsi in sedute.",
+    },
+  ],
+  testimonials: {
+    eyebrow: "Cosa dicono i giocatori",
+    title: "Recensioni vere da clienti veri",
+    emptyText: "Ancora nessuna recensione: sii il primo a raccontare agli altri giocatori com'è lavorare con il tuo allenatore.",
+    emptyCta: "Lascia una recensione",
+    filledPrefix: "Hai lavorato con un allenatore?",
+    filledCta: "Lascia la tua recensione",
+    summary: "Valutazione media {rating} / 5 · Recensioni: {count}",
+    playVideo: "Riproduci recensione video",
+  },
+  ctaBand: {
+    title: "Restituisci ai tuoi allenatori il loro tempo in campo.",
+    subtitle: "Raccontaci della tua accademia oppure confronta prima i pacchetti.",
+  },
+  coachesRoom: {
+    eyebrow: "Allenatori veri, non un algoritmo",
+    title: "Gli allenatori dietro l'analisi della tua accademia",
+    subtitle:
+      "Ogni invio è esaminato da giocatori ATP, allenatori certificati ATP e ITF: analisi tecnica e tattica fotogramma per fotogramma, poi un feedback chiaro che i tuoi allenatori possono usare subito.",
+    viewProfile: "Vedi il profilo completo",
+  },
+  productScroll: {
+    eyebrow: "Cosa ricevi",
+    titleLine1: "Un report che i tuoi allenatori possono usare.",
+    titleLine2: "Prima l'osservazione. Poi la raccomandazione.",
+  },
+  sampleAnalysis: {
+    badge: "Esempio illustrativo",
+    reportTitle: "Report di analisi della partita",
+    meta: "Singolare · cemento · illustrativo",
+    player: "Giocatore A · U16 · destrimane, gioca da fondo campo",
+    observedTitle: "Osservato",
+    observed: ["La prima di servizio cade sempre nello stesso punto, quindi l'avversario si abitua.", "Quel servizio non apre il campo e non fa impressione, quindi chi serve non ne ricava alcun vantaggio."],
+    priorityTitle: "Priorità",
+    priority: "Trasformare la prima di servizio in un'arma.",
+    recommendedTitle: "Prossimo passo consigliato",
+    recommended: ["Apri il campo con un servizio largo e varia la direzione: largo, sul corpo e sulla T.", "Gioca la palla successiva nel lato vuoto per ottenere il vantaggio e sorprendere l'avversario."],
+    frameLabel: "Vista illustrativa del campo con annotazioni tattiche",
+    frameNote: "Vista illustrativa del campo. Posizioni e traiettorie sono esempi, non dati di una partita.",
+    courtNote: "I punti mostrano dove cade la palla in questo esempio. Cerchio pieno: chi serve. Cerchio vuoto: chi risponde.",
+    tabObserved: "Osservato",
+    tabRecommended: "Consigliato",
+    zoneLabel: "Sempre lo stesso punto",
+    stepsInLabel: "Chi risponde si abitua",
+    wideLabel: "Apri il campo",
+    openLabel: "Gioca nel lato vuoto",
+    footer: "Esempio illustrativo, non il report di un cliente reale. I report reali sono scritti dagli allenatori di Tactical Tennis Lab a partire dai tuoi filmati.",
+  },
+};
+
+const ru: HomeDict = {
+  badges: ["Игроки ATP", "Сертифицированные тренеры ATP", "Сертифицированные тренеры ITF", "Тренировки по всему миру"],
+  hero: {
+    title: "Понимайте каждое очко.",
+    subtitle:
+      "Видеоанализ и разбор матчей для теннисных академий: кадр за кадром, силами игроков ATP, сертифицированных тренеров ATP и ITF.",
+    ctaPrimary: "Записаться на демо",
+    ctaSecondary: "Пакеты для академий",
+    playersNote: "Тренируетесь самостоятельно?",
+    playersLink: "Планы для игроков",
+    tagline: "Настоящий теннис. Экспертный анализ. Лучшие решения на корте.",
+  },
+  services: {
+    eyebrow: "Наши услуги",
+    title: "Три способа понять игру.",
+    included: "Входит в каждый пакет для академий.",
+    from: "Индивидуальным игрокам от",
+    names: ["Анализ ударов", "Тренировочные программы", "Анализ матчей"],
+    cta: "Смотреть цены",
+  },
+  offersPreview: {
+    cta: "Смотреть все детали и начать",
+  },
+  whoThisFor: {
+    eyebrow: "Кому это подходит",
+    title: "Создано для академий и клубов",
+    subtitle:
+      "Система поддержки для тех, кто растит игроков: директоров, главных тренеров, а также игроков и семей, которые им доверяют.",
+  },
+  audiences: [
+    {
+      title: "Владельцы и директора академий",
+      hook: "Станьте академией, которую выбирают семьи.",
+      detail:
+        "Лучший анализ даёт лучшие результаты, а результаты привлекают новых игроков. Предложите современное развитие на основе данных, которое выделит вашу академию.",
+      cta: "Пакеты для академий",
+    },
+    {
+      title: "Главные тренеры и тренерские команды",
+      hook: "Тратьте силы на корт, а не на видео.",
+      detail:
+        "Мы берём на себя покадровый видеоанализ и разбор матчей и возвращаем понятную общую обратную связь в одной панели академии, чтобы тренеры могли строить на ней занятия.",
+      cta: "Как это работает",
+    },
+    {
+      title: "Игроки и родители",
+      hook: "Обратная связь, которая показывает путь к следующей победе.",
+      detail:
+        "Игроки видят, что у них получается, какие тактические ошибки стоят им очков и над чем работать дальше, при поддержке собственных тренеров.",
+      cta: "Давайте поговорим",
+    },
+  ],
+  howItWorks: {
+    title: "Как это работает",
+    subtitle: "От записей ваших игроков до обратной связи, которую тренеры могут использовать на корте.",
+  },
+  steps: [
+    {
+      title: "Игроки присылают видео",
+      detail: "Игроки вашей академии загружают записи тренировок или матчей из своих аккаунтов.",
+    },
+    {
+      title: "Профессиональный анализ",
+      detail: "Игроки ATP, сертифицированные тренеры ATP и ITF разбирают технику, тактические ошибки и то, как выигрываются очки.",
+    },
+    {
+      title: "Общая обратная связь для команды",
+      detail: "Тренеры и игроки видят отзывы в панели академии, готовые к превращению в занятия.",
+    },
+  ],
+  testimonials: {
+    eyebrow: "Что говорят игроки",
+    title: "Настоящие отзывы настоящих клиентов",
+    emptyText: "Отзывов пока нет: станьте первым, кто расскажет другим игрокам, каково работать с вашим тренером.",
+    emptyCta: "Оставить отзыв",
+    filledPrefix: "Работали с тренером?",
+    filledCta: "Оставить свой отзыв",
+    summary: "Средняя оценка {rating} / 5 · Отзывы: {count}",
+    playVideo: "Смотреть видеоотзыв",
+  },
+  ctaBand: {
+    title: "Верните своим тренерам время на корте.",
+    subtitle: "Расскажите нам о своей академии или сначала сравните пакеты.",
+  },
+  coachesRoom: {
+    eyebrow: "Настоящие тренеры, а не алгоритм",
+    title: "Тренеры, стоящие за анализом вашей академии",
+    subtitle:
+      "Каждую заявку разбирают игроки ATP, сертифицированные тренеры ATP и ITF, покадровый технический и тактический разбор, а затем понятная обратная связь, которую тренеры могут использовать сразу.",
+    viewProfile: "Смотреть полный профиль",
+  },
+  productScroll: {
+    eyebrow: "Что вы получаете",
+    titleLine1: "Отчёт, с которым могут работать ваши тренеры.",
+    titleLine2: "Сначала наблюдение. Затем рекомендация.",
+  },
+  sampleAnalysis: {
+    badge: "Иллюстративный пример",
+    reportTitle: "Отчёт об анализе матча",
+    meta: "Одиночный матч · хард · иллюстрация",
+    player: "Игрок A · U16 · правша, играет с задней линии",
+    observedTitle: "Наблюдение",
+    observed: ["Первая подача каждый раз падает в одно и то же место, поэтому соперник привыкает.", "Такая подача не открывает корт и не производит впечатления, поэтому подающий не получает от неё выгоды."],
+    priorityTitle: "Приоритет",
+    priority: "Сделать первую подачу оружием.",
+    recommendedTitle: "Рекомендуемый следующий шаг",
+    recommended: ["Откройте корт подачей широко и меняйте направления: широко, в корпус и в T.", "Следующий мяч играйте в пустую половину, чтобы получить преимущество и удивить соперника."],
+    frameLabel: "Иллюстративный вид корта с тактическими пометками",
+    frameNote: "Иллюстративный вид корта. Позиции и траектории показаны для примера, это не данные матча.",
+    courtNote: "Точки показывают, куда падает мяч в этом примере. Закрашенный круг: подающий. Пустой круг: принимающий.",
+    tabObserved: "Наблюдение",
+    tabRecommended: "Рекомендация",
+    zoneLabel: "Каждый раз одно место",
+    stepsInLabel: "Принимающий привыкает",
+    wideLabel: "Открыть корт",
+    openLabel: "Играть в пустую половину",
+    footer: "Иллюстративный пример, а не отчёт реального клиента. Настоящие отчёты пишут тренеры Tactical Tennis Lab по вашим собственным видео.",
+  },
+};
+
+export const homeDictionaries: Record<AppLocale, HomeDict> = { en, pl, es, it, ru };

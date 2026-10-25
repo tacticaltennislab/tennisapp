@@ -1,0 +1,134 @@
+export interface Plan {
+  planId: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  whatYouGet: string[];
+  mode: "payment" | "subscription";
+  amountCents: number;
+  featured?: boolean;
+}
+
+export const PLANS: Plan[] = [
+  {
+    planId: "stroke-fix",
+    mode: "payment",
+    amountCents: 4900,
+    name: "Stroke Fix",
+    price: "$49",
+    period: "one time",
+    description: "Professional biomechanical analysis of one specific technical issue.",
+    features: [
+      "Video breakdown",
+      "Technical diagnosis",
+      "Visual feedback",
+      "Correction recommendations",
+    ],
+    whatYouGet: [
+      "What's actually causing the issue: not just what looks wrong",
+      "Whether it's technique, timing, or a footwork problem underneath it",
+      "The one change to prioritize first, not five conflicting opinions",
+      "A drill you can start on today",
+      "What it should feel like once it's actually fixed",
+    ],
+  },
+  {
+    planId: "smart-system",
+    mode: "payment",
+    amountCents: 9900,
+    name: "Smart System",
+    price: "$99",
+    period: "4 week program",
+    description: "An individualized four week development system focused on one stroke.",
+    features: [
+      "7 progressive training sessions",
+      "Technical development pathway",
+      "Exercise library",
+      "Coaching notes",
+      "Exercise support",
+    ],
+    whatYouGet: [
+      "Which single stroke is worth a full month of your court time",
+      "A week by week progression, not a scattered list of drills",
+      "What to check after each session so you're not repeating the same mistake",
+      "When to move from feel, to speed, to match pace",
+      "What \"done\" looks like before you move on to the next stroke",
+    ],
+  },
+  {
+    planId: "match-iq-short",
+    mode: "payment",
+    amountCents: 9900,
+    name: "Match IQ: Short",
+    price: "$99",
+    period: "one time",
+    description: "A focused tactical analysis of one set or up to 60 minutes of match play.",
+    features: [
+      "Up to 60 minutes of match footage",
+      "Point construction analysis",
+      "Shot selection evaluation",
+      "Tactical recommendations",
+      "Match intelligence report",
+    ],
+    whatYouGet: [
+      "Which patterns actually won you points in that set",
+      "What really happened after your first and second serve",
+      "Where you were positioned for the return",
+      "The one tactical adjustment worth making next time you play",
+    ],
+  },
+  {
+    planId: "match-iq-full",
+    mode: "payment",
+    amountCents: 15900,
+    name: "Match IQ: Full",
+    price: "$159",
+    period: "one time",
+    description: "A complete tactical breakdown of your match, point by point.",
+    features: [
+      "Up to one full match (max 2 hours of footage)",
+      "Point construction analysis",
+      "Shot selection evaluation",
+      "Court positioning review",
+      "Tactical recommendations",
+      "Full match intelligence report",
+    ],
+    whatYouGet: [
+      "Which patterns are actually winning you points, and which ones you keep repeating for nothing",
+      "What really happens after your first and second serve",
+      "Where you're positioned for the return, and whether you're pressuring second serves",
+      "Whether your first shot after the return goes the right direction",
+      "How your decision making changes at 30-30, deuce, and break points",
+      "Whether you're trying to finish points too early",
+      "Which side of the court you keep getting pushed off of",
+      "Whether you recover to a neutral position after defending",
+      "The two patterns worth training next",
+    ],
+  },
+  {
+    planId: "pro-tour",
+    mode: "subscription",
+    amountCents: 24900,
+    name: "PRO Tour",
+    price: "$249",
+    period: "/month",
+    description: "Ongoing coaching with monthly analysis and direct access to your coach.",
+    features: [
+      "Up to 4 video analyses per month",
+      "Personalized planning",
+      "Ongoing adjustments",
+      "Direct coach access",
+      "Response within 1 business day",
+      "Full development support",
+    ],
+    whatYouGet: [
+      "What's actually improving month over month, not just this session",
+      "Direct access to ask \"why\" between analyses, not just wait for the next report",
+      "Priorities that update as your game changes, not a static plan",
+      "A coach who already knows your history when you send the next video",
+    ],
+    featured: true,
+  },
+];
