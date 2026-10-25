@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { stripe } from "@/lib/stripe";
+import { getStripe, StripeNotConfiguredError, stripeNotConfiguredResponse } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { sendEmail } from "@/lib/email";
 
@@ -12,6 +12,14 @@ export async function POST(request: Request) {
 
   if (!signature || !webhookSecret) {
     return NextResponse.json({ error: "Missing webhook signature." }, { status: 400 });
+  }
+
+  let stripe;
+  try {
+    stripe = getStripe();
+  } catch (error) {
+    if (error instanceof StripeNotConfiguredError) return stripeNotConfiguredResponse();
+    throw error;
   }
 
   const rawBody = await request.text();

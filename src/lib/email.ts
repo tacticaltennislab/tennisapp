@@ -10,7 +10,16 @@ function escapeHtml(input: string) {
     .replace(/'/g, "&#39;");
 }
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+let resendClient: Resend | null = null;
+
+/** The Resend client, created on first use; null when RESEND_API_KEY is not set. */
+function getResend(): Resend | null {
+  if (resendClient) return resendClient;
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  resendClient = new Resend(key);
+  return resendClient;
+}
 
 const FROM = `Tactical Tennis Lab <hello@${process.env.RESEND_EMAIL_DOMAIN || "tacticaltennislab.com"}>`;
 
@@ -23,6 +32,7 @@ export async function sendEmail({
   subject: string;
   html: string;
 }): Promise<boolean> {
+  const resend = getResend();
   if (!resend) {
     console.warn("RESEND_API_KEY not set — skipping email send:", subject, "to", to);
     return false;

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { stripe, CHECKOUT_PLANS } from "@/lib/stripe";
+import { getStripe, CHECKOUT_PLANS, StripeNotConfiguredError, stripeNotConfiguredResponse } from "@/lib/stripe";
 import { countSuccessfulReferrals, referralDiscountPercent } from "@/lib/referral";
 import { sendEmail } from "@/lib/email";
 
@@ -55,6 +55,14 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ url: `${siteUrl}/checkout/success?free=1` });
+  }
+
+  let stripe;
+  try {
+    stripe = getStripe();
+  } catch (error) {
+    if (error instanceof StripeNotConfiguredError) return stripeNotConfiguredResponse();
+    throw error;
   }
 
   const checkoutSession = await stripe.checkout.sessions.create({
