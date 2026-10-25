@@ -1,11 +1,17 @@
 import webpush from "web-push";
 import { prisma } from "@/lib/prisma";
 
-const publicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
-const privateKey = process.env.VAPID_PRIVATE_KEY;
+let vapidConfigured = false;
 
-if (publicKey && privateKey) {
+/** Configures web-push on first use (never at import time); false when the VAPID keys are not set. */
+function ensureVapid(): boolean {
+  if (vapidConfigured) return true;
+  const publicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
+  const privateKey = process.env.VAPID_PRIVATE_KEY;
+  if (!publicKey || !privateKey) return false;
   webpush.setVapidDetails("mailto:tacticaltennislab@gmail.com", publicKey, privateKey);
+  vapidConfigured = true;
+  return true;
 }
 
 interface PushPayload {
@@ -15,7 +21,7 @@ interface PushPayload {
 }
 
 export async function sendPushToUser(userId: string, payload: PushPayload) {
-  if (!publicKey || !privateKey) return;
+  if (!ensureVapid()) return;
 
   const subscriptions = await prisma.pushSubscription.findMany({ where: { userId } });
   if (subscriptions.length === 0) return;

@@ -18,6 +18,7 @@ export default async function CheckoutSuccessContent({
     redirect(`${localizedHref(lang, "/pricing")}?audience=players`);
   }
 
+  // Looking the session up is a nicety; without Stripe configured the page still renders.
   const session = session_id
     ? await Promise.resolve()
         .then(() => getStripe().checkout.sessions.retrieve(session_id))

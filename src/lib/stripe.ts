@@ -1,20 +1,35 @@
 import Stripe from "stripe";
+import { NextResponse } from "next/server";
 
-let stripeClient: Stripe | null = null;
+/** Thrown by getStripe() when STRIPE_SECRET_KEY is not set in this environment. */
+export class StripeNotConfiguredError extends Error {
+  constructor() {
+    super("Stripe is not configured: STRIPE_SECRET_KEY is not set in this environment.");
+    this.name = "StripeNotConfiguredError";
+  }
+}
+
+let client: Stripe | null = null;
 
 /**
- * Lazily create the Stripe client so builds (e.g. Preview deployments without
- * STRIPE_SECRET_KEY) don't fail at module load. Throws only when called at
- * request time without a key.
+ * The Stripe client, created on first use. It is never created at import or build time, so a
+ * deployment without the key (for example a Preview deployment) still builds; a request that
+ * needs Stripe fails with a clear error instead.
  */
 export function getStripe(): Stripe {
-  if (stripeClient) return stripeClient;
+  if (client) return client;
   const key = process.env.STRIPE_SECRET_KEY;
-  if (!key) {
-    throw new Error("STRIPE_SECRET_KEY is not set");
-  }
-  stripeClient = new Stripe(key);
-  return stripeClient;
+  if (!key) throw new StripeNotConfiguredError();
+  client = new Stripe(key);
+  return client;
+}
+
+/** 503 response for route handlers when payments are not configured here. */
+export function stripeNotConfiguredResponse() {
+  return NextResponse.json(
+    { error: "Payments are not configured in this environment (STRIPE_SECRET_KEY is missing)." },
+    { status: 503 }
+  );
 }
 
 export interface CheckoutPlan {
