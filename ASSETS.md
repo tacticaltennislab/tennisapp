@@ -6,8 +6,8 @@ Two photographs of a clay court, supplied by the owner on 25 Oct 2026, no people
 
 | Files | What | Source | Licence |
 |---|---|---|---|
-| `public/media/hero-clay.jpg`, `hero-clay-portrait.jpg` | Top-down drone view of a clay court at low sun (cropped to 16:9 for wide screens, full frame for phones, recompressed) | https://www.pexels.com/pl-pl/zdjecie/sport-pomarancza-pomaranczowy-tenis-21230602/ (Pexels photo 21230602) | Pexels License, https://www.pexels.com/license/ |
-| `public/media/clay-texture.jpg`, `clay-texture-portrait.jpg` | Close-up of the clay surface and a worn court line (same treatment) | https://www.pexels.com/pl-pl/zdjecie/zblizenie-tekstury-linii-kortu-tenisowego-ziemnego-38381015/ (Pexels photo 38381015) | Pexels License |
+| `public/media/hero-clay.jpg`, `hero-clay-portrait.jpg` | Top-down drone view of a clay court at low sun (cropped to 16:9 for wide screens, full frame for phones, recompressed, converted to a charcoal duotone with lime-tinted court lines) | https://www.pexels.com/pl-pl/zdjecie/sport-pomarancza-pomaranczowy-tenis-21230602/ (Pexels photo 21230602) | Pexels License, https://www.pexels.com/license/ |
+| `public/media/clay-texture.jpg`, `clay-texture-portrait.jpg` | Close-up of the clay surface and a worn court line (same duotone treatment) | https://www.pexels.com/pl-pl/zdjecie/zblizenie-tekstury-linii-kortu-tenisowego-ziemnego-38381015/ (Pexels photo 38381015) | Pexels License |
 
 **Not verified from here.** Pexels blocks automated access to its pages (HTTP 403 from Cloudflare), so the photo pages, creator names and licence badges could not be read. The image files were downloaded from the public Pexels image CDN using the photo IDs in the links. Please open both pages, confirm they are marked as free to use, and add the creator names here (and as credit on the site if you want to give one; the Pexels License does not require it).
 

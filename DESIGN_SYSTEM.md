@@ -101,7 +101,7 @@ Apart from the hero scene above there is no parallax and no pinned section. Noth
 2. **Credentials**: one quiet line of text.
 3. **Services**, **How it works** (the brand statement and three steps), **Pricing**, **Reviews**, **Coaches**, **Backing**, **Closing call to action**.
 
-Dark is used for the first chapter only. It melts into the page background (light or dark) through a 200px gradient, so there is no hard edge in either theme. Services and pricing sit on the clay texture as a quiet backdrop (about 18% visible in dark mode, 10% under a light veil in light mode, top and bottom edges masked out, slow parallax on wide screens only) with the service rows and package rows as glass panels (`.glass-panel`). Lime appears on that chapter (primary action, markers, zones, the illustrative badge) and nowhere else on the page.
+Dark is used for the first chapter only. It melts into the page background (light or dark) through a 200px gradient, so there is no hard edge in either theme. The hero and texture photographs are pre-processed charcoal duotones (shadows `#0d0f11`, surface highlights `#3a3f45`, court lines near white with a soft lime tint), cropped so the baseline sits above the headline and the sidelines frame it; a radial scrim darkens the area behind the text. Services and pricing sit on the texture as a quiet backdrop (about 30% visible in dark mode, 12% under a light veil in light mode, top and bottom edges masked out, slow parallax on wide screens only) with the service rows and package rows as glass panels (`.glass-panel`). Lime appears on that chapter (primary action, markers, zones, the illustrative badge) and nowhere else on the page.
 
 ## Tactical court view (`SampleAnalysisMock`, `src/lib/court.ts`)
 

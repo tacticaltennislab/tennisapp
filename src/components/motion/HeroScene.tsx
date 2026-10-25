@@ -74,8 +74,14 @@ export default function HeroScene({ children }: { children: React.ReactNode }) {
           </motion.div>
         </motion.div>
 
-        {/* Readability scrim, deepening a little into the next section (capped so the texture stays visible) */}
-        <div aria-hidden="true" className="absolute inset-0 bg-black/40" />
+        {/* The photographs are charcoal duotones (court lines tinted a little toward the lime accent).
+            A radial scrim, darkest behind the headline, keeps the text and the lime button clean. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 58% 46% at 50% 50%, rgba(13,15,17,0.8) 0%, rgba(13,15,17,0.52) 55%, rgba(13,15,17,0.12) 100%)" }}
+        />
+        {/* Deepens a little into the next section (capped so the texture stays visible) */}
         <motion.div aria-hidden="true" className="absolute inset-0 bg-[#121417]" style={{ opacity: dim }} />
 
         <motion.div className="relative z-10 flex h-full items-center justify-center" style={{ opacity: copyOpacity, y: copyY }}>
