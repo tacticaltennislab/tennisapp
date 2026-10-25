@@ -54,6 +54,7 @@ export default async function PricingContent({
                   cta={t.clubs.cta}
                   popularLabel={t.clubs.popularLabel}
                   note={t.clubs.note}
+                  lang={lang}
                 />
               </Reveal>
             }

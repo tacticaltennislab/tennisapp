@@ -60,7 +60,7 @@ export default function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label="Change language"
+        aria-label={`Change language: ${current}`}
         className="inline-flex items-center justify-center h-9 px-2.5 rounded-full border border-line hover:border-brand-600 text-body hover:text-brand-600 text-xs font-semibold uppercase transition-colors"
       >
         {current}

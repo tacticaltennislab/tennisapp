@@ -96,7 +96,7 @@ const en: HomeDict = {
     title: "Every point, understood.",
     subtitle:
       "Video and match analysis for tennis academies, reviewed frame by frame by former ATP players and ITF Level 2 coaches.",
-    ctaPrimary: "Partner with us",
+    ctaPrimary: "Book a demo",
     ctaSecondary: "View academy packages",
     playersNote: "Training on your own?",
     playersLink: "See player plans",
@@ -216,7 +216,7 @@ const pl: HomeDict = {
     title: "Zrozum każdy punkt.",
     subtitle:
       "Analiza wideo i meczów dla akademii tenisowych, przeglądana klatka po klatce przez byłych zawodników ATP i trenerów ITF Level 2.",
-    ctaPrimary: "Zostań naszym partnerem",
+    ctaPrimary: "Umów demo",
     ctaSecondary: "Zobacz pakiety dla akademii",
     playersNote: "Trenujesz indywidualnie?",
     playersLink: "Zobacz plany dla zawodników",
@@ -336,7 +336,7 @@ const es: HomeDict = {
     title: "Entiende cada punto.",
     subtitle:
       "Análisis de vídeo y de partidos para academias de tenis, revisado fotograma a fotograma por exjugadores ATP y entrenadores ITF Level 2.",
-    ctaPrimary: "Colabora con nosotros",
+    ctaPrimary: "Reserva una demo",
     ctaSecondary: "Ver paquetes para academias",
     playersNote: "¿Entrenas por tu cuenta?",
     playersLink: "Ver planes para jugadores",
@@ -456,7 +456,7 @@ const it: HomeDict = {
     title: "Capisci ogni punto.",
     subtitle:
       "Analisi video e delle partite per accademie di tennis, rivista fotogramma per fotogramma da ex giocatori ATP e allenatori ITF Level 2.",
-    ctaPrimary: "Collabora con noi",
+    ctaPrimary: "Prenota una demo",
     ctaSecondary: "Vedi i pacchetti per accademie",
     playersNote: "Ti alleni da solo?",
     playersLink: "Vedi i piani per giocatori",
@@ -576,7 +576,7 @@ const ru: HomeDict = {
     title: "Понимайте каждое очко.",
     subtitle:
       "Видеоанализ и разбор матчей для теннисных академий: кадр за кадром, силами бывших игроков ATP и тренеров ITF Level 2.",
-    ctaPrimary: "Стать партнёром",
+    ctaPrimary: "Записаться на демо",
     ctaSecondary: "Пакеты для академий",
     playersNote: "Тренируетесь самостоятельно?",
     playersLink: "Планы для игроков",

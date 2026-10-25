@@ -104,6 +104,12 @@ export default function SiteHeader() {
           <Link href={localizedHref(locale, "/contact")} className={linkClass}>
             {t.contact}
           </Link>
+          <Link
+            href={localizedHref(locale, "/demo")}
+            className="rounded-full border border-ink px-3.5 py-1.5 font-medium text-ink hover:bg-ink hover:text-background transition-colors whitespace-nowrap shrink-0"
+          >
+            {t.bookDemo}
+          </Link>
           {status === "loading" ? null : session ? (
             <>
               <Link href={localizedHref(locale, "/submit-video")} className={linkClass}>
@@ -169,6 +175,13 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <nav className="lg:hidden border-t border-line px-4 py-3 flex flex-col text-sm animate-fade-up">
+          <Link
+            href={localizedHref(locale, "/demo")}
+            className="mb-2 rounded-full border border-ink px-4 py-2.5 text-center font-medium text-ink"
+            onClick={closeMenu}
+          >
+            {t.bookDemo}
+          </Link>
           <Link href={localizedHref(locale, "/pricing")} className={linkClass} onClick={closeMenu}>
             {t.pricing}
           </Link>

@@ -16,6 +16,7 @@ export interface NavDict {
   signIn: string;
   signUp: string;
   signOut: string;
+  bookDemo: string;
 }
 
 const en: NavDict = {
@@ -34,6 +35,7 @@ const en: NavDict = {
   signIn: "Sign in",
   signUp: "Sign up",
   signOut: "Sign out",
+  bookDemo: "Book a demo",
 };
 
 const pl: NavDict = {
@@ -52,6 +54,7 @@ const pl: NavDict = {
   signIn: "Zaloguj się",
   signUp: "Zarejestruj się",
   signOut: "Wyloguj się",
+  bookDemo: "Umów demo",
 };
 
 const es: NavDict = {
@@ -70,6 +73,7 @@ const es: NavDict = {
   signIn: "Iniciar sesión",
   signUp: "Registrarse",
   signOut: "Cerrar sesión",
+  bookDemo: "Reserva una demo",
 };
 
 const it: NavDict = {
@@ -88,6 +92,7 @@ const it: NavDict = {
   signIn: "Accedi",
   signUp: "Registrati",
   signOut: "Esci",
+  bookDemo: "Prenota una demo",
 };
 
 const ru: NavDict = {
@@ -106,6 +111,7 @@ const ru: NavDict = {
   signIn: "Войти",
   signUp: "Регистрация",
   signOut: "Выйти",
+  bookDemo: "Записаться на демо",
 };
 
 export const navDictionaries: Record<AppLocale, NavDict> = { en, pl, es, it, ru };

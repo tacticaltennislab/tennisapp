@@ -14,7 +14,7 @@ export default function FinalCta({ lang = "en" }: { lang?: AppLocale }) {
         <h2 className="t-display mx-auto max-w-4xl">{dict.ctaBand.title}</h2>
         <p className="t-lead mx-auto mt-6 max-w-xl">{dict.ctaBand.subtitle}</p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          <Link href={localizedHref(lang, "/contact")} className="btn btn-primary">
+          <Link href={localizedHref(lang, "/demo")} className="btn btn-primary">
             {dict.hero.ctaPrimary}
           </Link>
           <Link href={`${localizedHref(lang, "/pricing")}?audience=clubs`} className="link-arrow">

@@ -21,7 +21,7 @@ export default function HeroSection({ lang = "en" }: { lang?: AppLocale }) {
         {/* Static on purpose: this text is what the browser measures for Largest Contentful Paint. */}
         <p className="t-lead mx-auto mt-7 max-w-2xl !text-white/90">{dict.hero.subtitle}</p>
         <div className="animate-fade-up mt-9" style={{ animationDelay: "120ms" }}>
-          <Link href={localizedHref(lang, "/contact")} className="btn btn-lime">
+          <Link href={localizedHref(lang, "/demo")} className="btn btn-lime">
             {dict.hero.ctaPrimary}
           </Link>
         </div>

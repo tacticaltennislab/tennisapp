@@ -2,7 +2,10 @@ import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { IconMail } from "@/components/icons";
+import Link from "next/link";
 import { contactDictionaries } from "@/i18n/dictionaries/contact";
+import { demoDictionaries } from "@/i18n/dictionaries/demo";
+import { localizedHref } from "@/i18n/locales";
 import type { AppLocale } from "@/i18n/locales";
 
 const SOCIALS = [
@@ -20,7 +23,11 @@ export default function ContactContent({ lang = "en" }: { lang?: AppLocale }) {
         <div className="max-w-4xl mx-auto grid gap-8 md:grid-cols-[1fr_1.3fr] items-start">
           <Reveal>
             <div className="rounded-2xl border border-line bg-brand-50/50 p-6 sm:p-8">
-              <h2 className="font-semibold text-lg">{t.otherWays}</h2>
+              <p className="text-sm text-body">{demoDictionaries[lang].contactNote.text}</p>
+              <Link href={localizedHref(lang, "/demo")} className="btn btn-primary mt-3 w-full sm:w-auto">
+                {demoDictionaries[lang].contactNote.cta}
+              </Link>
+              <h2 className="font-semibold text-lg mt-8">{t.otherWays}</h2>
               <div className="mt-5 space-y-4">
                 <a
                   href="mailto:tacticaltennislab@gmail.com"
