@@ -73,6 +73,8 @@ export interface PricingDict {
     whatYouGetEyebrow: string;
     whatYouGetTitle: string; // "What {plan} actually gives you" -- {plan} placeholder
     coachNote: string;
+    addOnLabel: string; // "Add {name} for {price}" -- {name} and {price} placeholders
+    addOnTotal: string; // "Total {price}" -- {price} placeholder
   };
 }
 
@@ -83,7 +85,7 @@ const en: PricingDict = {
     subtitle:
       "Choose an academy or club package that supports your coaches, or send a single video as an individual player. Feedback from real coaches, not an algorithm.",
   },
-  noVatNote: "All prices are in USD. No VAT or sales tax is added at checkout.",
+  noVatNote: "Prices in USD. Taxes may apply depending on your location.",
   audience: {
     players: "For players",
     clubs: "For academies & clubs",
@@ -150,6 +152,8 @@ const en: PricingDict = {
     whatYouGetTitle: "What {plan} actually gives you",
     coachNote:
       "Your on court coach does the work that matters most, daily reps, technique under real pressure, knowing your game. We're not here to replace that. This is the frame by frame video and tactical analysis most coaches simply don't have the hours for, a second pair of eyes that makes their coaching even sharper.",
+    addOnLabel: "Add the {name} for {price}",
+    addOnTotal: "Total {price}",
   },
 };
 
@@ -160,7 +164,7 @@ const pl: PricingDict = {
     subtitle:
       "Wybierz pakiet dla akademii lub klubu, który wesprze Twoich trenerów, albo wyślij jedno wideo jako zawodnik indywidualny. Opinie prawdziwych trenerów, nie algorytmu.",
   },
-  noVatNote: "Wszystkie ceny podane są w USD. Przy płatności nie doliczamy VAT ani podatku od sprzedaży.",
+  noVatNote: "Ceny w USD. W zależności od Twojej lokalizacji mogą obowiązywać podatki.",
   audience: {
     players: "Dla zawodników",
     clubs: "Dla akademii i klubów",
@@ -227,6 +231,8 @@ const pl: PricingDict = {
     whatYouGetTitle: "Co naprawdę daje Ci {plan}",
     coachNote:
       "Twój trener na korcie robi to, co najważniejsze, codzienne powtórki, technikę pod prawdziwą presją, znajomość Twojej gry. Nie jesteśmy tu po to, by go zastąpić. To analiza wideo klatka po klatce i taktyczna, na którą większość trenerów po prostu nie ma czasu, drugie oko, które czyni ich coaching jeszcze ostrzejszym.",
+    addOnLabel: "Dodaj: {name} za {price}",
+    addOnTotal: "Razem {price}",
   },
 };
 
@@ -237,7 +243,7 @@ const es: PricingDict = {
     subtitle:
       "Elige un paquete para academias o clubes que apoye a tus entrenadores, o envía un solo vídeo como jugador individual. Comentarios de entrenadores reales, no de un algoritmo.",
   },
-  noVatNote: "Todos los precios están en USD. No se añade IVA ni impuesto de ventas al finalizar la compra.",
+  noVatNote: "Precios en USD. Pueden aplicarse impuestos según tu ubicación.",
   audience: {
     players: "Para jugadores",
     clubs: "Para academias y clubes",
@@ -304,6 +310,8 @@ const es: PricingDict = {
     whatYouGetTitle: "Lo que {plan} te da realmente",
     coachNote:
       "Tu entrenador en pista hace el trabajo más importante, repeticiones diarias, técnica bajo presión real, conocer tu juego. No estamos aquí para reemplazar eso. Esto es el análisis de vídeo fotograma a fotograma y táctico para el que la mayoría de entrenadores simplemente no tiene horas, una segunda mirada que hace su coaching aún más afilado.",
+    addOnLabel: "Añadir {name} por {price}",
+    addOnTotal: "Total {price}",
   },
 };
 
@@ -314,7 +322,7 @@ const it: PricingDict = {
     subtitle:
       "Scegli un pacchetto per accademie o club che supporti i tuoi allenatori, oppure invia un singolo video come giocatore individuale. Feedback di allenatori veri, non di un algoritmo.",
   },
-  noVatNote: "Tutti i prezzi sono in USD. Nessuna IVA o imposta sulle vendite viene aggiunta al checkout.",
+  noVatNote: "Prezzi in USD. Possono essere applicate imposte in base alla tua posizione.",
   audience: {
     players: "Per giocatori",
     clubs: "Per accademie e club",
@@ -381,6 +389,8 @@ const it: PricingDict = {
     whatYouGetTitle: "Cosa ti dà davvero {plan}",
     coachNote:
       "Il tuo allenatore in campo fa il lavoro più importante, ripetizioni quotidiane, tecnica sotto pressione reale, conoscenza del tuo gioco. Non siamo qui per sostituirlo. Questa è l'analisi video fotogramma per fotogramma e tattica per cui la maggior parte degli allenatori semplicemente non ha ore, un secondo sguardo che rende il loro coaching ancora più preciso.",
+    addOnLabel: "Aggiungi {name} per {price}",
+    addOnTotal: "Totale {price}",
   },
 };
 
@@ -391,7 +401,7 @@ const ru: PricingDict = {
     subtitle:
       "Выберите пакет для академии или клуба, который поддержит ваших тренеров, или отправьте одно видео как индивидуальный игрок. Обратная связь от настоящих тренеров, а не алгоритма.",
   },
-  noVatNote: "Все цены указаны в USD. При оплате НДС или налог с продаж не добавляются.",
+  noVatNote: "Цены в USD. В зависимости от вашего региона могут применяться налоги.",
   audience: {
     players: "Для игроков",
     clubs: "Для академий и клубов",
@@ -458,6 +468,8 @@ const ru: PricingDict = {
     whatYouGetTitle: "Что на самом деле даёт вам {plan}",
     coachNote:
       "Ваш тренер на корте делает самую важную работу, ежедневные повторения, технику под реальным давлением, знание вашей игры. Мы здесь не для того, чтобы его заменить. Это покадровый видеоанализ и тактический анализ, на который у большинства тренеров просто не хватает часов, второй взгляд, который делает их коучинг ещё острее.",
+    addOnLabel: "Добавить: {name} за {price}",
+    addOnTotal: "Итого {price}",
   },
 };
 

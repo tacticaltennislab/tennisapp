@@ -13,6 +13,7 @@ export interface NavDict {
   skip: string;
   academy: string;
   academies: string;
+  dashboard: string;
   signIn: string;
   signUp: string;
   signOut: string;
@@ -32,6 +33,7 @@ const en: NavDict = {
   skip: "Skip to content",
   academy: "Academy",
   academies: "Academies",
+  dashboard: "Dashboard",
   signIn: "Sign in",
   signUp: "Sign up",
   signOut: "Sign out",
@@ -51,6 +53,7 @@ const pl: NavDict = {
   skip: "Przejdź do treści",
   academy: "Akademia",
   academies: "Akademie",
+  dashboard: "Panel",
   signIn: "Zaloguj się",
   signUp: "Zarejestruj się",
   signOut: "Wyloguj się",
@@ -70,6 +73,7 @@ const es: NavDict = {
   skip: "Saltar al contenido",
   academy: "Academia",
   academies: "Academias",
+  dashboard: "Panel",
   signIn: "Iniciar sesión",
   signUp: "Registrarse",
   signOut: "Cerrar sesión",
@@ -89,6 +93,7 @@ const it: NavDict = {
   skip: "Vai al contenuto",
   academy: "Accademia",
   academies: "Accademie",
+  dashboard: "Dashboard",
   signIn: "Accedi",
   signUp: "Registrati",
   signOut: "Esci",
@@ -108,6 +113,7 @@ const ru: NavDict = {
   skip: "Перейти к содержанию",
   academy: "Академия",
   academies: "Академии",
+  dashboard: "Кабинет",
   signIn: "Войти",
   signUp: "Регистрация",
   signOut: "Выйти",

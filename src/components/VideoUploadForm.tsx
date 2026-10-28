@@ -19,7 +19,16 @@ import { creditsNeeded, type FootageKind as AnalysisKind } from "@/lib/creditCos
 import type { FootageType } from "@/lib/freeAnalysis";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
-export default function VideoUploadForm({ lang = "en", free = false }: { lang?: AppLocale; free?: boolean }) {
+export default function VideoUploadForm({
+  lang = "en",
+  free = false,
+  redirectTo,
+}: {
+  lang?: AppLocale;
+  free?: boolean;
+  /** Where to go after a successful upload. Defaults to the account page. */
+  redirectTo?: string;
+}) {
   const t = dashboardDictionaries[lang].submitVideo.form;
   const fa = freeAnalysisDictionaries[lang].form;
   const cu = creditsUiDictionaries[lang].form;
@@ -153,7 +162,7 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
         return;
       }
 
-      router.push(localizedHref(lang, "/account"));
+      router.push(redirectTo ?? localizedHref(lang, "/account"));
       router.refresh();
     } catch {
       setError(t.genericError);

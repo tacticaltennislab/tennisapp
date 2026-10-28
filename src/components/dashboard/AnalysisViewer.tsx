@@ -17,10 +17,15 @@ function clockPrecise(t: number) {
 
 type Filter = "all" | ObservationKind;
 
-export default function AnalysisViewer({ analysis }: { analysis: Analysis }) {
+/**
+ * `videoSrc` is the real video (a streaming URL). Without it the viewer is the demo: it plays a file
+ * chosen on this device and nothing is uploaded.
+ */
+export default function AnalysisViewer({ analysis, videoSrc }: { analysis: Analysis; videoSrc?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number | null>(null);
-  const [src, setSrc] = useState<string | null>(null);
+  const [localSrc, setSrc] = useState<string | null>(null);
+  const src = videoSrc ?? localSrc;
   const [fileName, setFileName] = useState("");
   const [loadError, setLoadError] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
@@ -38,8 +43,14 @@ export default function AnalysisViewer({ analysis }: { analysis: Analysis }) {
   // Free the object URL when the file changes or the page closes.
   useEffect(() => {
     return () => {
-      if (src) URL.revokeObjectURL(src);
+      if (localSrc) URL.revokeObjectURL(localSrc);
     };
+  }, [localSrc]);
+
+  // The video can load its metadata before React hydrates, and then its loadedmetadata event is missed.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v && v.readyState >= 1 && Number.isFinite(v.duration)) setVideoDuration(v.duration);
   }, [src]);
 
   // Smooth time readout while playing (timeupdate alone is too coarse for frame work).
@@ -139,6 +150,8 @@ export default function AnalysisViewer({ analysis }: { analysis: Analysis }) {
   }, [selected, src, time, visible]);
 
   const showPin = Boolean(src && current?.pin && (selected || Math.abs(time - current.t) < 2.5));
+  // A drawn frame only covers the video while paused on (or jumped to) its moment, never during playback.
+  const showDrawing = Boolean(src && current?.drawing && (selected || (!playing && Math.abs(time - current.t) < 0.5)));
 
   function pick(o: Observation) {
     setSelected(o.id);
@@ -182,6 +195,14 @@ export default function AnalysisViewer({ analysis }: { analysis: Analysis }) {
                 onRateChange={(e) => setRate(e.currentTarget.playbackRate)}
                 onClick={togglePlay}
               />
+              {showDrawing && current?.drawing && (
+                // eslint-disable-next-line @next/next/no-img-element -- a data URL from the coach's analysis tool
+                <img
+                  src={current.drawing}
+                  alt={`Coach drawing: ${current.title}`}
+                  className="pointer-events-none absolute inset-0 h-full w-full object-contain"
+                />
+              )}
               {showPin && current?.pin && (
                 <div
                   className="pointer-events-none absolute"
@@ -350,7 +371,7 @@ export default function AnalysisViewer({ analysis }: { analysis: Analysis }) {
             </p>
           </details>
 
-          {src && (
+          {localSrc && !videoSrc && (
             <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
               <span className="truncate">Playing {fileName} from this device.</span>
               <label className="cursor-pointer font-medium text-brand-600 underline underline-offset-4">
@@ -396,7 +417,7 @@ export default function AnalysisViewer({ analysis }: { analysis: Analysis }) {
         {shown.length === 0 ? (
           <p className="px-5 py-8 text-sm text-muted">
             {analysis.observations.length === 0
-              ? "Observations appear here, linked to moments in your video, once your coach has reviewed it."
+              ? "Observations appear here, linked to moments in your video, once your coach has published the review."
               : "No observations in this filter."}
           </p>
         ) : (
