@@ -7,7 +7,8 @@ import { useSession } from "next-auth/react";
 import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import { IconArrowRight, IconTarget } from "@/components/icons";
-import type { Plan } from "@/lib/plans";
+import { fillCreditVars, type Plan } from "@/lib/plans";
+import { formatCredits } from "@/lib/creditFormat";
 import { referralDiscountPercent } from "@/lib/referralPricing";
 import { planTranslations } from "@/i18n/dictionaries/plans";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
@@ -27,6 +28,7 @@ export default function PricingCarousel({
   lang?: AppLocale;
 }) {
   const t = pricingDictionaries[lang].carousel;
+  const c = pricingDictionaries[lang].credits;
   const [index, setIndex] = useState(0);
   const [checkingOut, setCheckingOut] = useState<string | null>(null);
   const [acknowledged, setAcknowledged] = useState<Record<string, boolean>>({});
@@ -39,7 +41,20 @@ export default function PricingCarousel({
   }
 
   function textFor(plan: Plan) {
-    return lang === "en" ? plan : planTranslations[plan.planId]?.[lang] || plan;
+    const raw = lang === "en" ? plan : planTranslations[plan.planId]?.[lang] || plan;
+    return {
+      name: raw.name,
+      period: raw.period,
+      description: fillCreditVars(raw.description),
+      features: raw.features.map(fillCreditVars),
+      whatYouGet: raw.whatYouGet.map(fillCreditVars),
+    };
+  }
+
+  function creditsLine(plan: Plan): string {
+    return plan.credits > 0
+      ? c.included.replace("{credits}", formatCredits(lang, plan.credits, c.noun))
+      : c.addOnNote;
   }
 
   const withdrawalNotice: Record<Plan["mode"], string> = {
@@ -161,6 +176,9 @@ export default function PricingCarousel({
                       </span>
                     </p>
                   )}
+                  <p className={`t-mono mt-2 text-sm font-semibold ${plan.featured ? "text-white" : "text-ink"}`}>
+                    {creditsLine(plan)}
+                  </p>
                   <p className={`mt-3 text-sm ${plan.featured ? "text-white/85" : "text-body"}`}>
                     {text.description}
                   </p>

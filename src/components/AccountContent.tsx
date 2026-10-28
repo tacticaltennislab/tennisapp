@@ -14,6 +14,10 @@ import ReferralLinkCard from "@/components/ReferralLinkCard";
 import ReviewForm from "@/components/ReviewForm";
 import { dashboardDictionaries } from "@/i18n/dictionaries/dashboard";
 import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
+import { creditsUiDictionaries } from "@/i18n/dictionaries/creditsUi";
+import { getAcademyCreditsForUser, getBalance } from "@/lib/credits";
+import { formatCredits } from "@/lib/creditFormat";
+import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 export default async function AccountContent({ lang = "en" }: { lang?: AppLocale }) {
@@ -29,6 +33,13 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
     where: { userId: session.user.id },
     orderBy: { createdAt: "desc" },
   });
+
+  const [balance, academyCredits] = await Promise.all([
+    getBalance({ userId: session.user.id }),
+    getAcademyCreditsForUser(session.user.id),
+  ]);
+  const cu = creditsUiDictionaries[lang].account;
+  const noun = pricingDictionaries[lang].credits.noun;
 
   const messages = await prisma.message.findMany({
     where: { userId: session.user.id },
@@ -53,6 +64,33 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
       />
       <main className="flex-1 px-4 py-12">
         <div className="max-w-lg mx-auto">
+          <section aria-labelledby="account-credits" className="mb-10 rounded-2xl border border-line p-5 shadow-sm">
+            <h2 id="account-credits" className="text-lg font-semibold">{cu.title}</h2>
+            <p className="mt-3 flex items-baseline justify-between gap-3">
+              <span className="text-sm text-muted">{cu.yours}</span>
+              <span className="t-mono text-2xl font-semibold" data-testid="credit-balance">{formatCredits(lang, balance, noun)}</span>
+            </p>
+            {academyCredits.map((a) => (
+              <p key={a.id} className="mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-t border-line pt-3">
+                <span>
+                  <span className="text-sm font-medium">{a.name}</span>
+                  <span className="block text-xs text-muted">
+                    {a.renewsAt
+                      ? cu.renews.replace("{date}", a.renewsAt.toLocaleDateString(lang, { year: "numeric", month: "short", day: "numeric" }))
+                      : cu.noRenewal}
+                  </span>
+                </span>
+                <span className="t-mono text-lg font-semibold" data-testid="academy-credit-balance">{formatCredits(lang, a.balance, noun)}</span>
+              </p>
+            ))}
+            <Link
+              href={`${localizedHref(lang, "/pricing")}?audience=players`}
+              className="mt-4 inline-block text-sm font-medium text-brand-600 hover:underline"
+            >
+              {cu.buy}
+            </Link>
+          </section>
+
           <div className="mb-10">
             <ReferralLinkCard link={referralLink} referralCount={referralCount} lang={lang} />
           </div>

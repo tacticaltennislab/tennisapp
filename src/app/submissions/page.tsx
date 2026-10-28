@@ -41,6 +41,7 @@ export default async function SubmissionsPage() {
                   <SubmissionReview
                     canDelete
                     canPublish
+                    canReject
                     submission={{
                       id: s.id,
                       title: s.title,

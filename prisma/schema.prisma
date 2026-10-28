@@ -28,6 +28,7 @@ model User {
   reviews           Review[]
   academyMemberships AcademyMember[]
   academyPlayers    AcademyPlayer[]
+  creditLedger      CreditLedger[]
   referredBy        User?               @relation("Referrals", fields: [referredByUserId], references: [id], onDelete: SetNull)
   referrals         User[]              @relation("Referrals")
 }
@@ -40,6 +41,9 @@ model Academy {
   members AcademyMember[]
   players AcademyPlayer[]
   invites AcademyInvite[]
+
+  creditLedger  CreditLedger[]
+  subscriptions AcademySubscription[]
 }
 
 model AcademyMember {
@@ -141,7 +145,8 @@ model Purchase {
   currentPeriodEnd     DateTime?
   createdAt            DateTime  @default(now())
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  creditLedger CreditLedger[]
 }
 
 model Coach {
@@ -210,5 +215,53 @@ model VideoSubmission {
   publishConsent Boolean   @default(false)
   publishedAt    DateTime?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  creditLedger CreditLedger[]
+}
+
+/// Every change to a credit balance is one row here; a balance is the sum of `delta`.
+/// Exactly one of userId and academyId is set (enforced by a CHECK in the migration).
+model CreditLedger {
+  id                String   @id @default(cuid())
+  userId            String?
+  academyId         String?
+  delta             Int
+  /// free_signup | purchase | subscription_renewal | submission | refund | admin_adjustment
+  reason            String
+  purchaseId        String?
+  videoSubmissionId String?
+  note              String?
+  /// Makes grants idempotent: the same signup, Stripe checkout session or invoice never writes twice.
+  idempotencyKey    String?  @unique
+  createdAt         DateTime @default(now())
+
+  user            User?            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  academy         Academy?         @relation(fields: [academyId], references: [id], onDelete: Cascade)
+  purchase        Purchase?        @relation(fields: [purchaseId], references: [id], onDelete: SetNull)
+  videoSubmission VideoSubmission? @relation(fields: [videoSubmissionId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([academyId])
+  @@index([videoSubmissionId])
+}
+
+/// An academy's recurring plan. Each paid invoice grants `creditsPerPeriod` to the academy.
+model AcademySubscription {
+  id                   String    @id @default(cuid())
+  academyId            String
+  /// A plan id from src/lib/plans.ts, e.g. "academy-starter"
+  planKey              String
+  /// monthly | quarterly | semiannual
+  billingInterval      String
+  stripeCustomerId     String?
+  stripeSubscriptionId String    @unique
+  status               String    @default("active")
+  currentPeriodEnd     DateTime?
+  creditsPerPeriod     Int
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  academy Academy @relation(fields: [academyId], references: [id], onDelete: Cascade)
+
+  @@index([academyId])
 }

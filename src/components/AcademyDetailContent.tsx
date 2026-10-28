@@ -136,6 +136,7 @@ export default async function AcademyDetailContent({
                       lang={lang}
                       canDelete={isAdmin}
                       canPublish={isAdmin}
+                      canReject={isAdmin}
                       submission={{
                         id: s.id,
                         title: s.title,

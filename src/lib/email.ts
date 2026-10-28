@@ -210,6 +210,20 @@ export function coachFeedbackEmail(title: string, coachNotes: string) {
   );
 }
 
+export function submissionRejectedEmail(title: string, reason: string | null, creditsRefunded: number) {
+  return layout(
+    "We could not analyse your video",
+    `<p style="font-size: 15px; line-height: 1.6;">
+      We were not able to analyse <strong>${escapeHtml(title)}</strong>.
+      ${creditsRefunded > 0 ? `${creditsRefunded} credit${creditsRefunded === 1 ? " has" : "s have"} been returned to your balance.` : ""}
+    </p>
+    ${reason ? `<blockquote style="margin: 16px 0; padding: 12px 16px; background: #eceedd; border-radius: 4px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(reason)}</blockquote>` : ""}
+    <p style="margin: 24px 0;">
+      <a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://tacticaltennislab.com"}/submit-video" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">Send another video</a>
+    </p>`
+  );
+}
+
 export function newMessageFromCustomerEmail(customerName: string, customerEmail: string, body: string) {
   return layout(
     "New message from a customer",

@@ -4,6 +4,7 @@ import PricingCarousel from "@/components/PricingCarousel";
 import PricingAudienceSwitch from "@/components/PricingAudienceSwitch";
 import type { Audience } from "@/lib/pricingAudience";
 import ClubOffers from "@/components/ClubOffers";
+import { creditRuleText } from "@/lib/clubPricing";
 import { PLANS } from "@/lib/plans";
 import { auth } from "@/auth";
 import { countSuccessfulReferrals } from "@/lib/referral";
@@ -45,20 +46,11 @@ export default async function PricingContent({
             }
             clubs={
               <Reveal variant="zoom">
-                <ClubOffers
-                  eyebrow={t.clubs.eyebrow}
-                  title={t.clubs.title}
-                  subtitle={t.clubs.subtitle}
-                  benefits={t.clubs.benefits}
-                  tiers={t.clubs.tiers}
-                  cta={t.clubs.cta}
-                  popularLabel={t.clubs.popularLabel}
-                  note={t.clubs.note}
-                  lang={lang}
-                />
+                <ClubOffers lang={lang} />
               </Reveal>
             }
           />
+          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted">{creditRuleText(lang)}</p>
         </div>
       </main>
     </div>

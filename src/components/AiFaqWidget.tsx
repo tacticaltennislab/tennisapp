@@ -9,7 +9,7 @@ interface ChatMessage {
   content: string;
 }
 
-const SUGGESTIONS = ["What do the academy packages include?", "How do academy accounts work?", "What's included in Match IQ?"];
+const SUGGESTIONS = ["What do the academy packages include?", "How do academy accounts work?", "What's included in Match Analysis?"];
 
 export default function AiFaqWidget() {
   const pathname = usePathname();

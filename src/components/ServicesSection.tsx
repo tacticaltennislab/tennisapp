@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import ClayBackdrop from "@/components/motion/ClayBackdrop";
 import SitePhoto from "@/components/SitePhoto";
 import { IconArrowRight } from "@/components/icons";
-import { PLANS, type Plan } from "@/lib/plans";
+import { PLANS, fillCreditVars, type Plan } from "@/lib/plans";
 import { planTranslations } from "@/i18n/dictionaries/plans";
 import { homeDictionaries } from "@/i18n/dictionaries/home";
 import { SITE_PHOTOS } from "@/lib/sitePhotos";
@@ -13,9 +13,9 @@ import { localizedHref, type AppLocale } from "@/i18n/locales";
 // here can never drift from what is actually sold. `priceId` is the entry
 // plan used for the "from" price.
 const SERVICES = [
-  { planId: "stroke-fix", priceId: "stroke-fix" },
-  { planId: "smart-system", priceId: "smart-system" },
-  { planId: "match-iq-full", priceId: "match-iq-short" },
+  { planId: "stroke-analysis", priceId: "stroke-analysis" },
+  { planId: "training-program", priceId: "training-program" },
+  { planId: "match-analysis-full", priceId: "match-analysis" },
 ] as const;
 
 function plan(id: string): Plan {
@@ -49,7 +49,7 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
                       0{i + 1}
                     </span>
                     <h3 className="t-h3 mt-4">{t.names[i]}</h3>
-                    <p className="t-lead mt-5 max-w-md">{text.description}</p>
+                    <p className="t-lead mt-5 max-w-md">{fillCreditVars(text.description)}</p>
                   </div>
 
                   <div className="md:col-span-7">
@@ -65,7 +65,7 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
                     <ul className="border-t border-line">
                       {text.features.slice(0, 4).map((f) => (
                         <li key={f} className="border-b border-line py-3.5 text-[1.0625rem] text-body">
-                          {f}
+                          {fillCreditVars(f)}
                         </li>
                       ))}
                     </ul>

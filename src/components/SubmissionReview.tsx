@@ -32,11 +32,13 @@ export default function SubmissionReview({
   submission,
   canDelete = false,
   canPublish = false,
+  canReject = false,
   lang = "en",
 }: {
   submission: Submission;
   canDelete?: boolean;
   canPublish?: boolean;
+  canReject?: boolean;
   lang?: AppLocale;
 }) {
   const t = academyDictionaries[lang].review;
@@ -67,6 +69,29 @@ export default function SubmissionReview({
       return;
     }
 
+    router.refresh();
+  }
+
+  async function handleReject() {
+    const reason = window.prompt(
+      "Reject this submission and give the credits back? Add a short reason for the customer (optional).",
+      ""
+    );
+    if (reason === null) return;
+    setError(null);
+    setSubmitting(true);
+    const res = await fetch(`/api/videos/${submission.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reject: true, reason }),
+    });
+    setSubmitting(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setError(data.error || t.error);
+      return;
+    }
+    setStatus("rejected");
     router.refresh();
   }
 
@@ -122,10 +147,12 @@ export default function SubmissionReview({
           className={`text-xs rounded-full px-2 py-0.5 ${
             status === "reviewed"
               ? "bg-brand-50 text-brand-700"
-              : "bg-chip text-muted"
+              : status === "rejected"
+                ? "bg-red-50 text-red-700"
+                : "bg-chip text-muted"
           }`}
         >
-          {status === "reviewed" ? t.status.reviewed : t.status.pending}
+          {status === "reviewed" ? t.status.reviewed : status === "rejected" ? "Rejected" : t.status.pending}
         </span>
       </div>
 
@@ -174,6 +201,16 @@ export default function SubmissionReview({
         >
           {t.watchVideo}
         </a>
+        {canReject && status !== "rejected" && (
+          <button
+            type="button"
+            onClick={handleReject}
+            disabled={submitting}
+            className="text-sm text-amber-700 hover:text-amber-800 disabled:opacity-60"
+          >
+            Reject and refund credits
+          </button>
+        )}
         {canDelete && (
           <button
             type="button"
