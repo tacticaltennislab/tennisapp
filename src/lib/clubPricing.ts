@@ -1,4 +1,4 @@
-import { formatCredits } from "@/lib/credits";
+import { formatCredits } from "@/lib/creditFormat";
 import {
   ACADEMY_PILOT,
   ACADEMY_PLANS,

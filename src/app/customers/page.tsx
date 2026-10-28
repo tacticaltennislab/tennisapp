@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import PageHeader from "@/components/PageHeader";
 import EmptyState from "@/components/EmptyState";
 import { IconUsers } from "@/components/icons";
+import CreditAdjust from "@/components/CreditAdjust";
 
 export const dynamic = "force-dynamic";
 
@@ -66,6 +67,21 @@ export default async function CustomersPage() {
     },
   });
 
+  const [userSums, academySums, academies] = await Promise.all([
+    prisma.creditLedger.groupBy({ by: ["userId"], where: { userId: { not: null } }, _sum: { delta: true } }),
+    prisma.creditLedger.groupBy({ by: ["academyId"], where: { academyId: { not: null } }, _sum: { delta: true } }),
+    prisma.academy.findMany({
+      orderBy: { name: "asc" },
+      select: {
+        id: true,
+        name: true,
+        subscriptions: { orderBy: { currentPeriodEnd: "desc" }, take: 1, select: { planKey: true, status: true, currentPeriodEnd: true } },
+      },
+    }),
+  ]);
+  const userBalance = new Map(userSums.map((r) => [r.userId, r._sum.delta ?? 0]));
+  const academyBalance = new Map(academySums.map((r) => [r.academyId, r._sum.delta ?? 0]));
+
   return (
     <div className="flex-1 flex flex-col">
       <PageHeader
@@ -74,7 +90,7 @@ export default async function CustomersPage() {
         subtitle={`${customers.length} signed up ${customers.length === 1 ? "customer" : "customers"}.`}
       />
       <main className="flex-1 px-4 py-12">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {customers.length === 0 ? (
             <EmptyState icon={IconUsers} title="No customers yet" />
           ) : (
@@ -86,6 +102,7 @@ export default async function CustomersPage() {
                     <th className="px-4 py-3 font-medium">Email</th>
                     <th className="px-4 py-3 font-medium">Sign in</th>
                     <th className="px-4 py-3 font-medium">Status</th>
+                    <th className="px-4 py-3 font-medium">Credits</th>
                     <th className="px-4 py-3 font-medium">Videos</th>
                     <th className="px-4 py-3 font-medium">Joined</th>
                     <th className="px-4 py-3 font-medium">Messages</th>
@@ -113,6 +130,9 @@ export default async function CustomersPage() {
                           {status.label}
                         </span>
                       </td>
+                      <td className="px-4 py-3">
+                        <CreditAdjust userId={c.id} balance={userBalance.get(c.id) ?? 0} />
+                      </td>
                       <td className="px-4 py-3">{c._count.videoSubmissions}</td>
                       <td className="px-4 py-3 text-muted">
                         {c.createdAt.toLocaleDateString("en-US", {
@@ -130,6 +150,43 @@ export default async function CustomersPage() {
                         </Link>
                       </td>
                     </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          <h2 className="mt-14 text-lg font-semibold">Academies</h2>
+          {academies.length === 0 ? (
+            <p className="mt-3 text-sm text-muted">No academies yet.</p>
+          ) : (
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-line shadow-sm">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-surface-muted text-left text-muted">
+                    <th className="px-4 py-3 font-medium">Academy</th>
+                    <th className="px-4 py-3 font-medium">Subscription</th>
+                    <th className="px-4 py-3 font-medium">Renews</th>
+                    <th className="px-4 py-3 font-medium">Credits</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {academies.map((a) => {
+                    const sub = a.subscriptions[0];
+                    return (
+                      <tr key={a.id} className="border-t border-line align-top">
+                        <td className="px-4 py-3 font-medium">{a.name}</td>
+                        <td className="px-4 py-3 text-body">{sub ? `${sub.planKey} (${sub.status})` : "None"}</td>
+                        <td className="px-4 py-3 text-muted">
+                          {sub?.currentPeriodEnd
+                            ? sub.currentPeriodEnd.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+                            : "No date"}
+                        </td>
+                        <td className="px-4 py-3">
+                          <CreditAdjust academyId={a.id} balance={academyBalance.get(a.id) ?? 0} />
+                        </td>
+                      </tr>
                     );
                   })}
                 </tbody>

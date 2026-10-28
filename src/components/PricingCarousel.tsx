@@ -8,7 +8,7 @@ import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import { IconArrowRight, IconTarget } from "@/components/icons";
 import { fillCreditVars, type Plan } from "@/lib/plans";
-import { formatCredits } from "@/lib/credits";
+import { formatCredits } from "@/lib/creditFormat";
 import { referralDiscountPercent } from "@/lib/referralPricing";
 import { planTranslations } from "@/i18n/dictionaries/plans";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";

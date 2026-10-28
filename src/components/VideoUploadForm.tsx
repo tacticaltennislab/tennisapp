@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import {
   ALL_FOCUS_AREAS,
@@ -12,13 +12,28 @@ import {
 import { focusLabel, localizedGoals, localizedLevels } from "@/i18n/dictionaries/trainingOptions";
 import { dashboardDictionaries } from "@/i18n/dictionaries/dashboard";
 import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
+import { creditsUiDictionaries } from "@/i18n/dictionaries/creditsUi";
+import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
+import { creditNoun, formatCredits } from "@/lib/creditFormat";
+import { creditsNeeded, type FootageKind as AnalysisKind } from "@/lib/creditCost";
 import type { FootageType } from "@/lib/freeAnalysis";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 export default function VideoUploadForm({ lang = "en", free = false }: { lang?: AppLocale; free?: boolean }) {
   const t = dashboardDictionaries[lang].submitVideo.form;
   const fa = freeAnalysisDictionaries[lang].form;
+  const cu = creditsUiDictionaries[lang].form;
+  const noun = pricingDictionaries[lang].credits.noun;
   const [footageType, setFootageType] = useState<FootageType>("match");
+  // What is being sent decides how many credits it uses: a stroke is 1, match and training footage
+  // cost one per started 60 minutes. The free analysis is always a match or a training session.
+  const [kind, setKind] = useState<AnalysisKind>("stroke");
+  const [minutes, setMinutes] = useState(0);
+  const [credits, setCredits] = useState<{
+    balance: number;
+    academies: { id: string; name: string; balance: number }[];
+  } | null>(null);
+  const [chosenPayer, setChosenPayer] = useState<string | null>(null); // "mine" or an academy id
   const [publishConsent, setPublishConsent] = useState(false);
   const router = useRouter();
   const [title, setTitle] = useState("");
@@ -31,10 +46,52 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
+  const analysisKind: AnalysisKind = free ? footageType : kind;
+  const needed = creditsNeeded(analysisKind, minutes);
+  // Unless the user picked, pay from their own credits, or from an academy's if that is the one that can cover it.
+  const coveringAcademy = credits?.academies.find((a) => a.balance >= needed);
+  const payer = chosenPayer ?? ((credits?.balance ?? 0) >= needed || !coveringAcademy ? "mine" : coveringAcademy.id);
+  const payerAcademy = credits?.academies.find((a) => a.id === payer);
+  const available = payer === "mine" ? credits?.balance ?? 0 : payerAcademy?.balance ?? 0;
+  const missing = credits ? Math.max(0, needed - available) : 0;
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/credits")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data) setCredits(data);
+      })
+      .catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  function onFileChosen(next: File | null) {
+    setFile(next);
+    setMinutes(0);
+    if (!next) return;
+    // The length comes from the video's own metadata, read in the browser; nothing is uploaded yet.
+    const url = URL.createObjectURL(next);
+    const probe = document.createElement("video");
+    probe.preload = "metadata";
+    probe.onloadedmetadata = () => {
+      if (Number.isFinite(probe.duration)) setMinutes(Math.max(1, Math.ceil(probe.duration / 60)));
+      URL.revokeObjectURL(url);
+    };
+    probe.onerror = () => URL.revokeObjectURL(url);
+    probe.src = url;
+  }
+
   function toggleFocus(area: FocusArea) {
     setFocusAreas((prev) =>
       prev.includes(area) ? prev.filter((a) => a !== area) : [...prev, area]
     );
+  }
+
+  function needMoreText(n = missing) {
+    return cu.needMore.replace("{n}", String(n)).replace("{noun}", creditNoun(lang, n, noun));
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -45,6 +102,10 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
       setError(t.chooseFileError);
       return;
     }
+    if (missing > 0) {
+      setError(needMoreText());
+      return;
+    }
 
     setSubmitting(true);
     setProgress(0);
@@ -53,6 +114,11 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
       const blob = await upload(`videos/${file.name}`, file, {
         access: "private",
         handleUploadUrl: "/api/videos/upload-token",
+        clientPayload: JSON.stringify({
+          analysisType: analysisKind,
+          durationMinutes: analysisKind === "stroke" ? undefined : minutes,
+          academyId: payer === "mine" ? undefined : payer,
+        }),
         onUploadProgress: ({ percentage }) => setProgress(percentage),
       });
 
@@ -65,6 +131,9 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
           skillLevel,
           goal,
           focusAreas,
+          analysisType: analysisKind,
+          durationMinutes: analysisKind === "stroke" ? undefined : minutes,
+          academyId: payer === "mine" ? undefined : payer,
           ...(free ? { free: true, footageType, publishConsent } : {}),
           storagePath: blob.pathname,
           fileName: file.name,
@@ -75,7 +144,11 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        setError(data.code === "free-used" ? fa.alreadyUsed : data.error || t.uploadFailedError);
+        setError(
+          data.code === "insufficient_credits"
+            ? needMoreText(data.missing)
+            : data.error || t.uploadFailedError
+        );
         setSubmitting(false);
         return;
       }
@@ -215,6 +288,71 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
         </div>
       </div>
 
+      <div className="rounded-xl border border-line bg-brand-50/40 p-4 space-y-3">
+        {!free && (
+          <div>
+            <label htmlFor="analysis-kind" className="block text-sm font-medium mb-1">{cu.kindLabel}</label>
+            <select
+              id="analysis-kind"
+              value={kind}
+              onChange={(e) => setKind(e.target.value as AnalysisKind)}
+              className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm"
+            >
+              <option value="stroke">{cu.kindStroke}</option>
+              <option value="match">{cu.kindMatch}</option>
+              <option value="training">{cu.kindTraining}</option>
+            </select>
+          </div>
+        )}
+        {analysisKind !== "stroke" && (
+          <div>
+            <label htmlFor="analysis-minutes" className="block text-sm font-medium mb-1">{cu.lengthLabel}</label>
+            <input
+              id="analysis-minutes"
+              type="number"
+              min={1}
+              step={1}
+              value={minutes || ""}
+              onChange={(e) => setMinutes(Math.max(0, Math.floor(Number(e.target.value) || 0)))}
+              className="w-28 rounded-lg border border-line bg-surface px-3 py-2 text-sm"
+            />
+            <p className="mt-1 text-xs text-muted">{cu.lengthHint}</p>
+          </div>
+        )}
+        {credits && credits.academies.length > 0 && (
+          <div>
+            <label htmlFor="credit-payer" className="block text-sm font-medium mb-1">{cu.payWith}</label>
+            <select
+              id="credit-payer"
+              value={payer}
+              onChange={(e) => setChosenPayer(e.target.value)}
+              className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm"
+            >
+              <option value="mine">{cu.payMine} ({credits.balance})</option>
+              {credits.academies.map((a) => (
+                <option key={a.id} value={a.id}>
+                  {cu.payAcademy.replace("{name}", a.name)} ({a.balance})
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        {credits && (
+          <p className="text-sm" data-testid="credit-cost">
+            <span className="font-semibold">{cu.cost.replace("{credits}", formatCredits(lang, needed, noun))}</span>{" "}
+            <span className="text-muted">{cu.have.replace("{credits}", formatCredits(lang, available, noun))}</span>
+          </p>
+        )}
+        {missing > 0 && (
+          <p role="alert" className="text-sm font-medium text-red-600">
+            {needMoreText()}{" "}
+            <a href={`${localizedHref(lang, "/pricing")}?audience=players`} className="underline">
+              {creditsUiDictionaries[lang].account.buy}
+            </a>
+          </p>
+        )}
+      </div>
+
       <div>
         <label className="block text-sm font-medium mb-1">{t.videoLabel}</label>
         <label
@@ -233,7 +371,7 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
           type="file"
           accept="video/*"
           required
-          onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+          onChange={(e) => onFileChosen(e.target.files?.[0] ?? null)}
           className="sr-only"
         />
       </div>
@@ -251,7 +389,7 @@ export default function VideoUploadForm({ lang = "en", free = false }: { lang?: 
 
       <button
         type="submit"
-        disabled={submitting}
+        disabled={submitting || missing > 0}
         className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-on-brand font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
       >
         {submitting ? t.uploading.replace("{pct}", String(progress)) : t.submit}

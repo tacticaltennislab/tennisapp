@@ -5,6 +5,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { grantFreeSignupCredit } from "@/lib/credits";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -54,6 +55,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   events: {
     async createUser({ user }) {
+      // OAuth sign-ups skip /api/register, so they get the free credit here (once per account).
+      if (user.id) await grantFreeSignupCredit(user.id);
+
       // OAuth sign-ups skip /api/register, so link the referrer here instead,
       // reading the same cookie ReferralCapture sets on any page visit.
       const referrerId = (await cookies()).get("ref_by")?.value;

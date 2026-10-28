@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 import { sendEmail, welcomeEmail } from "@/lib/email";
+import { grantFreeSignupCredit } from "@/lib/credits";
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
     : null;
 
   const passwordHash = await bcrypt.hash(password, 12);
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       name: name || null,
       email,
@@ -39,6 +40,9 @@ export async function POST(request: Request) {
       referredByUserId: referrer?.id || null,
     },
   });
+
+  // One free credit for the free analysis, once per account (a repeat call writes nothing).
+  await grantFreeSignupCredit(user.id);
 
   await sendEmail({
     to: email,

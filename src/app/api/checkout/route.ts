@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { getStripe, CHECKOUT_PLANS, StripeNotConfiguredError, stripeNotConfiguredResponse } from "@/lib/stripe";
 import { countSuccessfulReferrals, referralDiscountPercent } from "@/lib/referral";
 import { sendEmail } from "@/lib/email";
+import { grantCredits } from "@/lib/credits";
 
 const ADMIN_INBOX = process.env.CONTACT_INBOX_EMAIL || "tacticaltennislab@gmail.com";
 
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
   // A 100% referral discount only ever applies to one-time plans (subscriptions
   // are capped below 100%), so this never needs to hand Stripe a $0 subscription.
   if (discountedAmount <= 0) {
-    await prisma.purchase.create({
+    const freePurchase = await prisma.purchase.create({
       data: {
         userId: session.user.id,
         planName: `${plan.name} (referral reward)`,
@@ -47,6 +48,18 @@ export async function POST(request: Request) {
         status: "paid",
       },
     });
+
+    // A free order still brings what it includes.
+    if (plan.credits > 0) {
+      await grantCredits({
+        account: { userId: session.user.id },
+        amount: plan.credits,
+        reason: "purchase",
+        purchaseId: freePurchase.id,
+        note: freePurchase.planName,
+        idempotencyKey: `purchase:${freePurchase.stripeSessionId}`,
+      });
+    }
 
     await sendEmail({
       to: ADMIN_INBOX,

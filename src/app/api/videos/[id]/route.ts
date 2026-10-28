@@ -2,7 +2,8 @@ import { del } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { sendEmail, coachFeedbackEmail } from "@/lib/email";
+import { sendEmail, coachFeedbackEmail, submissionRejectedEmail } from "@/lib/email";
+import { refundSubmissionCredits } from "@/lib/credits";
 import { canReviewPlayer } from "@/lib/academy";
 
 export async function DELETE(
@@ -45,6 +46,27 @@ export async function PATCH(
   }
 
   const body = await request.json().catch(() => null);
+
+  // An admin rejects a submission (unusable video, wrong content): it is marked rejected and the
+  // credits it cost go back to the account that paid, once.
+  if (body?.reject === true) {
+    if (session.user.role !== "admin") {
+      return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+    }
+    const reason = typeof body?.reason === "string" && body.reason.trim() ? body.reason.trim() : null;
+    const rejected = await prisma.videoSubmission.update({
+      where: { id },
+      data: { status: "rejected", reviewedAt: new Date(), coachNotes: reason ?? undefined },
+      include: { user: { select: { email: true } } },
+    });
+    const refunded = await refundSubmissionCredits(id, reason ?? "Submission rejected");
+    await sendEmail({
+      to: rejected.user.email,
+      subject: "We could not analyse your video",
+      html: submissionRejectedEmail(rejected.title || rejected.fileName, reason, refunded),
+    });
+    return NextResponse.json({ submission: rejected, refunded });
+  }
 
   // Publishing a free analysis on the public page is an admin decision, and only
   // possible when the player agreed to it and the analysis has been written.

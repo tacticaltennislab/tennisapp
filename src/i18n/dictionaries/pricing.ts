@@ -1,6 +1,6 @@
 import type { AppLocale } from "@/i18n/locales";
 
-import type { CreditNoun } from "@/lib/credits";
+import type { CreditNoun } from "@/lib/creditFormat";
 
 /** Wording only: prices and credit numbers come from src/lib/plans.ts. */
 export interface ClubTier {

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { IconClose, IconMenu } from "@/components/icons";
 import PushToggle from "@/components/PushToggle";
+import CreditsPill from "@/components/CreditsPill";
 import AdminNavMenu from "@/components/AdminNavMenu";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -134,6 +135,7 @@ export default function SiteHeader() {
                   </Link>
                 )
               )}
+              {userId && <CreditsPill userId={userId} locale={locale} />}
               <Link href={localizedHref(locale, "/account")} className={`${linkClass} max-w-[10rem] truncate`}>
                 {session.user?.name || session.user?.email}
               </Link>
@@ -217,6 +219,7 @@ export default function SiteHeader() {
                   {academyLink.label}
                 </Link>
               )}
+              {userId && <CreditsPill userId={userId} locale={locale} onNavigate={closeMenu} className="py-2" />}
               <Link href={localizedHref(locale, "/account")} className={linkClass} onClick={closeMenu}>
                 {session.user?.name || session.user?.email}
               </Link>
