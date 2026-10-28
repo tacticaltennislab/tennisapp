@@ -1,7 +1,7 @@
 # Analysis import format
 
 The coach report editor (admin: `/submissions/<id>`, button **Import analysis JSON**) reads a project file
-exported by the local analysis tool and fills the observations and the summary from it. Nothing is
+exported by the local analysis tool (`tools/analyzer`, see its README) and fills the observations and the summary from it. Nothing is
 published by an import: the coach reviews and edits everything, then saves a draft or publishes.
 
 The format is versioned. This document describes **version 1**. The reader lives in

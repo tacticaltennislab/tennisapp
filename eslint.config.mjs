@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The local analysis tool is a separate Vite app with its own tooling.
+    "tools/**",
   ]),
 ]);
 
