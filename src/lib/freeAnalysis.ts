@@ -1,5 +1,10 @@
-/** One free analysis per account. Change this number to change the offer. */
-export const FREE_ANALYSES_PER_ACCOUNT = 1;
+import { FREE_ACCOUNT_CREDITS } from "@/lib/plans";
+
+/**
+ * Free analyses per account. A free analysis is one credit (src/lib/plans.ts), so the free credit
+ * every new account gets is what sets this number.
+ */
+export const FREE_ANALYSES_PER_ACCOUNT = FREE_ACCOUNT_CREDITS;
 
 export const FOOTAGE_TYPES = ["match", "training"] as const;
 export type FootageType = (typeof FOOTAGE_TYPES)[number];

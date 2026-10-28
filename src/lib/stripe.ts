@@ -1,5 +1,8 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
+import { buildCheckoutPlans, type CheckoutPlan } from "@/lib/plans";
+
+export type { CheckoutPlan };
 
 /** Thrown by getStripe() when STRIPE_SECRET_KEY is not set in this environment. */
 export class StripeNotConfiguredError extends Error {
@@ -32,22 +35,5 @@ export function stripeNotConfiguredResponse() {
   );
 }
 
-export interface CheckoutPlan {
-  name: string;
-  amountCents: number;
-  mode: "payment" | "subscription";
-  interval?: "month";
-}
-
-export const CHECKOUT_PLANS: Record<string, CheckoutPlan> = {
-  "stroke-fix": { name: "Stroke Fix", amountCents: 4900, mode: "payment" },
-  "smart-system": { name: "Smart System", amountCents: 9900, mode: "payment" },
-  "match-iq-short": { name: "Match IQ: Short", amountCents: 9900, mode: "payment" },
-  "match-iq-full": { name: "Match IQ: Full", amountCents: 15900, mode: "payment" },
-  "pro-tour": {
-    name: "PRO Tour",
-    amountCents: 24900,
-    mode: "subscription",
-    interval: "month",
-  },
-};
+/** What can be bought online, read from the single pricing config in src/lib/plans.ts. */
+export const CHECKOUT_PLANS: Record<string, CheckoutPlan> = buildCheckoutPlans();

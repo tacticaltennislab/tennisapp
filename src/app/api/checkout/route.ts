@@ -76,7 +76,7 @@ export async function POST(request: Request) {
           product_data: { name: `Tactical Tennis Lab: ${plan.name}` },
           unit_amount: discountedAmount,
           ...(plan.mode === "subscription"
-            ? { recurring: { interval: plan.interval || "month" } }
+            ? { recurring: { interval: plan.interval || "month", interval_count: plan.intervalCount || 1 } }
             : {}),
         },
         quantity: 1,
@@ -84,7 +84,13 @@ export async function POST(request: Request) {
     ],
     success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${siteUrl}/pricing?audience=players`,
-    metadata: { userId: session.user.id, planName: plan.name, discountPercent: String(discountPercent) },
+    metadata: {
+      userId: session.user.id,
+      planName: plan.name,
+      planId,
+      credits: String(plan.credits),
+      discountPercent: String(discountPercent),
+    },
   });
 
   await prisma.purchase.create({
