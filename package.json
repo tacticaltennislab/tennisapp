@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",
-    "test": "vitest run"
+    "test": "vitest run",
+    "analyzer": "cd tools/analyzer && npm install && npm run dev"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.126.0",

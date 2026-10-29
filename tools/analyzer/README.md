@@ -6,7 +6,15 @@ It runs on your own computer. The video never leaves it. Nothing here is deploye
 
 ## Install and start
 
-You need Node.js 20 or newer and Chrome or Edge (they can save into a folder you choose; other browsers work but keep projects in the browser and download the file).
+You need Node.js 18 or newer (check with `node -v`) and Chrome or Edge (they can save into a folder you choose; other browsers work but keep projects in the browser and download the file).
+
+From the repository root, one command installs and starts it:
+
+```bash
+npm run analyzer
+```
+
+Or step by step:
 
 ```bash
 cd tools/analyzer
@@ -14,7 +22,9 @@ npm install
 npm run dev
 ```
 
-The tool opens at http://localhost:5174. To run a built copy instead: `npm run build && npm run preview`.
+The tool opens at http://localhost:5174 (if that port is busy, Vite prints the address it used). To run a built copy instead: `npm run build && npm run preview`. Do not use the repository's own `npm run dev`: that starts the website, not this tool.
+
+If it does not start, the first lines of the output say why. The usual causes are an old Node.js (install a current one from https://nodejs.org) or `npm install` not having been run inside `tools/analyzer`.
 
 Other commands: `npm test` (unit tests for the statistics and the file format) and `npm run typecheck`.
 
