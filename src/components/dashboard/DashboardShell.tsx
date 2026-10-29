@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { DIcons } from "@/components/dashboard/icons";
 import { PLAYER } from "@/lib/dashboardSample";
 
-const NAV = [
+const NAV: { href: string; label: string; short?: string; icon: (typeof DIcons)[keyof typeof DIcons]; exact?: boolean }[] = [
   { href: "/dashboard", label: "Overview", icon: DIcons.overview, exact: true },
   { href: "/dashboard/analyses", label: "Analyses", icon: DIcons.analyses },
   { href: "/dashboard/upload", label: "Upload", icon: DIcons.upload },
   { href: "/dashboard/plan", label: "Training plan", short: "Plan", icon: DIcons.plan },
-  { href: "/dashboard/messages", label: "Messages", icon: DIcons.messages, badge: 1 },
+  { href: "/dashboard/messages", label: "Messages", icon: DIcons.messages },
   { href: "/dashboard/orders", label: "Orders", icon: DIcons.orders },
   { href: "/dashboard/settings", label: "Settings", icon: DIcons.settings },
 ];
@@ -30,10 +30,26 @@ function isActive(pathname: string, item: { href: string; exact?: boolean }) {
   return item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(item.href + "/");
 }
 
-export default function DashboardShell({ children }: { children: React.ReactNode }) {
+export interface ShellUser {
+  name: string;
+  initials: string;
+  isAdmin: boolean;
+  /** Unread messages from the coach. */
+  unread: number;
+}
+
+export default function DashboardShell({ children, user }: { children: React.ReactNode; user: ShellUser }) {
   const pathname = usePathname();
+  // Demo mode (sample data for sales calls) is for admins only; the pages check this again on the server.
+  const searchParams = useSearchParams();
+  const demo = user.isAdmin && searchParams.get("demo") === "1";
+  const suffix = demo ? "?demo=1" : "";
+  const person = demo ? { name: PLAYER.name, initials: PLAYER.initials } : user;
+  const unread = demo ? 1 : user.unread;
   const [moreOpen, setMoreOpen] = useState(false);
   const title = pathname.startsWith("/dashboard/analyses/") ? "Analysis" : TITLES[pathname] ?? "Dashboard";
+
+  const badgeOf = (item: { href: string }) => (item.href === "/dashboard/messages" ? unread : 0);
 
   const link = (active: boolean) =>
     `group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
@@ -49,18 +65,22 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         Skip to content
       </a>
 
-      {/* Prototype notice: this is sample data, never a real account. */}
-      <div className="flex items-center justify-center gap-2 border-b border-line bg-brand-900 px-4 py-2 text-center text-xs text-muted">
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" aria-hidden="true" />
-        <span>
-          <strong className="font-semibold text-ink">Prototype.</strong> Sample data only. Nothing here is saved, sent or uploaded.
-        </span>
-      </div>
+      {demo && (
+        <div className="flex items-center justify-center gap-2 border-b border-line bg-brand-900 px-4 py-2 text-center text-xs text-muted">
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" aria-hidden="true" />
+          <span>
+            <strong className="font-semibold text-ink">Demo mode.</strong> Sample data only. Nothing here is saved, sent or uploaded.{" "}
+            <Link href="/dashboard" className="font-medium text-brand-600 underline underline-offset-4">
+              Open my real dashboard
+            </Link>
+          </span>
+        </div>
+      )}
 
       <div className="flex">
         {/* Desktop rail: icons plus labels from xl, icons alone from md. */}
         <div className="sticky top-0 hidden h-screen shrink-0 flex-col border-r border-line bg-surface-muted md:flex md:w-[4.5rem] xl:w-60">
-          <Link href="/dashboard" className="flex h-16 items-center gap-2.5 px-4 xl:px-5" aria-label="Dashboard home">
+          <Link href={`/dashboard${suffix}`} className="flex h-16 items-center gap-2.5 px-4 xl:px-5" aria-label="Dashboard home">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-on-brand">T</span>
             <span className="hidden text-sm font-semibold tracking-tight text-ink xl:block">Tactical Tennis Lab</span>
           </Link>
@@ -71,21 +91,21 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={item.href + suffix}
                   aria-current={active ? "page" : undefined}
                   title={item.label}
                   className={`${link(active)} md:justify-center xl:justify-start`}
                 >
                   <span className={`relative ${active ? "text-brand-600" : ""}`}>
                     <Icon />
-                    {item.badge ? (
+                    {badgeOf(item) ? (
                       <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-brand-600 ring-2 ring-surface-muted xl:hidden" />
                     ) : null}
                   </span>
                   <span className="hidden xl:inline">{item.label}</span>
-                  {item.badge ? (
+                  {badgeOf(item) ? (
                     <span className="ml-auto hidden rounded-full bg-brand-600 px-1.5 text-[0.6875rem] font-bold text-on-brand xl:inline">
-                      {item.badge}
+                      {badgeOf(item)}
                     </span>
                   ) : null}
                 </Link>
@@ -104,17 +124,17 @@ export default function DashboardShell({ children }: { children: React.ReactNode
           <header className="sticky top-0 z-20 flex h-14 items-center justify-between gap-4 border-b border-line bg-background/90 px-4 backdrop-blur md:h-16 md:px-8">
             <h1 className="truncate text-base font-semibold tracking-tight text-ink md:text-lg">{title}</h1>
             <div className="flex items-center gap-3">
-              <Link href="/dashboard/upload" className="btn btn-primary !min-h-9 !px-4 !text-sm">
+              <Link href={`/dashboard/upload${suffix}`} className="btn btn-primary !min-h-9 !px-4 !text-sm">
                 <DIcons.upload className="h-4 w-4" />
                 <span className="hidden sm:inline">Upload video</span>
                 <span className="sm:hidden">Upload</span>
               </Link>
               <span
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-chip text-xs font-semibold text-ink"
-                title={PLAYER.name}
-                aria-label={`Signed in as ${PLAYER.name} (sample)`}
+                title={person.name}
+                aria-label={`Signed in as ${person.name}${demo ? " (sample)" : ""}`}
               >
-                {PLAYER.initials}
+                {person.initials}
               </span>
             </div>
           </header>
@@ -137,7 +157,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
             return (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href={item.href + suffix}
                   aria-current={active ? "page" : undefined}
                   className={`relative flex flex-col items-center gap-0.5 py-2.5 text-[0.6875rem] font-medium ${
                     active ? "text-brand-600" : "text-muted"
@@ -145,7 +165,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
                 >
                   <Icon className="h-[1.375rem] w-[1.375rem]" />
                   {item.short ?? item.label}
-                  {item.badge ? <span className="absolute right-[1.25rem] top-1.5 h-2 w-2 rounded-full bg-brand-600" /> : null}
+                  {badgeOf(item) ? <span className="absolute right-[1.25rem] top-1.5 h-2 w-2 rounded-full bg-brand-600" /> : null}
                 </Link>
               </li>
             );
@@ -166,7 +186,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
                 <button type="button" aria-hidden="true" tabIndex={-1} className="fixed inset-0 z-10 cursor-default" onClick={() => setMoreOpen(false)} />
                 <div role="menu" className="absolute bottom-full right-2 z-20 mb-2 w-48 rounded-xl border border-line bg-surface p-1 shadow-lg">
                   {NAV.slice(5).map((item) => (
-                    <Link key={item.href} href={item.href} role="menuitem" onClick={() => setMoreOpen(false)} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-body hover:bg-brand-50 hover:text-ink">
+                    <Link key={item.href} href={item.href + suffix} role="menuitem" onClick={() => setMoreOpen(false)} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-body hover:bg-brand-50 hover:text-ink">
                       <item.icon className="h-4 w-4" />
                       {item.label}
                     </Link>

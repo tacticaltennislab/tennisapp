@@ -210,6 +210,23 @@ export function coachFeedbackEmail(title: string, coachNotes: string) {
   );
 }
 
+export function analysisReadyEmail(title: string, priorities: string[], url: string) {
+  return layout(
+    "Your analysis is ready",
+    `<p style="font-size: 15px; line-height: 1.6;">The review of <strong>${escapeHtml(title)}</strong> is ready.</p>
+    ${
+      priorities.length > 0
+        ? `<p style="font-size: 14px; margin: 16px 0 6px;">Your priorities:</p><ol style="font-size: 14px; line-height: 1.6; padding-left: 20px;">${priorities
+            .map((p) => `<li>${escapeHtml(p)}</li>`)
+            .join("")}</ol>`
+        : ""
+    }
+    <p style="margin: 24px 0;">
+      <a href="${url}" style="background: #24432f; color: #fff; padding: 12px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">Open your analysis</a>
+    </p>`
+  );
+}
+
 export function submissionRejectedEmail(title: string, reason: string | null, creditsRefunded: number) {
   return layout(
     "We could not analyse your video",

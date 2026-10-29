@@ -1,12 +1,46 @@
 import Link from "next/link";
-import { ORDERS } from "@/lib/dashboardSample";
+import { ORDERS, type Order } from "@/lib/dashboardSample";
+import { prisma } from "@/lib/prisma";
 import { Panel } from "@/components/dashboard/ui";
+import { getDashboardContext, type DashboardSearchParams } from "@/lib/dashboardContext";
 
-export default function OrdersPage() {
+const STATUS: Record<string, string> = { paid: "Paid", complete: "Paid", pending: "Pending", canceled: "Cancelled", refunded: "Refunded" };
+
+export default async function OrdersPage({ searchParams }: { searchParams: DashboardSearchParams }) {
+  const { user, demo } = await getDashboardContext(searchParams);
+  let orders: Order[] = ORDERS;
+  if (!demo) {
+    const rows = await prisma.purchase.findMany({
+      where: { userId: user.id, status: { not: "pending" } },
+      orderBy: { createdAt: "desc" },
+    });
+    orders = rows.map((p) => ({
+      id: p.id.slice(-6).toUpperCase(),
+      date: p.createdAt.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }),
+      item: p.planName,
+      note: p.mode === "subscription" ? "Subscription" : "One time",
+      amount: `$${(p.amount / 100).toFixed(2)}`,
+      status: STATUS[p.status] ?? p.status,
+    }));
+  }
+
   return (
     <div className="space-y-6">
       <p className="max-w-2xl text-sm text-muted">Everything you have purchased, newest first. Prices are in USD.</p>
 
+      {orders.length === 0 && (
+        <Panel>
+          <p className="px-5 py-10 text-center text-sm text-muted">
+            No orders yet.{" "}
+            <Link href="/pricing" className="font-medium text-brand-600 underline underline-offset-4">
+              See the plans
+            </Link>
+            .
+          </p>
+        </Panel>
+      )}
+
+      {orders.length > 0 && (
       <Panel>
         {/* Wide screens: a table. Phones: stacked rows. */}
         <table className="hidden w-full text-left text-sm md:table">
@@ -21,7 +55,7 @@ export default function OrdersPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-line">
-            {ORDERS.map((o) => (
+            {orders.map((o) => (
               <tr key={o.id} className="transition-colors hover:bg-brand-50">
                 <td className="t-mono px-5 py-4 text-muted">#{o.id}</td>
                 <td className="px-5 py-4 text-body">{o.date}</td>
@@ -42,7 +76,7 @@ export default function OrdersPage() {
         </table>
 
         <ul className="divide-y divide-line md:hidden">
-          {ORDERS.map((o) => (
+          {orders.map((o) => (
             <li key={o.id} className="px-5 py-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -60,6 +94,7 @@ export default function OrdersPage() {
           ))}
         </ul>
       </Panel>
+      )}
 
       <p className="text-sm text-muted">
         Question about an order?{" "}

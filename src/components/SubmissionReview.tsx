@@ -152,7 +152,7 @@ export default function SubmissionReview({
                 : "bg-chip text-muted"
           }`}
         >
-          {status === "reviewed" ? t.status.reviewed : status === "rejected" ? "Rejected" : t.status.pending}
+          {status === "reviewed" ? t.status.reviewed : status === "rejected" ? "Rejected" : status === "in_review" ? "In review" : t.status.pending}
         </span>
       </div>
 
@@ -193,14 +193,19 @@ export default function SubmissionReview({
       )}
 
       <div className="mt-2 flex items-center justify-between">
-        <a
-          href={`/api/videos/${submission.id}/file`}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block text-sm text-brand-600"
-        >
-          {t.watchVideo}
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href={`/api/videos/${submission.id}/file`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block text-sm text-brand-600"
+          >
+            {t.watchVideo}
+          </a>
+          <a href={`/submissions/${submission.id}`} className="inline-block text-sm font-semibold text-brand-600">
+            Open report editor
+          </a>
+        </div>
         {canReject && status !== "rejected" && (
           <button
             type="button"

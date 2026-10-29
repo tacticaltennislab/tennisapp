@@ -148,9 +148,9 @@ export async function consumeCredits(input: ConsumeInput, db: Db = prisma): Prom
 }
 
 /**
- * Gives back what a submission cost (every "submission" row for it, to the same account that paid).
- * Idempotent: a submission is refunded at most once. Returns the credits refunded (0 if it cost
- * nothing or was already refunded).
+ * Gives back what a submission has cost: per account, the credits still outstanding (charges minus any
+ * refunds and corrections already made for it), so a submission is never refunded more than it cost.
+ * Idempotent: once refunded, a second call finds nothing outstanding. Returns the credits refunded.
  */
 export async function refundSubmissionCredits(
   videoSubmissionId: string,
@@ -158,17 +158,20 @@ export async function refundSubmissionCredits(
   db: Db = prisma
 ): Promise<number> {
   return inTransaction(db, async (tx) => {
-    const spent = await tx.creditLedger.findMany({
-      where: { videoSubmissionId, reason: "submission" },
-      select: { userId: true, academyId: true, delta: true },
+    const rows = await tx.creditLedger.groupBy({
+      by: ["userId", "academyId"],
+      where: { videoSubmissionId },
+      _sum: { delta: true },
     });
     let refunded = 0;
-    for (const row of spent) {
+    for (const row of rows) {
+      const outstanding = -(row._sum.delta ?? 0);
+      if (outstanding <= 0) continue;
       const account: CreditAccount = row.userId ? { userId: row.userId } : { academyId: row.academyId! };
       const { granted } = await grantCredits(
         {
           account,
-          amount: -row.delta,
+          amount: outstanding,
           reason: "refund",
           videoSubmissionId,
           note,
@@ -176,7 +179,7 @@ export async function refundSubmissionCredits(
         },
         tx
       );
-      if (granted) refunded += -row.delta;
+      if (granted) refunded += outstanding;
     }
     return refunded;
   });

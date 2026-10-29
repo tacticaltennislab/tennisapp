@@ -20,10 +20,13 @@ const SWIPE_THRESHOLD = 60;
 
 export default function PricingCarousel({
   plans,
+  addOns = [],
   referralCount = 0,
   lang = "en",
 }: {
   plans: Plan[];
+  /** Add ons are not cards: each one is a checkbox on the plan it is sold with (`addOnFor`). */
+  addOns?: Plan[];
   referralCount?: number;
   lang?: AppLocale;
 }) {
@@ -32,6 +35,8 @@ export default function PricingCarousel({
   const [index, setIndex] = useState(0);
   const [checkingOut, setCheckingOut] = useState<string | null>(null);
   const [acknowledged, setAcknowledged] = useState<Record<string, boolean>>({});
+  // Which add ons are ticked, by add on plan id.
+  const [addOnChosen, setAddOnChosen] = useState<Record<string, boolean>>({});
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -56,6 +61,11 @@ export default function PricingCarousel({
       ? c.included.replace("{credits}", formatCredits(lang, plan.credits, c.noun))
       : c.addOnNote;
   }
+
+  const addOnsOf = (plan: Plan) => addOns.filter((a) => a.addOnFor === plan.planId);
+  const chosenAddOns = (plan: Plan) => addOnsOf(plan).filter((a) => addOnChosen[a.planId]);
+  const discountedCentsOf = (cents: number, percent: number) =>
+    percent > 0 ? Math.round((cents * (100 - percent)) / 100) : cents;
 
   const withdrawalNotice: Record<Plan["mode"], string> = {
     payment: t.withdrawalPayment,
@@ -86,7 +96,11 @@ export default function PricingCarousel({
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ planId: plan.planId, acknowledgedWithdrawal: true }),
+      body: JSON.stringify({
+        planId: plan.planId,
+        addOns: chosenAddOns(plan).map((a) => a.planId),
+        acknowledgedWithdrawal: true,
+      }),
     });
 
     const data = await res.json().catch(() => ({}));
@@ -192,6 +206,42 @@ export default function PricingCarousel({
                       </li>
                     ))}
                   </ul>
+                  {addOnsOf(plan).map((addOn) => {
+                    const addOnText = textFor(addOn);
+                    const chosen = chosenAddOns(plan);
+                    const total = discountedCentsOf(
+                      plan.amountCents + chosen.reduce((sum, a) => sum + a.amountCents, 0),
+                      discountPercent
+                    );
+                    return (
+                      <div
+                        key={addOn.planId}
+                        className={`mt-5 rounded-xl border p-3 text-sm ${
+                          plan.featured ? "border-white/30 bg-white/10" : "border-line bg-brand-50/50"
+                        }`}
+                      >
+                        <label className="flex items-start gap-2">
+                          <input
+                            type="checkbox"
+                            checked={addOnChosen[addOn.planId] || false}
+                            onChange={(e) => setAddOnChosen((prev) => ({ ...prev, [addOn.planId]: e.target.checked }))}
+                            className="mt-0.5 shrink-0"
+                          />
+                          <span className="font-medium">
+                            {t.addOnLabel.replace("{name}", addOnText.name).replace("{price}", addOn.price)}
+                          </span>
+                        </label>
+                        <p className={`mt-1.5 pl-6 text-xs ${plan.featured ? "text-white/80" : "text-muted"}`}>
+                          {addOnText.description}
+                        </p>
+                        {addOnChosen[addOn.planId] && (
+                          <p className="t-mono mt-2 pl-6 text-sm font-semibold">
+                            {t.addOnTotal.replace("{price}", formatCents(total))}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
                   <label
                     className={`mt-5 flex items-start gap-2 text-xs ${plan.featured ? "text-white/85" : "text-body"}`}
                   >

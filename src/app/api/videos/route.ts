@@ -61,6 +61,8 @@ export async function POST(request: Request) {
         data: {
           userId: session.user.id,
           isFree: wantsFree,
+          analysisType,
+          declaredMinutes: analysisType === "stroke" ? null : (durationMinutes ?? null),
           footageType: wantsFree ? footageType : null,
           publishConsent,
           title,

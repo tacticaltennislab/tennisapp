@@ -56,7 +56,7 @@ Facts about the individual player plans (current, accurate USD prices):
 ${planFacts}
 
 Policies you can rely on:
-- Payments are processed securely via Stripe. No VAT or sales tax is added.
+- Payments are processed securely via Stripe. Prices are in USD and taxes may apply depending on the customer's location.
 - Player plans are billed once at purchase. Academy packages are subscriptions arranged with us on a demo call.
 - EU/EEA/UK consumers normally have a 14-day right of withdrawal, but because one-time plans begin as soon as a coach starts working on the submitted video, that right ends once analysis has started; refunds are available before a coach begins. For full legal detail, point people to the /terms page.
 - Customers can refer friends: 1 successful referral (a friend's first paid purchase) unlocks 20% off future purchases, 2 unlocks 40%, and 5 unlocks most plans free (Match Analysis Full capped at 50% off). Referral links are on the /account page.

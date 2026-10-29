@@ -76,6 +76,8 @@ export interface Plan {
   credits: number;
   /** An add on to an analysis: no credit, it unlocks a plan. */
   addOn?: boolean;
+  /** For an add on: the plan it is sold with (shown as a checkbox on that plan, not as its own card). */
+  addOnFor?: string;
   /** Can be bought online through /api/checkout. */
   sellOnline: boolean;
   featured?: boolean;
@@ -156,6 +158,7 @@ const PLAYER_PLANS: PlayerPlanConfig[] = [
     amountCents: 5000,
     credits: 0,
     addOn: true,
+    addOnFor: "stroke-analysis",
     sellOnline: true,
     name: "4 Week Training Program",
     period: "add on",
@@ -182,6 +185,14 @@ export const PLANS: Plan[] = PLAYER_PLANS.map((p) => ({
   mode: "payment" as const,
   price: formatUsd(p.amountCents),
 }));
+
+/** The add ons sold with a plan. */
+export function addOnsFor(planId: string): Plan[] {
+  return PLANS.filter((p) => p.addOn && p.addOnFor === planId);
+}
+
+/** The plans that get their own card on the pricing page (add ons are not among them). */
+export const CARD_PLANS: Plan[] = PLANS.filter((p) => !p.addOn);
 
 export function getPlan(planId: string): Plan {
   const plan = PLANS.find((p) => p.planId === planId);

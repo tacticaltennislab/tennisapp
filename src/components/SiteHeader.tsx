@@ -116,6 +116,9 @@ export default function SiteHeader() {
               <Link href={localizedHref(locale, "/submit-video")} className={linkClass}>
                 {t.sendVideo}
               </Link>
+              <Link href="/dashboard" className={linkClass}>
+                {t.dashboard}
+              </Link>
               {isAdmin ? (
                 <AdminNavMenu
                   label={t.admin}
@@ -124,7 +127,7 @@ export default function SiteHeader() {
                     { href: "/submissions", label: t.submissions },
                     { href: "/customers", label: t.customers },
                     { href: "/reviews/admin", label: t.reviews },
-                    { href: "/dashboard", label: "Dashboard (prototype)" },
+                    { href: "/dashboard?demo=1", label: "Dashboard demo (sample data)" },
                     ...(academyLink ? [{ href: academyLink.href, label: academyLink.label }] : []),
                   ]}
                 />
@@ -200,6 +203,9 @@ export default function SiteHeader() {
             <>
               <Link href={localizedHref(locale, "/submit-video")} className={linkClass} onClick={closeMenu}>
                 {t.sendVideo}
+              </Link>
+              <Link href="/dashboard" className={linkClass} onClick={closeMenu}>
+                {t.dashboard}
               </Link>
               {session.user?.role === "admin" && (
                 <>

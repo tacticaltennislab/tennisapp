@@ -1,45 +1,12 @@
 /**
- * SAMPLE DATA for the client dashboard prototype. None of this is stored,
- * sent or tied to a real account. Statuses are limited to the two the
- * platform really has: awaiting review and reviewed.
+ * SAMPLE DATA, used only by the clearly labelled demo mode at /dashboard?demo=1 (admins, on sales
+ * calls). None of this is stored, sent or tied to a real account.
  */
 
-export type ObservationKind = "strength" | "issue" | "tactical";
+import type { Analysis } from "@/lib/analysisTypes";
 
-export interface Observation {
-  id: string;
-  /** Seconds from the start of the video. */
-  t: number;
-  kind: ObservationKind;
-  title: string;
-  text: string;
-  /** Where the coach pointed, as a percentage of the frame. */
-  pin?: { x: number; y: number };
-}
-
-export interface Feedback {
-  strengths: string[];
-  issues: { title: string; detail: string }[];
-  tactical: string[];
-  priorities: string[];
-}
-
-export interface Analysis {
-  id: string;
-  title: string;
-  service: string;
-  status: "awaiting" | "reviewed";
-  submittedAt: string;
-  reviewedAt?: string;
-  coach?: string;
-  durationSec: number;
-  fileName: string;
-  fileSize: string;
-  focus: string[];
-  playerNote: string;
-  observations: Observation[];
-  feedback?: Feedback;
-}
+export type { Analysis, Feedback, Observation, ObservationKind } from "@/lib/analysisTypes";
+export { formatClock } from "@/lib/analysisTypes";
 
 export const PLAYER = { name: "Alex Morgan", initials: "AM", email: "alex.morgan@example.com" };
 
@@ -364,21 +331,14 @@ export interface Order {
   date: string;
   item: string;
   amount: string;
-  status: "Paid";
+  status: string;
   note: string;
 }
 
 export const ORDERS: Order[] = [
-  { id: "1043", date: "21 Oct 2026", item: "Match IQ: Short", amount: "$99.00", status: "Paid", note: "One time" },
-  { id: "1038", date: "12 Oct 2026", item: "Smart System", amount: "$99.00", status: "Paid", note: "4 week program" },
-  { id: "1037", date: "12 Oct 2026", item: "Stroke Fix", amount: "$49.00", status: "Paid", note: "One time" },
+  { id: "1043", date: "21 Oct 2026", item: "Match Analysis", amount: "$99.00", status: "Paid", note: "One time" },
+  { id: "1038", date: "12 Oct 2026", item: "4 Week Training Program", amount: "$99.00", status: "Paid", note: "One time" },
+  { id: "1037", date: "12 Oct 2026", item: "Stroke Analysis", amount: "$49.00", status: "Paid", note: "One time" },
 ];
 
 export const FOCUS_OPTIONS = ["Serve", "Forehand", "Backhand", "Volleys", "Footwork", "Tactical", "Fitness", "Mental"];
-
-export function formatClock(seconds: number): string {
-  const s = Math.max(0, seconds);
-  const m = Math.floor(s / 60);
-  const sec = Math.floor(s % 60);
-  return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
-}

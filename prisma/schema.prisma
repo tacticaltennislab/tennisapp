@@ -29,6 +29,7 @@ model User {
   academyMemberships AcademyMember[]
   academyPlayers    AcademyPlayer[]
   creditLedger      CreditLedger[]
+  reviewedSubmissions VideoSubmission[] @relation("ReviewedSubmissions")
   referredBy        User?               @relation("Referrals", fields: [referredByUserId], references: [id], onDelete: SetNull)
   referrals         User[]              @relation("Referrals")
 }
@@ -215,8 +216,17 @@ model VideoSubmission {
   publishConsent Boolean   @default(false)
   publishedAt    DateTime?
 
-  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // How the analysis was ordered and checked. status: pending | in_review | reviewed | rejected
+  analysisType      String?
+  declaredMinutes   Float?
+  actualDurationSec Float?
+  reviewedById      String?
+
+  user         User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reviewedBy   User?                   @relation("ReviewedSubmissions", fields: [reviewedById], references: [id], onDelete: SetNull)
   creditLedger CreditLedger[]
+  observations SubmissionObservation[]
+  report       SubmissionReport?
 }
 
 /// Every change to a credit balance is one row here; a balance is the sum of `delta`.
@@ -264,4 +274,44 @@ model AcademySubscription {
   academy Academy @relation(fields: [academyId], references: [id], onDelete: Cascade)
 
   @@index([academyId])
+}
+
+/// One coach observation on a moment of the video. Visible to the client once the submission is reviewed.
+model SubmissionObservation {
+  id           String   @id @default(cuid())
+  submissionId String
+  timeSec      Float
+  /// strength | issue | tactical
+  kind         String
+  title        String
+  text         String
+  /// Where the coach pointed, in percent of the frame
+  pinX         Float?
+  pinY         Float?
+  /// Annotated frame as a PNG data URL (imported from the local analysis tool)
+  drawing      String?
+  createdAt    DateTime @default(now())
+
+  submission VideoSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@index([submissionId])
+}
+
+/// The written summary of an analysis: what the client reads next to the video.
+model SubmissionReport {
+  id           String    @id @default(cuid())
+  submissionId String    @unique
+  strengths    String[]  @default([])
+  /// [{ title, detail }]
+  issues       Json      @default("[]")
+  tactical     String[]  @default([])
+  priorities   String[]  @default([])
+  /// [{ name, detail }]
+  drills       Json      @default("[]")
+  /// Match charting statistics imported from the local analysis tool, if any
+  charting     Json?
+  updatedAt    DateTime  @updatedAt
+  publishedAt  DateTime?
+
+  submission VideoSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
 }

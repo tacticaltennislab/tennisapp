@@ -5,7 +5,7 @@ import PricingAudienceSwitch from "@/components/PricingAudienceSwitch";
 import type { Audience } from "@/lib/pricingAudience";
 import ClubOffers from "@/components/ClubOffers";
 import { creditRuleText } from "@/lib/clubPricing";
-import { PLANS } from "@/lib/plans";
+import { CARD_PLANS, PLANS } from "@/lib/plans";
 import { auth } from "@/auth";
 import { countSuccessfulReferrals } from "@/lib/referral";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
@@ -40,7 +40,7 @@ export default async function PricingContent({
               <>
                 <p className="text-center text-xs text-muted -mt-4 mb-8">{t.noVatNote}</p>
                 <Reveal variant="zoom">
-                  <PricingCarousel plans={PLANS} referralCount={referralCount} lang={lang} />
+                  <PricingCarousel plans={CARD_PLANS} addOns={PLANS.filter((p) => p.addOn)} referralCount={referralCount} lang={lang} />
                 </Reveal>
               </>
             }

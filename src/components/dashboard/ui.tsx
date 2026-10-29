@@ -1,15 +1,22 @@
 import type { Analysis, ObservationKind } from "@/lib/dashboardSample";
 
 export function StatusChip({ status }: { status: Analysis["status"] }) {
-  return status === "reviewed" ? (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-600/15 px-2.5 py-1 text-xs font-semibold text-brand-600">
-      <span className="h-1.5 w-1.5 rounded-full bg-brand-600" aria-hidden="true" />
-      Reviewed
-    </span>
-  ) : (
+  if (status === "reviewed") {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-600/15 px-2.5 py-1 text-xs font-semibold text-brand-600">
+        <span className="h-1.5 w-1.5 rounded-full bg-brand-600" aria-hidden="true" />
+        Reviewed
+      </span>
+    );
+  }
+  const label = status === "in_review" ? "In review" : status === "rejected" ? "Not accepted" : "Awaiting review";
+  return (
     <span className="inline-flex items-center gap-1.5 rounded-full bg-chip px-2.5 py-1 text-xs font-semibold text-body">
-      <span className="h-1.5 w-1.5 rounded-full bg-muted" aria-hidden="true" />
-      Awaiting review
+      <span
+        className={`h-1.5 w-1.5 rounded-full ${status === "in_review" ? "bg-[#f5a524]" : status === "rejected" ? "bg-[#ff8a7a]" : "bg-muted"}`}
+        aria-hidden="true"
+      />
+      {label}
     </span>
   );
 }
