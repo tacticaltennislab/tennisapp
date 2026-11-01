@@ -7,6 +7,7 @@ import TrustStrip from "@/components/TrustStrip";
 import FinalCta from "@/components/FinalCta";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
+import SampleReportCarousel from "@/components/SampleReportCarousel";
 import HeroSection from "@/components/HeroSection";
 import { prisma } from "@/lib/prisma";
 import type { AppLocale } from "@/i18n/locales";
@@ -69,6 +70,8 @@ export default async function HomeContent({ lang = "en" }: { lang?: AppLocale })
       <ServicesSection lang={lang} />
 
       <ProcessSection lang={lang} />
+
+      <SampleReportCarousel lang={lang} />
 
       <OffersPreview lang={lang} />
 
