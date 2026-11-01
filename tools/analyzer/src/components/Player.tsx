@@ -213,7 +213,10 @@ export default function Player(p: Props) {
           ))}
           <label className="inline muted" title="Frame stepping assumes this frame rate. Match it to your camera.">
             Step at
-            <select value={p.fps} onChange={(e) => p.onFps(Number(e.target.value))}>
+            <select value={p.fps} onChange={(e) => {
+                p.onFps(Number(e.target.value));
+                e.target.blur();
+              }}>
               {FPS.map((f) => (
                 <option key={f} value={f}>
                   {f} fps
@@ -225,6 +228,7 @@ export default function Player(p: Props) {
       </div>
 
       <div className="toolbar">
+        {!p.src && <p className="needvideo" data-testid="need-video">Open a video above to add notes and draw. Both are tied to a moment in the video.</p>}
         <button type="button" className="btn primary" disabled={!p.src} onClick={p.onAddNote} data-testid="add-note">
           Add note <kbd>N</kbd>
         </button>

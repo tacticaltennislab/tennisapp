@@ -55,6 +55,7 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
   // ---- video ------------------------------------------------------------------------------------------
   const openVideo = useCallback(
     (f: File) => {
+      setBanner(null);
       setVideoSrc((old) => {
         if (old) URL.revokeObjectURL(old);
         return URL.createObjectURL(f);
@@ -116,7 +117,13 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
   }, []);
 
   // ---- notes ------------------------------------------------------------------------------------------
-  const addNote = useCallback(() => {
+  const NEED_VIDEO = "Open a video first. Notes and drawings are tied to a moment in the video, so there is nothing to mark yet.";
+
+  const addNote = useCallback((focusTitle = true) => {
+    if (!videoSrc) {
+      setBanner(NEED_VIDEO);
+      return null;
+    }
     const id = uid();
     const time = Math.round(player.time * 100) / 100;
     const note: Note = { id, time, type: "issue", title: "", text: "", shapes: [] };
@@ -124,9 +131,11 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
     update((p) => ({ ...p, notes: [...p.notes, note] }));
     setSelected(id);
     setTab("notes");
-    setFocusId(id);
+    // Typing starts in the title of a note added with N, but not for the note that drawing creates.
+    if (focusTitle) setFocusId(id);
     return id;
-  }, [player, update]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [player, update, videoSrc]);
 
   const changeNote = (id: string, patch: Partial<Note>) => update((p) => ({ ...p, notes: p.notes.map((n) => (n.id === id ? { ...n, ...patch } : n)) }));
 
@@ -142,19 +151,23 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
 
   const startDrawing = useCallback(
     (noteId?: string) => {
-      if (!videoSrc) return;
+      if (!videoSrc) {
+        setBanner(NEED_VIDEO);
+        return;
+      }
       player.pause();
-      let id = noteId;
+      let id: string | null | undefined = noteId;
       if (id) {
         const n = project.notes.find((x) => x.id === id);
         if (n) player.seek(n.time);
       } else {
         // Draw on the selected note if the video rests on its moment, otherwise start a new note here.
         const sel = project.notes.find((n) => n.id === selected);
-        id = sel && Math.abs(sel.time - player.time) < 0.5 ? sel.id : addNote();
+        id = sel && Math.abs(sel.time - player.time) < 0.5 ? sel.id : addNote(false);
       }
-      setSelected(id!);
-      setDrawNote(id!);
+      if (!id) return;
+      setSelected(id);
+      setDrawNote(id);
     },
     [videoSrc, player, project.notes, selected, addNote]
   );
@@ -195,18 +208,24 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
   const removeLastPoint = useCallback(() => update((p) => ({ ...p, points: p.points.slice(0, -1) })), [update]);
 
   // ---- keyboard ---------------------------------------------------------------------------------------
+  // Keys are matched by physical key (e.code), so Caps Lock, Shift and keyboard layout do not matter.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement;
       const mod = e.metaKey || e.ctrlKey;
-      if (mod && e.key.toLowerCase() === "s") {
+      if (mod && e.code === "KeyS") {
         e.preventDefault();
         void saveNow();
         return;
       }
-      if (isTyping(el) || e.altKey) return;
+      if (isTyping(el)) {
+        // Escape leaves the text field, so the shortcuts work again without reaching for the mouse.
+        if (e.code === "Escape") el.blur();
+        return;
+      }
+      if (e.altKey) return;
       if (mod) {
-        if (e.key.toLowerCase() === "z") {
+        if (e.code === "KeyZ") {
           e.preventDefault();
           if (drawing) undoShape();
           else if (tab === "chart") removeLastPoint();
@@ -214,8 +233,13 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
         return;
       }
       if (sheet) return;
-      switch (e.key) {
-        case " ":
+      // "?" is on a different physical key in other layouts, so it is matched by what it types.
+      if (e.key === "?") {
+        setSheet(true);
+        return;
+      }
+      switch (e.code) {
+        case "Space":
           if (el.tagName === "BUTTON") return;
           e.preventDefault();
           player.toggle();
@@ -228,27 +252,25 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
           e.preventDefault();
           player.step(1);
           break;
-        case "j":
+        case "KeyJ":
           player.jump(-5);
           break;
-        case "l":
+        case "KeyL":
           player.jump(5);
           break;
-        case "n":
+        case "KeyN":
           e.preventDefault();
-          addNote();
+          addNote(true);
           break;
-        case "d":
+        case "KeyD":
+          e.preventDefault();
           toggleDraw();
           break;
-        case "c":
+        case "KeyC":
           setTab("chart");
           break;
-        case "s":
+        case "KeyS":
           void saveNow();
-          break;
-        case "?":
-          setSheet(true);
           break;
         case "Escape":
           if (drawing) finishDrawing();
@@ -303,7 +325,7 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
           notes={project.notes}
           selectedId={selected}
           onSelect={setSelected}
-          onAddNote={addNote}
+          onAddNote={() => addNote(true)}
           onOpenVideo={openVideo}
           drawing={drawing}
           drawShapesList={activeNote?.shapes ?? []}
@@ -331,6 +353,7 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
                 notes={project.notes}
                 selectedId={selected}
                 focusId={focusId}
+                onFocused={() => setFocusId(null)}
                 onSelect={setSelected}
                 onJump={(t) => {
                   player.pause();

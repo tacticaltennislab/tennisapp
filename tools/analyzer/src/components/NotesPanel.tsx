@@ -9,6 +9,8 @@ interface Props {
   notes: Note[];
   selectedId: string | null;
   focusId: string | null;
+  /** Called once the title has the cursor, so later changes do not pull the cursor back. */
+  onFocused: () => void;
   onSelect: (id: string) => void;
   onJump: (time: number) => void;
   onChange: (id: string, patch: Partial<Note>) => void;
@@ -17,14 +19,16 @@ interface Props {
 }
 
 /** The notes of the analysis, in time order. Click one to jump to that moment. */
-export default function NotesPanel({ notes, selectedId, focusId, onSelect, onJump, onChange, onDelete, onDraw }: Props) {
+export default function NotesPanel({ notes, selectedId, focusId, onFocused, onSelect, onJump, onChange, onDelete, onDraw }: Props) {
   const titles = useRef<Record<string, HTMLInputElement | null>>({});
   const sorted = [...notes].sort((a, b) => a.time - b.time);
 
   // A new note gets the cursor in its title.
   useEffect(() => {
-    if (focusId) titles.current[focusId]?.focus();
-  }, [focusId, notes.length]);
+    if (!focusId) return;
+    titles.current[focusId]?.focus();
+    onFocused();
+  }, [focusId, notes.length, onFocused]);
 
   if (sorted.length === 0) {
     return (
@@ -55,7 +59,10 @@ export default function NotesPanel({ notes, selectedId, focusId, onSelect, onJum
               aria-label="Type"
               value={n.type}
               style={{ borderColor: NOTE_COLORS[n.type] }}
-              onChange={(e) => onChange(n.id, { type: e.target.value as NoteType })}
+              onChange={(e) => {
+                onChange(n.id, { type: e.target.value as NoteType });
+                e.target.blur();
+              }}
             >
               {NOTE_TYPES.map((t) => (
                 <option key={t} value={t}>
