@@ -24,6 +24,8 @@ npm run dev
 
 The tool opens at http://localhost:5174 (if that port is busy, Vite prints the address it used). To run a built copy instead: `npm run build && npm run preview`. Do not use the repository's own `npm run dev`: that starts the website, not this tool.
 
+`npm run analyzer` runs npm with a clean environment on purpose: a setting such as `allow-scripts` in your `~/.npmrc` otherwise makes a nested `npm install` fail with `EALLOWSCRIPTS`.
+
 If it does not start, the first lines of the output say why. The usual causes are an old Node.js (install a current one from https://nodejs.org) or `npm install` not having been run inside `tools/analyzer`.
 
 Other commands: `npm test` (unit tests for the statistics and the file format) and `npm run typecheck`.

@@ -9,7 +9,7 @@
     "lint": "eslint",
     "postinstall": "prisma generate",
     "test": "vitest run",
-    "analyzer": "cd tools/analyzer && npm install && npm run dev"
+    "analyzer": "node tools/analyzer/scripts/start.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.126.0",
