@@ -128,6 +128,7 @@ export default function SiteHeader() {
                     { href: "/customers", label: t.customers },
                     { href: "/reviews/admin", label: t.reviews },
                     { href: "/dashboard?demo=1", label: "Dashboard demo (sample data)" },
+                    { href: "/ai-analysis", label: "AI analysis" },
                     ...(academyLink ? [{ href: academyLink.href, label: academyLink.label }] : []),
                   ]}
                 />
@@ -217,6 +218,9 @@ export default function SiteHeader() {
                   </Link>
                   <Link href="/reviews/admin" className={linkClass} onClick={closeMenu}>
                     {t.reviews}
+                  </Link>
+                  <Link href="/ai-analysis" className={linkClass} onClick={closeMenu}>
+                    AI analysis
                   </Link>
                 </>
               )}
