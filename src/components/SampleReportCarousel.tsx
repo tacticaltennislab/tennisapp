@@ -16,7 +16,7 @@ import { localizedHref, type AppLocale } from "@/i18n/locales";
  * Turn this on once the technique sample files are in public/sample-report/technique/ (page-1..3.webp,
  * page-1..3-sm.webp and tactical-tennis-lab-technique-sample.pdf). Off: no tabs, only the match sample.
  */
-const SHOW_TECHNIQUE_SAMPLE = false;
+const SHOW_TECHNIQUE_SAMPLE = true;
 
 const WIDTH = 1590;
 const HEIGHT = 2248;
