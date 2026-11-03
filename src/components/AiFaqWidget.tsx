@@ -1,8 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IconChat, IconClose, IconSpark } from "@/components/icons";
+import { floatButtonClasses, useClearSpot } from "@/components/useClearSpot";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -18,6 +19,9 @@ export default function AiFaqWidget() {
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const root = useRef<HTMLDivElement>(null);
+  // On a phone the button only shows in full where nothing is under it; otherwise it waits at the edge.
+  const mode = useClearSpot(root, "left", open);
 
   async function send(content: string) {
     if (!content.trim() || sending) return;
@@ -46,7 +50,7 @@ export default function AiFaqWidget() {
   if (pathname.startsWith("/dashboard")) return null;
 
   return (
-    <div className="print:hidden fixed bottom-5 left-5 z-30">
+    <div ref={root} className="print:hidden fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-3 z-30 md:bottom-5 md:left-5">
       {open && (
         <div className="mb-3 w-[calc(100vw-2.5rem)] max-w-sm animate-fade-up">
           <div className="rounded-2xl border border-line bg-surface shadow-xl overflow-hidden flex flex-col max-h-[70vh]">
@@ -136,9 +140,16 @@ export default function AiFaqWidget() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close quick questions" : "Ask a quick question"}
-        className="w-14 h-14 rounded-full bg-onyx hover:bg-onyx/90 text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center"
+        aria-hidden={mode === "hidden" ? true : undefined}
+        tabIndex={mode === "hidden" ? -1 : undefined}
+        data-float-mode={mode}
+        className={`${floatButtonClasses(mode, "left")} bg-onyx hover:bg-onyx/90 text-white`}
       >
-        {open ? <IconClose className="w-6 h-6" /> : <IconChat className="w-6 h-6 text-lime-300" />}
+        {open ? (
+          <IconClose className="h-5 w-5 md:h-6 md:w-6" />
+        ) : (
+          <IconChat className={`text-lime-300 md:h-6 md:w-6 ${mode === "full" ? "h-5 w-5" : "h-3.5 w-3.5"}`} />
+        )}
       </button>
     </div>
   );

@@ -50,7 +50,7 @@ function Backdrop() {
       }}
     >
       {/* The texture is a charcoal duotone: a light, soft wash in light mode (never dark patches), deeper in dark mode. */}
-      <div className="absolute -inset-8 opacity-[0.3] blur-[3px] dark:opacity-60">
+      <div className="absolute -inset-8 opacity-[0.18] blur-[6px] dark:opacity-[0.2]">
         <ClayPhoto {...CLAY.texture} />
       </div>
       <div className="absolute inset-0 bg-background/45 dark:bg-black/35" />
@@ -301,7 +301,7 @@ export default function SampleReportCarousel({ lang = "en" }: { lang?: AppLocale
   const panelProps = showTabs ? ({ role: "tabpanel", id: `sample-panel-${shown}`, "aria-labelledby": `sample-tab-${shown}` } as const) : {};
 
   return (
-    <section id="sample-report" aria-labelledby="sample-report-title" className="section-pad relative isolate scroll-mt-16">
+    <section id="sample-report" aria-labelledby="sample-report-title" className="section-pad section-pad-tight-end relative isolate scroll-mt-16">
       <Backdrop />
       <div className="container-x">
         <Reveal className="max-w-3xl">
@@ -435,7 +435,9 @@ export default function SampleReportCarousel({ lang = "en" }: { lang?: AppLocale
                 </div>
               </div>
 
-              <p className="mt-5 text-center text-xs text-muted">{t.note}</p>
+              <p className="mt-5 text-center text-xs text-muted" data-testid="report-note">
+                {shown === "technique" ? t.techniqueNote : t.note}
+              </p>
             </div>
           </div>
         </Reveal>
