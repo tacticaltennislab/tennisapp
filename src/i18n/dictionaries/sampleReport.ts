@@ -23,6 +23,15 @@ export interface SampleReportDict {
   lightboxLabel: string;
   close: string;
   dots: string;
+  /** The technique sample (shown only when the flag in the component is on). */
+  tabsLabel: string;
+  tabMatch: string;
+  tabTechnique: string;
+  techniqueSubtitle: string;
+  techniqueCaptions: [string, string, string];
+  techniquePdf: string;
+  techniqueCta: string;
+  techniqueCarouselLabel: string;
 }
 
 const en: SampleReportDict = {
@@ -48,6 +57,18 @@ const en: SampleReportDict = {
   lightboxLabel: "Sample report, page {n} of {total}",
   close: "Close",
   dots: "Choose a page",
+  tabsLabel: "Choose a sample",
+  tabMatch: "Match analysis",
+  tabTechnique: "Technique analysis",
+  techniqueSubtitle: "One stroke, frame by frame. Film it from behind and from the side.",
+  techniqueCaptions: [
+    "The serve split into 8 stages, every frame marked up by a coach.",
+    "Trophy position, racket face and grip: what costs speed, measured in both serves.",
+    "Checklist against the reference model and a two-week drill plan.",
+  ],
+  techniquePdf: "Download the sample",
+  techniqueCta: "Get a stroke analysis",
+  techniqueCarouselLabel: "Technique sample pages",
 };
 
 const pl: SampleReportDict = {
@@ -73,6 +94,18 @@ const pl: SampleReportDict = {
   lightboxLabel: "Przykładowy raport, strona {n} z {total}",
   close: "Zamknij",
   dots: "Wybierz stronę",
+  tabsLabel: "Wybierz przykład",
+  tabMatch: "Analiza meczu",
+  tabTechnique: "Analiza techniki",
+  techniqueSubtitle: "Jedno uderzenie, klatka po klatce. Nagraj je z tyłu i z boku.",
+  techniqueCaptions: [
+    "Serwis rozbity na 8 faz, każda klatka opisana przez trenera.",
+    "Trophy, ustawienie rakiety i chwyt: co zabiera prędkość, zmierzone w obu serwisach.",
+    "Checklista względem wzorca i plan ćwiczeń na dwa tygodnie.",
+  ],
+  techniquePdf: "Pobierz przykład",
+  techniqueCta: "Zamów analizę uderzenia",
+  techniqueCarouselLabel: "Strony przykładu analizy techniki",
 };
 
 export function sampleReportDict(lang: AppLocale): SampleReportDict {
