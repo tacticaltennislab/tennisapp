@@ -1,10 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import MessageThread from "@/components/MessageThread";
 import { IconChat, IconClose } from "@/components/icons";
+import { floatButtonClasses, useClearSpot } from "@/components/useClearSpot";
 
 interface Message {
   id: string;
@@ -21,6 +22,8 @@ export default function ChatWidget() {
   const [loaded, setLoaded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [unread, setUnread] = useState(0);
+  const root = useRef<HTMLDivElement>(null);
+  const mode = useClearSpot(root, "right", open);
 
   const isCustomer = status === "authenticated" && session?.user?.role !== "admin";
 
@@ -58,7 +61,7 @@ export default function ChatWidget() {
   if (pathname.startsWith("/dashboard")) return null;
 
   return (
-    <div className="print:hidden fixed bottom-5 right-5 z-30">
+    <div ref={root} className="print:hidden fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] right-3 z-30 md:bottom-5 md:right-5">
       {open && (
         <div className="mb-3 w-[calc(100vw-2.5rem)] max-w-sm animate-fade-up">
           <div className="rounded-2xl border border-line bg-surface shadow-xl overflow-hidden">
@@ -82,10 +85,17 @@ export default function ChatWidget() {
         type="button"
         onClick={() => (open ? setOpen(false) : handleOpen())}
         aria-label={open ? "Close chat" : "Open chat with your coach"}
-        className="relative w-14 h-14 rounded-full bg-brand-600 hover:bg-brand-700 text-on-brand shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center"
+        aria-hidden={mode === "hidden" ? true : undefined}
+        tabIndex={mode === "hidden" ? -1 : undefined}
+        data-float-mode={mode}
+        className={`${floatButtonClasses(mode, "right")} relative bg-brand-600 hover:bg-brand-700 text-on-brand`}
       >
-        {open ? <IconClose className="w-6 h-6" /> : <IconChat className="w-6 h-6" />}
-        {!open && unread > 0 && (
+        {open ? (
+          <IconClose className="h-5 w-5 md:h-6 md:w-6" />
+        ) : (
+          <IconChat className={`md:h-6 md:w-6 ${mode === "full" ? "h-5 w-5" : "h-3.5 w-3.5"}`} />
+        )}
+        {!open && unread > 0 && (mode === "full" || mode === "tab") && (
           <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-lime-400 text-[#12181f] text-xs font-bold flex items-center justify-center border-2 border-surface">
             {unread}
           </span>

@@ -223,8 +223,6 @@ export interface AcademyPlan {
   name: string;
   monthlyPriceCents: number;
   creditsPerMonth: number;
-  /** Flagged "Most popular". */
-  popular?: boolean;
   /** Can be bought online through /api/checkout. Off while academies are sold through a demo call. */
   sellOnline: boolean;
 }
@@ -237,7 +235,6 @@ export const ACADEMY_PLANS: AcademyPlan[] = [
     name: "High Performance",
     monthlyPriceCents: 195000,
     creditsPerMonth: 32,
-    popular: true,
     sellOnline: false,
   },
 ];

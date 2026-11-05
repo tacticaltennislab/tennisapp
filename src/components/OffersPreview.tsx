@@ -28,18 +28,9 @@ export default function OffersPreview({ lang = "en" }: { lang?: AppLocale }) {
             {tiers.map((tier) => (
               <li
                 key={tier.id}
-                className={`glass-panel grid gap-x-10 gap-y-3 rounded-3xl p-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_10rem] md:items-baseline md:p-8 ${
-                  tier.popular ? "!border-ink" : ""
-                }`}
+                className="glass-panel grid gap-x-10 gap-y-3 rounded-3xl p-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_10rem] md:items-baseline md:p-8"
               >
-                <div>
-                  <h3 className="text-xl font-semibold tracking-tight">{tier.name}</h3>
-                  {tier.popular && (
-                    <span className="mt-2 inline-block rounded-full bg-brand-600 px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-wider text-on-brand">
-                      {clubs.popularLabel}
-                    </span>
-                  )}
-                </div>
+                <h3 className="text-xl font-semibold tracking-tight">{tier.name}</h3>
                 <div>
                   <p className="text-[1.0625rem] leading-relaxed text-body max-w-xl">{tier.description}</p>
                   <p className="t-mono mt-2 text-sm font-semibold text-ink">{tier.creditsPerMonth}</p>

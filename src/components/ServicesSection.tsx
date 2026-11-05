@@ -26,7 +26,7 @@ export default function ServicesSection({ lang = "en" }: { lang?: AppLocale }) {
   const t = homeDictionaries[lang].services;
 
   return (
-    <section id="services" className="section-pad relative isolate scroll-mt-16">
+    <section id="services" className="section-pad section-pad-tight-end relative isolate scroll-mt-16">
       <ClayBackdrop />
       <div className="container-x">
         <Reveal className="max-w-3xl">

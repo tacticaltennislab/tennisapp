@@ -28,6 +28,8 @@ export interface SampleReportDict {
   tabMatch: string;
   tabTechnique: string;
   techniqueSubtitle: string;
+  /** The small note under the carousel on the technique tab (the match tab uses `note`). */
+  techniqueNote: string;
   techniqueCaptions: [string, string, string];
   techniquePdf: string;
   techniqueCta: string;
@@ -61,6 +63,7 @@ const en: SampleReportDict = {
   tabMatch: "Match analysis",
   tabTechnique: "Technique analysis",
   techniqueSubtitle: "One stroke, frame by frame. Film it from behind and from the side.",
+  techniqueNote: "Sample analysis, shared with the player's family's permission.",
   techniqueCaptions: [
     "The serve split into 8 stages, every frame marked up by a coach.",
     "Trophy position, racket face and grip: what costs speed, measured in both serves.",
@@ -98,6 +101,7 @@ const pl: SampleReportDict = {
   tabMatch: "Analiza meczu",
   tabTechnique: "Analiza techniki",
   techniqueSubtitle: "Jedno uderzenie, klatka po klatce. Nagraj je z tyłu i z boku.",
+  techniqueNote: "Przykładowa analiza, udostępniona za zgodą rodziny zawodniczki.",
   techniqueCaptions: [
     "Serwis rozbity na 8 faz, każda klatka opisana przez trenera.",
     "Trophy, ustawienie rakiety i chwyt: co zabiera prędkość, zmierzone w obu serwisach.",

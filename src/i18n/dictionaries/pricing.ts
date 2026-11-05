@@ -46,7 +46,6 @@ export interface PricingDict {
       billed: string;
     };
     cta: string;
-    popularLabel: string;
     note: string;
   };
   credits: {
@@ -124,7 +123,6 @@ const en: PricingDict = {
     perMonth: "/month",
     billing: { title: "Billing", monthly: "Monthly", quarterly: "Quarterly", semiannual: "Semi annual", save: "save {pct}%", billed: "billed {total}" },
     cta: "Book a demo",
-    popularLabel: "Most popular",
     note: "Every club package is set up personally by Piotr Kusiewicz and Mateusz Kułakowski, get in touch and we'll tailor it to your roster.",
   },
   credits: {
@@ -203,7 +201,6 @@ const pl: PricingDict = {
     perMonth: "/mies.",
     billing: { title: "Rozliczenie", monthly: "Miesięcznie", quarterly: "Kwartalnie", semiannual: "Półrocznie", save: "oszczędzasz {pct}%", billed: "płatność {total}" },
     cta: "Umów demo",
-    popularLabel: "Najpopularniejszy",
     note: "Każdym pakietem klubowym zajmują się osobiście Piotr Kusiewicz i Mateusz Kułakowski, napisz do nas, a dopasujemy go do Twojego zespołu.",
   },
   credits: {
@@ -282,7 +279,6 @@ const es: PricingDict = {
     perMonth: "/mes",
     billing: { title: "Facturación", monthly: "Mensual", quarterly: "Trimestral", semiannual: "Semestral", save: "ahorra {pct}%", billed: "se cobra {total}" },
     cta: "Reserva una demo",
-    popularLabel: "Más popular",
     note: "Cada paquete para clubes lo configuran personalmente Piotr Kusiewicz y Mateusz Kułakowski, contáctanos y lo adaptaremos a tu equipo.",
   },
   credits: {
@@ -361,7 +357,6 @@ const it: PricingDict = {
     perMonth: "/mese",
     billing: { title: "Fatturazione", monthly: "Mensile", quarterly: "Trimestrale", semiannual: "Semestrale", save: "risparmi il {pct}%", billed: "addebito {total}" },
     cta: "Prenota una demo",
-    popularLabel: "Più popolare",
     note: "Ogni pacchetto per club viene organizzato personalmente da Piotr Kusiewicz e Mateusz Kułakowski, contattaci e lo adatteremo alla tua squadra.",
   },
   credits: {
@@ -440,7 +435,6 @@ const ru: PricingDict = {
     perMonth: "/мес.",
     billing: { title: "Оплата", monthly: "Ежемесячно", quarterly: "Раз в квартал", semiannual: "Раз в полгода", save: "скидка {pct}%", billed: "списывается {total}" },
     cta: "Записаться на демо",
-    popularLabel: "Самый популярный",
     note: "Каждый клубный пакет настраивается лично Пиотром Кусевичем и Матеушем Кулаковским, свяжитесь с нами, и мы подберём вариант под вашу команду.",
   },
   credits: {

@@ -58,15 +58,8 @@ export default function ClubOffers({ lang = "en" }: { lang?: AppLocale }) {
         {tiers.map((tier, i) => (
           <Reveal key={tier.id} delay={i * 60}>
             <div
-              className={`relative h-full flex flex-col rounded-2xl border bg-surface p-6 shadow-sm ${
-                tier.popular ? "border-brand-600 ring-2 ring-brand-600/30 shadow-md" : "border-line"
-              }`}
+              className="relative h-full flex flex-col rounded-2xl border border-line bg-surface p-6 shadow-sm"
             >
-              {tier.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 text-on-brand text-xs font-semibold px-3 py-1 shadow-sm whitespace-nowrap">
-                  {t.popularLabel}
-                </span>
-              )}
               <h3 className="font-bold text-lg text-ink">{tier.name}</h3>
               <p className="mt-3 flex items-baseline gap-1">
                 <span className="text-3xl font-bold">{tier.monthlyPrice}</span>

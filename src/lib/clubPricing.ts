@@ -27,7 +27,6 @@ export interface ClubTierView {
   name: string;
   description: string;
   features: string[];
-  popular: boolean;
   /** "$550" */
   monthlyPrice: string;
   /** "8 credits per month" */
@@ -57,7 +56,6 @@ export function buildClubView(lang: AppLocale): { tiers: ClubTierView[]; pilot: 
       name: text.name,
       description: text.description,
       features: text.features,
-      popular: Boolean(plan.popular),
       monthlyPrice: formatUsd(plan.monthlyPriceCents),
       creditsPerMonth: clubs.creditsPerMonth.replace(
         "{credits}",

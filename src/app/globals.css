@@ -288,6 +288,12 @@
     padding-block: clamp(4.5rem, 11vw, 9.5rem);
   }
 
+  /* For a section whose own texture or glass already leaves air below its last element: the join to the
+     next section keeps a tighter step instead of two full paddings (about 175px instead of 300px on desktop). */
+  .section-pad-tight-end {
+    padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+
   .container-x {
     width: 100%;
     max-width: 75rem;
