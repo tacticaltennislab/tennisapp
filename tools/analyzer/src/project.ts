@@ -1,5 +1,7 @@
+import { resolveProject } from "./match";
+import { checkStartScore } from "./score";
 import { toCharting, type Charting } from "./stats";
-import { emptySummary, type ChartPoint, type Lang, type Note, type Project, type Summary } from "./types";
+import { DEFAULT_FORMAT, defaultScoring, emptySummary, type ChartPoint, type Lang, type Note, type Pair, type Project, type Scoring, type Summary } from "./types";
 
 /**
  * A project file is one JSON file that is also a valid "analysis import" for the website's report editor
@@ -24,7 +26,7 @@ export function cleanSummary(s: Summary): Summary {
   };
 }
 
-export function newProject(meta: Partial<Project["meta"]> = {}, lang: Lang = "en"): Project {
+export function newProject(meta: Partial<Project["meta"]> = {}, lang: Lang = "en", scoring: Scoring = defaultScoring()): Project {
   return {
     id: uid(),
     meta: { player: "", opponent: "", date: new Date().toISOString().slice(0, 10), surface: "hard", ...meta },
@@ -33,6 +35,7 @@ export function newProject(meta: Partial<Project["meta"]> = {}, lang: Lang = "en
     points: [],
     summary: emptySummary(),
     lang,
+    scoring,
     updatedAt: new Date().toISOString(),
   };
 }
@@ -54,13 +57,23 @@ export interface ProjectFile {
   }[];
   charting?: Charting;
   summary: Summary;
-  project: { id: string; lang: Lang; shapes: Record<string, Note["shapes"]>; points: ChartPoint[]; updatedAt: string };
+  project: {
+    id: string;
+    lang: Lang;
+    shapes: Record<string, Note["shapes"]>;
+    points: ChartPoint[];
+    /** Match format, first server and starting score (added later; older files have none). */
+    scoring: Scoring;
+    updatedAt: string;
+  };
 }
 
 const round2 = (n: number) => Math.round(n * 100) / 100;
 
 export function toFile(p: Project, now = new Date()): ProjectFile {
   const notes = [...p.notes].sort((a, b) => a.time - b.time);
+  // The statistics use the server and side as they apply (derived from the score unless overridden).
+  const resolved = resolveProject(p);
   return {
     format: FORMAT,
     version: VERSION,
@@ -76,19 +89,56 @@ export function toFile(p: Project, now = new Date()): ProjectFile {
       text: n.text,
       ...(n.drawing ? { drawing: n.drawing } : {}),
     })),
-    charting: toCharting(p.points),
+    charting: toCharting(resolved.points, resolved.pressure),
     summary: cleanSummary(p.summary),
     project: {
       id: p.id,
       lang: p.lang,
       shapes: Object.fromEntries(notes.filter((n) => n.shapes.length > 0).map((n) => [n.id, n.shapes])),
       points: p.points,
+      scoring: p.scoring,
       updatedAt: p.updatedAt,
     },
   };
 }
 
 const isObj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === "object" && !Array.isArray(v);
+
+const readPair = (v: unknown): Pair | null =>
+  isObj(v) && typeof v.player === "number" && typeof v.opponent === "number" && Number.isInteger(v.player) && Number.isInteger(v.opponent) && v.player >= 0 && v.opponent >= 0
+    ? { player: v.player, opponent: v.opponent }
+    : null;
+
+/**
+ * The match setup from a project file. Every field is optional: a missing or unreadable one gets its default, and a
+ * file without the block at all (made before scoring existed) is reported as `legacy`.
+ */
+export function readScoring(raw: unknown): { scoring: Scoring; legacy: boolean } {
+  if (!isObj(raw)) return { scoring: defaultScoring(), legacy: true };
+  const f = isObj(raw.format) ? raw.format : {};
+  const flag = (v: unknown, d: boolean) => (typeof v === "boolean" ? v : d);
+  const scoring: Scoring = {
+    format: {
+      bestOf: f.bestOf === 5 ? 5 : DEFAULT_FORMAT.bestOf,
+      tiebreak: flag(f.tiebreak, DEFAULT_FORMAT.tiebreak),
+      matchTiebreak: flag(f.matchTiebreak, DEFAULT_FORMAT.matchTiebreak),
+      noAd: flag(f.noAd, DEFAULT_FORMAT.noAd),
+    },
+    firstServer: raw.firstServer === "opponent" ? "opponent" : "player",
+  };
+  const s = raw.startScore;
+  if (isObj(s)) {
+    const sets = Array.isArray(s.sets) ? s.sets.map(readPair) : [];
+    const games = readPair(s.games);
+    const points = readPair(s.points);
+    if (games && points && sets.every((x): x is Pair => x !== null)) {
+      const start = { sets, games, points };
+      // A starting score that cannot happen would break every score after it: ignore it.
+      if (checkStartScore(scoring.format, start) === null) scoring.startScore = start;
+    }
+  }
+  return { scoring, legacy: false };
+}
 
 /** Reads a project file back. Throws a readable Error for anything that is not one of ours. */
 export function fromFile(raw: unknown): Project {
@@ -120,12 +170,16 @@ export function fromFile(raw: unknown): Project {
     ];
   });
 
+  // Points from files made before scoring existed keep the server and side they were charted with.
+  const { scoring, legacy } = readScoring(extra.scoring);
+  const points = list<ChartPoint>(extra.points).map((p) => (legacy ? { ...p, manualServer: true, manualSide: true } : p));
+
   return {
     id: str(extra.id) || uid(),
     meta: { player: str(raw.player), opponent: str(match.opponent), date: str(match.date), surface: str(match.surface, "hard") },
     video: { fileName: str(video.fileName), durationSec: num(video.durationSec), fps: num(video.fps, 30) },
     notes,
-    points: list<ChartPoint>(extra.points),
+    points,
     summary: {
       strengths: list<string>(summary.strengths),
       issues: list<{ title: string; detail: string }>(summary.issues),
@@ -134,6 +188,7 @@ export function fromFile(raw: unknown): Project {
       drills: list<{ name: string; detail: string }>(summary.drills),
     },
     lang: extra.lang === "pl" ? "pl" : "en",
+    scoring,
     updatedAt: str(extra.updatedAt, new Date().toISOString()),
   };
 }

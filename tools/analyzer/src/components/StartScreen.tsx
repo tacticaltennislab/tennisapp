@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { canUseFolders, createProjectFile, listRecent, openRecent, pickProjectFile, removeRecent, type RecentEntry } from "../fsStore";
 import { newProject } from "../project";
 import type { Settings } from "../settings";
-import { SURFACES, type Lang, type Project } from "../types";
+import { SURFACES, defaultScoring, type Lang, type Project, type Scoring } from "../types";
+import MatchSetupForm from "./MatchSetupForm";
 
 export interface Session {
   project: Project;
@@ -15,6 +16,9 @@ export default function StartScreen({ settings, onStart, onSettings }: { setting
   const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ player: "", opponent: "", date: new Date().toISOString().slice(0, 10), surface: "hard", lang: settings.lang as Lang });
   const [video, setVideo] = useState<File | null>(null);
+  // null while the starting score is being typed or is not possible
+  const [scoring, setScoring] = useState<Scoring | null>(defaultScoring());
+  const initialScoring = useRef(defaultScoring());
 
   useEffect(() => {
     void listRecent().then(setRecent);
@@ -23,7 +27,8 @@ export default function StartScreen({ settings, onStart, onSettings }: { setting
   async function create(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
-    const project = newProject({ player: form.player.trim(), opponent: form.opponent.trim(), date: form.date, surface: form.surface }, form.lang);
+    if (!scoring) return;
+    const project = newProject({ player: form.player.trim(), opponent: form.opponent.trim(), date: form.date, surface: form.surface }, form.lang, scoring);
     if (video) project.video.fileName = video.name;
     // The folder picker needs the click that submitted this form, so it comes before anything async.
     const file = await createProjectFile(project);
@@ -100,11 +105,17 @@ export default function StartScreen({ settings, onStart, onSettings }: { setting
                 <option value="pl">Polski</option>
               </select>
             </label>
+            <MatchSetupForm
+              lang={form.lang}
+              scoring={initialScoring.current}
+              names={{ player: form.player.trim() || "Player", opponent: form.opponent.trim() || "Opponent" }}
+              onChange={setScoring}
+            />
             <label className="block">
               Video <span className="muted">(mp4 or mov, stays on this computer)</span>
               <input type="file" accept="video/*,.mp4,.mov" data-testid="start-video" onChange={(e) => setVideo(e.target.files?.[0] ?? null)} />
             </label>
-            <button type="submit" className="btn primary" data-testid="create">
+            <button type="submit" className="btn primary" data-testid="create" disabled={!scoring}>
               {canUseFolders ? "Create and choose a project folder" : "Create analysis"}
             </button>
             {!canUseFolders && <p className="muted small">This browser cannot save into a folder. Work is kept in the browser and you can download the project file. Chrome or Edge can save to a folder.</p>}

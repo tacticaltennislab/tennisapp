@@ -3,7 +3,9 @@ import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
 import { LABELS, statRows } from "./i18n";
 import { clock } from "./project";
-import { computeStats, placement } from "./stats";
+import { resolveProject } from "./match";
+import { plainScore } from "./scoreText";
+import { placement } from "./stats";
 import type { Project, Summary } from "./types";
 import type { Settings } from "./settings";
 
@@ -35,7 +37,8 @@ export function systemPrompt(lang: "en" | "pl"): string {
 
 export function userPrompt(p: Project): string {
   const lang = p.lang;
-  const stats = computeStats(p.points);
+  // The statistics use the server and side from the score, and include break points and points at 30:30 or deuce.
+  const { stats, points, timeline } = resolveProject(p);
   const lines: string[] = [];
   lines.push(`Player: ${p.meta.player || "unknown"}`);
   if (p.meta.opponent) lines.push(`Opponent: ${p.meta.opponent}`);
@@ -49,7 +52,14 @@ export function userPrompt(p: Project): string {
   if (rows.length === 0) lines.push("(none)");
   for (const r of rows) lines.push(`- ${r.label}: ${r.value}`);
   if (stats.total > 0) {
-    const pl = placement(p.points, "player");
+    const f = p.scoring.format;
+    lines.push(
+      `- Match format: best of ${f.bestOf}${f.tiebreak ? ", tiebreak at 6:6" : ", no tiebreak"}${f.matchTiebreak ? ", deciding set a match tiebreak to 10" : ""}${f.noAd ? ", no-ad" : ""}`,
+      `- Score at the end of the charted points (${p.meta.player || "player"} first): ${plainScore(timeline[timeline.length - 1])}`
+    );
+  }
+  if (stats.total > 0) {
+    const pl = placement(points, "player");
     const l = LABELS[lang];
     for (const side of ["deuce", "ad"] as const) {
       const z = pl[side];

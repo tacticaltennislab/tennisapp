@@ -183,3 +183,33 @@ fieldset:disabled { opacity: 0.55; }
 .shortcuts dt, .shortcuts dd { margin: 0; }
 
 .needvideo { flex-basis: 100%; margin: 0; color: var(--issue); }
+
+/* Score tracking */
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.setup { margin: 14px 0; }
+.setup .row { gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+.choice, .check { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-weight: 500; cursor: pointer; }
+.choice input, .check input { width: auto; accent-color: var(--lime); }
+.setup-box { margin-top: 8px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; }
+.setupbox { margin: 0 0 14px; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; background: var(--panel-2); }
+.setupbox summary { cursor: pointer; font-weight: 600; }
+.setupbox .setup { margin-bottom: 0; }
+
+.scoreboard { margin-bottom: 14px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); }
+.scoreboard table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.scoreboard th, .scoreboard td { padding: 4px 8px; text-align: center; font-weight: 500; }
+.scoreboard thead th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+.scoreboard .name { text-align: left; }
+.scoreboard tbody th { font-weight: 600; }
+.scoreboard td.game { font-weight: 700; font-size: 18px; color: var(--lime); }
+.scoreboard tr.serving th .dot { color: var(--lime); }
+.scoreboard .dot { display: inline-block; width: 1em; }
+.scoreline { margin: 8px 0 0; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.scoreline strong { color: var(--text); }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 999px; background: var(--chip, #2b3037); border: 1px solid var(--line); font-size: 11px; font-weight: 600; }
+.tag.warn { border-color: var(--issue); color: var(--issue); background: #2a2412; }
+.banner-note { margin: 8px 0 0; padding: 8px 10px; border-radius: 8px; background: #2a2412; color: #ffe08a; }
+fieldset.override { border-color: var(--issue); box-shadow: inset 0 0 0 1px var(--issue); }
+.override-note { margin: 8px 0 0; font-size: 12px; }
+.group.spaced { margin-top: 6px; }
+.stats section { margin-top: 12px; }
