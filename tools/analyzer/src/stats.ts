@@ -1,4 +1,5 @@
 import { COURT, inBox, other, serveZone, serviceBox, type Zone } from "./court";
+import type { Pressure } from "./score";
 import type { ChartPoint, Pt, Who } from "./types";
 
 /** Charting numbers in the shape the website's editor reads (docs/analysis-import.md). */
@@ -11,6 +12,14 @@ export interface Charting {
   };
   rally?: { averageLength?: number };
   errors?: { unforced?: number; forced?: number; doubleFaults?: number; winners?: number; aces?: number };
+  /** Pressure points for the analysed player, from the score (added in a later version; the website ignores it). */
+  pressure?: {
+    breakPointsFaced: number;
+    breakPointsSaved: number;
+    breakPointChances: number;
+    breakPointsWon: number;
+    pointsAt3030OrDeuce: { played: number; won: number };
+  };
 }
 
 /** Did the serve land in the right box? Decided from where it landed, and stored with the point. */
@@ -53,6 +62,8 @@ export interface Stats {
   averageRally: number;
   player: PlayerStats;
   opponent: PlayerStats;
+  /** Set when the stats come from a project with a score (see match.ts). */
+  pressure?: Pressure;
 }
 
 /**
@@ -108,7 +119,7 @@ export function placement(points: ChartPoint[], who: Who): Record<"deuce" | "ad"
 }
 
 /** The numbers the website editor reads, for the analysed player. Left out entirely when nothing is charted. */
-export function toCharting(points: ChartPoint[]): Charting | undefined {
+export function toCharting(points: ChartPoint[], pressure?: Pressure): Charting | undefined {
   if (points.length === 0) return undefined;
   const st = computeStats(points);
   const me = st.player;
@@ -130,6 +141,17 @@ export function toCharting(points: ChartPoint[]): Charting | undefined {
       winners: me.winners,
       aces: me.aces,
     },
+    ...(pressure
+      ? {
+          pressure: {
+            breakPointsFaced: pressure.player.breakPointsFaced,
+            breakPointsSaved: pressure.player.breakPointsSaved,
+            breakPointChances: pressure.player.breakPointChances,
+            breakPointsWon: pressure.player.breakPointsWon,
+            pointsAt3030OrDeuce: { played: pressure.player.pressurePlayed, won: pressure.player.pressureWon },
+          },
+        }
+      : {}),
   };
 }
 

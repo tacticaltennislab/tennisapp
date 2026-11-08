@@ -4,7 +4,8 @@ import boldUrl from "./assets/fonts/Inter_700Bold.ttf?url";
 import { COURT, serviceBox } from "./court";
 import { LABELS, statRows, type Labels } from "./i18n";
 import { cleanSummary, clock } from "./project";
-import { computeStats, heatGrid, placement } from "./stats";
+import { resolveProject } from "./match";
+import { heatGrid, placement } from "./stats";
 import type { ChartPoint, Note, Project } from "./types";
 
 /** The PDF report. Brand colours: charcoal #121417 and lime #c6f24e. Inter is embedded so Polish letters print. */
@@ -203,19 +204,21 @@ export async function buildReport(project: Project): Promise<Blob> {
   pdf.y += 10;
 
   // Key statistics with the court diagrams
-  const stats = computeStats(project.points);
+  // Server and side as they apply (derived from the score unless overridden), and the pressure statistics.
+  const { stats, points: charted } = resolveProject(project);
   const rows = statRows(stats, project.lang);
+  // With the pressure rows the table can be long: tighter rows, and the page break below still keeps it whole.
+  const rowH = rows.length > 13 ? 8 : 10;
   pdf.heading(l.keyStats);
   if (rows.length === 0) {
     pdf.para(l.noStats, PAGE.margin, CONTENT_W, 10, { color: MUTED });
   } else {
     const courtW = 40;
     const courtH = COURT.length * (courtW / COURT.width);
-    pdf.ensure(Math.max(courtH + 12, rows.length * 10));
+    pdf.ensure(Math.max(courtH + 12, rows.length * rowH));
     const top = pdf.y;
     // Table on the left: labels may take two lines, so long Polish labels are not cut off.
     const tableW = 86;
-    const rowH = 10;
     rows.forEach((r, i) => {
       const ry = top + i * rowH;
       doc.setDrawColor(...LINE);
@@ -236,10 +239,10 @@ export async function buildReport(project: Project): Promise<Blob> {
     doc.text(l.landingHeat, x2, top + 2);
     const cy = top + 6;
     drawCourt(doc, x1, cy, courtW);
-    serveDots(doc, x1, cy, courtW, project.points);
-    zoneCounts(doc, x1, cy, courtW, project.points, l);
-    drawCourt(doc, x2, cy, courtW, heatGrid(project.points, "all"));
-    pdf.y = top + Math.max(rows.length * 10, courtH + 8) + 2;
+    serveDots(doc, x1, cy, courtW, charted);
+    zoneCounts(doc, x1, cy, courtW, charted, l);
+    drawCourt(doc, x2, cy, courtW, heatGrid(charted, "all"));
+    pdf.y = top + Math.max(rows.length * rowH, courtH + 8) + 2;
   }
 
   // Priorities

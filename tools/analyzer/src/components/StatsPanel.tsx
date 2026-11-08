@@ -1,5 +1,6 @@
-import { computeStats, pct, placement, type PlayerStats } from "../stats";
-import type { ChartPoint } from "../types";
+import { SCORE_UI } from "../i18n";
+import { pct, placement, type PlayerStats, type Stats } from "../stats";
+import type { ChartPoint, Lang } from "../types";
 
 function Col({ s, name }: { s: PlayerStats; name: string }) {
   return (
@@ -39,19 +40,44 @@ function Col({ s, name }: { s: PlayerStats; name: string }) {
   );
 }
 
-/** Live statistics for the charted points: both people, serve placement by zone, rally length. */
-export default function StatsPanel({ points, player, opponent }: { points: ChartPoint[]; player: string; opponent: string }) {
-  const st = computeStats(points);
+/** Live statistics for the charted points: both people, pressure points, serve placement by zone, rally length. */
+export default function StatsPanel({ stats: st, points, player, opponent, lang }: { stats: Stats; points: ChartPoint[]; player: string; opponent: string; lang: Lang }) {
+  const ui = SCORE_UI[lang];
   const pl = placement(points, "player");
+  const pr = st.pressure;
+  const ofText = (won: number, of: number) => (of > 0 ? `${won} / ${of}` : ui.none);
+  const names = [player || "Player", opponent || "Opponent"];
   return (
     <div className="stats" data-testid="stats">
       <p className="muted">
         {st.total} {st.total === 1 ? "point" : "points"} charted · average rally {st.averageRally.toFixed(1)} shots
       </p>
       <div className="statgrid">
-        <Col s={st.player} name={player || "Player"} />
-        <Col s={st.opponent} name={opponent || "Opponent"} />
+        <Col s={st.player} name={names[0]} />
+        <Col s={st.opponent} name={names[1]} />
       </div>
+
+      {pr && (
+        <section aria-label={ui.pressureTitle} data-testid="pressure">
+          <h4>{ui.pressureTitle}</h4>
+          <div className="statgrid">
+            {(["player", "opponent"] as const).map((who, i) => (
+              <div key={who} className="statcol">
+                <h4>{names[i]}</h4>
+                <dl>
+                  <dt>{ui.breakFacedSaved}</dt>
+                  <dd data-testid={`bp-saved-${who}`}>{ofText(pr[who].breakPointsSaved, pr[who].breakPointsFaced)}</dd>
+                  <dt>{ui.breakWon}</dt>
+                  <dd data-testid={`bp-won-${who}`}>{ofText(pr[who].breakPointsWon, pr[who].breakPointChances)}</dd>
+                  <dt>{ui.pressurePoints}</dt>
+                  <dd data-testid={`pressure-${who}`}>{ofText(pr[who].pressureWon, pr[who].pressurePlayed)}</dd>
+                </dl>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <h4>Serve placement ({player || "Player"})</h4>
       <table className="zones" data-testid="zones">
         <thead>

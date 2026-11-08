@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { captureFrame } from "../frame";
 import { downloadBlob, saveProject } from "../fsStore";
+import { resolveProject } from "../match";
 import { clock, uid } from "../project";
 import type { Settings } from "../settings";
-import type { ChartPoint, DrawTool, Meta, Note, Project, Shape, Summary } from "../types";
+import type { ChartPoint, DrawTool, Meta, Note, Project, Scoring, Shape, Summary } from "../types";
 import { DRAW_COLORS } from "../types";
 import { usePlayer } from "../usePlayer";
 import ChartingPanel from "./ChartingPanel";
@@ -204,6 +205,8 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
   };
 
   // ---- charting ---------------------------------------------------------------------------------------
+  // Score, server, side and the statistics are worked out from the points every time, never stored.
+  const resolved = useMemo(() => resolveProject({ points: project.points, scoring: project.scoring }), [project.points, project.scoring]);
   const addPoint = (p: ChartPoint) => update((pr) => ({ ...pr, points: [...pr.points, p] }));
   const removeLastPoint = useCallback(() => update((p) => ({ ...p, points: p.points.slice(0, -1) })), [update]);
 
@@ -366,7 +369,12 @@ export default function Workspace({ session, settings, onSettings, onClose }: Pr
             )}
             {tab === "chart" && (
               <ChartingPanel
-                points={project.points}
+                points={resolved.points}
+                timeline={resolved.timeline}
+                stats={resolved.stats}
+                scoring={project.scoring}
+                lang={project.lang}
+                onScoring={(scoring: Scoring) => update((p) => ({ ...p, scoring }))}
                 player={project.meta.player}
                 opponent={project.meta.opponent}
                 videoTime={() => (videoSrc ? Math.round(player.time * 100) / 100 : undefined)}

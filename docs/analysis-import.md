@@ -95,8 +95,15 @@ Every number is optional; leave out what the tool does not track. Counts are who
 - `rally.averageLength`: average number of shots per point.
 - `errors`: `unforced`, `forced`, `doubleFaults`, `winners`, `aces`.
 
+- `pressure` (optional, added by newer versions of the local tool): `breakPointsFaced`, `breakPointsSaved`, `breakPointChances`,
+  `breakPointsWon` and `pointsAt3030OrDeuce` (`played`, `won`), all for the analysed player. The editor ignores it for now.
+
 The editor turns these into plain sentences (for example "First serve: 70% in, 69% of points won.") offered
 as tactical notes, and keeps the raw numbers with the report.
+
+The project file of the local tool also carries a `project` block (drawings as shapes, the raw charted points, and since
+score tracking the match format, first server and starting score). The editor ignores the whole block, so files with or
+without it import the same way.
 
 ### What an import fills
 
