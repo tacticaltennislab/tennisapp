@@ -50,14 +50,14 @@ describe("creditsNeeded", () => {
     expect(creditsNeeded("stroke")).toBe(1);
     expect(creditsNeeded("stroke", 400)).toBe(1);
   });
-  it("is one credit per started 60 minutes of match or training footage", () => {
-    expect(creditsNeeded("match", 45)).toBe(1);
+  it("is 1 for a full match or training recording, whatever its length up to 2 hours", () => {
+    expect(creditsNeeded("match", 20)).toBe(1);
     expect(creditsNeeded("match", 60)).toBe(1);
-    expect(creditsNeeded("match", 61)).toBe(2);
-    expect(creditsNeeded("match", 120)).toBe(2);
-    expect(creditsNeeded("training", 90)).toBe(2);
+    expect(creditsNeeded("match", 61)).toBe(1);
+    expect(creditsNeeded("match", 120)).toBe(1);
+    expect(creditsNeeded("training", 90)).toBe(1);
   });
-  it("is at least 1 when the length is unknown", () => {
+  it("is 1 when the length is unknown", () => {
     expect(creditsNeeded("match")).toBe(1);
     expect(creditsNeeded("training", NaN)).toBe(1);
   });
@@ -130,10 +130,10 @@ describe("consumeCredits", () => {
     expect(await prisma.creditLedger.count({ where: { userId: u.id, delta: { lt: 0 } } })).toBe(0);
   });
 
-  it("says 'credits' when more than one is missing", async () => {
+  it("says 'analyses' when more than one is missing", async () => {
     const u = await newUser("short2");
     const err = await consumeCredits({ account: { userId: u.id }, amount: 3 }).catch((e) => e);
-    expect(err.message).toBe("You need 3 more credits");
+    expect(err.message).toBe("You need 3 more analyses");
   });
 
   it("two submissions can never both spend the last credit", async () => {
@@ -254,26 +254,39 @@ describe("Stripe webhook processing", () => {
   it("a paid player purchase grants that product's credits, and replaying the event grants nothing more", async () => {
     const sessionId = `cs_${RUN}_full`;
     await prisma.purchase.create({
-      data: { userId, planName: "Match Analysis Full", amount: 17900, mode: "payment", stripeSessionId: sessionId },
+      data: { userId, planName: "Match Analysis", amount: 15900, mode: "payment", stripeSessionId: sessionId },
     });
     const paid = event("checkout.session.completed", {
       id: sessionId,
       mode: "payment",
       customer: "cus_test",
       subscription: null,
-      metadata: { planId: "match-analysis-full", credits: "999" },
+      metadata: { planId: "match-analysis", credits: "999" },
     });
 
     await processStripeEvent(paid, { notify });
-    expect(await getBalance({ userId })).toBe(2); // from the config (2), not from the metadata (999)
+    expect(await getBalance({ userId })).toBe(1); // a full match is 1 analysis, from the config, not from the metadata (999)
     await processStripeEvent(paid, { notify });
     await processStripeEvent(paid, { notify });
-    expect(await getBalance({ userId })).toBe(2);
+    expect(await getBalance({ userId })).toBe(1);
 
     const purchase = await prisma.purchase.findUniqueOrThrow({ where: { stripeSessionId: sessionId } });
     expect(purchase.status).toBe("paid");
     const row = await prisma.creditLedger.findFirstOrThrow({ where: { purchaseId: purchase.id } });
-    expect(row).toMatchObject({ delta: 2, reason: "purchase", userId });
+    expect(row).toMatchObject({ delta: 1, reason: "purchase", userId });
+  });
+
+  it("a checkout started for the retired Match Analysis Full plan still grants what it was sold with", async () => {
+    const sessionId = `cs_${RUN}_retired`;
+    await prisma.purchase.create({
+      data: { userId, planName: "Match Analysis Full", amount: 17900, mode: "payment", stripeSessionId: sessionId },
+    });
+    const before = await getBalance({ userId });
+    await processStripeEvent(
+      event("checkout.session.completed", { id: sessionId, mode: "payment", metadata: { planId: "match-analysis-full", credits: "2" } }),
+      { notify }
+    );
+    expect(await getBalance({ userId })).toBe(before + 2);
   });
 
   it("an add on grants no credits", async () => {

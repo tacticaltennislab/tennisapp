@@ -9,7 +9,7 @@ export default async function UploadPage({ searchParams }: { searchParams: Dashb
   return (
     <div className="mx-auto max-w-3xl space-y-5">
       <p className="text-sm text-muted">
-        Send a clip for a coach to review. The credits it needs are shown before you send it, and they are returned
+        Send a clip for a coach to review. Each upload uses one analysis, shown before you send it, and it is returned
         if we cannot use the video.
       </p>
       <VideoUploadForm redirectTo="/dashboard/analyses" />

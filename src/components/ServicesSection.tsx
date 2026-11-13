@@ -15,7 +15,7 @@ import { localizedHref, type AppLocale } from "@/i18n/locales";
 const SERVICES = [
   { planId: "stroke-analysis", priceId: "stroke-analysis" },
   { planId: "training-program", priceId: "training-program" },
-  { planId: "match-analysis-full", priceId: "match-analysis" },
+  { planId: "match-analysis", priceId: "match-analysis" },
 ] as const;
 
 function plan(id: string): Plan {

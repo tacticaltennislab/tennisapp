@@ -1,46 +1,48 @@
 /**
- * THE single source of truth for every product, price and credit number.
+ * THE single source of truth for every product, price and analysis count.
  *
- * Change a price or a credit count here and it flows to the pricing page, the homepage price
- * lines, the checkout (`CHECKOUT_PLANS` in src/lib/stripe.ts), the free account credit and the AI
+ * Customers see "analyses"; internally the balance is still the credit ledger (CreditLedger), so
+ * names like `credits` and `CREDIT_RULES` stay as they are and one unit = one analysis.
+ *
+ * Change a price or an analysis count here and it flows to the pricing page, the homepage price
+ * lines, the checkout (`CHECKOUT_PLANS` in src/lib/stripe.ts), the free account analysis and the AI
  * FAQ prompt. Only the wording lives elsewhere (src/i18n/dictionaries/plans.ts for player plans,
- * pricing.ts for academy plans), and it may use the placeholders {minutes}, {maxMinutes} and
- * {maxHours}, which are filled from CREDIT_RULES by `fillCreditVars`.
+ * pricing.ts for academy plans), and it may use the placeholders {maxMinutes} and {maxHours},
+ * which are filled from CREDIT_RULES by `fillCreditVars`.
  *
  * Amounts are USD cents. Old Purchase rows keep their own planName text, so removing a product
  * here never breaks purchase history.
  */
 
 // ---------------------------------------------------------------------------------------------
-// Credits
+// Analyses (stored as credits in the ledger)
 // ---------------------------------------------------------------------------------------------
 
 /**
- * 1 credit = one stroke analysis, or up to 60 minutes of match footage.
- * A full match (up to 2 hours) = 2 credits.
+ * 1 analysis = one full match recording (up to `maxMatchMinutes`) OR one stroke analysis.
+ * Nothing is charged by video length: a 20 minute and a 2 hour match both cost 1.
  */
 export const CREDIT_RULES = {
   strokeAnalysisCredits: 1,
-  minutesPerCredit: 60,
+  matchRecordingCredits: 1,
   maxMatchMinutes: 120,
 } as const;
 
-/** Credits every new account gets. The free analysis rule is expressed through this. */
+/** Analyses every new account gets. The free analysis rule is expressed through this. */
 export const FREE_ACCOUNT_CREDITS = 1;
 
-/** Credits needed for a match recording of this length, or null if it is longer than one match. */
+/** Analyses needed for a match recording of this length, or null if it is longer than one match. */
 export function creditsForMatchMinutes(minutes: number): number | null {
   if (!Number.isFinite(minutes) || minutes <= 0 || minutes > CREDIT_RULES.maxMatchMinutes) return null;
-  return Math.ceil(minutes / CREDIT_RULES.minutesPerCredit);
+  return CREDIT_RULES.matchRecordingCredits;
 }
 
-/** Credits for a full match (up to CREDIT_RULES.maxMatchMinutes). */
-export const FULL_MATCH_CREDITS = Math.ceil(CREDIT_RULES.maxMatchMinutes / CREDIT_RULES.minutesPerCredit);
+/** Analyses for a full match (up to CREDIT_RULES.maxMatchMinutes). */
+export const FULL_MATCH_CREDITS = CREDIT_RULES.matchRecordingCredits;
 
-/** Fills {minutes}, {maxMinutes} and {maxHours} in wording that mentions the credit rules. */
+/** Fills {maxMinutes} and {maxHours} in wording that mentions the match length limit. */
 export function fillCreditVars(text: string): string {
   return text
-    .replaceAll("{minutes}", String(CREDIT_RULES.minutesPerCredit))
     .replaceAll("{maxMinutes}", String(CREDIT_RULES.maxMatchMinutes))
     .replaceAll("{maxHours}", String(CREDIT_RULES.maxMatchMinutes / 60));
 }
@@ -72,9 +74,9 @@ export interface Plan {
   whatYouGet: string[];
   mode: "payment" | "subscription";
   amountCents: number;
-  /** Credits added to the account on purchase (0 for add ons). */
+  /** Analyses added to the account on purchase (0 for add ons). */
   credits: number;
-  /** An add on to an analysis: no credit, it unlocks a plan. */
+  /** An add on to an analysis: no analysis included, it unlocks a plan. */
   addOn?: boolean;
   /** For an add on: the plan it is sold with (shown as a checkbox on that plan, not as its own card). */
   addOnFor?: string;
@@ -105,36 +107,14 @@ const PLAYER_PLANS: PlayerPlanConfig[] = [
   },
   {
     planId: "match-analysis",
-    amountCents: 9900,
-    credits: 1,
+    amountCents: 15900,
+    credits: FULL_MATCH_CREDITS,
     sellOnline: true,
     name: "Match Analysis",
     period: "one time",
-    description: "A focused tactical analysis of one set or up to {minutes} minutes of match play.",
-    features: [
-      "Up to {minutes} minutes of match footage",
-      "Point construction analysis",
-      "Shot selection evaluation",
-      "Tactical recommendations",
-      "Match intelligence report",
-    ],
-    whatYouGet: [
-      "Which patterns actually won you points in that set",
-      "What really happened after your first and second serve",
-      "Where you were positioned for the return",
-      "The one tactical adjustment worth making next time you play",
-    ],
-  },
-  {
-    planId: "match-analysis-full",
-    amountCents: 17900,
-    credits: FULL_MATCH_CREDITS,
-    sellOnline: true,
-    name: "Match Analysis Full",
-    period: "one time",
     description: "A complete tactical breakdown of your match, point by point.",
     features: [
-      "Up to one full match (max {maxHours} hours of footage)",
+      "One full match (up to {maxHours} hours of footage)",
       "Point construction analysis",
       "Shot selection evaluation",
       "Court positioning review",
@@ -245,7 +225,7 @@ export interface AcademyPrice {
   totalCents: number;
   /** The equivalent monthly price after the discount. */
   perMonthCents: number;
-  /** Credits added at each renewal. */
+  /** Analyses added at each renewal. */
   credits: number;
 }
 
@@ -280,7 +260,7 @@ export interface CheckoutPlan {
   interval?: "month";
   /** Number of months between charges for subscriptions (1, 3 or 6). */
   intervalCount?: number;
-  /** Credits added to the account when this is paid (for the credit ledger to come). */
+  /** Analyses added to the account when this is paid (stored in the credit ledger). */
   credits: number;
 }
 

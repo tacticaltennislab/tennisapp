@@ -232,7 +232,7 @@ export function submissionRejectedEmail(title: string, reason: string | null, cr
     "We could not analyse your video",
     `<p style="font-size: 15px; line-height: 1.6;">
       We were not able to analyse <strong>${escapeHtml(title)}</strong>.
-      ${creditsRefunded > 0 ? `${creditsRefunded} credit${creditsRefunded === 1 ? " has" : "s have"} been returned to your balance.` : ""}
+      ${creditsRefunded > 0 ? `${creditsRefunded} ${creditsRefunded === 1 ? "analysis has" : "analyses have"} been returned to your balance.` : ""}
     </p>
     ${reason ? `<blockquote style="margin: 16px 0; padding: 12px 16px; background: #eceedd; border-radius: 4px; font-size: 14px; white-space: pre-wrap;">${escapeHtml(reason)}</blockquote>` : ""}
     <p style="margin: 24px 0;">

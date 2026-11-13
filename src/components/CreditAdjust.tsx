@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-/** Admin: a credit balance with an "Adjust" form (positive or negative, with a note). */
+/** Admin: an analyses balance with an "Adjust" form (positive or negative, with a note). */
 export default function CreditAdjust({
   balance,
   userId,
@@ -32,7 +32,7 @@ export default function CreditAdjust({
     setBusy(false);
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      setError(data.error || "Could not adjust the credits.");
+      setError(data.error || "Could not adjust the analyses.");
       return;
     }
     setDelta("");
@@ -57,7 +57,7 @@ export default function CreditAdjust({
       {open && (
         <form onSubmit={submit} className="mt-2 space-y-2">
           <label className="block text-xs text-muted">
-            Credits (+ or −)
+            Analyses (+ or −)
             <input
               type="number"
               step={1}

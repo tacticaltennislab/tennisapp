@@ -23,7 +23,7 @@ export default async function DashboardOverview({ searchParams }: { searchParams
     getAcademyCreditsForUser(user.id),
     prisma.message.findFirst({ where: { userId: user.id }, orderBy: { createdAt: "desc" } }),
   ]);
-  // Only coaches and owners see the academy's credits; a player of the academy sees their own.
+  // Only coaches and owners see the academy's analyses; a player of the academy sees their own.
   const memberOf = new Set(memberships.map((m) => m.academyId));
   const academies = allAcademyCredits.filter((a) => memberOf.has(a.id));
 
@@ -49,7 +49,7 @@ export default async function DashboardOverview({ searchParams }: { searchParams
         {[
           { label: "Awaiting review", value: String(awaiting.length) },
           { label: "Reviewed", value: String(reviewed.length) },
-          { label: "Credits", value: String(balance) },
+          { label: "Analyses left", value: String(balance) },
         ].map((s) => (
           <div key={s.label} className="rounded-2xl border border-line bg-surface p-4 md:p-5">
             <dt className="text-xs text-muted">{s.label}</dt>
@@ -131,7 +131,7 @@ export default async function DashboardOverview({ searchParams }: { searchParams
 
         <div className="space-y-6">
           <Panel
-            title="Credits"
+            title="Analyses"
             action={
               <Link href="/pricing" className="link-arrow text-sm !text-brand-600">
                 Get more
@@ -143,12 +143,12 @@ export default async function DashboardOverview({ searchParams }: { searchParams
               <div>
                 <p className="t-mono text-3xl font-semibold text-ink">{formatCredits("en", balance, noun)}</p>
                 <p className="mt-1 text-sm text-muted">
-                  A stroke analysis uses 1 credit. Match and training footage use 1 credit per started hour.
+                  One analysis covers one full match recording (up to 2 hours) or one stroke analysis.
                 </p>
               </div>
               {academies.map((a) => (
                 <div key={a.id} className="border-t border-line pt-4">
-                  <p className="text-xs text-muted">Academy credits</p>
+                  <p className="text-xs text-muted">Academy analyses</p>
                   <p className="mt-1 flex flex-wrap items-baseline justify-between gap-x-3 text-sm">
                     <Link href={`/academy/${a.id}`} className="font-medium text-ink underline underline-offset-4">
                       {a.name}

@@ -27,9 +27,9 @@ export async function POST(request: Request) {
     if (error instanceof AnalysisError) return NextResponse.json({ error: error.message }, { status: 502 });
     if (error instanceof Anthropic.APIError) {
       console.error("AI analysis error:", error.status, error.message);
-      // The most likely first problem: the API account has no credit yet.
+      // The most likely first problem: the API account has no balance yet.
       if (/credit balance|billing/i.test(error.message)) {
-        return NextResponse.json({ error: "The Anthropic API account has no credit. Add credit in the Anthropic console, then try again." }, { status: 402 });
+        return NextResponse.json({ error: "The Anthropic API account has no balance. Add funds in the Anthropic console, then try again." }, { status: 402 });
       }
       if (error.status === 401) return NextResponse.json({ error: "The Anthropic API key was rejected. Check ANTHROPIC_API_KEY." }, { status: 502 });
       if (error.status === 413) return NextResponse.json({ error: "The frames are too large for the model. Use fewer or smaller frames." }, { status: 413 });

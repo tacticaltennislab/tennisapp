@@ -2,6 +2,8 @@ import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { InsufficientCreditsError, creditsNeeded, getBalance, isFootageKind, resolveCreditAccount } from "@/lib/credits";
+import { isTooLongForAnalysis } from "@/lib/creditCost";
+import { CREDIT_RULES } from "@/lib/plans";
 
 const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB
 
@@ -32,11 +34,17 @@ export async function POST(request: Request) {
       body,
       request,
       onBeforeGenerateToken: async (_pathname, clientPayload) => {
-        // Refuse the upload up front when the balance cannot cover it. The credits themselves are taken
-        // when the submission is registered (POST /api/videos), in one transaction with the submission.
+        // Refuse the upload up front when it is too long for one analysis or the balance cannot cover it.
+        // The analysis itself is taken when the submission is registered (POST /api/videos), in one
+        // transaction with the submission.
         const payload = parsePayload(clientPayload);
+        if (isTooLongForAnalysis(payload.analysisType, payload.durationMinutes)) {
+          throw new Error(
+            `A match or training video can be up to ${CREDIT_RULES.maxMatchMinutes / 60} hours. Please trim it or send it in parts.`
+          );
+        }
         const account = await resolveCreditAccount(session.user.id, payload.academyId);
-        if (!account) throw new Error("You cannot use that academy's credits.");
+        if (!account) throw new Error("You cannot use that academy's analyses.");
         const needed = creditsNeeded(payload.analysisType, payload.durationMinutes);
         const balance = await getBalance(account);
         if (balance < needed) throw new InsufficientCreditsError(needed, balance);

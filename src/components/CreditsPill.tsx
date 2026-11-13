@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { creditsUiDictionaries } from "@/i18n/dictionaries/creditsUi";
+import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
+import { formatCredits } from "@/lib/creditFormat";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
 interface CreditsInfo {
@@ -10,7 +12,7 @@ interface CreditsInfo {
   academies: { id: string; name: string; balance: number; renewsAt: string | null }[];
 }
 
-/** "Credits: N" for the signed in user, plus the academy's balance for academy members. */
+/** "3 analyses left" for the signed in user, plus the academy's balance for academy members. */
 export default function CreditsPill({
   userId,
   locale,
@@ -24,6 +26,7 @@ export default function CreditsPill({
 }) {
   const [info, setInfo] = useState<{ userId: string; data: CreditsInfo } | null>(null);
   const t = creditsUiDictionaries[locale].header;
+  const noun = pricingDictionaries[locale].credits.noun;
 
   useEffect(() => {
     let cancelled = false;
@@ -53,7 +56,7 @@ export default function CreditsPill({
         aria-label={`${t.aria}: ${data.balance}`}
         className={pill}
       >
-        {t.label.replace("{n}", String(data.balance))}
+        {t.label.replace("{credits}", formatCredits(locale, data.balance, noun))}
       </Link>
       {data.academies.length === 1 && (
         <Link

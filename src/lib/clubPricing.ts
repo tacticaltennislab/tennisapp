@@ -3,7 +3,6 @@ import {
   ACADEMY_PILOT,
   ACADEMY_PLANS,
   BILLING_PERIODS,
-  FULL_MATCH_CREDITS,
   academyPrice,
   fillCreditVars,
   formatUsd,
@@ -29,7 +28,7 @@ export interface ClubTierView {
   features: string[];
   /** "$550" */
   monthlyPrice: string;
-  /** "8 credits per month" */
+  /** "8 analyses per month" */
   creditsPerMonth: string;
   billing: ClubBillingView[];
 }
@@ -40,11 +39,11 @@ export interface ClubPilotView {
   features: string[];
   price: string;
   period: string;
-  /** "3 credits" */
+  /** "3 analyses" */
   credits: string;
 }
 
-/** Academy and club offers: prices and credit numbers from src/lib/plans.ts, wording from the dictionary. */
+/** Academy and club offers: prices and analysis counts from src/lib/plans.ts, wording from the dictionary. */
 export function buildClubView(lang: AppLocale): { tiers: ClubTierView[]; pilot: ClubPilotView } {
   const t = pricingDictionaries[lang];
   const { clubs, credits } = t;
@@ -90,12 +89,8 @@ export function buildClubView(lang: AppLocale): { tiers: ClubTierView[]; pilot: 
   };
 }
 
-/** "1 credit covers one stroke analysis or up to 60 minutes of match footage. A full match ... uses 2 credits." */
+/** "1 analysis covers one full match recording (up to 2 hours) or one stroke analysis." */
 export function creditRuleText(lang: AppLocale): string {
   const { credits } = pricingDictionaries[lang];
-  return fillCreditVars(
-    credits.rule
-      .replace("{oneCredit}", formatCredits(lang, 1, credits.noun))
-      .replace("{fullCredits}", formatCredits(lang, FULL_MATCH_CREDITS, credits.noun))
-  );
+  return fillCreditVars(credits.rule.replace("{oneCredit}", formatCredits(lang, 1, credits.noun)));
 }

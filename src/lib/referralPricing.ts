@@ -6,7 +6,7 @@
  */
 export function referralDiscountPercent(referralCount: number, planId: string): number {
   if (referralCount >= 5) {
-    if (planId === "match-analysis-full") return 50;
+    if (planId === "match-analysis") return 50;
     return 100;
   }
   if (referralCount >= 2) return 40;

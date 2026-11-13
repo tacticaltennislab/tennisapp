@@ -336,7 +336,7 @@ export interface Order {
 }
 
 export const ORDERS: Order[] = [
-  { id: "1043", date: "21 Oct 2026", item: "Match Analysis", amount: "$99.00", status: "Paid", note: "One time" },
+  { id: "1043", date: "21 Oct 2026", item: "Match Analysis", amount: "$159.00", status: "Paid", note: "One time" },
   { id: "1038", date: "12 Oct 2026", item: "4 Week Training Program", amount: "$99.00", status: "Paid", note: "One time" },
   { id: "1037", date: "12 Oct 2026", item: "Stroke Analysis", amount: "$49.00", status: "Paid", note: "One time" },
 ];

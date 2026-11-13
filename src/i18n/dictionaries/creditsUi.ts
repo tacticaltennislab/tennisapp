@@ -1,7 +1,8 @@
 import type { AppLocale } from "@/i18n/locales";
 
-/** Wording for the credit balance (header, account page) and the cost line in the upload form. */
+/** Wording for the analyses balance (header, account page) and the cost line in the upload form. */
 export interface CreditsUiDict {
+  /** header.label: {credits}, e.g. "3 analyses" */
   header: { label: string; aria: string };
   account: { title: string; yours: string; renews: string; noRenewal: string; buy: string };
   form: {
@@ -11,7 +12,9 @@ export interface CreditsUiDict {
     kindTraining: string;
     lengthLabel: string;
     lengthHint: string;
-    /** {credits}, e.g. "2 credits" */
+    /** {maxHours}: shown when a match or training video is longer than one analysis covers. */
+    tooLong: string;
+    /** {credits}, e.g. "1 analysis" */
     cost: string;
     have: string;
     /** {n} and {noun}, or only {n} */
@@ -25,102 +28,107 @@ export interface CreditsUiDict {
 }
 
 const en: CreditsUiDict = {
-  header: { label: "Credits: {n}", aria: "Your credits" },
-  account: { title: "Credits", yours: "Your credits", renews: "Renews {date}", noRenewal: "No renewal date", buy: "Buy credits" },
+  header: { label: "{credits} left", aria: "Your analyses" },
+  account: { title: "Analyses", yours: "Your analyses", renews: "Renews {date}", noRenewal: "No renewal date", buy: "Buy analyses" },
   form: {
     kindLabel: "What are you sending?",
     kindStroke: "A stroke (one technical issue)",
     kindMatch: "A match",
     kindTraining: "A training session",
     lengthLabel: "Length in minutes",
-    lengthHint: "Filled in from the video. It sets how many credits this uses.",
+    lengthHint: "Filled in from the video. One analysis covers a match or training session of up to {maxHours} hours.",
+    tooLong: "This video is longer than {maxHours} hours, which is the most one analysis covers. Please trim it or send it in parts.",
     cost: "This uses {credits}.",
     have: "You have {credits}.",
     needMore: "You need {n} more {noun}",
     payWith: "Pay with",
-    payMine: "My credits",
+    payMine: "My analyses",
     payAcademy: "{name}",
-    notEnough: "Not enough credits",
+    notEnough: "Not enough analyses",
   },
 };
 
 const pl: CreditsUiDict = {
-  header: { label: "Kredyty: {n}", aria: "Twoje kredyty" },
-  account: { title: "Kredyty", yours: "Twoje kredyty", renews: "Odnowienie: {date}", noRenewal: "Brak daty odnowienia", buy: "Kup kredyty" },
+  header: { label: "Pozostało: {credits}", aria: "Twoje analizy" },
+  account: { title: "Analizy", yours: "Twoje analizy", renews: "Odnowienie: {date}", noRenewal: "Brak daty odnowienia", buy: "Kup analizy" },
   form: {
     kindLabel: "Co wysyłasz?",
     kindStroke: "Uderzenie (jeden problem techniczny)",
     kindMatch: "Mecz",
     kindTraining: "Trening",
     lengthLabel: "Długość w minutach",
-    lengthHint: "Uzupełniona z nagrania. Określa, ile kredytów to zużyje.",
+    lengthHint: "Uzupełniona z nagrania. Jedna analiza obejmuje mecz lub trening do {maxHours} godzin.",
+    tooLong: "To nagranie trwa dłużej niż {maxHours} godziny, czyli maksimum objęte jedną analizą. Przytnij je lub wyślij w częściach.",
     cost: "To zużyje {credits}.",
     have: "Masz {credits}.",
-    needMore: "Brakuje kredytów: {n}",
+    needMore: "Brakuje analiz: {n}",
     payWith: "Płać z",
-    payMine: "Moje kredyty",
+    payMine: "Moje analizy",
     payAcademy: "{name}",
-    notEnough: "Za mało kredytów",
+    notEnough: "Za mało analiz",
   },
 };
 
 const es: CreditsUiDict = {
-  header: { label: "Créditos: {n}", aria: "Tus créditos" },
-  account: { title: "Créditos", yours: "Tus créditos", renews: "Se renueva el {date}", noRenewal: "Sin fecha de renovación", buy: "Comprar créditos" },
+  header: { label: "Restantes: {credits}", aria: "Tus análisis" },
+  account: { title: "Análisis", yours: "Tus análisis", renews: "Se renueva el {date}", noRenewal: "Sin fecha de renovación", buy: "Comprar análisis" },
   form: {
     kindLabel: "¿Qué envías?",
     kindStroke: "Un golpe (un problema técnico)",
     kindMatch: "Un partido",
     kindTraining: "Un entrenamiento",
     lengthLabel: "Duración en minutos",
-    lengthHint: "Se rellena a partir del vídeo. Determina cuántos créditos usa.",
+    lengthHint: "Se rellena a partir del vídeo. Un análisis cubre un partido o entrenamiento de hasta {maxHours} horas.",
+    tooLong: "Este vídeo dura más de {maxHours} horas, el máximo que cubre un análisis. Recórtalo o envíalo en partes.",
     cost: "Esto usa {credits}.",
     have: "Tienes {credits}.",
     needMore: "Necesitas {n} {noun} más",
     payWith: "Pagar con",
-    payMine: "Mis créditos",
+    payMine: "Mis análisis",
     payAcademy: "{name}",
-    notEnough: "Créditos insuficientes",
+    notEnough: "Análisis insuficientes",
   },
 };
 
 const it: CreditsUiDict = {
-  header: { label: "Crediti: {n}", aria: "I tuoi crediti" },
-  account: { title: "Crediti", yours: "I tuoi crediti", renews: "Si rinnova il {date}", noRenewal: "Nessuna data di rinnovo", buy: "Acquista crediti" },
+  header: { label: "Rimanenti: {credits}", aria: "Le tue analisi" },
+  account: { title: "Analisi", yours: "Le tue analisi", renews: "Si rinnova il {date}", noRenewal: "Nessuna data di rinnovo", buy: "Acquista analisi" },
   form: {
     kindLabel: "Cosa stai inviando?",
     kindStroke: "Un colpo (un problema tecnico)",
     kindMatch: "Una partita",
     kindTraining: "Un allenamento",
     lengthLabel: "Durata in minuti",
-    lengthHint: "Compilata dal video. Determina quanti crediti usa.",
+    lengthHint: "Compilata dal video. Un'analisi copre una partita o un allenamento fino a {maxHours} ore.",
+    tooLong: "Questo video dura più di {maxHours} ore, il massimo coperto da un'analisi. Taglialo o invialo in parti.",
     cost: "Questo usa {credits}.",
     have: "Hai {credits}.",
     needMore: "Ti servono ancora {n} {noun}",
     payWith: "Paga con",
-    payMine: "I miei crediti",
+    payMine: "Le mie analisi",
     payAcademy: "{name}",
-    notEnough: "Crediti insufficienti",
+    notEnough: "Analisi insufficienti",
   },
 };
 
 const ru: CreditsUiDict = {
-  header: { label: "Кредиты: {n}", aria: "Ваши кредиты" },
-  account: { title: "Кредиты", yours: "Ваши кредиты", renews: "Продление: {date}", noRenewal: "Нет даты продления", buy: "Купить кредиты" },
+  header: { label: "Осталось: {credits}", aria: "Ваши разборы" },
+  account: { title: "Разборы", yours: "Ваши разборы", renews: "Продление: {date}", noRenewal: "Нет даты продления", buy: "Купить разборы" },
   form: {
     kindLabel: "Что вы отправляете?",
     kindStroke: "Удар (одна техническая проблема)",
     kindMatch: "Матч",
     kindTraining: "Тренировка",
     lengthLabel: "Длительность в минутах",
-    lengthHint: "Заполняется по видео. Определяет, сколько кредитов будет использовано.",
+    lengthHint: "Заполняется по видео. Один разбор покрывает матч или тренировку до {maxHours} часов.",
+    tooLong: "Это видео длиннее {maxHours} часов, максимума, который покрывает один разбор. Обрежьте его или отправьте частями.",
     cost: "Будет использовано: {credits}.",
     have: "У вас: {credits}.",
-    needMore: "Не хватает кредитов: {n}",
+    needMore: "Не хватает разборов: {n}",
     payWith: "Оплатить из",
-    payMine: "Мои кредиты",
+    payMine: "Мои разборы",
     payAcademy: "{name}",
-    notEnough: "Недостаточно кредитов",
+    notEnough: "Недостаточно разборов",
   },
 };
 
