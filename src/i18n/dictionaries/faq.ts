@@ -88,7 +88,7 @@ const en: FaqDict = {
         {
           question: "What plans do you offer?",
           answer:
-            "Stroke Fix ($49, one time) is a focused technical breakdown of one issue. Smart System ($99) is a 4 week development program for one stroke. Match IQ comes in Short ($99, up to 60 minutes of footage) and Full ($159, up to a full match). PRO Tour ($249/month) is ongoing coaching with up to 4 analyses a month and direct coach access.",
+            "Stroke Fix ($49, one time) is a focused technical breakdown of one issue. Smart System ($99) is a 4 week development program for one stroke. Match Analysis ($159, one time) is a full match analysis, up to 2 hours of footage. PRO Tour ($249/month) is ongoing coaching with up to 4 analyses a month and direct coach access.",
         },
         {
           question: "Do prices include tax?",
@@ -132,7 +132,7 @@ const en: FaqDict = {
         {
           question: "How do referral discounts work?",
           answer:
-            "Share your personal referral link, found on your account page. A referral counts once the person you referred completes their first paid purchase. 1 successful referral unlocks 20% off your own future purchases, 2 unlocks 40%, and 5 unlocks most plans free (PRO Tour is capped at 40% off and Match IQ: Full at 50%, even at higher referral counts). Discounts apply automatically at checkout.",
+            "Share your personal referral link, found on your account page. A referral counts once the person you referred completes their first paid purchase. 1 successful referral unlocks 20% off your own future purchases, 2 unlocks 40%, and 5 unlocks most plans free (PRO Tour is capped at 40% off and Match Analysis at 50%, even at higher referral counts). Discounts apply automatically at checkout.",
         },
       ],
     },
@@ -223,7 +223,7 @@ const pl: FaqDict = {
         {
           question: "Jakie plany oferujecie?",
           answer:
-            "Stroke Fix (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu. Smart System (99 USD) to czterotygodniowy program rozwoju jednego uderzenia. Match IQ jest dostępne w wersji Short (99 USD, do 60 minut nagrania) i Full (159 USD, do pełnego meczu). PRO Tour (249 USD/miesiąc) to ciągły coaching z do 4 analizami miesięcznie i bezpośrednim kontaktem z trenerem.",
+            "Stroke Fix (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu. Smart System (99 USD) to czterotygodniowy program rozwoju jednego uderzenia. Analiza meczu (159 USD, jednorazowo) to analiza pełnego meczu, do 2 godzin nagrania. PRO Tour (249 USD/miesiąc) to ciągły coaching z do 4 analizami miesięcznie i bezpośrednim kontaktem z trenerem.",
         },
         {
           question: "Czy ceny zawierają podatek?",
@@ -267,7 +267,7 @@ const pl: FaqDict = {
         {
           question: "Jak działają zniżki za polecenie?",
           answer:
-            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2, 40%, a 5, większość planów za darmo (PRO Tour jest ograniczone do 40% zniżki, a Match IQ: Full do 50%, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
+            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2, 40%, a 5, większość planów za darmo (PRO Tour jest ograniczone do 40% zniżki, a Analiza meczu do 50%, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
         },
       ],
     },
@@ -358,7 +358,7 @@ const es: FaqDict = {
         {
           question: "¿Qué planes ofrecéis?",
           answer:
-            "Stroke Fix ($49, pago único) es un análisis técnico enfocado de un problema. Smart System ($99) es un programa de desarrollo de 4 semanas para un golpe. Match IQ viene en Short ($99, hasta 60 minutos de vídeo) y Full ($159, hasta un partido completo). PRO Tour ($249/mes) es coaching continuo con hasta 4 análisis al mes y acceso directo al entrenador.",
+            "Stroke Fix ($49, pago único) es un análisis técnico enfocado de un problema. Smart System ($99) es un programa de desarrollo de 4 semanas para un golpe. Análisis de partido ($159, pago único) es el análisis de un partido completo, hasta 2 horas de vídeo. PRO Tour ($249/mes) es coaching continuo con hasta 4 análisis al mes y acceso directo al entrenador.",
         },
         {
           question: "¿Los precios incluyen impuestos?",
@@ -402,7 +402,7 @@ const es: FaqDict = {
         {
           question: "¿Cómo funcionan los descuentos por referidos?",
           answer:
-            "Comparte tu enlace de referido personal, disponible en tu página de cuenta. Un referido cuenta cuando la persona que referiste completa su primera compra pagada. 1 referido exitoso desbloquea un 20% de descuento en tus próximas compras, 2 desbloquea un 40%, y 5 desbloquea la mayoría de planes gratis (PRO Tour está limitado a un 40% de descuento y Match IQ: Full a un 50%, incluso con más referidos). Los descuentos se aplican automáticamente al pagar.",
+            "Comparte tu enlace de referido personal, disponible en tu página de cuenta. Un referido cuenta cuando la persona que referiste completa su primera compra pagada. 1 referido exitoso desbloquea un 20% de descuento en tus próximas compras, 2 desbloquea un 40%, y 5 desbloquea la mayoría de planes gratis (PRO Tour está limitado a un 40% de descuento y Análisis de partido a un 50%, incluso con más referidos). Los descuentos se aplican automáticamente al pagar.",
         },
       ],
     },
@@ -493,7 +493,7 @@ const it: FaqDict = {
         {
           question: "Quali piani offrite?",
           answer:
-            "Stroke Fix ($49, una tantum) è un'analisi tecnica mirata su un problema. Smart System ($99) è un programma di sviluppo di 4 settimane per un colpo. Match IQ è disponibile in Short ($99, fino a 60 minuti di video) e Full ($159, fino a una partita completa). PRO Tour ($249/mese) è coaching continuo con fino a 4 analisi al mese e accesso diretto all'allenatore.",
+            "Stroke Fix ($49, una tantum) è un'analisi tecnica mirata su un problema. Smart System ($99) è un programma di sviluppo di 4 settimane per un colpo. Analisi della partita ($159, una tantum) è l'analisi di una partita intera, fino a 2 ore di video. PRO Tour ($249/mese) è coaching continuo con fino a 4 analisi al mese e accesso diretto all'allenatore.",
         },
         {
           question: "I prezzi includono le tasse?",
@@ -537,7 +537,7 @@ const it: FaqDict = {
         {
           question: "Come funzionano gli sconti referral?",
           answer:
-            "Condividi il tuo link di invito personale, disponibile nella pagina del tuo account. Un invito conta quando la persona che hai invitato completa il suo primo acquisto a pagamento. 1 invito riuscito sblocca il 20% di sconto sui tuoi acquisti futuri, 2 sblocca il 40%, e 5 sblocca la maggior parte dei piani gratis (PRO Tour è limitato al 40% di sconto e Match IQ: Full al 50%, anche con più inviti). Gli sconti si applicano automaticamente al checkout.",
+            "Condividi il tuo link di invito personale, disponibile nella pagina del tuo account. Un invito conta quando la persona che hai invitato completa il suo primo acquisto a pagamento. 1 invito riuscito sblocca il 20% di sconto sui tuoi acquisti futuri, 2 sblocca il 40%, e 5 sblocca la maggior parte dei piani gratis (PRO Tour è limitato al 40% di sconto e Analisi della partita al 50%, anche con più inviti). Gli sconti si applicano automaticamente al checkout.",
         },
       ],
     },
@@ -628,7 +628,7 @@ const ru: FaqDict = {
         {
           question: "Какие планы вы предлагаете?",
           answer:
-            "Stroke Fix ($49, разово): сфокусированный технический разбор одной проблемы. Smart System ($99), четырёхнедельная программа развития одного удара. Match IQ доступен в версиях Short ($99, до 60 минут видео) и Full ($159, до полного матча). PRO Tour ($249/месяц), постоянный коучинг с до 4 анализами в месяц и прямым доступом к тренеру.",
+            "Stroke Fix ($49, разово): сфокусированный технический разбор одной проблемы. Smart System ($99), четырёхнедельная программа развития одного удара. Разбор матча ($159, разово): разбор полного матча, до 2 часов видео. PRO Tour ($249/месяц), постоянный коучинг с до 4 анализами в месяц и прямым доступом к тренеру.",
         },
         {
           question: "Включён ли налог в цену?",
@@ -672,7 +672,7 @@ const ru: FaqDict = {
         {
           question: "Как работают реферальные скидки?",
           answer:
-            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2, 40%, а 5, большинство планов бесплатно (PRO Tour ограничен скидкой 40%, а Match IQ: Full, 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
+            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2, 40%, а 5, большинство планов бесплатно (PRO Tour ограничен скидкой 40%, а разбор матча, 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
         },
       ],
     },

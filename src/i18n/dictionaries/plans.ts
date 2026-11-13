@@ -9,7 +9,7 @@ interface PlanText {
 }
 
 /** Translations for src/lib/plans.ts PLANS, keyed by planId then locale.
- * English isn't duplicated here, it lives on the Plan record itself. Wording may use {minutes},
+ * English isn't duplicated here, it lives on the Plan record itself. Wording may use
  * {maxMinutes} and {maxHours}, filled from CREDIT_RULES (see fillCreditVars). */
 export const planTranslations: Record<string, Record<Locale, PlanText>> = {
   "stroke-analysis": {
@@ -70,83 +70,9 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
     pl: {
       name: "Analiza meczu",
       period: "jednorazowo",
-      description: "Skoncentrowana analiza taktyczna jednego seta lub do {minutes} minut gry meczowej.",
-      features: [
-        "Do {minutes} minut nagrania meczowego",
-        "Analiza budowania punktu",
-        "Ocena wyboru uderzeń",
-        "Rekomendacje taktyczne",
-        "Raport inteligencji meczowej",
-      ],
-      whatYouGet: [
-        "Które wzorce faktycznie dały Ci punkty w tym secie",
-        "Co naprawdę działo się po pierwszym i drugim serwisie",
-        "Gdzie byłeś ustawiony przy returnie",
-        "Jedną korektę taktyczną wartą wdrożenia w kolejnym meczu",
-      ],
-    },
-    es: {
-      name: "Análisis de partido",
-      period: "pago único",
-      description: "Análisis táctico enfocado de un set o hasta {minutes} minutos de partido.",
-      features: [
-        "Hasta {minutes} minutos de vídeo de partido",
-        "Análisis de construcción de puntos",
-        "Evaluación de selección de golpes",
-        "Recomendaciones tácticas",
-        "Informe de inteligencia de partido",
-      ],
-      whatYouGet: [
-        "Qué patrones realmente te dieron puntos en ese set",
-        "Qué pasó de verdad después de tu primer y segundo servicio",
-        "Dónde estabas posicionado en el resto",
-        "El único ajuste táctico que merece la pena hacer la próxima vez que juegues",
-      ],
-    },
-    it: {
-      name: "Analisi della partita",
-      period: "una tantum",
-      description: "Analisi tattica mirata di un set o fino a {minutes} minuti di partita.",
-      features: [
-        "Fino a {minutes} minuti di video partita",
-        "Analisi della costruzione del punto",
-        "Valutazione della scelta dei colpi",
-        "Raccomandazioni tattiche",
-        "Report di match intelligence",
-      ],
-      whatYouGet: [
-        "Quali schemi ti hanno davvero fatto vincere punti in quel set",
-        "Cosa è successo davvero dopo la prima e la seconda di servizio",
-        "Dove eri posizionato in risposta",
-        "L'unico aggiustamento tattico da fare la prossima volta che giochi",
-      ],
-    },
-    ru: {
-      name: "Разбор матча",
-      period: "разово",
-      description: "Сфокусированный тактический анализ одного сета или до {minutes} минут игры.",
-      features: [
-        "До {minutes} минут видео матча",
-        "Анализ построения розыгрышей",
-        "Оценка выбора ударов",
-        "Тактические рекомендации",
-        "Отчёт о матчевом интеллекте",
-      ],
-      whatYouGet: [
-        "Какие паттерны реально приносили вам очки в этом сете",
-        "Что на самом деле происходило после первой и второй подачи",
-        "Где вы располагались на приёме",
-        "Одну тактическую корректировку, которую стоит внедрить в следующем матче",
-      ],
-    },
-  },
-  "match-analysis-full": {
-    pl: {
-      name: "Pełna analiza meczu",
-      period: "jednorazowo",
       description: "Kompletna analiza taktyczna Twojego meczu, punkt po punkcie.",
       features: [
-        "Do jednego pełnego meczu (maks. {maxHours} godziny nagrania)",
+        "Jeden pełny mecz (do {maxHours} godzin nagrania)",
         "Analiza budowania punktu",
         "Ocena wyboru uderzeń",
         "Analiza ustawienia na korcie",
@@ -166,11 +92,11 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       ],
     },
     es: {
-      name: "Análisis de partido completo",
+      name: "Análisis de partido",
       period: "pago único",
       description: "Análisis táctico completo de tu partido, punto por punto.",
       features: [
-        "Hasta un partido completo (máx. {maxHours} horas de vídeo)",
+        "Un partido completo (hasta {maxHours} horas de vídeo)",
         "Análisis de construcción de puntos",
         "Evaluación de selección de golpes",
         "Revisión de posicionamiento en pista",
@@ -190,11 +116,11 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       ],
     },
     it: {
-      name: "Analisi completa della partita",
+      name: "Analisi della partita",
       period: "una tantum",
       description: "Analisi tattica completa della tua partita, punto per punto.",
       features: [
-        "Fino a una partita completa (max 2 ore di video)",
+        "Una partita completa (fino a {maxHours} ore di video)",
         "Analisi della costruzione del punto",
         "Valutazione della scelta dei colpi",
         "Revisione del posizionamento in campo",
@@ -214,11 +140,11 @@ export const planTranslations: Record<string, Record<Locale, PlanText>> = {
       ],
     },
     ru: {
-      name: "Полный разбор матча",
+      name: "Разбор матча",
       period: "разово",
       description: "Полный тактический анализ вашего матча, розыгрыш за розыгрышем.",
       features: [
-        "До одного полного матча (макс. {maxHours} часа видео)",
+        "Один полный матч (до {maxHours} часов видео)",
         "Анализ построения розыгрышей",
         "Оценка выбора ударов",
         "Разбор позиционирования на корте",

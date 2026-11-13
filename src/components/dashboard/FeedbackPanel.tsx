@@ -24,7 +24,7 @@ export default function FeedbackPanel({ analysis }: { analysis: Analysis }) {
           </p>
           <p className="mt-2 text-muted">
             {rejected
-              ? "We could not use this video. Any credits you spent on it were returned. Send us a new clip or write to us in Messages."
+              ? "We could not use this video. The analysis you spent on it was returned. Send us a new clip or write to us in Messages."
               : inReview
                 ? "Your coach has started the review. You will get an email when it is published, and the priorities, strengths, technical issues and tactical recommendations will appear here."
                 : "Your coach has not reviewed this video yet. When the review is ready you will get an email, and the priorities, strengths, technical issues and tactical recommendations will appear here."}

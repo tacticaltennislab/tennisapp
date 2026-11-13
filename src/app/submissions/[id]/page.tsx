@@ -2,8 +2,6 @@ import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { canReviewPlayer } from "@/lib/academy";
 import { getAnalysisForEditor } from "@/lib/analyses";
-import { creditsChargedFor } from "@/lib/durationCorrection";
-import { prisma } from "@/lib/prisma";
 import ReportEditor from "@/components/ReportEditor";
 import PageHeader from "@/components/PageHeader";
 import type { Charting, DraftSummary } from "@/lib/analysisImport";
@@ -20,9 +18,6 @@ export default async function SubmissionEditorPage({ params }: { params: Promise
   // The same answer for "does not exist" and "not yours to review".
   if (!loaded || !(await canReviewPlayer(session.user, loaded.row.userId))) notFound();
   const { row, analysis } = loaded;
-
-  const hasCharge = (await prisma.creditLedger.count({ where: { videoSubmissionId: id, reason: "submission" } })) > 0;
-  const creditsCharged = hasCharge ? await creditsChargedFor(id) : null;
 
   const summary: DraftSummary = {
     strengths: analysis.feedback?.strengths ?? [],
@@ -56,7 +51,6 @@ export default async function SubmissionEditorPage({ params }: { params: Promise
               analysisType: row.analysisType,
               declaredMinutes: row.declaredMinutes,
               actualDurationSec: row.actualDurationSec,
-              creditsCharged,
               isAdmin: session.user.role === "admin",
             }}
           />

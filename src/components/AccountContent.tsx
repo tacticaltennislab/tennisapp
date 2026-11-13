@@ -64,11 +64,11 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
       />
       <main className="flex-1 px-4 py-12">
         <div className="max-w-lg mx-auto">
-          <section aria-labelledby="account-credits" className="mb-10 rounded-2xl border border-line p-5 shadow-sm">
-            <h2 id="account-credits" className="text-lg font-semibold">{cu.title}</h2>
+          <section aria-labelledby="account-analyses" className="mb-10 rounded-2xl border border-line p-5 shadow-sm">
+            <h2 id="account-analyses" className="text-lg font-semibold">{cu.title}</h2>
             <p className="mt-3 flex items-baseline justify-between gap-3">
               <span className="text-sm text-muted">{cu.yours}</span>
-              <span className="t-mono text-2xl font-semibold" data-testid="credit-balance">{formatCredits(lang, balance, noun)}</span>
+              <span className="t-mono text-2xl font-semibold" data-testid="analyses-balance">{formatCredits(lang, balance, noun)}</span>
             </p>
             {academyCredits.map((a) => (
               <p key={a.id} className="mt-3 flex flex-wrap items-baseline justify-between gap-x-3 border-t border-line pt-3">
@@ -80,7 +80,7 @@ export default async function AccountContent({ lang = "en" }: { lang?: AppLocale
                       : cu.noRenewal}
                   </span>
                 </span>
-                <span className="t-mono text-lg font-semibold" data-testid="academy-credit-balance">{formatCredits(lang, a.balance, noun)}</span>
+                <span className="t-mono text-lg font-semibold" data-testid="academy-analyses-balance">{formatCredits(lang, a.balance, noun)}</span>
               </p>
             ))}
             <Link

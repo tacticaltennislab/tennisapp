@@ -32,12 +32,12 @@ export type Db = PrismaClient | Prisma.TransactionClient;
 export class InsufficientCreditsError extends Error {
   readonly needed: number;
   readonly balance: number;
-  /** How many more credits are needed. */
+  /** How many more analyses (credits) are needed. */
   readonly missing: number;
 
   constructor(needed: number, balance: number) {
     const missing = needed - balance;
-    super(`You need ${missing} more credit${missing === 1 ? "" : "s"}`);
+    super(`You need ${missing} more ${missing === 1 ? "analysis" : "analyses"}`);
     this.name = "InsufficientCreditsError";
     this.needed = needed;
     this.balance = balance;
@@ -204,7 +204,7 @@ export async function adjustCredits(
   db: Db = prisma
 ): Promise<{ balance: number }> {
   if (!Number.isInteger(input.delta) || input.delta === 0) {
-    throw new Error("An adjustment needs a non zero whole number of credits");
+    throw new Error("An adjustment needs a non zero whole number of analyses");
   }
   return inTransaction(db, async (tx) => {
     await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${accountKey(input.account)}))`;

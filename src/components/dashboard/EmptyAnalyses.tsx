@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DIcons } from "@/components/dashboard/icons";
 
-/** First run: no analyses yet. Mentions the free credit when the player still has it. */
+/** First run: no analyses yet. Mentions the free analysis when the player still has it. */
 export default function EmptyAnalyses({ freeCredit }: { freeCredit: boolean }) {
   return (
     <div className="rounded-2xl border border-dashed border-line-strong bg-surface px-6 py-12 text-center">
@@ -12,7 +12,7 @@ export default function EmptyAnalyses({ freeCredit }: { freeCredit: boolean }) {
       <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">
         Send a clip of a stroke, a match or a training session. A coach reviews it and the notes appear here,
         pinned to the moments in your video.
-        {freeCredit ? " You have a free credit, so your first analysis costs nothing." : ""}
+        {freeCredit ? " You have a free analysis, so your first one costs nothing." : ""}
       </p>
       <Link href="/dashboard/upload" className="btn btn-primary mt-6 inline-flex">
         Upload your first clip

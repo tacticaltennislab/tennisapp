@@ -2,7 +2,7 @@ import type { AppLocale } from "@/i18n/locales";
 
 import type { CreditNoun } from "@/lib/creditFormat";
 
-/** Wording only: prices and credit numbers come from src/lib/plans.ts. */
+/** Wording only: prices and analysis counts come from src/lib/plans.ts. */
 export interface ClubTier {
   name: string;
   description: string;
@@ -50,7 +50,7 @@ export interface PricingDict {
   };
   credits: {
     noun: CreditNoun;
-    /** Placeholders: {oneCredit}, {minutes}, {maxHours}, {fullCredits}. */
+    /** Placeholders: {oneCredit} ("1 analysis"), {maxHours}. */
     rule: string;
     /** Placeholder: {credits}. */
     included: string;
@@ -126,10 +126,10 @@ const en: PricingDict = {
     note: "Every club package is set up personally by Piotr Kusiewicz and Mateusz Kułakowski, get in touch and we'll tailor it to your roster.",
   },
   credits: {
-    noun: { one: "credit", other: "credits" },
-    rule: "{oneCredit} covers one stroke analysis or up to {minutes} minutes of match footage. A full match (up to {maxHours} hours) uses {fullCredits}.",
+    noun: { one: "analysis", other: "analyses" },
+    rule: "{oneCredit} covers one full match recording (up to {maxHours} hours) or one stroke analysis.",
     included: "Includes {credits}",
-    addOnNote: "No credit. Unlocks your plan.",
+    addOnNote: "No analysis included. Unlocks your plan.",
   },
   carousel: {
     prevAria: "Previous plan",
@@ -204,10 +204,10 @@ const pl: PricingDict = {
     note: "Każdym pakietem klubowym zajmują się osobiście Piotr Kusiewicz i Mateusz Kułakowski, napisz do nas, a dopasujemy go do Twojego zespołu.",
   },
   credits: {
-    noun: { one: "kredyt", few: "kredyty", many: "kredytów", other: "kredytu" },
-    rule: "{oneCredit} to jedna analiza uderzenia albo do {minutes} minut nagrania meczu. Pełny mecz (do {maxHours} godzin) to {fullCredits}.",
+    noun: { one: "analiza", few: "analizy", many: "analiz", other: "analizy" },
+    rule: "{oneCredit} to jedno pełne nagranie meczu (do {maxHours} godzin) albo jedna analiza uderzenia.",
     included: "W cenie: {credits}",
-    addOnNote: "Bez kredytu. Odblokowuje Twój plan.",
+    addOnNote: "Bez analizy w cenie. Odblokowuje Twój plan.",
   },
   carousel: {
     prevAria: "Poprzedni plan",
@@ -282,10 +282,10 @@ const es: PricingDict = {
     note: "Cada paquete para clubes lo configuran personalmente Piotr Kusiewicz y Mateusz Kułakowski, contáctanos y lo adaptaremos a tu equipo.",
   },
   credits: {
-    noun: { one: "crédito", other: "créditos" },
-    rule: "{oneCredit} equivale a un análisis de golpe o a hasta {minutes} minutos de vídeo de partido. Un partido completo (hasta {maxHours} horas) usa {fullCredits}.",
+    noun: { one: "análisis", other: "análisis" },
+    rule: "{oneCredit} cubre la grabación de un partido completo (hasta {maxHours} horas) o un análisis de golpe.",
     included: "Incluye {credits}",
-    addOnNote: "Sin crédito. Desbloquea tu plan.",
+    addOnNote: "Sin análisis incluido. Desbloquea tu plan.",
   },
   carousel: {
     prevAria: "Plan anterior",
@@ -360,10 +360,10 @@ const it: PricingDict = {
     note: "Ogni pacchetto per club viene organizzato personalmente da Piotr Kusiewicz e Mateusz Kułakowski, contattaci e lo adatteremo alla tua squadra.",
   },
   credits: {
-    noun: { one: "credito", other: "crediti" },
-    rule: "{oneCredit} copre un'analisi del colpo o fino a {minutes} minuti di video di partita. Una partita intera (fino a {maxHours} ore) usa {fullCredits}.",
+    noun: { one: "analisi", other: "analisi" },
+    rule: "{oneCredit} copre la registrazione di una partita intera (fino a {maxHours} ore) o un'analisi del colpo.",
     included: "Include {credits}",
-    addOnNote: "Nessun credito. Sblocca il tuo piano.",
+    addOnNote: "Nessuna analisi inclusa. Sblocca il tuo piano.",
   },
   carousel: {
     prevAria: "Piano precedente",
@@ -438,10 +438,10 @@ const ru: PricingDict = {
     note: "Каждый клубный пакет настраивается лично Пиотром Кусевичем и Матеушем Кулаковским, свяжитесь с нами, и мы подберём вариант под вашу команду.",
   },
   credits: {
-    noun: { one: "кредит", few: "кредита", many: "кредитов", other: "кредита" },
-    rule: "{oneCredit} покрывает один разбор удара или до {minutes} минут записи матча. Полный матч (до {maxHours} часов) использует {fullCredits}.",
+    noun: { one: "разбор", few: "разбора", many: "разборов", other: "разбора" },
+    rule: "{oneCredit} покрывает запись одного полного матча (до {maxHours} часов) или один разбор удара.",
     included: "Включено: {credits}",
-    addOnNote: "Без кредита. Открывает ваш план.",
+    addOnNote: "Без разбора в комплекте. Открывает ваш план.",
   },
   carousel: {
     prevAria: "Предыдущий план",

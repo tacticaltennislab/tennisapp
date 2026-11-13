@@ -1,14 +1,5 @@
 import { afterAll, describe, expect, it } from "vitest";
 import { prisma } from "@/lib/prisma";
-import { checkDuration } from "@/lib/creditCost";
-import {
-  InsufficientCreditsError,
-  consumeCredits,
-  getBalance,
-  grantCredits,
-  refundSubmissionCredits,
-} from "@/lib/credits";
-import { NoChargeToCorrectError, applyChargeCorrection, creditsChargedFor } from "@/lib/durationCorrection";
 import { canViewAnalysis, getAnalysis, listAnalyses } from "@/lib/analyses";
 
 // Real database, throwaway rows tagged with RUN and removed in afterAll (like tests/credits.test.ts).
@@ -34,150 +25,11 @@ async function newSubmission(
     data: { userId, storagePath: `videos/${RUN}.mp4`, fileName: "t.mp4", fileType: "video/mp4", fileSize: 1, ...data },
   });
 }
-/** A match submission that was charged `charged` credits from the user's own balance. */
-async function chargedMatch(userId: string, declaredMinutes: number, charged: number, balance = 10) {
-  await grantCredits({ account: { userId }, amount: balance, reason: "purchase" });
-  const sub = await newSubmission(userId, { analysisType: "match", declaredMinutes });
-  await consumeCredits({ account: { userId }, amount: charged, videoSubmissionId: sub.id });
-  return sub;
-}
-
 afterAll(async () => {
   await prisma.academy.deleteMany({ where: { id: { in: academyIds } } });
   await prisma.user.deleteMany({ where: { id: { in: userIds } } });
   expect(await prisma.user.count({ where: { email: { startsWith: RUN } } })).toBe(0);
   await prisma.$disconnect();
-});
-
-describe("checkDuration", () => {
-  const base = { analysisType: "match", declaredMinutes: 45, creditsCharged: 1 };
-
-  it("is 0 when the real length costs what was charged", () => {
-    const c = checkDuration({ ...base, actualDurationSec: 55 * 60 });
-    expect(c).toMatchObject({ creditsActual: 1, creditsDeclared: 1, creditsCharged: 1, difference: 0 });
-  });
-
-  it("is positive when the video is longer than declared (the player owes credits)", () => {
-    const c = checkDuration({ ...base, actualDurationSec: 95 * 60 });
-    expect(c).toMatchObject({ creditsActual: 2, difference: 1 });
-  });
-
-  it("is negative when the video is shorter than declared (credits go back)", () => {
-    const c = checkDuration({ analysisType: "training", declaredMinutes: 150, creditsCharged: 3, actualDurationSec: 50 * 60 });
-    expect(c).toMatchObject({ creditsActual: 1, difference: -2 });
-  });
-
-  it("counts every started 60 minutes: exactly 60 is 1, 60 minutes and 1 second is 2", () => {
-    expect(checkDuration({ ...base, actualDurationSec: 3600 }).creditsActual).toBe(1);
-    expect(checkDuration({ ...base, actualDurationSec: 3601 }).creditsActual).toBe(2);
-  });
-
-  it("never differs for a stroke analysis, whatever the length", () => {
-    const c = checkDuration({ analysisType: "stroke", declaredMinutes: null, creditsCharged: 1, actualDurationSec: 9000 });
-    expect(c).toMatchObject({ creditsActual: 1, difference: 0 });
-  });
-
-  it("measures against what was really charged, so a repeated correction is 0", () => {
-    // Declared 45 (1 credit), real 95 min (2 credits); after charging the 1 missing credit, 2 are charged.
-    expect(checkDuration({ ...base, actualDurationSec: 95 * 60, creditsCharged: 2 }).difference).toBe(0);
-  });
-});
-
-describe("applyChargeCorrection", () => {
-  it("charges the missing credits when the video is longer than declared, with a clear note", async () => {
-    const u = await newUser("longer");
-    const sub = await chargedMatch(u.id, 45, 1);
-    expect(await getBalance({ userId: u.id })).toBe(9);
-
-    const result = await applyChargeCorrection(sub.id, 95 * 60);
-    expect(result).toMatchObject({ applied: 1, creditsActual: 2 });
-    expect(await getBalance({ userId: u.id })).toBe(8);
-    expect(await creditsChargedFor(sub.id)).toBe(2);
-
-    const row = await prisma.creditLedger.findFirstOrThrow({ where: { videoSubmissionId: sub.id, delta: -1, note: { not: null } } });
-    expect(row.reason).toBe("submission");
-    expect(row.note).toMatch(/^Duration correction: the video is 95 min, declared 45 min/);
-    expect((await prisma.videoSubmission.findUniqueOrThrow({ where: { id: sub.id } })).actualDurationSec).toBe(95 * 60);
-  });
-
-  it("refunds the extra credits when the video is shorter than declared", async () => {
-    const u = await newUser("shorter");
-    const sub = await chargedMatch(u.id, 120, 2);
-    expect(await getBalance({ userId: u.id })).toBe(8);
-
-    const result = await applyChargeCorrection(sub.id, 40 * 60);
-    expect(result).toMatchObject({ applied: -1, creditsActual: 1 });
-    expect(await getBalance({ userId: u.id })).toBe(9);
-    const refund = await prisma.creditLedger.findFirstOrThrow({ where: { videoSubmissionId: sub.id, reason: "refund" } });
-    expect(refund).toMatchObject({ delta: 1, userId: u.id });
-    expect(refund.note).toContain("Duration correction");
-  });
-
-  it("is idempotent: applying it twice changes nothing the second time", async () => {
-    const u = await newUser("twice");
-    const sub = await chargedMatch(u.id, 45, 1);
-    await applyChargeCorrection(sub.id, 95 * 60);
-    const again = await applyChargeCorrection(sub.id, 95 * 60);
-    expect(again.applied).toBe(0);
-    expect(await getBalance({ userId: u.id })).toBe(8);
-    expect(await prisma.creditLedger.count({ where: { videoSubmissionId: sub.id } })).toBe(2);
-  });
-
-  it("fails with InsufficientCreditsError and writes nothing when the account cannot cover it", async () => {
-    const u = await newUser("broke");
-    const sub = await chargedMatch(u.id, 45, 1, 1); // balance is now 0
-    await expect(applyChargeCorrection(sub.id, 150 * 60)).rejects.toBeInstanceOf(InsufficientCreditsError);
-    expect(await getBalance({ userId: u.id })).toBe(0);
-    expect(await prisma.creditLedger.count({ where: { videoSubmissionId: sub.id } })).toBe(1);
-    // The stored length is rolled back with it.
-    expect((await prisma.videoSubmission.findUniqueOrThrow({ where: { id: sub.id } })).actualDurationSec).toBeNull();
-  });
-
-  it("charges the academy when the academy paid", async () => {
-    const u = await newUser("acad-player");
-    const a = await newAcademy("pays");
-    await grantCredits({ account: { academyId: a.id }, amount: 5, reason: "subscription_renewal" });
-    const sub = await newSubmission(u.id, { analysisType: "match", declaredMinutes: 45 });
-    await consumeCredits({ account: { academyId: a.id }, amount: 1, videoSubmissionId: sub.id });
-
-    await applyChargeCorrection(sub.id, 100 * 60);
-    expect(await getBalance({ academyId: a.id })).toBe(3);
-    expect(await getBalance({ userId: u.id })).toBe(0);
-  });
-
-  it("changes nothing for a stroke analysis", async () => {
-    const u = await newUser("stroke");
-    await grantCredits({ account: { userId: u.id }, amount: 1, reason: "purchase" });
-    const sub = await newSubmission(u.id, { analysisType: "stroke" });
-    await consumeCredits({ account: { userId: u.id }, amount: 1, videoSubmissionId: sub.id });
-    const result = await applyChargeCorrection(sub.id, 600);
-    expect(result.applied).toBe(0);
-    expect(await getBalance({ userId: u.id })).toBe(0);
-  });
-
-  it("refuses a submission that was never charged", async () => {
-    const u = await newUser("nocharge");
-    const sub = await newSubmission(u.id, { analysisType: "match", declaredMinutes: 30 });
-    await expect(applyChargeCorrection(sub.id, 3000)).rejects.toBeInstanceOf(NoChargeToCorrectError);
-  });
-
-  it("rejects a length that is not a positive number", async () => {
-    const u = await newUser("badlen");
-    const sub = await chargedMatch(u.id, 45, 1);
-    for (const seconds of [0, -5, NaN]) {
-      await expect(applyChargeCorrection(sub.id, seconds)).rejects.toThrow();
-    }
-  });
-
-  it("a later rejection refunds exactly what the submission cost after the correction", async () => {
-    const u = await newUser("reject-after");
-    const sub = await chargedMatch(u.id, 45, 1);
-    await applyChargeCorrection(sub.id, 95 * 60); // now 2 credits charged
-    expect(await getBalance({ userId: u.id })).toBe(8);
-    expect(await refundSubmissionCredits(sub.id, "rejected")).toBe(2);
-    expect(await getBalance({ userId: u.id })).toBe(10);
-    expect(await refundSubmissionCredits(sub.id, "rejected")).toBe(0);
-  });
 });
 
 describe("who can open an analysis", () => {

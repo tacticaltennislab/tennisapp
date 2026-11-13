@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { InsufficientCreditsError, adjustCredits, type CreditAccount } from "@/lib/credits";
 
-/** Admin only: add or remove credits for a user or an academy, with a note. */
+/** Admin only: add or remove analyses for a user or an academy, with a note. */
 export async function POST(request: Request) {
   const session = await auth();
   if (!session?.user || session.user.role !== "admin") {
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
   const academyId = typeof body?.academyId === "string" ? body.academyId : "";
 
   if (!Number.isInteger(delta) || delta === 0 || Math.abs(delta) > 10000) {
-    return NextResponse.json({ error: "Enter a whole number of credits, positive or negative." }, { status: 400 });
+    return NextResponse.json({ error: "Enter a whole number of analyses, positive or negative." }, { status: 400 });
   }
   if (!note) {
     return NextResponse.json({ error: "A note is required so the history explains the change." }, { status: 400 });

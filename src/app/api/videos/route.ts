@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { isFocusArea, isGoal, isSkillLevel } from "@/lib/trainingOptions";
 import { isFootageType } from "@/lib/freeAnalysis";
 import { InsufficientCreditsError, consumeCredits, creditsNeeded, isFootageKind, resolveCreditAccount } from "@/lib/credits";
+import { isTooLongForAnalysis } from "@/lib/creditCost";
+import { CREDIT_RULES } from "@/lib/plans";
 import { del } from "@vercel/blob";
 
 export async function POST(request: Request) {
@@ -43,14 +45,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Say whether the video is a match or a training session." }, { status: 400 });
   }
 
-  // What the analysis costs and who pays: the user's own credits, or an academy's if they belong to it.
+  // What the analysis costs and who pays: the user's own balance, or an academy's if they belong to it.
   const analysisType = isFootageKind(body?.analysisType) ? body.analysisType : wantsFree ? footageType! : "stroke";
   const durationMinutes = typeof body?.durationMinutes === "number" ? body.durationMinutes : undefined;
+  // One analysis covers one match of up to CREDIT_RULES.maxMatchMinutes; nothing is charged by length,
+  // so a longer recording is refused instead.
+  if (isTooLongForAnalysis(analysisType, durationMinutes)) {
+    // The file was already uploaded; do not leave it behind.
+    await del(storagePath).catch(() => undefined);
+    return NextResponse.json(
+      {
+        error: `A match or training video can be up to ${CREDIT_RULES.maxMatchMinutes / 60} hours. Please trim it or send it in parts.`,
+        code: "video_too_long",
+      },
+      { status: 400 }
+    );
+  }
   const needed = creditsNeeded(analysisType, durationMinutes);
   const academyId = typeof body?.academyId === "string" && body.academyId ? body.academyId : null;
   const account = await resolveCreditAccount(session.user.id, academyId);
   if (!account) {
-    return NextResponse.json({ error: "You cannot use that academy's credits." }, { status: 403 });
+    return NextResponse.json({ error: "You cannot use that academy's analyses." }, { status: 403 });
   }
 
   // The submission and its credits are one transaction: if the balance is too low nothing is saved.

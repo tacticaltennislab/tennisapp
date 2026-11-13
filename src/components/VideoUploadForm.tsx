@@ -15,7 +15,8 @@ import { freeAnalysisDictionaries } from "@/i18n/dictionaries/freeAnalysis";
 import { creditsUiDictionaries } from "@/i18n/dictionaries/creditsUi";
 import { pricingDictionaries } from "@/i18n/dictionaries/pricing";
 import { creditNoun, formatCredits } from "@/lib/creditFormat";
-import { creditsNeeded, type FootageKind as AnalysisKind } from "@/lib/creditCost";
+import { creditsNeeded, isTooLongForAnalysis, type FootageKind as AnalysisKind } from "@/lib/creditCost";
+import { CREDIT_RULES } from "@/lib/plans";
 import type { FootageType } from "@/lib/freeAnalysis";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
@@ -34,8 +35,8 @@ export default function VideoUploadForm({
   const cu = creditsUiDictionaries[lang].form;
   const noun = pricingDictionaries[lang].credits.noun;
   const [footageType, setFootageType] = useState<FootageType>("match");
-  // What is being sent decides how many credits it uses: a stroke is 1, match and training footage
-  // cost one per started 60 minutes. The free analysis is always a match or a training session.
+  // Every upload uses one analysis (a stroke, or a match or training recording of up to 2 hours).
+  // The free analysis is always a match or a training session.
   const [kind, setKind] = useState<AnalysisKind>("stroke");
   const [minutes, setMinutes] = useState(0);
   const [credits, setCredits] = useState<{
@@ -57,7 +58,9 @@ export default function VideoUploadForm({
 
   const analysisKind: AnalysisKind = free ? footageType : kind;
   const needed = creditsNeeded(analysisKind, minutes);
-  // Unless the user picked, pay from their own credits, or from an academy's if that is the one that can cover it.
+  const tooLong = isTooLongForAnalysis(analysisKind, minutes);
+  const tooLongText = cu.tooLong.replace("{maxHours}", String(CREDIT_RULES.maxMatchMinutes / 60));
+  // Unless the user picked, pay from their own balance, or from an academy's if that is the one that can cover it.
   const coveringAcademy = credits?.academies.find((a) => a.balance >= needed);
   const payer = chosenPayer ?? ((credits?.balance ?? 0) >= needed || !coveringAcademy ? "mine" : coveringAcademy.id);
   const payerAcademy = credits?.academies.find((a) => a.id === payer);
@@ -111,6 +114,10 @@ export default function VideoUploadForm({
       setError(t.chooseFileError);
       return;
     }
+    if (tooLong) {
+      setError(tooLongText);
+      return;
+    }
     if (missing > 0) {
       setError(needMoreText());
       return;
@@ -156,7 +163,9 @@ export default function VideoUploadForm({
         setError(
           data.code === "insufficient_credits"
             ? needMoreText(data.missing)
-            : data.error || t.uploadFailedError
+            : data.code === "video_too_long"
+              ? tooLongText
+              : data.error || t.uploadFailedError
         );
         setSubmitting(false);
         return;
@@ -325,14 +334,21 @@ export default function VideoUploadForm({
               onChange={(e) => setMinutes(Math.max(0, Math.floor(Number(e.target.value) || 0)))}
               className="w-28 rounded-lg border border-line bg-surface px-3 py-2 text-sm"
             />
-            <p className="mt-1 text-xs text-muted">{cu.lengthHint}</p>
+            <p className="mt-1 text-xs text-muted">
+              {cu.lengthHint.replace("{maxHours}", String(CREDIT_RULES.maxMatchMinutes / 60))}
+            </p>
+            {tooLong && (
+              <p role="alert" className="mt-1 text-sm font-medium text-red-600">
+                {tooLongText}
+              </p>
+            )}
           </div>
         )}
         {credits && credits.academies.length > 0 && (
           <div>
-            <label htmlFor="credit-payer" className="block text-sm font-medium mb-1">{cu.payWith}</label>
+            <label htmlFor="analysis-payer" className="block text-sm font-medium mb-1">{cu.payWith}</label>
             <select
-              id="credit-payer"
+              id="analysis-payer"
               value={payer}
               onChange={(e) => setChosenPayer(e.target.value)}
               className="w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm"
@@ -347,7 +363,7 @@ export default function VideoUploadForm({
           </div>
         )}
         {credits && (
-          <p className="text-sm" data-testid="credit-cost">
+          <p className="text-sm" data-testid="analysis-cost">
             <span className="font-semibold">{cu.cost.replace("{credits}", formatCredits(lang, needed, noun))}</span>{" "}
             <span className="text-muted">{cu.have.replace("{credits}", formatCredits(lang, available, noun))}</span>
           </p>
@@ -398,7 +414,7 @@ export default function VideoUploadForm({
 
       <button
         type="submit"
-        disabled={submitting || missing > 0}
+        disabled={submitting || missing > 0 || tooLong}
         className="w-full rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 disabled:translate-y-0 text-on-brand font-semibold py-2.5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
       >
         {submitting ? t.uploading.replace("{pct}", String(progress)) : t.submit}

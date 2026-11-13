@@ -83,11 +83,11 @@ describe("who can use the AI analysis", () => {
     expect(res.status).toBe(503);
   });
 
-  it("tells the admin when the API account has no credit, and does not leak anything else", async () => {
+  it("tells the admin when the API account has no balance, and does not leak anything else", async () => {
     created.fail = new (Anthropic as unknown as { APIError: new (s: number, m: string) => Error }).APIError(400, "Your credit balance is too low to access the Anthropic API");
     const res = await POST(request(body));
     expect(res.status).toBe(402);
-    expect((await res.json()).error).toMatch(/no credit/);
+    expect((await res.json()).error).toMatch(/no balance/);
   });
 
   it("refuses a request that is not usable", async () => {

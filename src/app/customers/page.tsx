@@ -102,7 +102,7 @@ export default async function CustomersPage() {
                     <th className="px-4 py-3 font-medium">Email</th>
                     <th className="px-4 py-3 font-medium">Sign in</th>
                     <th className="px-4 py-3 font-medium">Status</th>
-                    <th className="px-4 py-3 font-medium">Credits</th>
+                    <th className="px-4 py-3 font-medium">Analyses</th>
                     <th className="px-4 py-3 font-medium">Videos</th>
                     <th className="px-4 py-3 font-medium">Joined</th>
                     <th className="px-4 py-3 font-medium">Messages</th>
@@ -168,7 +168,7 @@ export default async function CustomersPage() {
                     <th className="px-4 py-3 font-medium">Academy</th>
                     <th className="px-4 py-3 font-medium">Subscription</th>
                     <th className="px-4 py-3 font-medium">Renews</th>
-                    <th className="px-4 py-3 font-medium">Credits</th>
+                    <th className="px-4 py-3 font-medium">Analyses</th>
                   </tr>
                 </thead>
                 <tbody>

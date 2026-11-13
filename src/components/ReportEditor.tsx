@@ -7,7 +7,8 @@ import AnalysisViewer from "@/components/dashboard/AnalysisViewer";
 import { KIND_META } from "@/components/dashboard/ui";
 import { chartingLines, parseAnalysisImport, type Charting, type DraftSummary } from "@/lib/analysisImport";
 import { formatClock, type Analysis, type Observation, type ObservationKind } from "@/lib/analysisTypes";
-import { checkDuration } from "@/lib/creditCost";
+import { isTooLongForAnalysis, isFootageKind } from "@/lib/creditCost";
+import { CREDIT_RULES } from "@/lib/plans";
 
 /** The coach report editor: watch, mark moments, write the summary, preview as the client sees it, publish. */
 
@@ -27,8 +28,6 @@ export interface EditorSubmission {
   analysisType: string | null;
   declaredMinutes: number | null;
   actualDurationSec: number | null;
-  /** Credits this submission has cost so far (null if it was sent before credits existed). */
-  creditsCharged: number | null;
   isAdmin: boolean;
 }
 
@@ -99,7 +98,7 @@ export default function ReportEditor({ submission, initial, videoSrc }: { submis
   const [activeId, setActiveId] = useState<string | null>(null);
   const [dirty, setDirty] = useState(false);
   const [status, setStatus] = useState(submission.status);
-  const [busy, setBusy] = useState<"save" | "publish" | "charge" | null>(null);
+  const [busy, setBusy] = useState<"save" | "publish" | null>(null);
   const [notice, setNotice] = useState<{ kind: "ok" | "error"; text: string } | null>(null);
   const [confirmPublish, setConfirmPublish] = useState(false);
   const [pendingImport, setPendingImport] = useState<{ obs: Obs[]; summary: Summary; charting?: Charting; text: string } | null>(null);
@@ -109,8 +108,6 @@ export default function ReportEditor({ submission, initial, videoSrc }: { submis
   const [duration, setDuration] = useState(0);
   const [rate, setRate] = useState(1);
   const [fps, setFps] = useState(30);
-
-  const [creditsCharged, setCreditsCharged] = useState(submission.creditsCharged);
 
   const edit = useCallback(<T,>(setter: (fn: (cur: T) => T) => void, fn: (cur: T) => T) => {
     setter(fn);
@@ -256,48 +253,12 @@ export default function ReportEditor({ submission, initial, videoSrc }: { submis
     [submission.analysis, observations, draft]
   );
 
-  // ---- Duration check -------------------------------------------------------------------------------
+  // ---- Video length ---------------------------------------------------------------------------------
+  // Nothing is charged by length any more. One analysis covers a match of up to CREDIT_RULES.maxMatchMinutes,
+  // so a longer match or training video is only flagged here; the coach can reject it and refund the analysis.
   const playerSeconds = duration > 0 ? duration : null;
-  const check =
-    playerSeconds != null && creditsCharged != null
-      ? checkDuration({
-          analysisType: submission.analysisType,
-          declaredMinutes: submission.declaredMinutes,
-          actualDurationSec: playerSeconds,
-          creditsCharged,
-        })
-      : null;
-
-  async function applyCharge() {
-    if (playerSeconds == null) return;
-    setBusy("charge");
-    setNotice(null);
-    try {
-      const res = await fetch(`/api/submissions/${submission.id}/charge`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ actualDurationSec: playerSeconds }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setNotice({ kind: "error", text: data.error || "The charge could not be applied." });
-        return;
-      }
-      setCreditsCharged((c) => (c ?? 0) + (data.applied ?? 0));
-      setNotice({
-        kind: "ok",
-        text:
-          data.applied > 0
-            ? `Charged ${data.applied} more credit${data.applied === 1 ? "" : "s"}.`
-            : `Refunded ${-data.applied} credit${data.applied === -1 ? "" : "s"}.`,
-      });
-      router.refresh();
-    } catch {
-      setNotice({ kind: "error", text: "The charge could not be applied. Check your connection." });
-    } finally {
-      setBusy(null);
-    }
-  }
+  const kind = isFootageKind(submission.analysisType) ? submission.analysisType : "stroke";
+  const overLimit = playerSeconds != null && isTooLongForAnalysis(kind, playerSeconds / 60);
 
   // ---- Save, publish ----------------------------------------------------------------------------------
   function payload() {
@@ -517,7 +478,7 @@ export default function ReportEditor({ submission, initial, videoSrc }: { submis
 
       {status === "rejected" && (
         <p role="status" className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
-          This submission was rejected and its credits were refunded, so it cannot be edited or published.
+          This submission was rejected and its analysis was refunded, so it cannot be edited or published.
         </p>
       )}
 
@@ -650,14 +611,14 @@ export default function ReportEditor({ submission, initial, videoSrc }: { submis
             {/* Declared length against the real one */}
             <section aria-labelledby="duration-heading" className="rounded-2xl border border-line bg-surface p-4 text-sm">
               <h2 id="duration-heading" className="font-semibold text-ink">
-                Video length and credits
+                Video length
               </h2>
               <dl className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
                 <div>
                   <dt className="text-xs text-muted">Declared by the client</dt>
                   <dd className="t-mono text-ink" data-testid="declared">
                     {submission.analysisType === "stroke"
-                      ? "Stroke analysis (length does not change the cost)"
+                      ? "Stroke analysis"
                       : submission.declaredMinutes != null
                         ? `${Math.round(submission.declaredMinutes)} min`
                         : "Not stated"}
@@ -670,30 +631,12 @@ export default function ReportEditor({ submission, initial, videoSrc }: { submis
                   </dd>
                 </div>
               </dl>
-              {creditsCharged == null ? (
-                <p className="mt-3 text-muted">This video was sent before credits existed, so there is no charge to check.</p>
-              ) : check && check.difference !== 0 ? (
-                <div className="mt-3 rounded-lg border border-amber-300 bg-amber-50 p-3 text-amber-900" data-testid="mismatch">
-                  <p>
-                    The real length costs <strong>{check.creditsActual}</strong> credit{check.creditsActual === 1 ? "" : "s"}; the client was charged{" "}
-                    <strong>{check.creditsCharged}</strong>.{" "}
-                    {check.difference > 0
-                      ? `${check.difference} more credit${check.difference === 1 ? "" : "s"} should be charged.`
-                      : `${-check.difference} credit${check.difference === -1 ? "" : "s"} should be refunded.`}
-                  </p>
-                  {submission.isAdmin ? (
-                    <button type="button" className="btn btn-primary mt-3 !min-h-9 !px-4 !text-sm" onClick={applyCharge} disabled={busy !== null}>
-                      {busy === "charge" ? "Applying" : "Apply correct charge"}
-                    </button>
-                  ) : (
-                    <p className="mt-2 text-xs">Only an admin can apply the correction.</p>
-                  )}
-                </div>
-              ) : check ? (
-                <p className="mt-3 text-muted" data-testid="match">
-                  {check.creditsCharged} credit{check.creditsCharged === 1 ? "" : "s"} charged, which matches the real length.
+              {overLimit && (
+                <p className="mt-3 rounded-lg border border-amber-300 bg-amber-50 p-3 text-amber-900" data-testid="over-limit">
+                  This video is longer than {CREDIT_RULES.maxMatchMinutes / 60} hours, which is the most one analysis covers.
+                  Reject it and refund the analysis, and ask the client to send it in parts.
                 </p>
-              ) : null}
+              )}
             </section>
 
             {/* Summary */}

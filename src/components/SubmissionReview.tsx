@@ -74,7 +74,7 @@ export default function SubmissionReview({
 
   async function handleReject() {
     const reason = window.prompt(
-      "Reject this submission and give the credits back? Add a short reason for the customer (optional).",
+      "Reject this submission and give the analysis back? Add a short reason for the customer (optional).",
       ""
     );
     if (reason === null) return;
@@ -213,7 +213,7 @@ export default function SubmissionReview({
             disabled={submitting}
             className="text-sm text-amber-700 hover:text-amber-800 disabled:opacity-60"
           >
-            Reject and refund credits
+            Reject and refund analysis
           </button>
         )}
         {canDelete && (
