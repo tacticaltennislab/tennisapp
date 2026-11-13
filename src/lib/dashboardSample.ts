@@ -14,7 +14,7 @@ export const ANALYSES: Analysis[] = [
   {
     id: "serve-deuce",
     title: "Serve, deuce side practice",
-    service: "Stroke Fix",
+    service: "Stroke Analysis",
     status: "reviewed",
     submittedAt: "12 Oct 2026",
     reviewedAt: "14 Oct 2026",
@@ -118,7 +118,7 @@ export const ANALYSES: Analysis[] = [
   {
     id: "match-set-2",
     title: "Match vs club rival, set 2",
-    service: "Match IQ: Short",
+    service: "Match Analysis",
     status: "awaiting",
     submittedAt: "21 Oct 2026",
     durationSec: 2410,
@@ -131,7 +131,7 @@ export const ANALYSES: Analysis[] = [
   {
     id: "forehand-crosscourt",
     title: "Forehand, cross court rally",
-    service: "Stroke Fix",
+    service: "Stroke Analysis",
     status: "reviewed",
     submittedAt: "21 Sep 2026",
     reviewedAt: "23 Sep 2026",
@@ -337,7 +337,7 @@ export interface Order {
 
 export const ORDERS: Order[] = [
   { id: "1043", date: "21 Oct 2026", item: "Match Analysis", amount: "$159.00", status: "Paid", note: "One time" },
-  { id: "1038", date: "12 Oct 2026", item: "4 Week Training Program", amount: "$99.00", status: "Paid", note: "One time" },
+  { id: "1038", date: "12 Oct 2026", item: "4 Week Training Program", amount: "$50.00", status: "Paid", note: "One time" },
   { id: "1037", date: "12 Oct 2026", item: "Stroke Analysis", amount: "$49.00", status: "Paid", note: "One time" },
 ];
 
