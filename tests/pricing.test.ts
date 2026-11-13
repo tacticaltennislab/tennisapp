@@ -24,6 +24,8 @@ import { LOCALES, type AppLocale } from "@/i18n/locales";
 const ALL_LOCALES: AppLocale[] = ["en", ...LOCALES];
 /** What must never reach a customer: credit in English, Polish, Spanish, Italian and Russian. */
 const CREDIT_WORDS = /credit|kredyt|cr[eé]dit|кредит/i;
+/** Products that are no longer sold; they must not be mentioned anywhere customers can read. */
+const RETIRED_PRODUCTS = /Smart System|PRO Tour|Stroke Fix|Match IQ|Match Analysis Full/;
 
 describe("the match and stroke products", () => {
   it("Match Analysis is one full match for $159, 1 analysis", () => {
@@ -120,7 +122,7 @@ describe("wording", () => {
     expect(AI_FAQ_SYSTEM_PROMPT).not.toMatch(/\$99\b|\$179\b|60 minutes/);
   });
 
-  it("no customer facing dictionary or plan text mentions credits, in any language", () => {
+  it("no customer facing dictionary or plan text mentions credits or retired products, in any language", () => {
     const modules = import.meta.glob("../src/i18n/dictionaries/*.ts", { eager: true }) as Record<string, Record<string, unknown>>;
     expect(Object.keys(modules).length).toBeGreaterThan(10);
 
@@ -129,6 +131,7 @@ describe("wording", () => {
       if (typeof value === "string") {
         // {credits} and {oneCredit} are placeholders in the wording, never shown.
         if (CREDIT_WORDS.test(value.replace(/\{[^}]*\}/g, ""))) hits.push(`${path}: ${value.slice(0, 80)}`);
+        if (RETIRED_PRODUCTS.test(value)) hits.push(`${path} (retired product): ${value.slice(0, 80)}`);
       } else if (Array.isArray(value)) {
         value.forEach((v, i) => walk(v, `${path}[${i}]`));
       } else if (value && typeof value === "object") {

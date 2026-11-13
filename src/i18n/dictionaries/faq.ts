@@ -88,21 +88,21 @@ const en: FaqDict = {
         {
           question: "What plans do you offer?",
           answer:
-            "Stroke Fix ($49, one time) is a focused technical breakdown of one issue. Smart System ($99) is a 4 week development program for one stroke. Match Analysis ($159, one time) is a full match analysis, up to 2 hours of footage. PRO Tour ($249/month) is ongoing coaching with up to 4 analyses a month and direct coach access.",
+            "Stroke Analysis ($49, one time) is a focused technical breakdown of one issue, and you can add a 4 Week Training Program ($50) to it. Match Analysis ($159, one time) is a full match analysis, up to 2 hours of footage. Academies and clubs have monthly packages from $550, see the pricing page.",
         },
         {
           question: "Do prices include tax?",
           answer: "No. All prices are listed in USD, and we don't add VAT or sales tax at checkout.",
         },
         {
-          question: "Can I cancel PRO Tour anytime?",
+          question: "Can I cancel a subscription anytime?",
           answer:
             "Yes. Cancel anytime from your account, it takes effect at the end of your current billing period, and you keep access until then. We don't offer partial refunds for unused time in a billing period.",
         },
         {
           question: "What's your refund policy?",
           answer:
-            "For one time plans, you can get a full refund before a coach has started your analysis; once analysis begins, EU/EEA/UK consumers' 14 day right of withdrawal ends, since the service starts performing immediately at your request. For PRO Tour, you can withdraw within 14 days of first subscribing, minus the value of any analysis already delivered. Email tacticaltennislab@gmail.com to request a refund or see the full terms at /terms.",
+            "For one time plans, you can get a full refund before a coach has started your analysis; once analysis begins, EU/EEA/UK consumers' 14 day right of withdrawal ends, since the service starts performing immediately at your request. For a subscription, you can withdraw within 14 days of first subscribing, minus the value of any analysis already delivered. Email tacticaltennislab@gmail.com to request a refund or see the full terms at /terms.",
         },
       ],
     },
@@ -132,7 +132,7 @@ const en: FaqDict = {
         {
           question: "How do referral discounts work?",
           answer:
-            "Share your personal referral link, found on your account page. A referral counts once the person you referred completes their first paid purchase. 1 successful referral unlocks 20% off your own future purchases, 2 unlocks 40%, and 5 unlocks most plans free (PRO Tour is capped at 40% off and Match Analysis at 50%, even at higher referral counts). Discounts apply automatically at checkout.",
+            "Share your personal referral link, found on your account page. A referral counts once the person you referred completes their first paid purchase. 1 successful referral unlocks 20% off your own future purchases, 2 unlocks 40%, and 5 unlocks most plans free (Match Analysis is capped at 50% off, even at higher referral counts). Discounts apply automatically at checkout.",
         },
       ],
     },
@@ -223,21 +223,21 @@ const pl: FaqDict = {
         {
           question: "Jakie plany oferujecie?",
           answer:
-            "Stroke Fix (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu. Smart System (99 USD) to czterotygodniowy program rozwoju jednego uderzenia. Analiza meczu (159 USD, jednorazowo) to analiza pełnego meczu, do 2 godzin nagrania. PRO Tour (249 USD/miesiąc) to ciągły coaching z do 4 analizami miesięcznie i bezpośrednim kontaktem z trenerem.",
+            "Analiza uderzenia (49 USD, jednorazowo) to skoncentrowana analiza techniczna jednego problemu, do której możesz dodać Czterotygodniowy program treningowy (50 USD). Analiza meczu (159 USD, jednorazowo) to analiza pełnego meczu, do 2 godzin nagrania. Akademie i kluby mają pakiety miesięczne od 550 USD, zobacz stronę z cennikiem.",
         },
         {
           question: "Czy ceny zawierają podatek?",
           answer: "Nie. Wszystkie ceny podane są w USD, a przy płatności nie doliczamy VAT ani podatku od sprzedaży.",
         },
         {
-          question: "Czy mogę anulować PRO Tour w dowolnym momencie?",
+          question: "Czy mogę anulować subskrypcję w dowolnym momencie?",
           answer:
             "Tak. Anuluj w dowolnym momencie z poziomu konta, anulowanie wchodzi w życie na koniec bieżącego okresu rozliczeniowego, a dostęp zachowujesz do tego czasu. Nie oferujemy częściowych zwrotów za niewykorzystany czas w okresie rozliczeniowym.",
         },
         {
           question: "Jaka jest Wasza polityka zwrotów?",
           answer:
-            "W przypadku planów jednorazowych pełny zwrot przysługuje przed rozpoczęciem analizy przez trenera; po jej rozpoczęciu 14 dniowe prawo do odstąpienia dla konsumentów z UE/EOG/UK wygasa, ponieważ usługa zaczyna być realizowana natychmiast na Twoje żądanie. W przypadku PRO Tour możesz odstąpić w ciągu 14 dni od pierwszej subskrypcji, pomniejszone o wartość już dostarczonej analizy. Napisz na tacticaltennislab@gmail.com, aby poprosić o zwrot, lub zobacz pełny regulamin na /terms.",
+            "W przypadku planów jednorazowych pełny zwrot przysługuje przed rozpoczęciem analizy przez trenera; po jej rozpoczęciu 14 dniowe prawo do odstąpienia dla konsumentów z UE/EOG/UK wygasa, ponieważ usługa zaczyna być realizowana natychmiast na Twoje żądanie. W przypadku subskrypcji możesz odstąpić w ciągu 14 dni od pierwszej subskrypcji, pomniejszone o wartość już dostarczonej analizy. Napisz na tacticaltennislab@gmail.com, aby poprosić o zwrot, lub zobacz pełny regulamin na /terms.",
         },
       ],
     },
@@ -267,7 +267,7 @@ const pl: FaqDict = {
         {
           question: "Jak działają zniżki za polecenie?",
           answer:
-            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2, 40%, a 5, większość planów za darmo (PRO Tour jest ograniczone do 40% zniżki, a Analiza meczu do 50%, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
+            "Udostępnij swój osobisty link polecający, dostępny na stronie konta. Polecenie liczy się, gdy osoba, którą poleciłeś, dokona pierwszego płatnego zakupu. 1 udane polecenie odblokowuje 20% zniżki na Twoje kolejne zakupy, 2, 40%, a 5, większość planów za darmo (Analiza meczu jest ograniczona do 50% zniżki, nawet przy większej liczbie poleceń). Zniżki stosują się automatycznie przy płatności.",
         },
       ],
     },
@@ -358,21 +358,21 @@ const es: FaqDict = {
         {
           question: "¿Qué planes ofrecéis?",
           answer:
-            "Stroke Fix ($49, pago único) es un análisis técnico enfocado de un problema. Smart System ($99) es un programa de desarrollo de 4 semanas para un golpe. Análisis de partido ($159, pago único) es el análisis de un partido completo, hasta 2 horas de vídeo. PRO Tour ($249/mes) es coaching continuo con hasta 4 análisis al mes y acceso directo al entrenador.",
+            "Análisis de golpe ($49, pago único) es un análisis técnico enfocado de un problema, al que puedes añadir un Programa de entrenamiento de 4 semanas ($50). Análisis de partido ($159, pago único) es el análisis de un partido completo, hasta 2 horas de vídeo. Las academias y los clubes tienen paquetes mensuales desde $550, consulta la página de precios.",
         },
         {
           question: "¿Los precios incluyen impuestos?",
           answer: "No. Todos los precios están en USD, y no añadimos IVA ni impuesto de ventas al finalizar la compra.",
         },
         {
-          question: "¿Puedo cancelar PRO Tour en cualquier momento?",
+          question: "¿Puedo cancelar una suscripción en cualquier momento?",
           answer:
             "Sí. Cancela cuando quieras desde tu cuenta, tiene efecto al final de tu periodo de facturación actual, y mantienes el acceso hasta entonces. No ofrecemos reembolsos parciales por tiempo no utilizado dentro de un periodo de facturación.",
         },
         {
           question: "¿Cuál es vuestra política de reembolsos?",
           answer:
-            "Para los planes de pago único, puedes obtener un reembolso completo antes de que un entrenador haya empezado tu análisis; una vez que el análisis comienza, el derecho de desistimiento de 14 días de los consumidores de la UE/EEE/Reino Unido termina, ya que el servicio empieza a prestarse de inmediato a petición tuya. Para PRO Tour, puedes desistir dentro de los 14 días desde tu primera suscripción, menos el valor de cualquier análisis ya entregado. Escribe a tacticaltennislab@gmail.com para solicitar un reembolso o consulta los términos completos en /terms.",
+            "Para los planes de pago único, puedes obtener un reembolso completo antes de que un entrenador haya empezado tu análisis; una vez que el análisis comienza, el derecho de desistimiento de 14 días de los consumidores de la UE/EEE/Reino Unido termina, ya que el servicio empieza a prestarse de inmediato a petición tuya. Para una suscripción, puedes desistir dentro de los 14 días desde tu primera suscripción, menos el valor de cualquier análisis ya entregado. Escribe a tacticaltennislab@gmail.com para solicitar un reembolso o consulta los términos completos en /terms.",
         },
       ],
     },
@@ -402,7 +402,7 @@ const es: FaqDict = {
         {
           question: "¿Cómo funcionan los descuentos por referidos?",
           answer:
-            "Comparte tu enlace de referido personal, disponible en tu página de cuenta. Un referido cuenta cuando la persona que referiste completa su primera compra pagada. 1 referido exitoso desbloquea un 20% de descuento en tus próximas compras, 2 desbloquea un 40%, y 5 desbloquea la mayoría de planes gratis (PRO Tour está limitado a un 40% de descuento y Análisis de partido a un 50%, incluso con más referidos). Los descuentos se aplican automáticamente al pagar.",
+            "Comparte tu enlace de referido personal, disponible en tu página de cuenta. Un referido cuenta cuando la persona que referiste completa su primera compra pagada. 1 referido exitoso desbloquea un 20% de descuento en tus próximas compras, 2 desbloquea un 40%, y 5 desbloquea la mayoría de planes gratis (Análisis de partido está limitado a un 50% de descuento, incluso con más referidos). Los descuentos se aplican automáticamente al pagar.",
         },
       ],
     },
@@ -493,21 +493,21 @@ const it: FaqDict = {
         {
           question: "Quali piani offrite?",
           answer:
-            "Stroke Fix ($49, una tantum) è un'analisi tecnica mirata su un problema. Smart System ($99) è un programma di sviluppo di 4 settimane per un colpo. Analisi della partita ($159, una tantum) è l'analisi di una partita intera, fino a 2 ore di video. PRO Tour ($249/mese) è coaching continuo con fino a 4 analisi al mese e accesso diretto all'allenatore.",
+            "Analisi del colpo ($49, una tantum) è un'analisi tecnica mirata su un problema, a cui puoi aggiungere un Programma di allenamento di 4 settimane ($50). Analisi della partita ($159, una tantum) è l'analisi di una partita intera, fino a 2 ore di video. Accademie e club hanno pacchetti mensili da $550, vedi la pagina dei prezzi.",
         },
         {
           question: "I prezzi includono le tasse?",
           answer: "No. Tutti i prezzi sono in USD, e non aggiungiamo IVA o imposta sulle vendite al checkout.",
         },
         {
-          question: "Posso annullare PRO Tour in qualsiasi momento?",
+          question: "Posso annullare un abbonamento in qualsiasi momento?",
           answer:
             "Sì. Annulla quando vuoi dal tuo account, ha effetto alla fine del periodo di fatturazione corrente, e mantieni l'accesso fino ad allora. Non offriamo rimborsi parziali per il tempo non utilizzato in un periodo di fatturazione.",
         },
         {
           question: "Qual è la vostra politica di rimborso?",
           answer:
-            "Per i piani una tantum, puoi ottenere un rimborso completo prima che un allenatore abbia iniziato la tua analisi; una volta iniziata l'analisi, il diritto di recesso di 14 giorni dei consumatori UE/SEE/UK termina, poiché il servizio inizia a essere eseguito immediatamente su tua richiesta. Per PRO Tour, puoi recedere entro 14 giorni dal primo abbonamento, meno il valore di qualsiasi analisi già fornita. Scrivi a tacticaltennislab@gmail.com per richiedere un rimborso o consulta i termini completi su /terms.",
+            "Per i piani una tantum, puoi ottenere un rimborso completo prima che un allenatore abbia iniziato la tua analisi; una volta iniziata l'analisi, il diritto di recesso di 14 giorni dei consumatori UE/SEE/UK termina, poiché il servizio inizia a essere eseguito immediatamente su tua richiesta. Per un abbonamento, puoi recedere entro 14 giorni dal primo abbonamento, meno il valore di qualsiasi analisi già fornita. Scrivi a tacticaltennislab@gmail.com per richiedere un rimborso o consulta i termini completi su /terms.",
         },
       ],
     },
@@ -537,7 +537,7 @@ const it: FaqDict = {
         {
           question: "Come funzionano gli sconti referral?",
           answer:
-            "Condividi il tuo link di invito personale, disponibile nella pagina del tuo account. Un invito conta quando la persona che hai invitato completa il suo primo acquisto a pagamento. 1 invito riuscito sblocca il 20% di sconto sui tuoi acquisti futuri, 2 sblocca il 40%, e 5 sblocca la maggior parte dei piani gratis (PRO Tour è limitato al 40% di sconto e Analisi della partita al 50%, anche con più inviti). Gli sconti si applicano automaticamente al checkout.",
+            "Condividi il tuo link di invito personale, disponibile nella pagina del tuo account. Un invito conta quando la persona che hai invitato completa il suo primo acquisto a pagamento. 1 invito riuscito sblocca il 20% di sconto sui tuoi acquisti futuri, 2 sblocca il 40%, e 5 sblocca la maggior parte dei piani gratis (Analisi della partita è limitata al 50% di sconto, anche con più inviti). Gli sconti si applicano automaticamente al checkout.",
         },
       ],
     },
@@ -628,21 +628,21 @@ const ru: FaqDict = {
         {
           question: "Какие планы вы предлагаете?",
           answer:
-            "Stroke Fix ($49, разово): сфокусированный технический разбор одной проблемы. Smart System ($99), четырёхнедельная программа развития одного удара. Разбор матча ($159, разово): разбор полного матча, до 2 часов видео. PRO Tour ($249/месяц), постоянный коучинг с до 4 анализами в месяц и прямым доступом к тренеру.",
+            "Разбор удара ($49, разово): сфокусированный технический разбор одной проблемы, к которому можно добавить Четырёхнедельную программу тренировок ($50). Разбор матча ($159, разово): разбор полного матча, до 2 часов видео. Для академий и клубов есть ежемесячные пакеты от $550, смотрите страницу с ценами.",
         },
         {
           question: "Включён ли налог в цену?",
           answer: "Нет. Все цены указаны в USD, и при оплате мы не добавляем НДС или налог с продаж.",
         },
         {
-          question: "Могу ли я отменить PRO Tour в любое время?",
+          question: "Могу ли я отменить подписку в любое время?",
           answer:
             "Да. Отмените в любой момент из своего аккаунта, это вступит в силу в конце текущего расчётного периода, а доступ сохранится до этого момента. Мы не предоставляем частичный возврат за неиспользованное время в расчётном периоде.",
         },
         {
           question: "Какова ваша политика возврата средств?",
           answer:
-            "Для разовых планов вы можете получить полный возврат до того, как тренер начал ваш анализ; как только анализ начинается, 14 дневное право на отказ для потребителей из ЕС/ЕЭЗ/Великобритании прекращается, так как услуга начинает выполняться немедленно по вашему запросу. Для PRO Tour вы можете отказаться в течение 14 дней с момента первой подписки, за вычетом стоимости уже предоставленного анализа. Напишите на tacticaltennislab@gmail.com, чтобы запросить возврат, или посмотрите полные условия на /terms.",
+            "Для разовых планов вы можете получить полный возврат до того, как тренер начал ваш анализ; как только анализ начинается, 14 дневное право на отказ для потребителей из ЕС/ЕЭЗ/Великобритании прекращается, так как услуга начинает выполняться немедленно по вашему запросу. Для подписки вы можете отказаться в течение 14 дней с момента первой подписки, за вычетом стоимости уже предоставленного анализа. Напишите на tacticaltennislab@gmail.com, чтобы запросить возврат, или посмотрите полные условия на /terms.",
         },
       ],
     },
@@ -672,7 +672,7 @@ const ru: FaqDict = {
         {
           question: "Как работают реферальные скидки?",
           answer:
-            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2, 40%, а 5, большинство планов бесплатно (PRO Tour ограничен скидкой 40%, а разбор матча, 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
+            "Поделитесь своей персональной реферальной ссылкой, которая находится на странице аккаунта. Приглашение засчитывается, когда приглашённый вами человек совершает свою первую платную покупку. 1 успешное приглашение открывает скидку 20% на ваши будущие покупки, 2, 40%, а 5, большинство планов бесплатно (разбор матча ограничен скидкой 50%, даже при большем числе приглашений). Скидки применяются автоматически при оплате.",
         },
       ],
     },
