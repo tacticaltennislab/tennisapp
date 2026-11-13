@@ -126,7 +126,7 @@ const en: PricingDict = {
     perMonth: "/month",
     billing: { title: "Billing", monthly: "Monthly", quarterly: "Quarterly", semiannual: "Semi annual", save: "save {pct}%", billed: "billed {total}" },
     cta: "Book a demo",
-    note: "Every club package is set up personally by Piotr Kusiewicz and Mateusz Kułakowski, get in touch and we'll tailor it to your roster.",
+    note: "Every club package is set up personally by Piotr Kusiewicz, get in touch and we'll tailor it to your roster.",
   },
   credits: {
     noun: { one: "analysis", other: "analyses" },
@@ -205,7 +205,7 @@ const pl: PricingDict = {
     perMonth: "/mies.",
     billing: { title: "Rozliczenie", monthly: "Miesięcznie", quarterly: "Kwartalnie", semiannual: "Półrocznie", save: "oszczędzasz {pct}%", billed: "płatność {total}" },
     cta: "Umów demo",
-    note: "Każdym pakietem klubowym zajmują się osobiście Piotr Kusiewicz i Mateusz Kułakowski, napisz do nas, a dopasujemy go do Twojego zespołu.",
+    note: "Każdym pakietem klubowym zajmuje się osobiście Piotr Kusiewicz, napisz do nas, a dopasujemy go do Twojego zespołu.",
   },
   credits: {
     noun: { one: "analiza", few: "analizy", many: "analiz", other: "analizy" },
@@ -284,7 +284,7 @@ const es: PricingDict = {
     perMonth: "/mes",
     billing: { title: "Facturación", monthly: "Mensual", quarterly: "Trimestral", semiannual: "Semestral", save: "ahorra {pct}%", billed: "se cobra {total}" },
     cta: "Reserva una demo",
-    note: "Cada paquete para clubes lo configuran personalmente Piotr Kusiewicz y Mateusz Kułakowski, contáctanos y lo adaptaremos a tu equipo.",
+    note: "Cada paquete para clubes lo configura personalmente Piotr Kusiewicz, contáctanos y lo adaptaremos a tu equipo.",
   },
   credits: {
     noun: { one: "análisis", other: "análisis" },
@@ -363,7 +363,7 @@ const it: PricingDict = {
     perMonth: "/mese",
     billing: { title: "Fatturazione", monthly: "Mensile", quarterly: "Trimestrale", semiannual: "Semestrale", save: "risparmi il {pct}%", billed: "addebito {total}" },
     cta: "Prenota una demo",
-    note: "Ogni pacchetto per club viene organizzato personalmente da Piotr Kusiewicz e Mateusz Kułakowski, contattaci e lo adatteremo alla tua squadra.",
+    note: "Ogni pacchetto per club viene organizzato personalmente da Piotr Kusiewicz, contattaci e lo adatteremo alla tua squadra.",
   },
   credits: {
     noun: { one: "analisi", other: "analisi" },
@@ -442,7 +442,7 @@ const ru: PricingDict = {
     perMonth: "/мес.",
     billing: { title: "Оплата", monthly: "Ежемесячно", quarterly: "Раз в квартал", semiannual: "Раз в полгода", save: "скидка {pct}%", billed: "списывается {total}" },
     cta: "Записаться на демо",
-    note: "Каждый клубный пакет настраивается лично Пиотром Кусевичем и Матеушем Кулаковским, свяжитесь с нами, и мы подберём вариант под вашу команду.",
+    note: "Каждый клубный пакет настраивается лично Пиотром Кусевичем, свяжитесь с нами, и мы подберём вариант под вашу команду.",
   },
   credits: {
     noun: { one: "разбор", few: "разбора", many: "разборов", other: "разбора" },

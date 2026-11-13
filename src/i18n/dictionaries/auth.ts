@@ -63,7 +63,7 @@ const en: AuthDict = {
   panel: {
     title: "Coached by people who've played at the top.",
     subtitle:
-      "ATP players, certified ATP and ITF coaches review your game and build a plan around what you need to fix.",
+      "Certified ATP and ITF coaches review your game and build a plan around what you need to fix.",
   },
   or: "or",
   signIn: {
@@ -126,7 +126,7 @@ const pl: AuthDict = {
   panel: {
     title: "Trenowani przez ludzi, którzy grali na najwyższym poziomie.",
     subtitle:
-      "Zawodnicy ATP, certyfikowani trenerzy ATP i ITF analizują Twoją grę i budują plan wokół tego, co wymaga poprawy.",
+      "Certyfikowani trenerzy ATP i ITF analizują Twoją grę i budują plan wokół tego, co wymaga poprawy.",
   },
   or: "lub",
   signIn: {
@@ -189,7 +189,7 @@ const es: AuthDict = {
   panel: {
     title: "Entrenado por gente que ha jugado al más alto nivel.",
     subtitle:
-      "Jugadores del ATP, entrenadores certificados ATP e ITF revisan tu juego y construyen un plan en torno a lo que necesitas corregir.",
+      "Los entrenadores certificados ATP e ITF revisan tu juego y construyen un plan en torno a lo que necesitas corregir.",
   },
   or: "o",
   signIn: {
@@ -252,7 +252,7 @@ const it: AuthDict = {
   panel: {
     title: "Allenato da persone che hanno giocato ai massimi livelli.",
     subtitle:
-      "Giocatori ATP, allenatori certificati ATP e ITF rivedono il tuo gioco e costruiscono un piano su ciò che devi correggere.",
+      "Gli allenatori certificati ATP e ITF rivedono il tuo gioco e costruiscono un piano su ciò che devi correggere.",
   },
   or: "oppure",
   signIn: {
@@ -315,7 +315,7 @@ const ru: AuthDict = {
   panel: {
     title: "С тренерами, которые играли на самом высоком уровне.",
     subtitle:
-      "Игроки ATP, сертифицированные тренеры ATP и ITF разбирают вашу игру и строят план вокруг того, что нужно исправить.",
+      "Сертифицированные тренеры ATP и ITF разбирают вашу игру и строят план вокруг того, что нужно исправить.",
   },
   or: "или",
   signIn: {

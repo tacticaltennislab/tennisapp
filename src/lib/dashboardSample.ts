@@ -135,7 +135,7 @@ export const ANALYSES: Analysis[] = [
     status: "reviewed",
     submittedAt: "21 Sep 2026",
     reviewedAt: "23 Sep 2026",
-    coach: "Mateusz",
+    coach: "Piotr",
     durationSec: 36,
     fileName: "forehand_rally.mp4",
     fileSize: "94 MB",
@@ -320,7 +320,7 @@ export const MESSAGES: ChatMessage[] = [
   {
     id: "m5",
     from: "coach",
-    author: "Mateusz",
+    author: "Piotr",
     at: "22 Oct, 10:03",
     body: "I received your match video and will review the second set this week. If you can, tell me which games felt worst so I can start there.",
   },
