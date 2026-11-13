@@ -122,7 +122,7 @@ export default function ClubAgreementPage() {
                 This Agreement is made as of <strong>[ Effective Date ]</strong>, between:
               </p>
               <p>
-                <strong>Provider:</strong> Piotr Kusiewicz and Mateusz Kułakowski, individuals trading
+                <strong>Provider:</strong> Piotr Kusiewicz, an individual trading
                 as Tactical Tennis Lab (tacticaltennislab.com), reachable at
                 tacticaltennislab@gmail.com (&ldquo;Provider&rdquo;); and
               </p>
@@ -154,10 +154,6 @@ export default function ClubAgreementPage() {
                   Signature, printed name, date
                 </div>
                 <p className="mt-6 text-sm text-body">Piotr Kusiewicz</p>
-                <div className="mt-8 border-t border-line pt-2 text-sm text-muted">
-                  Signature, printed name, date
-                </div>
-                <p className="mt-6 text-sm text-body">Mateusz Kułakowski</p>
               </div>
               <div>
                 <p className="font-semibold">For Academy</p>

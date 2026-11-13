@@ -27,8 +27,8 @@ export default function MessagesDemo() {
   return (
     <div className="mx-auto flex max-w-3xl flex-col overflow-hidden rounded-2xl border border-line bg-surface md:h-[calc(100vh-11rem)] md:min-h-[32rem]">
       <header className="border-b border-line px-5 py-4">
-        <h2 className="text-sm font-semibold text-ink">Your coaches</h2>
-        <p className="mt-0.5 text-xs text-muted">Piotr and Mateusz. Ask about your feedback, a drill or what to film next.</p>
+        <h2 className="text-sm font-semibold text-ink">Your coach</h2>
+        <p className="mt-0.5 text-xs text-muted">Piotr. Ask about your feedback, a drill or what to film next.</p>
       </header>
 
       <div role="log" aria-label="Conversation" tabIndex={0} className="flex-1 overflow-y-auto px-5 py-6 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-600">

@@ -27,7 +27,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Who we are",
           body: [
-            "Tactical Tennis Lab (“we”, “us”, “our”) is currently operated by Piotr Kusiewicz and Mateusz Kułakowski as individuals, trading as Tactical Tennis Lab (formal business registration is in progress). We provide online tennis coaching services, including video analysis and personalized training plans, accessible at tacticaltennislab.com (the “Service”). You can reach us at tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab (“we”, “us”, “our”) is currently operated by Piotr Kusiewicz, an individual trading as Tactical Tennis Lab (formal business registration is in progress). We provide online tennis coaching services, including video analysis and personalized training plans, accessible at tacticaltennislab.com (the “Service”). You can reach us at tacticaltennislab@gmail.com.",
             "By creating an account, submitting a video, or purchasing a plan, you agree to these Terms of Service.",
           ],
         },
@@ -118,7 +118,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Who is responsible for your data",
           body: [
-            "Tactical Tennis Lab is currently operated by Piotr Kusiewicz and Mateusz Kułakowski as individuals (formal business registration is in progress). For the purposes of data protection law, Piotr Kusiewicz and Mateusz Kułakowski act as joint data controllers for personal data processed through tacticaltennislab.com. You can contact us about any privacy question at tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab is currently operated by Piotr Kusiewicz, an individual trading as Tactical Tennis Lab (formal business registration is in progress). For the purposes of data protection law, Piotr Kusiewicz acts as the data controller for personal data processed through tacticaltennislab.com. You can contact us about any privacy question at tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -196,7 +196,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Kim jesteśmy",
           body: [
-            "Tactical Tennis Lab („my”, „nas”, „nasz”) jest obecnie prowadzony przez Piotra Kusiewicza i Mateusza Kułakowskiego jako osoby fizyczne, działające pod nazwą Tactical Tennis Lab (formalna rejestracja działalności gospodarczej jest w trakcie realizacji). Świadczymy usługi trenerskie w zakresie tenisa online, w tym analizę wideo i spersonalizowane plany treningowe, dostępne pod adresem tacticaltennislab.com („Usługa”). Możesz się z nami skontaktować pod adresem tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab („my”, „nas”, „nasz”) jest obecnie prowadzony przez Piotra Kusiewicza jako osobę fizyczną, działającą pod nazwą Tactical Tennis Lab (formalna rejestracja działalności gospodarczej jest w trakcie realizacji). Świadczymy usługi trenerskie w zakresie tenisa online, w tym analizę wideo i spersonalizowane plany treningowe, dostępne pod adresem tacticaltennislab.com („Usługa”). Możesz się z nami skontaktować pod adresem tacticaltennislab@gmail.com.",
             "Zakładając konto, przesyłając wideo lub kupując plan, akceptujesz niniejszy Regulamin świadczenia usług.",
           ],
         },
@@ -287,7 +287,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Kto odpowiada za Twoje dane",
           body: [
-            "Tactical Tennis Lab jest obecnie prowadzony przez Piotra Kusiewicza i Mateusza Kułakowskiego jako osoby fizyczne (formalna rejestracja działalności gospodarczej jest w trakcie realizacji). Dla celów przepisów o ochronie danych osobowych Piotr Kusiewicz i Mateusz Kułakowski są współadministratorami danych osobowych przetwarzanych za pośrednictwem strony tacticaltennislab.com. W każdej sprawie dotyczącej prywatności możesz się z nami skontaktować pod adresem tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab jest obecnie prowadzony przez Piotra Kusiewicza jako osobę fizyczną, działającą pod nazwą Tactical Tennis Lab (formalna rejestracja działalności gospodarczej jest w trakcie realizacji). Dla celów przepisów o ochronie danych osobowych Piotr Kusiewicz jest administratorem danych osobowych przetwarzanych za pośrednictwem strony tacticaltennislab.com. W każdej sprawie dotyczącej prywatności możesz się z nami skontaktować pod adresem tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -365,7 +365,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Quiénes somos",
           body: [
-            "Tactical Tennis Lab («nosotros», «nos», «nuestro») está actualmente operado por Piotr Kusiewicz y Mateusz Kułakowski como personas físicas, bajo el nombre comercial Tactical Tennis Lab (el registro formal de la actividad empresarial está en trámite). Ofrecemos servicios de entrenamiento de tenis en línea, incluido el análisis de vídeo y planes de entrenamiento personalizados, accesibles en tacticaltennislab.com (el «Servicio»). Puedes contactarnos en tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab («nosotros», «nos», «nuestro») está actualmente operado por Piotr Kusiewicz como persona física, bajo el nombre comercial Tactical Tennis Lab (el registro formal de la actividad empresarial está en trámite). Ofrecemos servicios de entrenamiento de tenis en línea, incluido el análisis de vídeo y planes de entrenamiento personalizados, accesibles en tacticaltennislab.com (el «Servicio»). Puedes contactarnos en tacticaltennislab@gmail.com.",
             "Al crear una cuenta, enviar un vídeo o comprar un plan, aceptas estos Términos del servicio.",
           ],
         },
@@ -456,7 +456,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Quién es responsable de tus datos",
           body: [
-            "Tactical Tennis Lab está actualmente operado por Piotr Kusiewicz y Mateusz Kułakowski como personas físicas (el registro formal de la actividad empresarial está en trámite). A efectos de la normativa de protección de datos, Piotr Kusiewicz y Mateusz Kułakowski actúan como corresponsables del tratamiento de los datos personales procesados a través de tacticaltennislab.com. Puedes contactarnos ante cualquier duda sobre privacidad en tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab está actualmente operado por Piotr Kusiewicz como persona física, bajo el nombre comercial Tactical Tennis Lab (el registro formal de la actividad empresarial está en trámite). A efectos de la normativa de protección de datos, Piotr Kusiewicz actúa como responsable del tratamiento de los datos personales procesados a través de tacticaltennislab.com. Puedes contactarnos ante cualquier duda sobre privacidad en tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -534,7 +534,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Chi siamo",
           body: [
-            "Tactical Tennis Lab («noi», «ci», «nostro») è attualmente gestito da Piotr Kusiewicz e Mateusz Kułakowski come persone fisiche, operanti con il nome Tactical Tennis Lab (la registrazione formale dell'attività è in corso). Offriamo servizi di coaching tennistico online, tra cui analisi video e piani di allenamento personalizzati, accessibili su tacticaltennislab.com (il «Servizio»). Puoi contattarci all'indirizzo tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab («noi», «ci», «nostro») è attualmente gestito da Piotr Kusiewicz come persona fisica, operante con il nome Tactical Tennis Lab (la registrazione formale dell'attività è in corso). Offriamo servizi di coaching tennistico online, tra cui analisi video e piani di allenamento personalizzati, accessibili su tacticaltennislab.com (il «Servizio»). Puoi contattarci all'indirizzo tacticaltennislab@gmail.com.",
             "Creando un account, inviando un video o acquistando un piano, accetti i presenti Termini di servizio.",
           ],
         },
@@ -625,7 +625,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Chi è responsabile dei tuoi dati",
           body: [
-            "Tactical Tennis Lab è attualmente gestito da Piotr Kusiewicz e Mateusz Kułakowski come persone fisiche (la registrazione formale dell'attività è in corso). Ai fini della normativa sulla protezione dei dati, Piotr Kusiewicz e Mateusz Kułakowski agiscono come contitolari del trattamento dei dati personali trattati tramite tacticaltennislab.com. Puoi contattarci per qualsiasi domanda sulla privacy all'indirizzo tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab è attualmente gestito da Piotr Kusiewicz come persona fisica, operante con il nome Tactical Tennis Lab (la registrazione formale dell'attività è in corso). Ai fini della normativa sulla protezione dei dati, Piotr Kusiewicz agisce come titolare del trattamento dei dati personali trattati tramite tacticaltennislab.com. Puoi contattarci per qualsiasi domanda sulla privacy all'indirizzo tacticaltennislab@gmail.com.",
           ],
         },
         {
@@ -703,7 +703,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Кто мы",
           body: [
-            "Tactical Tennis Lab («мы», «нас», «наш») в настоящее время управляется Пиотром Кусевичем и Матеушем Кулаковским как физическими лицами, действующими под названием Tactical Tennis Lab (официальная регистрация бизнеса находится в процессе оформления). Мы предоставляем услуги онлайн тренировок по теннису, включая видеоанализ и персонализированные планы тренировок, доступные на tacticaltennislab.com («Сервис»). Связаться с нами можно по адресу tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab («мы», «нас», «наш») в настоящее время управляется Пиотром Кусевичем как физическим лицом, действующим под названием Tactical Tennis Lab (официальная регистрация бизнеса находится в процессе оформления). Мы предоставляем услуги онлайн тренировок по теннису, включая видеоанализ и персонализированные планы тренировок, доступные на tacticaltennislab.com («Сервис»). Связаться с нами можно по адресу tacticaltennislab@gmail.com.",
             "Создавая аккаунт, отправляя видео или приобретая план, вы соглашаетесь с настоящими Условиями обслуживания.",
           ],
         },
@@ -794,7 +794,7 @@ export const legalDictionaries: Record<AppLocale, LegalDict> = {
         {
           title: "1. Кто отвечает за ваши данные",
           body: [
-            "Tactical Tennis Lab в настоящее время управляется Пиотром Кусевичем и Матеушем Кулаковским как физическими лицами (официальная регистрация бизнеса находится в процессе оформления). Для целей законодательства о защите данных Пиотр Кусевич и Матеуш Кулаковский выступают в качестве совместных операторов персональных данных, обрабатываемых через tacticaltennislab.com. По любым вопросам конфиденциальности вы можете связаться с нами по адресу tacticaltennislab@gmail.com.",
+            "Tactical Tennis Lab в настоящее время управляется Пиотром Кусевичем как физическим лицом, действующим под названием Tactical Tennis Lab (официальная регистрация бизнеса находится в процессе оформления). Для целей законодательства о защите данных Пиотр Кусевич выступает в качестве оператора персональных данных, обрабатываемых через tacticaltennislab.com. По любым вопросам конфиденциальности вы можете связаться с нами по адресу tacticaltennislab@gmail.com.",
           ],
         },
         {

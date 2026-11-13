@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   ACADEMY_PILOT,
@@ -154,5 +156,41 @@ describe("wording", () => {
     walk(ACADEMY_PILOT.name, "pilot");
 
     expect(hits).toEqual([]);
+  });
+});
+
+describe("who runs Tactical Tennis Lab and who reviews the videos", () => {
+  /** Mateusz Kułakowski left the company, and no ATP players review videos: certified ATP and ITF coaches do. */
+  const GONE =
+    /Mateusz|Kułakowsk|Kulakowsk|Матеуш|Кулаковск|ATP players?|(zawodnik\w*|jugador\w*(?: del)?|giocator\w*|игрок\w*) ATP/i;
+
+  it("no source file, in any language, mentions the former partner or ATP players", () => {
+    const hits: string[] = [];
+    const walk = (dir: string) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(full);
+        else if (/\.(ts|tsx)$/.test(entry.name)) {
+          fs.readFileSync(full, "utf8")
+            .split("\n")
+            .forEach((line, i) => {
+              if (GONE.test(line)) hits.push(`${path.relative(process.cwd(), full)}:${i + 1}`);
+            });
+        }
+      }
+    };
+    walk(path.resolve(__dirname, "../src"));
+    expect(hits).toEqual([]);
+  });
+
+  it("the AI FAQ prompt names only Piotr Kusiewicz", () => {
+    expect(AI_FAQ_SYSTEM_PROMPT).toContain("run by a real human coach (Piotr Kusiewicz)");
+    expect(AI_FAQ_SYSTEM_PROMPT).not.toMatch(GONE);
+  });
+
+  it("the home page badges are certified ATP and ITF coaches and worldwide coaching", async () => {
+    const { homeDictionaries } = await import("@/i18n/dictionaries/home");
+    for (const lang of ALL_LOCALES) expect(homeDictionaries[lang].badges, lang).toHaveLength(3);
+    expect(homeDictionaries.en.badges).toEqual(["Certified ATP Coaches", "Certified ITF Coaches", "Worldwide Coaching"]);
   });
 });
