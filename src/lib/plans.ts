@@ -247,6 +247,12 @@ export const ACADEMY_PILOT = {
   priceCents: 19900,
   credits: 3,
   sellOnline: false,
+  /**
+   * Stripe Payment Link: the pilot is bought straight from the pricing page, outside /api/checkout.
+   * Nothing in the webhook knows which academy paid, so the 3 analyses are added by hand afterwards
+   * (Customers, academy, Adjust).
+   */
+  paymentLink: "https://buy.stripe.com/7sYbJ1awfcWk78B8Zxf3a0g",
 };
 
 // ---------------------------------------------------------------------------------------------

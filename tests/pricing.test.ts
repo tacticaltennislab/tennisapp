@@ -54,6 +54,13 @@ describe("the match and stroke products", () => {
   });
 });
 
+describe("the academy pilot", () => {
+  it("is $199 for 3 analyses and is bought through its Stripe payment link", () => {
+    expect(ACADEMY_PILOT).toMatchObject({ priceCents: 19900, credits: 3 });
+    expect(ACADEMY_PILOT.paymentLink).toMatch(/^https:\/\/buy\.stripe\.com\/[A-Za-z0-9]+$/);
+  });
+});
+
 describe("one analysis per match or stroke, nothing by length", () => {
   it("a full match is 1", () => {
     expect(FULL_MATCH_CREDITS).toBe(1);
