@@ -29,7 +29,7 @@ const clubFacts = [
       .join("; ");
     return `- ${plan.name}: ${formatUsd(plan.monthlyPriceCents)} per month, ${analysisWord(plan.creditsPerMonth)} per month. ${clubText.tiers[i].description} Longer billing: ${billing}.`;
   }),
-  `- ${ACADEMY_PILOT.name}: ${formatUsd(ACADEMY_PILOT.priceCents)} one time, ${analysisWord(ACADEMY_PILOT.credits)}. ${clubText.pilot.description}`,
+  `- ${ACADEMY_PILOT.name}: ${formatUsd(ACADEMY_PILOT.priceCents)} one time, ${analysisWord(ACADEMY_PILOT.credits)}. ${clubText.pilot.description} It can be bought directly with the Start the pilot button on the pricing page (Clubs view); we then add the analyses to the academy account.`,
 ].join("\n");
 
 const analysisFacts = `- Analyses: 1 analysis covers one full match recording (up to ${CREDIT_RULES.maxMatchMinutes / 60} hours) or one stroke analysis. Nothing is charged by video length. Match and training recordings longer than ${CREDIT_RULES.maxMatchMinutes / 60} hours cannot be sent as one analysis. Every new account gets ${analysisWord(FREE_ACCOUNT_CREDITS)} free of charge.`;

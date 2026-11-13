@@ -35,6 +35,8 @@ export interface PricingDict {
     tiers: ClubTier[];
     pilot: ClubTier;
     pilotPeriod: string;
+    /** Button on the Pilot card, opens the Stripe payment page. */
+    pilotCta: string;
     creditsPerMonth: string;
     perMonth: string;
     billing: {
@@ -119,6 +121,7 @@ const en: PricingDict = {
     ],
     pilot: { name: "Pilot", description: "A one time first step for academies: try the service on your own players before you subscribe.", features: ["One time payment", "A first step before a subscription"] },
     pilotPeriod: "one time",
+    pilotCta: "Start the pilot",
     creditsPerMonth: "{credits} per month",
     perMonth: "/month",
     billing: { title: "Billing", monthly: "Monthly", quarterly: "Quarterly", semiannual: "Semi annual", save: "save {pct}%", billed: "billed {total}" },
@@ -197,6 +200,7 @@ const pl: PricingDict = {
     ],
     pilot: { name: "Pilot", description: "Jednorazowy pierwszy krok dla akademii: sprawdź usługę na własnych zawodnikach, zanim zdecydujesz się na subskrypcję.", features: ["Jednorazowa płatność", "Pierwszy krok przed subskrypcją"] },
     pilotPeriod: "jednorazowo",
+    pilotCta: "Zacznij pilot",
     creditsPerMonth: "{credits} miesięcznie",
     perMonth: "/mies.",
     billing: { title: "Rozliczenie", monthly: "Miesięcznie", quarterly: "Kwartalnie", semiannual: "Półrocznie", save: "oszczędzasz {pct}%", billed: "płatność {total}" },
@@ -275,6 +279,7 @@ const es: PricingDict = {
     ],
     pilot: { name: "Pilot", description: "Un primer paso único para academias: prueba el servicio con tus propios jugadores antes de suscribirte.", features: ["Pago único", "Un primer paso antes de suscribirte"] },
     pilotPeriod: "pago único",
+    pilotCta: "Empezar el piloto",
     creditsPerMonth: "{credits} al mes",
     perMonth: "/mes",
     billing: { title: "Facturación", monthly: "Mensual", quarterly: "Trimestral", semiannual: "Semestral", save: "ahorra {pct}%", billed: "se cobra {total}" },
@@ -353,6 +358,7 @@ const it: PricingDict = {
     ],
     pilot: { name: "Pilot", description: "Un primo passo una tantum per le accademie: prova il servizio sui tuoi giocatori prima di abbonarti.", features: ["Pagamento una tantum", "Un primo passo prima dell'abbonamento"] },
     pilotPeriod: "una tantum",
+    pilotCta: "Inizia il pilota",
     creditsPerMonth: "{credits} al mese",
     perMonth: "/mese",
     billing: { title: "Fatturazione", monthly: "Mensile", quarterly: "Trimestrale", semiannual: "Semestrale", save: "risparmi il {pct}%", billed: "addebito {total}" },
@@ -431,6 +437,7 @@ const ru: PricingDict = {
     ],
     pilot: { name: "Pilot", description: "Разовый первый шаг для академий: попробуйте сервис на своих игроках, прежде чем оформлять подписку.", features: ["Разовый платёж", "Первый шаг перед подпиской"] },
     pilotPeriod: "разово",
+    pilotCta: "Начать пилот",
     creditsPerMonth: "{credits} в месяц",
     perMonth: "/мес.",
     billing: { title: "Оплата", monthly: "Ежемесячно", quarterly: "Раз в квартал", semiannual: "Раз в полгода", save: "скидка {pct}%", billed: "списывается {total}" },

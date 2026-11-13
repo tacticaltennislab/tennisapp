@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { IconArrowRight } from "@/components/icons";
 import { buildClubView } from "@/lib/clubPricing";
+import { ACADEMY_PILOT } from "@/lib/plans";
 import { pricingDictionaries, type ClubBenefits } from "@/i18n/dictionaries/pricing";
 import { localizedHref, type AppLocale } from "@/i18n/locales";
 
@@ -119,7 +120,15 @@ export default function ClubOffers({ lang = "en" }: { lang?: AppLocale }) {
             <span className="text-muted">{pilot.period}</span>
             <span className="t-mono ml-2 text-sm font-semibold text-ink">{pilot.credits}</span>
           </p>
-          {cta}
+          <a
+            href={ACADEMY_PILOT.paymentLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-on-brand font-semibold px-4 py-2.5 text-sm shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+          >
+            {t.pilotCta}
+            <IconArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </Reveal>
 
